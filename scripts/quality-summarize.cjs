@@ -1,0 +1,8 @@
+const fs=require('fs');
+const read=f=>JSON.parse(fs.readFileSync('qa/quality/'+f,'utf8'));
+function failures(report){return report.results.flatMap(r=>{const issues=[];if(!r.base.hydrated||r.base.overflow||r.base.broken.length||r.violations.length)issues.push('base/accessibility');for(const s of r.states)if(s.overflow||s.broken.length||s.clipped?.length||s.accessibility?.length||s.heightDelta||s.scrollDelta)issues.push(s.label);return issues.length?[{route:r.route,width:r.width,issues}]:[]})}
+const full=read('browser-review.json'),focus=read('focused-review.json'),nav=read('navigation-fallbacks.json'),motion=read('motion.json'),links=read('links.json'),media=read('media-audit.json');
+const summary={build:fs.readFileSync('.next/BUILD_ID','utf8').trim(),date:'2026-09-14',routes:15,widths:[390,430,768,1024,1280,1440,1728],full:{pages:full.tested,states:full.stateChecks,failures:failures(full)},focused:{pages:focus.tested,states:focus.stateChecks,scope:'Home, Work, Book and A Story after final visual corrections',failures:failures(focus)},navigation:{checks:nav.checks,failures:nav.failures},motion:{checks:motion.rows.length,failures:motion.rows.filter(r=>!r.heightStable||!r.scrollStable||!r.opened||!r.closed||!r.turnObserved||r.distinctTurnTransforms<2)},links,media};
+fs.writeFileSync('qa/quality/summary.json',JSON.stringify(summary,null,2));console.log(JSON.stringify({build:summary.build,full:summary.full,focused:summary.focused,navigation:summary.navigation,motion:summary.motion,linkFailures:links.failures,mediaErrors:media.errors},null,2));
+if(summary.full.failures.length||summary.focused.failures.length||nav.failures.length||summary.motion.failures.length||links.failures.length||media.errors.length)process.exitCode=1;
+

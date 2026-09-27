@@ -1,0 +1,14 @@
+const fs=require('fs');let s=fs.readFileSync('scripts/refinement-review-server.cjs','utf8');
+s=s.replaceAll('qa/refinement','qa/master').replaceAll("'path-only'","'career-only'").replaceAll('path-only','career-only');
+s=s.replaceAll("['overview','at-a-glance','timeline','book','current-venture','selected-work','recognition','archive','off-the-clock','contact']","['overview','timeline','book','current-venture','two-sides','selected-work','at-a-glance','recognition','archive','off-the-clock','contact']");
+s=s.replaceAll("['overview','at-a-glance','timeline','current-venture','selected-work','recognition','archive','off-the-clock','contact']","['overview','timeline','the-book','current-venture','two-sides','selected-work','at-a-glance','recognition','archive','off-the-clock','contact']");
+s=s.replaceAll('.journey-card','.career-stage').replaceAll('.year-track button','.career-stops button');
+s=s.replace("const route=document.getElementById('route').value,index=+document.getElementById('state').value;","const route=document.getElementById('route').value,index=+document.getElementById('state').value;");
+s=s.replace('<option>/book</option>','<option>/?composition=a</option><option>/book</option>');
+s=s.replace('<option value="11">State 12</option>','<option value="11">State 12</option><option value="12">State 13</option><option value="13">State 14</option><option value="14">State 15</option>');
+s=s.replace("height:rect(d().querySelector('.career-stage')).height","height:rect(d().querySelector('.career-stage')).height,clipped:[...d().querySelectorAll('.career-copy,.career-media')].filter(e=>e.scrollHeight>e.clientHeight+3).map(e=>e.className)");
+s=s.replace("clipped:width>=768?[...active.children].filter(e=>e.scrollHeight>e.clientHeight+3).map(e=>e.className):[]","clipped:width>=768?[...active.children].filter(e=>e.scrollHeight>e.clientHeight+3).map(e=>e.className):[]");
+s=s.replace("})}d().querySelector('.reader-toolbar>button:last-child').click();","});if(width<768){d().querySelectorAll('.book-mobile-mode button')[1].click();await sleep(150);states.push({...snapshot('text-'+i),accessibility:(await w().axe.run(active,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}})).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))})}}d().querySelector('.reader-toolbar>button:last-child').click();");
+s=s.replace("if(route==='/work'){for", "if(route==='/work'){for");
+s=s.replace("frame.height=", "frame.height=");
+fs.writeFileSync('scripts/master-review-server.cjs',s);console.log('Master review harness ready');

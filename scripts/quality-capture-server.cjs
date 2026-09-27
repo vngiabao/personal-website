@@ -1,0 +1,4 @@
+const http=require('http');
+http.createServer(async(req,res)=>{try{const r=await fetch('http://127.0.0.1:3000'+req.url);res.statusCode=r.status;const type=r.headers.get('content-type')||'';res.setHeader('content-type',type);if(type.includes('text/html')){let s=await r.text();s=s.replace('</head>','<style>html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important}.project-preview,.case-navigation,.chapter-nav,.section-navigation{position:static!important}[data-reveal=true]{opacity:1!important;transform:none!important}</style><script>addEventListener("keydown",e=>{if(e.key==="j"&&e.target.tagName==="BODY"){e.preventDefault();scrollBy({top:innerHeight-220,behavior:"instant"})}})</script></head>');res.end(s)}else res.end(Buffer.from(await r.arrayBuffer()))}catch{res.writeHead(502).end()}}).listen(3108,'127.0.0.1',()=>console.log('Capture mirror: http://127.0.0.1:3108'));
+
+

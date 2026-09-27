@@ -1,0 +1,272 @@
+[
+  {
+    "id": "skiing",
+    "source": "v2-planning/master-photo-originals/skiing.png",
+    "sourceType": "real-photograph",
+    "kind": "real",
+    "generationAllowed": false,
+    "publication": "public",
+    "caption": "Skiing · Wasatch Mountains, Utah",
+    "alt": "Bao Vo and another skier in the Wasatch Mountains near Salt Lake City, Utah.",
+    "date": "Undated",
+    "relatedChapter": "Personal / outdoors",
+    "relatedProject": "",
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "width": 1152,
+    "height": 1536,
+    "sha256": "7f091e091512c6a28c29acd3a5db953edfb106a16c1b45f72e459905dca69729",
+    "processing": "Optimized original; no generative edits, cropping, or upscaling.",
+    "derivatives": [
+      {
+        "src": "/media/supplied/skiing-420.webp",
+        "width": 420,
+        "bytes": 72360,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/skiing-840.webp",
+        "width": 840,
+        "bytes": 250304,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/skiing-1152.webp",
+        "width": 1152,
+        "bytes": 439004,
+        "format": "webp"
+      }
+    ]
+  },
+  {
+    "id": "peterson",
+    "source": "v2-planning/master-photo-originals/peterson.png",
+    "sourceType": "real-photograph",
+    "kind": "real",
+    "generationAllowed": false,
+    "publication": "public",
+    "caption": "Peterson Lab · Semiconductor research",
+    "alt": "Bao Vo in cleanroom attire during undergraduate semiconductor research.",
+    "date": "2022",
+    "relatedChapter": "Peterson Lab / semiconductor materials",
+    "relatedProject": "semiconductor-characterization",
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "width": 801,
+    "height": 1120,
+    "sha256": "b785d9b7077d7b406d2d9ae7f5253f600d68235dca99ff088a44f0d9bd92c05c",
+    "processing": "Optimized original; no generative edits, cropping, or upscaling.",
+    "derivatives": [
+      {
+        "src": "/media/supplied/peterson-420.webp",
+        "width": 420,
+        "bytes": 29162,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/peterson-801.webp",
+        "width": 801,
+        "bytes": 67696,
+        "format": "webp"
+      }
+    ]
+  },
+  {
+    "id": "puf-team",
+    "source": "v2-planning/master-photo-originals/puf-team.png",
+    "sourceType": "real-photograph",
+    "kind": "real",
+    "generationAllowed": false,
+    "publication": "public",
+    "caption": "PUF project team · University of Michigan, 2023",
+    "alt": "Bao Vo and teammates standing in front of a presentation on PUF integration.",
+    "date": "2023",
+    "relatedChapter": "Undergraduate circuits",
+    "relatedProject": "puf-security",
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "width": 1536,
+    "height": 1152,
+    "sha256": "4698d6b0a9fd97024793f40f1ee5fc40a2b2eaf974670d34c9b1816a5c315fd6",
+    "processing": "Optimized original; no generative edits, cropping, or upscaling.",
+    "derivatives": [
+      {
+        "src": "/media/supplied/puf-team-420.webp",
+        "width": 420,
+        "bytes": 26020,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/puf-team-840.webp",
+        "width": 840,
+        "bytes": 79262,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/puf-team-1536.webp",
+        "width": 1536,
+        "bytes": 245922,
+        "format": "webp"
+      }
+    ]
+  },
+  {
+    "id": "circuits-team",
+    "source": "v2-planning/master-photo-originals/circuits-team.png",
+    "sourceType": "real-photograph",
+    "kind": "real",
+    "generationAllowed": false,
+    "publication": "public",
+    "caption": "Undergraduate integrated-circuit design project · Michigan, 2023",
+    "alt": "Bao Vo with teammates beside a monitor displaying an integrated-circuit layout.",
+    "date": "2023",
+    "relatedChapter": "Undergraduate circuits",
+    "relatedProject": "",
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "width": 1536,
+    "height": 1152,
+    "sha256": "105ee6094bfbef40c424cae43116242b210c1ac0e8b9af4ebe23170eb79ef814",
+    "processing": "Optimized original; no generative edits, cropping, or upscaling.",
+    "derivatives": [
+      {
+        "src": "/media/supplied/circuits-team-420.webp",
+        "width": 420,
+        "bytes": 31480,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/circuits-team-840.webp",
+        "width": 840,
+        "bytes": 111882,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/circuits-team-1536.webp",
+        "width": 1536,
+        "bytes": 375114,
+        "format": "webp"
+      }
+    ]
+  },
+  {
+    "id": "masters-2026",
+    "source": "v2-planning/master-photo-originals/masters-2026.png",
+    "sourceType": "real-photograph",
+    "kind": "real",
+    "generationAllowed": false,
+    "publication": "public",
+    "caption": "Master’s graduation · University of Michigan, 2026",
+    "alt": "Bao Vo with fellow graduates in Michigan Stadium during University of Michigan commencement, 2026.",
+    "date": "2026",
+    "relatedChapter": "M.S. completion",
+    "relatedProject": "",
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "width": 4096,
+    "height": 3072,
+    "sha256": "aa6c5b5aa47a27b25f3dbca853d85cb5072c82d4633593b5966573e4cea1ab81",
+    "processing": "Optimized original; no generative edits, cropping, or upscaling.",
+    "derivatives": [
+      {
+        "src": "/media/supplied/masters-2026-420.webp",
+        "width": 420,
+        "bytes": 56578,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/masters-2026-840.webp",
+        "width": 840,
+        "bytes": 191864,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/masters-2026-1600.webp",
+        "width": 1600,
+        "bytes": 581380,
+        "format": "webp"
+      }
+    ]
+  },
+  {
+    "id": "wentzloff",
+    "source": "v2-planning/master-photo-originals/wentzloff.png",
+    "sourceType": "real-event / real-academic-context",
+    "kind": "real",
+    "generationAllowed": false,
+    "publication": "public",
+    "caption": "With Prof. David Wentzloff at Michigan commencement, 2026.",
+    "alt": "Bao Vo with Prof. David Wentzloff at University of Michigan commencement in 2026.",
+    "date": "2026",
+    "relatedChapter": "WICS / graduate research / 2026 completion",
+    "relatedProject": "implantable-auditory-circuits",
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "width": 1536,
+    "height": 864,
+    "sha256": "8470f56082c5340ec6efd2694acfc04c0f81bc3a231fd276366eb395447df318",
+    "processing": "Non-generative brightness +3.5%, saturation -2%; no face, clothing, or background reconstruction.",
+    "derivatives": [
+      {
+        "src": "/media/supplied/wentzloff-420.webp",
+        "width": 420,
+        "bytes": 42478,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/wentzloff-840.webp",
+        "width": 840,
+        "bytes": 130510,
+        "format": "webp"
+      },
+      {
+        "src": "/media/supplied/wentzloff-1536.webp",
+        "width": 1536,
+        "bytes": 375064,
+        "format": "webp"
+      }
+    ]
+  }
+]

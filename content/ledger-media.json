@@ -1,0 +1,1620 @@
+[
+  {
+    "id": "portrait",
+    "source": "images/hero-portrait.jpg",
+    "alt": "Bao Vo at the University of Michigan Law Quad.",
+    "caption": "Michigan · Ann Arbor",
+    "kind": "real",
+    "width": 1126,
+    "height": 1500,
+    "sha256": "de416034be41c820be1114c8c692a3235671ea683aafad85cf0ef32ca56c37d5",
+    "derivatives": [
+      {
+        "src": "/media/ledger/portrait-420.avif",
+        "width": 420,
+        "bytes": 17284,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/portrait-420.webp",
+        "width": 420,
+        "bytes": 29764,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/portrait-840.avif",
+        "width": 840,
+        "bytes": 34586,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/portrait-840.webp",
+        "width": 840,
+        "bytes": 68838,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/portrait-1126.avif",
+        "width": 1126,
+        "bytes": 50709,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/portrait-1126.webp",
+        "width": 1126,
+        "bytes": 109882,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "portrait",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "smile",
+    "source": "images/portrait-2025.jpg",
+    "alt": "Bao Vo smiling outdoors.",
+    "caption": "Bao Vo · Michigan",
+    "kind": "real",
+    "width": 800,
+    "height": 800,
+    "sha256": "043704d079ae2e64a9017c4a6b0bdc2b5ab5c2861c63bd7037353a0e47699db3",
+    "derivatives": [
+      {
+        "src": "/media/ledger/smile-420.avif",
+        "width": 420,
+        "bytes": 12607,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/smile-420.webp",
+        "width": 420,
+        "bytes": 20762,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/smile-800.avif",
+        "width": 800,
+        "bytes": 24669,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/smile-800.webp",
+        "width": 800,
+        "bytes": 46490,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "portrait",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "grad",
+    "source": "images/about-grad.jpg",
+    "alt": "Bao Vo in graduation attire at the University of Michigan, 2023.",
+    "caption": "Undergraduate graduation · University of Michigan, 2023",
+    "kind": "real",
+    "width": 975,
+    "height": 1300,
+    "sha256": "3a8d523d169fcec471a77d4ecfb5ff5a5950bd09b6589e8aba7bf491c6398006",
+    "derivatives": [
+      {
+        "src": "/media/ledger/grad-420.avif",
+        "width": 420,
+        "bytes": 16709,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/grad-420.webp",
+        "width": 420,
+        "bytes": 26468,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/grad-840.avif",
+        "width": 840,
+        "bytes": 34808,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/grad-840.webp",
+        "width": 840,
+        "bytes": 64530,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/grad-975.avif",
+        "width": 975,
+        "bytes": 43361,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/grad-975.webp",
+        "width": 975,
+        "bytes": 81198,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "portrait",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "date": "December 2023",
+    "relatedChapter": "B.S. Materials Science and Engineering / Electrical Engineering minor / Summa Cum Laude",
+    "generationAllowed": false
+  },
+  {
+    "id": "faraday",
+    "source": "images/exp-faraday.jpg",
+    "alt": "Bao Vo with colleagues at Faraday Technology Vietnam.",
+    "caption": "With the Faraday team · Vietnam, 2024",
+    "kind": "real",
+    "width": 1300,
+    "height": 975,
+    "sha256": "a9d7caf2017ac355616ad22952c422ee8589bca8d5261d54e6a7b7249cc207b8",
+    "derivatives": [
+      {
+        "src": "/media/ledger/faraday-420.avif",
+        "width": 420,
+        "bytes": 18157,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/faraday-420.webp",
+        "width": 420,
+        "bytes": 25594,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/faraday-840.avif",
+        "width": 840,
+        "bytes": 47914,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/faraday-840.webp",
+        "width": 840,
+        "bytes": 74176,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/faraday-1300.avif",
+        "width": 1300,
+        "bytes": 93007,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/faraday-1300.webp",
+        "width": 1300,
+        "bytes": 147942,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "landscape",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "isscc",
+    "source": "images/exp-isscc.jpg",
+    "alt": "Bao Vo with a colleague at ISSCC.",
+    "caption": "At ISSCC · 2025",
+    "kind": "real",
+    "width": 975,
+    "height": 1300,
+    "sha256": "fa327485ff70144ab5b40dd526f57100a2a2157da3ddb75a78ba324466fd423a",
+    "derivatives": [
+      {
+        "src": "/media/ledger/isscc-420.avif",
+        "width": 420,
+        "bytes": 29894,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/isscc-420.webp",
+        "width": 420,
+        "bytes": 45392,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/isscc-840.avif",
+        "width": 840,
+        "bytes": 88217,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/isscc-840.webp",
+        "width": 840,
+        "bytes": 141656,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/isscc-975.avif",
+        "width": 975,
+        "bytes": 118743,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/isscc-975.webp",
+        "width": 975,
+        "bytes": 185942,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "milead",
+    "source": "images/exp-milead.jpg",
+    "alt": "Bao Vo with the miLEAD group over dinner.",
+    "caption": "With the miLEAD community",
+    "kind": "real",
+    "width": 731,
+    "height": 1300,
+    "sha256": "a4c8e7e3e720e15115ee4c31cb2f06a29601ded31734acece364f15f6cf9dd83",
+    "derivatives": [
+      {
+        "src": "/media/ledger/milead-420.avif",
+        "width": 420,
+        "bytes": 53541,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/milead-420.webp",
+        "width": 420,
+        "bytes": 75012,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/milead-731.avif",
+        "width": 731,
+        "bytes": 127677,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/milead-731.webp",
+        "width": 731,
+        "bytes": 187648,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "visa",
+    "source": "images/heritage-visa.jpg",
+    "alt": "Vietnamese international students gathered at Michigan.",
+    "caption": "VISA · A community in Michigan",
+    "kind": "real",
+    "width": 1500,
+    "height": 1000,
+    "sha256": "79c2e5faac9db33d8e7901f40976a4e192116edad98a46cc27d5da8d40a3fa04",
+    "derivatives": [
+      {
+        "src": "/media/ledger/visa-420.avif",
+        "width": 420,
+        "bytes": 23797,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/visa-420.webp",
+        "width": 420,
+        "bytes": 31516,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/visa-840.avif",
+        "width": 840,
+        "bytes": 63947,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/visa-840.webp",
+        "width": 840,
+        "bytes": 95868,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/visa-1500.avif",
+        "width": 1500,
+        "bytes": 151645,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/visa-1500.webp",
+        "width": 1500,
+        "bytes": 233676,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "landscape",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "aodai",
+    "source": "images/heritage-aodai.jpg",
+    "alt": "A group in Vietnamese traditional dress.",
+    "caption": "Community and culture at Michigan",
+    "kind": "real",
+    "width": 1500,
+    "height": 750,
+    "sha256": "fb82cf7e9da2f5d615e4c869ae0221c2a9341215ec4de4638d09a679e5f64543",
+    "derivatives": [
+      {
+        "src": "/media/ledger/aodai-420.avif",
+        "width": 420,
+        "bytes": 22177,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/aodai-420.webp",
+        "width": 420,
+        "bytes": 26672,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/aodai-840.avif",
+        "width": 840,
+        "bytes": 58090,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/aodai-840.webp",
+        "width": 840,
+        "bytes": 77794,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/aodai-1500.avif",
+        "width": 1500,
+        "bytes": 126865,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/aodai-1500.webp",
+        "width": 1500,
+        "bytes": 182638,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "landscape",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "mackinac",
+    "source": "images/lab-mackinac.jpg",
+    "alt": "Bao Vo and lab colleagues on a trip to Mackinac Island.",
+    "caption": "With the lab on Mackinac Island",
+    "kind": "real",
+    "width": 1600,
+    "height": 1066,
+    "sha256": "d5346d8bc50b3e142d1b11a56088836fcb28a9b5813db126529db22d1345e857",
+    "derivatives": [
+      {
+        "src": "/media/ledger/mackinac-420.avif",
+        "width": 420,
+        "bytes": 11556,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/mackinac-420.webp",
+        "width": 420,
+        "bytes": 16622,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/mackinac-840.avif",
+        "width": 840,
+        "bytes": 31467,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/mackinac-840.webp",
+        "width": 840,
+        "bytes": 48904,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/mackinac-1500.avif",
+        "width": 1500,
+        "bytes": 73466,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/mackinac-1500.webp",
+        "width": 1500,
+        "bytes": 124942,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "landscape",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "trail",
+    "source": "images/lab-trail.jpg",
+    "alt": "Friends gathered by a trail sign on an outing.",
+    "caption": "A day away from the desk",
+    "kind": "real",
+    "width": 1600,
+    "height": 1066,
+    "sha256": "0ad8e793185c3ed2b000d7ecef7d990aa21568f64b1ca591917612ce8eddced5",
+    "derivatives": [
+      {
+        "src": "/media/ledger/trail-420.avif",
+        "width": 420,
+        "bytes": 19617,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/trail-420.webp",
+        "width": 420,
+        "bytes": 27974,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/trail-840.avif",
+        "width": 840,
+        "bytes": 62979,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/trail-840.webp",
+        "width": 840,
+        "bytes": 93040,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/trail-1500.avif",
+        "width": 1500,
+        "bytes": 146384,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/trail-1500.webp",
+        "width": 1500,
+        "bytes": 236618,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "landscape",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "lake",
+    "source": "images/break-lake.jpg",
+    "alt": "View over Devil’s Lake State Park, Wisconsin.",
+    "caption": "Above Devil’s Lake · Wisconsin",
+    "kind": "real",
+    "width": 1069,
+    "height": 1900,
+    "sha256": "eec107d8ec3b4560bb4385c93b98d7f1910584be7da97e7f035a04d839185881",
+    "derivatives": [
+      {
+        "src": "/media/ledger/lake-420.avif",
+        "width": 420,
+        "bytes": 27888,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/lake-420.webp",
+        "width": 420,
+        "bytes": 44438,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/lake-840.avif",
+        "width": 840,
+        "bytes": 94939,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/lake-840.webp",
+        "width": 840,
+        "bytes": 150258,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/lake-1069.avif",
+        "width": 1069,
+        "bytes": 144470,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/lake-1069.webp",
+        "width": 1069,
+        "bytes": 228304,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "poker",
+    "source": "images/personal-poker.jpg",
+    "alt": "Bao Vo at a poker table.",
+    "caption": "Poker · Las Vegas",
+    "kind": "real",
+    "width": 1300,
+    "height": 975,
+    "sha256": "eda6f73fb0f790cc2a49695ce193b6d33daf2c48e24b9d8caa102a55592120d0",
+    "derivatives": [
+      {
+        "src": "/media/ledger/poker-420.avif",
+        "width": 420,
+        "bytes": 21301,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/poker-420.webp",
+        "width": 420,
+        "bytes": 28676,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/poker-840.avif",
+        "width": 840,
+        "bytes": 51603,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/poker-840.webp",
+        "width": 840,
+        "bytes": 81266,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/poker-1300.avif",
+        "width": 1300,
+        "bytes": 90565,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/poker-1300.webp",
+        "width": 1300,
+        "bytes": 146768,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "landscape",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "soccer",
+    "source": "images/personal-soccer.jpg",
+    "alt": "Bao Vo playing soccer.",
+    "caption": "Off the clock · On the field",
+    "kind": "real",
+    "width": 1300,
+    "height": 872,
+    "sha256": "81d3c51475617be680b46d5f8d7ac15bee78ce34c0d2f5587a822a4aa9f841ef",
+    "derivatives": [
+      {
+        "src": "/media/ledger/soccer-420.avif",
+        "width": 420,
+        "bytes": 26998,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/soccer-420.webp",
+        "width": 420,
+        "bytes": 36854,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/soccer-840.avif",
+        "width": 840,
+        "bytes": 94759,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/soccer-840.webp",
+        "width": 840,
+        "bytes": 133000,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/soccer-1300.avif",
+        "width": 1300,
+        "bytes": 183501,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/soccer-1300.webp",
+        "width": 1300,
+        "bytes": 274652,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "landscape",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "baseball",
+    "source": "images/personal-baseball.jpg",
+    "alt": "Bao Vo at a batting cage.",
+    "caption": "At the batting cage",
+    "kind": "real",
+    "width": 664,
+    "height": 1100,
+    "sha256": "e7f2d8fe59940645726ef1f77d9cce345fff3e8146f0bd31b6478fa86150904a",
+    "derivatives": [
+      {
+        "src": "/media/ledger/baseball-420.avif",
+        "width": 420,
+        "bytes": 29220,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/baseball-420.webp",
+        "width": 420,
+        "bytes": 51186,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/baseball-664.avif",
+        "width": 664,
+        "bytes": 65800,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/baseball-664.webp",
+        "width": 664,
+        "bytes": 111072,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "articulate",
+    "source": "images/work-articulate.jpg",
+    "alt": "The ARTiculate team at the Ross +Tech Innovation Jam.",
+    "caption": "ARTiculate · The team, 2025",
+    "kind": "real",
+    "width": 975,
+    "height": 1300,
+    "sha256": "14e892c66a30da4cf763655abd293d40f494e0b89c53f9e7bd6691626b2459d4",
+    "derivatives": [
+      {
+        "src": "/media/ledger/articulate-420.avif",
+        "width": 420,
+        "bytes": 15882,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-420.webp",
+        "width": 420,
+        "bytes": 25968,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/articulate-840.avif",
+        "width": 840,
+        "bytes": 40196,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-840.webp",
+        "width": 840,
+        "bytes": 73136,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/articulate-975.avif",
+        "width": 975,
+        "bytes": 53105,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-975.webp",
+        "width": 975,
+        "bytes": 95056,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "award",
+    "source": "images/recog-check.jpg",
+    "alt": "The ARTiculate team holding its Audience Choice award check.",
+    "caption": "Audience Choice · $1,000 · +Tech Innovation Jam",
+    "kind": "real",
+    "width": 975,
+    "height": 1300,
+    "sha256": "a06835239a22e3608d33da4b70d089c37782792aad7929a7837a2c8e31cc4049",
+    "derivatives": [
+      {
+        "src": "/media/ledger/award-420.avif",
+        "width": 420,
+        "bytes": 26813,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/award-420.webp",
+        "width": 420,
+        "bytes": 39542,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/award-840.avif",
+        "width": 840,
+        "bytes": 83875,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/award-840.webp",
+        "width": 840,
+        "bytes": 132754,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/award-975.avif",
+        "width": 975,
+        "bytes": 115382,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/award-975.webp",
+        "width": 975,
+        "bytes": 175308,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "full",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Preserve the complete photograph, including people and event context.",
+    "generationAllowed": false
+  },
+  {
+    "id": "articulate-cover",
+    "source": "images/covers/01-cover.jpg",
+    "alt": "Cover of the ARTiculate product concept deck.",
+    "caption": "ARTiculate · Product concept, 2025",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "517ba118996b24f6294beb706aeaa5f75e4cd5578e292d928d5def2f6d4b9f2d",
+    "derivatives": [
+      {
+        "src": "/media/ledger/articulate-cover-420.avif",
+        "width": 420,
+        "bytes": 6392,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-cover-420.webp",
+        "width": 420,
+        "bytes": 9724,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/articulate-cover-840.avif",
+        "width": 840,
+        "bytes": 14302,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-cover-840.webp",
+        "width": 840,
+        "bytes": 22802,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/articulate-cover-924.avif",
+        "width": 924,
+        "bytes": 16584,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-cover-924.webp",
+        "width": 924,
+        "bytes": 24778,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "aurora-cover",
+    "source": "images/covers/02-cover.jpg",
+    "alt": "Cover of the Aurora competition recommendation.",
+    "caption": "Aurora · SECC competition submission, 2026",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "cb9983150bc40f4bf6e209b77dd0137ff3004eacbe4e661efe7773bba1706d20",
+    "derivatives": [
+      {
+        "src": "/media/ledger/aurora-cover-420.avif",
+        "width": 420,
+        "bytes": 9508,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/aurora-cover-420.webp",
+        "width": 420,
+        "bytes": 12578,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/aurora-cover-840.avif",
+        "width": 840,
+        "bytes": 23377,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/aurora-cover-840.webp",
+        "width": 840,
+        "bytes": 32950,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/aurora-cover-924.avif",
+        "width": 924,
+        "bytes": 26040,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/aurora-cover-924.webp",
+        "width": 924,
+        "bytes": 36182,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "cagrisema-cover",
+    "source": "images/covers/03-cover.jpg",
+    "alt": "Title slide of the MHCC quarterfinal submission.",
+    "caption": "CagriSema · Quarter Finals Submission, 2025",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "9420b9603890161e18c4fa20c6fe5cd63632efb68f14776a9ebd46ca38f1e36d",
+    "derivatives": [
+      {
+        "src": "/media/ledger/cagrisema-cover-420.avif",
+        "width": 420,
+        "bytes": 7924,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/cagrisema-cover-420.webp",
+        "width": 420,
+        "bytes": 10444,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/cagrisema-cover-840.avif",
+        "width": 840,
+        "bytes": 17924,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/cagrisema-cover-840.webp",
+        "width": 840,
+        "bytes": 26254,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/cagrisema-cover-924.avif",
+        "width": 924,
+        "bytes": 20315,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/cagrisema-cover-924.webp",
+        "width": 924,
+        "bytes": 28318,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "puf-cover",
+    "source": "images/covers/04-cover.jpg",
+    "alt": "Title of the team PUF course report.",
+    "caption": "PUF · Team course project, 2023",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "180e3a7f9dbf1d205d1cb22625fcacea38ee481ba408aad0a6f2499780e6b764",
+    "derivatives": [
+      {
+        "src": "/media/ledger/puf-cover-420.avif",
+        "width": 420,
+        "bytes": 4442,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/puf-cover-420.webp",
+        "width": 420,
+        "bytes": 5986,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/puf-cover-840.avif",
+        "width": 840,
+        "bytes": 10917,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/puf-cover-840.webp",
+        "width": 840,
+        "bytes": 15838,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/puf-cover-924.avif",
+        "width": 924,
+        "bytes": 12214,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/puf-cover-924.webp",
+        "width": 924,
+        "bytes": 17114,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "bandgap-cover",
+    "source": "images/covers/05-cover.jpg",
+    "alt": "Title of the low-voltage bandgap reference report.",
+    "caption": "Bandgap reference · Team course project, 2023",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "e94e9d8ad754cbf4cd5332deefefdde50a1430e06a04e747078987a5026ebaa6",
+    "derivatives": [
+      {
+        "src": "/media/ledger/bandgap-cover-420.avif",
+        "width": 420,
+        "bytes": 24002,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/bandgap-cover-420.webp",
+        "width": 420,
+        "bytes": 31810,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/bandgap-cover-840.avif",
+        "width": 840,
+        "bytes": 82619,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/bandgap-cover-840.webp",
+        "width": 840,
+        "bytes": 108708,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/bandgap-cover-924.avif",
+        "width": 924,
+        "bytes": 90360,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/bandgap-cover-924.webp",
+        "width": 924,
+        "bytes": 125262,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "articulate-detail",
+    "source": "images/keys/01-key.jpg",
+    "alt": "A selected ARTiculate concept interface exhibit.",
+    "caption": "Selected exhibit · Product concept, not clinical evidence",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "d4e80e45f302305e980e9e2446ea311e53d583344ab2313462d1d2b0dc262cae",
+    "derivatives": [
+      {
+        "src": "/media/ledger/articulate-detail-420.avif",
+        "width": 420,
+        "bytes": 12585,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-detail-420.webp",
+        "width": 420,
+        "bytes": 17514,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/articulate-detail-840.avif",
+        "width": 840,
+        "bytes": 28905,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-detail-840.webp",
+        "width": 840,
+        "bytes": 41110,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/articulate-detail-924.avif",
+        "width": 924,
+        "bytes": 31319,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/articulate-detail-924.webp",
+        "width": 924,
+        "bytes": 43866,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "cagrisema-detail",
+    "source": "images/keys/03-key.jpg",
+    "alt": "A selected strategy exhibit from the 2025 competition.",
+    "caption": "Selected exhibit · Historical competition analysis, 2025",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "77e4205b4ad4a15e25cb73421830d0f56739f91988f4e069ecd1562b39f7a543",
+    "derivatives": [
+      {
+        "src": "/media/ledger/cagrisema-detail-420.avif",
+        "width": 420,
+        "bytes": 10865,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/cagrisema-detail-420.webp",
+        "width": 420,
+        "bytes": 14708,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/cagrisema-detail-840.avif",
+        "width": 840,
+        "bytes": 31962,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/cagrisema-detail-840.webp",
+        "width": 840,
+        "bytes": 42860,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/cagrisema-detail-924.avif",
+        "width": 924,
+        "bytes": 32635,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/cagrisema-detail-924.webp",
+        "width": 924,
+        "bytes": 45508,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "puf-detail",
+    "source": "images/keys/04-key.jpg",
+    "alt": "Original course-project layout figure from the PUF material.",
+    "caption": "Course-project layout · No fabricated-device claim",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "2900dca626c5ef48387fd961f25d5d36f15f17786d44c315c9d4bfe96f598a0b",
+    "derivatives": [
+      {
+        "src": "/media/ledger/puf-detail-420.avif",
+        "width": 420,
+        "bytes": 13014,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/puf-detail-420.webp",
+        "width": 420,
+        "bytes": 14662,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/puf-detail-840.avif",
+        "width": 840,
+        "bytes": 40717,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/puf-detail-840.webp",
+        "width": 840,
+        "bytes": 50020,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/puf-detail-924.avif",
+        "width": 924,
+        "bytes": 43653,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/puf-detail-924.webp",
+        "width": 924,
+        "bytes": 58616,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "bandgap-detail",
+    "source": "images/keys/05-key.jpg",
+    "alt": "Original simulation results from the bandgap project.",
+    "caption": "Course-project results · Simulation, not measurement",
+    "kind": "real",
+    "width": 924,
+    "height": 540,
+    "sha256": "2a4a3d4663d644a827633cd244543c7aed1f1fab0fc902de4e67a11082ea91ea",
+    "derivatives": [
+      {
+        "src": "/media/ledger/bandgap-detail-420.avif",
+        "width": 420,
+        "bytes": 12917,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/bandgap-detail-420.webp",
+        "width": 420,
+        "bytes": 17766,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/bandgap-detail-840.avif",
+        "width": 840,
+        "bytes": 41636,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/bandgap-detail-840.webp",
+        "width": 840,
+        "bytes": 59120,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/bandgap-detail-924.avif",
+        "width": 924,
+        "bytes": 45807,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/bandgap-detail-924.webp",
+        "width": 924,
+        "bytes": 66394,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain the entire source page; never crop meaningful text or figures.",
+    "generationAllowed": false
+  },
+  {
+    "id": "keepsake",
+    "source": "v2-planning/recovered/a-story-deck/deck/assets/new/astory_hardcover_book_table.png",
+    "alt": "An open photo album on a wooden table.",
+    "caption": "Future keepsake · Editorial concept",
+    "kind": "concept",
+    "width": 1376,
+    "height": 768,
+    "sha256": "bc71141feebc2d019d230961868e4cb756de2eda03e873279a2ac7e4edc7f624",
+    "derivatives": [
+      {
+        "src": "/media/ledger/keepsake-420.avif",
+        "width": 420,
+        "bytes": 7362,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/keepsake-420.webp",
+        "width": 420,
+        "bytes": 12916,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/keepsake-840.avif",
+        "width": 840,
+        "bytes": 16675,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/keepsake-840.webp",
+        "width": 840,
+        "bytes": 33170,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/keepsake-1376.avif",
+        "width": 1376,
+        "bytes": 29035,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/keepsake-1376.webp",
+        "width": 1376,
+        "bytes": 67422,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain within a designed stage; retain concept labeling.",
+    "generationAllowed": false
+  },
+  {
+    "id": "flatlay",
+    "source": "v2-planning/recovered/a-story-deck/deck/assets/new/astory_product_flatlay.png",
+    "alt": "An illustrative archive of albums, photographs and a tablet.",
+    "caption": "Archive experience · Editorial concept, not a product screenshot",
+    "kind": "concept",
+    "width": 1376,
+    "height": 768,
+    "sha256": "80a68cbd31ef2ee35025d2692a9ab5fce0bcbed488aae747978d52d95a3418fd",
+    "derivatives": [
+      {
+        "src": "/media/ledger/flatlay-420.avif",
+        "width": 420,
+        "bytes": 14736,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/flatlay-420.webp",
+        "width": 420,
+        "bytes": 22730,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/flatlay-840.avif",
+        "width": 840,
+        "bytes": 36199,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/flatlay-840.webp",
+        "width": 840,
+        "bytes": 64354,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/flatlay-1376.avif",
+        "width": 1376,
+        "bytes": 67000,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/flatlay-1376.webp",
+        "width": 1376,
+        "bytes": 139876,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain within a designed stage; retain concept labeling.",
+    "generationAllowed": false
+  },
+  {
+    "id": "astory-icon",
+    "source": "v2-planning/recovered/a-story-deck/deck/assets/app-icon.png",
+    "alt": "A Story heart-shaped A brand mark.",
+    "caption": "A Story · Brand asset",
+    "kind": "brand",
+    "width": 1024,
+    "height": 1024,
+    "sha256": "4cd8db2e2d58dbfca9d800a2bba42c258231a49e3cf28b0416c82c14e5ee2c85",
+    "derivatives": [
+      {
+        "src": "/media/ledger/astory-icon-420.avif",
+        "width": 420,
+        "bytes": 4204,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/astory-icon-420.webp",
+        "width": 420,
+        "bytes": 7118,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/astory-icon-840.avif",
+        "width": 840,
+        "bytes": 7512,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/astory-icon-840.webp",
+        "width": 840,
+        "bytes": 15596,
+        "format": "webp"
+      },
+      {
+        "src": "/media/ledger/astory-icon-1024.avif",
+        "width": 1024,
+        "bytes": 9355,
+        "format": "avif"
+      },
+      {
+        "src": "/media/ledger/astory-icon-1024.webp",
+        "width": 1024,
+        "bytes": 18514,
+        "format": "webp"
+      }
+    ],
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "presentationNote": "Contain within a designed stage; retain concept labeling.",
+    "generationAllowed": false
+  }
+]

@@ -1,0 +1,218 @@
+{
+  "faraday-tapeout": {
+    "title": "From design to tape-out.",
+    "thesis": "Chip-level test and timing for a shuttle project moving toward real silicon.",
+    "name": "Faraday",
+    "facts": [
+      [
+        "Process",
+        "UMC 22nm"
+      ],
+      [
+        "Delivery",
+        "1.5 months"
+      ],
+      [
+        "Evaluation",
+        "Top 10%"
+      ]
+    ],
+    "headings": [
+      "A fabrication deadline makes the work real.",
+      "Testability and timing meet at sign-off.",
+      "Follow the requirement through the flow.",
+      "A handoff the next team could trust.",
+      "Execution is also communication."
+    ],
+    "takeaway": "Helped bring one shuttle project to tape-out in 1.5 months."
+  },
+  "implantable-auditory-circuits": {
+    "title": "Small circuits. A larger purpose.",
+    "thesis": "Ultra-low-power sensor interfaces for a totally implantable auditory prosthesis.",
+    "name": "WICS",
+    "facts": [
+      [
+        "Technology",
+        "TSMC 65nm"
+      ],
+      [
+        "Focus",
+        "Subthreshold analog"
+      ],
+      [
+        "Method",
+        "Design + simulation"
+      ]
+    ],
+    "headings": [
+      "Research inside a community.",
+      "Preserve the information. Respect the power budget.",
+      "Design the whole signal path.",
+      "A design tested across operating conditions.",
+      "The device is only part of the question."
+    ],
+    "takeaway": "Transimpedance amplifiers, active-RC filters, and MEMS/ASIC interfaces under tight power constraints."
+  },
+  "healthcare-commercialization": {
+    "title": "Give the technology a direction.",
+    "thesis": "Life-science research translated into a considered market choice.",
+    "name": "miLEAD",
+    "facts": [
+      [
+        "Clients",
+        "3 biotech startups"
+      ],
+      [
+        "Role",
+        "PM / Consultant"
+      ],
+      [
+        "Output",
+        "Market-entry & pivot recommendations"
+      ]
+    ],
+    "headings": [
+      "The science is a starting point.",
+      "Find a customer you can reach.",
+      "Connect primary research to a market choice.",
+      "Put a recommendation in front of leadership.",
+      "A finding matters when it changes the action."
+    ],
+    "takeaway": "Recommendations connecting customers, positioning, and the capabilities of three early-stage teams."
+  },
+  "articulate": {
+    "title": "Another way to express a feeling.",
+    "thesis": "A drawing-led product concept connecting children, parents, and therapists.",
+    "name": "ARTiculate",
+    "facts": [
+      [
+        "Recognition",
+        "Track winner"
+      ],
+      [
+        "Audience Choice",
+        "$1,000 award"
+      ],
+      [
+        "Role",
+        "Technical Architect"
+      ]
+    ],
+    "headings": [
+      "Different disciplines around one experience.",
+      "Make expression easier to begin.",
+      "Name. Express. Reflect.",
+      "A concept that connected with its audience.",
+      "The first interaction is a strategic choice."
+    ],
+    "takeaway": "Track Winner and Audience Choice at Ross +Tech Innovation Jam."
+  },
+  "aurora-market-entry": {
+    "title": "Choose a market. Build a route in.",
+    "thesis": "A U.S. beverage-market recommendation that connects demand to delivery.",
+    "name": "Aurora",
+    "facts": [
+      [
+        "Competition",
+        "SECC 2026"
+      ],
+      [
+        "Result",
+        "Semifinalist"
+      ],
+      [
+        "Role",
+        "Team leader"
+      ]
+    ],
+    "headings": [
+      "Expansion with real constraints.",
+      "The biggest segment is not always the best entry.",
+      "Sequence the market and operating model.",
+      "A clear recommendation under a deadline.",
+      "A market choice needs a route to supply."
+    ],
+    "takeaway": "A staged recommendation: establish entry through exports, then transition toward U.S. co-packing."
+  },
+  "cagrisema-launch-strategy": {
+    "title": "A launch is more than positioning.",
+    "thesis": "A 2025 healthcare case connecting differentiation, access, and patient support.",
+    "name": "CagriSema",
+    "facts": [
+      [
+        "Competition",
+        "MHCC 2025"
+      ],
+      [
+        "Result",
+        "Semifinalist"
+      ],
+      [
+        "Role",
+        "Team leader"
+      ]
+    ],
+    "headings": [
+      "A changing therapeutic landscape.",
+      "Connect the launch decision to adoption.",
+      "Turn commercial levers into an action plan.",
+      "An executive recommendation, clearly structured.",
+      "Whose decision needs to change?"
+    ],
+    "takeaway": "Portfolio positioning, provider engagement, insurance access, and patient support in one launch recommendation."
+  },
+  "puf-security": {
+    "title": "When variation becomes identity.",
+    "thesis": "Comparing ring-oscillator and SRAM approaches to a dependable hardware identity.",
+    "name": "PUF",
+    "facts": [
+      [
+        "Course",
+        "EECS 427"
+      ],
+      [
+        "Architecture",
+        "16-bit processor"
+      ],
+      [
+        "Method",
+        "Simulation + layout"
+      ]
+    ],
+    "headings": [
+      "Two approaches. One requirement.",
+      "An identity has to remain itself.",
+      "Compare the tradeoffs under changing conditions.",
+      "Dependability determined the choice.",
+      "Extra functionality cannot replace reliability."
+    ],
+    "takeaway": "The report favored the ring-oscillator approach for better temperature robustness in this design."
+  },
+  "low-voltage-bandgap": {
+    "title": "Hold a reference steady.",
+    "thesis": "Low-voltage analog design, where every improvement has a cost.",
+    "name": "Bandgap reference",
+    "facts": [
+      [
+        "Supply",
+        "1.2 V"
+      ],
+      [
+        "Temperature coefficient",
+        "13.14 ppm/°C"
+      ],
+      [
+        "Method",
+        "Simulation + layout"
+      ]
+    ],
+    "headings": [
+      "A stable reference in a changing circuit.",
+      "Low power does not remove the constraints.",
+      "Evaluate the blocks, then the interactions.",
+      "A result with a clear operating range.",
+      "Low power is a set of tradeoffs."
+    ],
+    "takeaway": "A reported simulated temperature coefficient of 13.14 ppm/°C over 0–70°C at 1.2 V."
+  }
+}

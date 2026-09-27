@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.env*
+!.env.example
+*.tsbuildinfo
+qa/browser-profile/
+
+# Local backups, source media, and review output are not deployment inputs.
+*.zip
+/media/
+/runtime/
+/qa/
+/.claude/
+/.vercel/
+*.log

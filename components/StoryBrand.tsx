@@ -1,0 +1,1 @@
+export function StoryBrand(){return <div className="story-brand" aria-label="A Story — Your Family’s Living Memories"><img className="story-brand-icon" src="/media/story/app-icon.png" alt="" width="1024" height="1024"/><img className="real-wordmark" src="/media/story/wordmark.webp" alt="A Story — Your Family’s Living Memories" width="800" height="259"/></div>}

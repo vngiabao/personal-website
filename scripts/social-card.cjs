@@ -1,0 +1,8 @@
+// Code-native social artwork using Bao's real portrait. No synthetic photography.
+const sharp=require('sharp');
+async function main(){
+ const portrait=await sharp('public/media/ledger/portrait-1126.webp').resize(370,470,{fit:'cover',position:'attention'}).composite([{input:Buffer.from('<svg width="370" height="470"><path d="M0 470V185a185 185 0 0 1 370 0v285Z" fill="white"/></svg>'),blend:'dest-in'}]).png().toBuffer();
+ const artwork=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#f8f7f3"/><rect width="1200" height="7" fill="#00274c"/><path d="M744 556V263a196 196 0 0 1 392 0v293Z" fill="none" stroke="#b58420"/><g fill="#00274c" font-family="Arial,sans-serif"><text x="64" y="76" font-size="25" font-weight="700">BAO VO<tspan fill="#b58420">.</tspan></text><text x="64" y="175" font-size="13" letter-spacing="2">FOUNDER · STRATEGIST · BUILDER</text><text x="58" y="275" font-size="80" font-weight="600" letter-spacing="-4">From silicon</text><text x="60" y="365" font-size="80" font-weight="600" letter-spacing="-4">to <tspan fill="#805b15" font-family="Georgia,serif" font-style="italic" font-weight="400">strategy.</tspan></text><text x="64" y="440" font-size="20">Products, people, and the path so far.</text><path d="M64 489h580" stroke="#00274c" stroke-opacity=".2"/><text x="64" y="534" font-size="15">Currently co-founding A Story · Ann Arbor, Michigan</text></g></svg>`);
+ await sharp(artwork).composite([{input:portrait,left:755,top:78}]).png().toFile('public/social-card.png');
+}
+main().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,0 +1,4 @@
+import {pageMetadata} from '@/content/metadata';
+import {PageIntro} from '@/components/Ledger';import {ArchiveIndex} from '@/components/ArchiveIndex';import '../pages.css';
+export const metadata=pageMetadata("Archive — Everything on the record","A searchable archive of Bao Vo’s product, strategy, engineering, research, teaching and community work, with reports and supporting exhibits.","/archive");
+export default async function Page({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}){const q=await searchParams;return <main id="main"><PageIntro label="The complete index" title="Everything on the record."><p>The projects, studies, teams, and early experiments behind the edited selection. Browse a discipline, follow a year, or look closer at the source.</p></PageIntro><ArchiveIndex initialQuery={q.q} initialCategory={q.category||q.discipline} initialYear={q.year} initialSort={q.sort}/></main>}

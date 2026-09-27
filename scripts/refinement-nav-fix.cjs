@@ -1,0 +1,1 @@
+const fs=require('fs'),p='components/Discovery.tsx';let s=fs.readFileSync(p,'utf8').replace("const offset=matchMedia", "if(Math.ceil(window.scrollY+window.innerHeight)>=document.documentElement.scrollHeight-2){setActive('contact');return}const offset=matchMedia");fs.writeFileSync(p,s);

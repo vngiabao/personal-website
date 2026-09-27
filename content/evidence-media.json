@@ -1,0 +1,92 @@
+[
+  {
+    "id": "articulate-cover",
+    "source": "documents/articulate-team-11.pdf",
+    "page": 1,
+    "width": 1800,
+    "height": 1013,
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "src": "/media/evidence/articulate-cover.webp",
+    "method": "Full page rendered directly from original PDF; no crop or reconstruction."
+  },
+  {
+    "id": "aurora-cover",
+    "source": "documents/secc-2026-five-star-consulting.pdf",
+    "page": 1,
+    "width": 1800,
+    "height": 1013,
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "src": "/media/evidence/aurora-cover.webp",
+    "method": "Full page rendered directly from original PDF; no crop or reconstruction."
+  },
+  {
+    "id": "cagrisema-cover",
+    "source": "documents/mhcc-2025-syntria-partners.pdf",
+    "page": 1,
+    "width": 1800,
+    "height": 1391,
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "src": "/media/evidence/cagrisema-cover.webp",
+    "method": "Full page rendered directly from original PDF; no crop or reconstruction."
+  },
+  {
+    "id": "puf-schematic",
+    "source": "documents/puf-final-presentation.pdf",
+    "page": 8,
+    "width": 1800,
+    "height": 1013,
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "src": "/media/evidence/puf-schematic.webp",
+    "method": "Full page rendered directly from original PDF; no crop or reconstruction."
+  },
+  {
+    "id": "bandgap-schematic",
+    "source": "documents/low-voltage-bandgap-reference-report.pdf",
+    "page": 2,
+    "width": 1391,
+    "height": 1800,
+    "presentationMode": "document",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    },
+    "src": "/media/evidence/bandgap-schematic.webp",
+    "method": "Full page rendered directly from original PDF; no crop or reconstruction."
+  }
+]

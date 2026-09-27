@@ -1,0 +1,125 @@
+[
+  {
+    "id": "wordmark",
+    "source": "C:/Users/vngia/Documents/Codex/2026-09-11/https-contests-startgarden-com-5x5night-https/outputs/namecard-brand-final/ASTORY_WORDMARK_TRANSPARENT.png",
+    "width": 800,
+    "classification": "Original brand artwork",
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  },
+  {
+    "id": "product-world",
+    "source": "C:/Users/vngia/Documents/Codex/2026-09-11/https-contests-startgarden-com-5x5night-https/outputs/product-4x3-final/01_ASTORY_5X5_4X3_PRODUCT_HERO_MASTER.png",
+    "width": 1600,
+    "classification": "Approved editorial concept with product designs",
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  },
+  {
+    "id": "timeline",
+    "source": "C:/Users/vngia/Documents/Codex/2026-09-11/https-contests-startgarden-com-5x5night-https/work/app-reference/A-Story-Compressed-v4_Static-MotionReady/02_COMPRESSED_PRIMARY_SCREENS/CM06.png",
+    "width": 786,
+    "classification": "Approved product orientation design",
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  },
+  {
+    "id": "conversation",
+    "source": "C:/Users/vngia/Documents/Codex/2026-09-11/https-contests-startgarden-com-5x5night-https/work/app-reference/A-Story-Compressed-v4_Static-MotionReady/02_COMPRESSED_PRIMARY_SCREENS/CP01.png",
+    "width": 786,
+    "classification": "Approved product orientation design",
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  },
+  {
+    "id": "perspectives",
+    "source": "C:/Users/vngia/Documents/Codex/2026-09-11/https-contests-startgarden-com-5x5night-https/work/app-reference/A-Story-Compressed-v4_Static-MotionReady/02_COMPRESSED_PRIMARY_SCREENS/CM08.png",
+    "width": 786,
+    "classification": "Approved product orientation design",
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  },
+  {
+    "id": "book",
+    "source": "C:/Users/vngia/Documents/Codex/2026-09-11/https-contests-startgarden-com-5x5night-https/work/locked-library/AStory_Master_Visual_Library_UIUX_LOCKED/03_BOOK_OBJECT_FULL_PACKAGE/02_UI_OBJECTS/ASTORY_BOOK_OBJECT_CLOSED_BOOK_THREE_QUARTER_TRANSPARENT_XL_LOCKED.png",
+    "width": 700,
+    "classification": "Approved concept object",
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  },
+  {
+    "id": "home",
+    "source": "C:/Users/vngia/AppData/Local/Temp/codex-clipboard-0e6a43b5-8d36-4226-a924-6bfaa59e9c5d.png",
+    "width": 530,
+    "crop": {
+      "left": 381,
+      "top": 69,
+      "width": 265,
+      "height": 621
+    },
+    "classification": "Supplied Figma design",
+    "presentationMode": "artwork",
+    "focalPoint": {
+      "x": 50,
+      "y": 50
+    },
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  },
+  {
+    "id": "app-icon",
+    "source": "v2-planning/recovered/a-story-deck/deck/assets/app-icon.png",
+    "width": 1024,
+    "classification": "Original A Story brand artwork: heart-in-A icon",
+    "presentationMode": "artwork",
+    "generationAllowed": false,
+    "safeCrop": {
+      "desktop": false,
+      "mobile": false
+    }
+  }
+]

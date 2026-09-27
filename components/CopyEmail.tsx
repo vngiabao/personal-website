@@ -1,0 +1,2 @@
+'use client';import {useState} from 'react';
+export function CopyEmail(){const [message,setMessage]=useState('');return <div className="copy-email"><button onClick={async()=>{try{await navigator.clipboard.writeText('gbao.n.vo@gmail.com');setMessage('Email copied.')}catch{setMessage('Select the email address above to copy it.')}}}>Copy email address</button><span className="small" role="status">{message}</span></div>}

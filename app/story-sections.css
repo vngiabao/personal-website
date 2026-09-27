@@ -1,0 +1,80 @@
+/*
+ * A Story page: What gets lost (one brief "It's the everyday" moment), the
+ * annotated call on a light ground, and Who it's for. Imported after story.css.
+ * `.story-page` prefixes and !important on <p> sizes answer the older
+ * `main p:not(…)` rule, which otherwise outranks single-class selectors.
+ */
+
+/* ── 01 · What gets lost: one moment ─────────────────────────────────── */
+.st-everyday{position:relative;overflow:hidden;min-height:clamp(520px,48vw,720px);display:grid;place-items:center;padding:clamp(72px,8vw,112px) 24px;background:radial-gradient(90% 90% at 50% 50%,#12396a 0%,var(--blue) 50%,#07203f 100%)}
+.st-collage{position:absolute;inset:0}
+/* Prints are sized by the band but capped, so a wide screen doesn't turn them into posters. */
+.st-collage img{position:absolute;width:min(calc(var(--w) * 1%),calc(var(--w) * 13px));height:auto;border:clamp(4px,.5vw,7px) solid #f7f2ea;border-bottom-width:clamp(12px,1.4vw,20px);box-shadow:0 18px 30px -16px #000a;transform:rotate(var(--r));opacity:.55}
+.st-everyday-copy{position:relative;z-index:2;max-width:880px;text-align:center;display:grid;justify-items:center}
+/* A pool of the ground behind the words, so they never sit on a photograph. */
+.st-everyday-copy::before{content:"";position:absolute;inset:-22% -14%;z-index:-1;background:radial-gradient(closest-side,#0b2d5c 62%,transparent)}
+.st-everyday-copy .eyebrow{color:rgb(245 240 230/.72)}
+.st-everyday-pre{margin:18px 0 0;max-width:36ch;font:400 clamp(17px,1.4vw,21px)/1.45 var(--sans);color:rgb(245 240 230/.8)}
+.st-everyday h2{margin:14px 0 0;font-size:clamp(56px,8.6vw,140px)!important;line-height:.95;letter-spacing:-.04em;color:var(--cream)}
+.st-everyday h2 em{color:var(--maize)}
+.st-everyday-post{margin:22px 0 0;max-width:38ch;font:italic 400 clamp(19px,1.6vw,24px)/1.45 var(--serif);color:rgb(245 240 230/.85)}
+.st-everyday-post b{font-weight:400;color:var(--cream)}
+
+/* ── 02 · The conversation, on cream ─────────────────────────────────── */
+.st-listen{background:var(--soft,#faf7f0)}
+.story-page .st-listen .st-listen-head>p{color:var(--muted)}
+.st-listen .st-call{display:block;margin-top:clamp(40px,5vw,72px)}
+.story-page .st-call-setup{display:inline-flex;align-items:center;gap:12px;margin:0 0 clamp(24px,3vw,40px);padding:12px 20px;border-radius:40px;border:1px solid var(--rule);background:#fff;font-size:15.5px!important;color:var(--blue)}
+.st-call-dot{flex:none;width:9px;height:9px;border-radius:50%;background:#3f8a5c;box-shadow:0 0 0 5px rgb(63 138 92/.15)}
+.st-steps-call{list-style:none;margin:0;padding:0}
+.st-step{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,5vw,72px);padding:clamp(24px,3vw,36px) 0;border-top:1px solid var(--rule)}
+.st-step-label span{font:italic 400 15px/1 var(--serif);color:var(--brass-text)}
+.st-step-label b{display:block;margin:10px 0 8px;font:400 clamp(30px,2.6vw,40px)/1 var(--serif);color:var(--blue)}
+.story-page .st-step-label p{margin:0;max-width:30ch;font-size:15.5px!important;line-height:1.55;color:var(--muted)}
+.st-bubbles{display:grid;gap:14px;align-content:start}
+.st-bubble{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;max-width:640px}
+.st-bubble i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font:italic 400 16px/1 var(--serif)}
+.st-bubble>div{padding:14px 18px 16px;border-radius:4px 18px 18px 18px}
+.st-bubble b{display:block;margin-bottom:6px;font:600 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.story-page .st-bubble p{margin:0;font-size:16.5px!important;line-height:1.55}
+/* A Story speaks in navy; Joan in serif on white. Both pass WCAG AA with room to spare. */
+.st-bubble.is-astory i{background:var(--blue);color:var(--cream)}
+.st-bubble.is-astory>div{background:var(--blue)}
+.st-bubble.is-astory b{color:#f0cf7e}
+.story-page .st-bubble.is-astory p{color:#f5f0e6}
+.st-bubble.is-teller{justify-self:end;grid-template-columns:minmax(0,1fr) 34px}
+.st-bubble.is-teller i{order:2;background:#efe6d3;color:var(--blue)}
+.st-bubble.is-teller>div{border-radius:18px 4px 18px 18px;background:#fff;border:1px solid #0b2d5c1f;box-shadow:0 10px 24px -18px #0b2d5c55}
+.st-bubble.is-teller b{color:var(--brass-text)}
+.story-page .st-bubble.is-teller p{font:400 clamp(18px,1.4vw,20px)/1.5 var(--serif)!important;color:#1d2533}
+.st-bubble mark{padding:0 .12em;color:inherit;background:linear-gradient(transparent 55%,rgb(199 154 43/.4) 55%)}
+.story-page .st-listen .st-note{color:var(--muted)}
+
+/* ── Who it's for ────────────────────────────────────────────────────── */
+.st-for-list{list-style:none;margin:clamp(40px,5vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,36px)}
+.st-for-list li{display:flex;flex-direction:column;padding:clamp(24px,2.6vw,36px);border:1px solid rgb(245 240 230/.16);border-radius:16px;background:rgb(255 255 255/.04)}
+.story-page .st-for-label{display:flex;align-items:baseline;gap:12px;margin:0 0 18px;font:600 11px/1 var(--sans)!important;letter-spacing:.2em;text-transform:uppercase;color:var(--maize)}
+.st-for-label span{font:italic 400 15px/1 var(--serif);letter-spacing:0;color:rgb(245 240 230/.6)}
+.st-for-list h3{margin:0 0 16px;font:400 clamp(24px,2vw,30px)/1.15 var(--serif);color:var(--cream)}
+.story-page .st-for-lead{margin:0 0 14px;font-size:16px!important;line-height:1.6;color:rgb(245 240 230/.82)}
+.story-page .st-for-why{margin:0 0 22px;padding-top:14px;border-top:1px solid rgb(245 240 230/.14);font:italic 400 16.5px/1.5 var(--serif)!important;color:#f0dca6}
+.st-for-list .arrow-link{margin-top:auto;align-self:flex-start}
+.st-for-actions{margin-top:clamp(36px,4vw,56px)}
+
+@media(max-width:1023px){
+ .st-step{grid-template-columns:minmax(0,1fr);gap:18px}
+ .st-for-list{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:767px){
+ .st-everyday{min-height:560px}
+ .st-collage img{width:calc(var(--w) * 1.9%)}
+ .st-bubble{max-width:100%}
+ .st-bubble.is-teller{justify-self:stretch}
+}
+
+/* The eyebrow inside a heading column is a <p>; `.section-heading p` pushes it right. */
+.story-page .section-heading>div>.eyebrow{margin-left:0;max-width:none}
+/* Everyday prints in full colour, with a scrim that keeps the words legible. */
+.st-collage img{opacity:.9}
+.st-collage::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,rgb(11 45 92/.9),rgb(11 45 92/.55) 60%,rgb(11 45 92/.35))}
+.st-everyday-copy{max-width:1040px}

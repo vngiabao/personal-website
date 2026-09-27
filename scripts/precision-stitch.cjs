@@ -1,0 +1,4 @@
+const fs=require('fs'),path=require('path'),sharp=require('sharp');
+const dir='qa/precision';
+(async()=>{for(const name of fs.readdirSync(dir).filter(f=>f.endsWith('-tiles.json'))){const m=JSON.parse(fs.readFileSync(path.join(dir,name)));const width=m.width,total=Math.round(m.tiles.at(-1).total);let filled=0;const layers=[];for(const t of m.tiles){const y=Math.round(t.y),top=Math.max(0,filled-y),height=Math.min(t.h-top,total-filled);if(height<=0)continue;const input=await sharp(await sharp(path.join(dir,t.file)).resize(width,t.h,{fit:"fill"}).toBuffer()).extract({left:0,top,width,height}).png().toBuffer();layers.push({input,left:0,top:y+top});filled=y+top+height;}if(filled<total-2)throw Error(name+' incomplete '+filled+'/'+total);const target=name.replace('-tiles.json','.png');await sharp({create:{width,height:total,channels:3,background:'#f8f6ef'}}).composite(layers).png().toFile(path.join(dir,target));console.log(target,width,total)}})();
+

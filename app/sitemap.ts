@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';import {projects} from '@/content/projects';
+export default function sitemap():MetadataRoute.Sitemap{const origin=process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/,'');if(!origin)return[];return [...new Set(['/','/a-story','/work','/book','/archive','/about','/contact',...projects.map(p=>p.href)])].map(route=>({url:origin+route,changeFrequency:route==='/a-story'?'monthly':'yearly',priority:route==='/'?1:route==='/a-story'?.9:.7}))}

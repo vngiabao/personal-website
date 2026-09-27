@@ -1,0 +1,4 @@
+import {chromium} from 'playwright';import fs from 'node:fs/promises';
+async function main(){const b=await chromium.launch({channel:'chrome',headless:true});await fs.mkdir('qa/ledger/comparison',{recursive:true});for(const width of [390,1440]){const p=await b.newPage({viewport:{width,height:1000}});for(const v of ['a','b']){await p.goto(`http://127.0.0.1:3000/?composition=${v}`);await p.waitForFunction(()=>document.documentElement.dataset.hydrated==='true');await p.evaluate(async()=>{await document.fonts.ready;document.querySelectorAll('img').forEach(i=>i.loading='eager');await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})))});await p.locator('#current-venture').screenshot({path:`qa/ledger/comparison/astory-${v}-${width}.png`,style:'body > header,.chapter-nav,.skip{visibility:hidden!important}'});}await p.close()}await b.close()}main();
+
+

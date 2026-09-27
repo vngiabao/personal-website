@@ -1,0 +1,12 @@
+const fs=require('fs');
+let s=fs.readFileSync('scripts/final-review-server.cjs','utf8');
+s=s.replaceAll('qa/final','qa/quality').replaceAll('.book-chapter-strip button','.book-contents nav button');
+s=s.replace("...(width===1440?['/work/faraday-tapeout'","...(['/work/faraday-tapeout'").replace("'/work/low-voltage-bandgap']:[])","'/work/low-voltage-bandgap'])");
+s=s.replaceAll('tabs[i].click();await sleep(600);const active',"tabs[i].closest('details').open=true;tabs[i].click();await sleep(600);const active");
+s=s.replace("await sleep(150);states.push({...snapshot('text-'+i),accessibility:","await sleep(150);states.push({...snapshot('text-'+i),clipped:[...active.children].filter(e=>e.clientHeight>0&&e.scrollHeight>e.clientHeight+3).map(e=>e.className),accessibility:");
+s=s.replace("const base=snapshot('initial');", "for(let y=0;y<d().documentElement.scrollHeight;y+=frame.height-180){w().scrollTo(0,y);await sleep(70)}w().scrollTo(0,0);await sleep(300);const base=snapshot('initial');");
+fs.writeFileSync('scripts/quality-review-server.cjs',s);
+s=fs.readFileSync('scripts/final-navigation-server.cjs','utf8').replaceAll('qa/final','qa/quality').replaceAll('===15','===12').replace('.reader-toolbar>button:nth-child(2)','.reader-toolbar>button:first-of-type');
+fs.writeFileSync('scripts/quality-navigation-server.cjs',s);
+for(const name of ['links','media-audit','motion-server'])fs.writeFileSync('scripts/quality-'+name+'.cjs',fs.readFileSync('scripts/final-'+name+'.cjs','utf8').replaceAll('qa/final','qa/quality'));
+fs.mkdirSync('qa/quality',{recursive:true});

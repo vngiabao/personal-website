@@ -1,0 +1,14 @@
+{
+  "id": "sunday-table",
+  "src": "/media/story/sunday-table.webp",
+  "sourceType": "generated-fictional-illustration",
+  "generationAllowed": true,
+  "publication": "public",
+  "relatedChapter": "A Story / illustrative Sunday memory",
+  "tool": "image_gen.imagegen",
+  "original": "C:/Users/vngia/.codex/generated_images/01a098aa-67ed-7293-affc-d5e0b12dbee0/exec-d34d8311-cd17-4cd4-809e-a7fc8c5ea642.png",
+  "identityConstraint": "No people; not a reconstruction of Bao’s family or a historical event.",
+  "prompt": "Use case: photorealistic-natural. Asset type: fictional memory photograph within a clearly labeled illustrative family-archive product demo. Create one landscape 4:3 editorial still-life photograph of a modest, well-loved dining table prepared for an informal Sunday family meal. Ordinary bowls, serving dishes, rice, vegetables, a water jug, a simple cloth; several mismatched wooden chairs, one extra chair pulled in at the corner. No people. Warm late-afternoon window light, intimate ordinary home, subtle nostalgic color, natural texture, believable casual arrangement. Frame the table and extra chair together; usable full-bleed crop in a memory card. It should feel lived-in and specific, not a luxury dining advert. No text, no brands, no watermark, no frame. This is a fictional scene, not a reconstruction of Bao's family.",
+  "derivative": {"width": 1200, "format": "webp", "bytes": 209462},
+  "disclosure": "Illustrative product concept. Example memories are fictional."
+}

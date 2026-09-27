@@ -1,0 +1,1 @@
+export default function NotFound(){return <main id="main" className="container" style={{paddingBlock:112}}><h1 className="editorial">That page isn’t in the index.</h1><p style={{marginTop:32}}>Return to <a href="/">Home</a>.</p></main>}

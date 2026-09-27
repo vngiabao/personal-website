@@ -1,0 +1,313 @@
+[
+  {
+    "slug": "faraday-tapeout",
+    "title": "The discipline behind a tape-out.",
+    "meta": "2024 · Faraday Technology Vietnam · DFT/STA Engineer",
+    "intro": "At Faraday Technology Vietnam, I worked on the test and timing flows that make an ASIC ready for fabrication. My contribution was at the delivery boundary: carrying a requirement through implementation, checking it, and making the handoff clear.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "I joined Faraday Technology Vietnam in January 2024 and worked on ASIC shuttle projects through May. The work included a UMC 22nm project and close coordination across engineering teams."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "Design-for-test and static timing analysis are connected delivery responsibilities. Test structures, simulation results, tester patterns and timing checks have to describe a design the team can release with confidence."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "My responsibilities included DFT insertion, scan and memory-test integration, simulation, pattern delivery for automated test equipment, and timing sign-off. I also maintained Tcl, Perl and C-shell automation and used PrimeTime to investigate timing violations with the physical-design team.",
+          "The useful habit was following a requirement through the flow, rather than treating each tool's output as the end of the task."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "I helped bring one shuttle project to tape-out within 1.5 months. My director's testimonial records a top-10% performance evaluation and describes my attention to execution detail and communication across teams."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "A deadline turns coordination into a concrete responsibility. The best handoff leaves the next person with something they can act on."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "implantable-auditory-circuits",
+    "title": "A small circuit. A larger purpose.",
+    "meta": "July 2024–November 2025 · WICS · University of Michigan",
+    "intro": "My graduate research at Michigan focused on low-power circuits for a totally implantable auditory prosthesis. I worked at the interface between a physical sensor and the electronics that needed to preserve its information.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "In the Wireless Integrated Circuits and Systems Group (WICS) at the University of Michigan, I worked with Prof. David Wentzloff on circuit blocks for a totally implantable auditory-prosthesis research system."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "The interface had to operate under tight power constraints while maintaining useful noise and stability behavior. That made the boundaries between the sensor, amplifier and filter as important as the individual blocks."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "I developed blocks for a MEMS/ASIC interface, including transimpedance amplifiers and active RC filters in TSMC 65nm. The work used subthreshold circuit design and considered the system's packaging and interface constraints.",
+          "I evaluated stability and noise across process, voltage and temperature conditions using Cadence Virtuoso and SPICE. The work required following how a design decision in one block affected the rest of the signal path."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "The work produced circuit blocks and simulations across process, voltage, temperature, noise, and mismatch conditions. It strengthened the connection between individual circuit choices and the requirements of the research system."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "The research widened my interest beyond circuit performance. Manufacturing, adoption, and support became questions I wanted to understand alongside the design."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "healthcare-commercialization",
+    "title": "A technology needs a reason to be adopted.",
+    "meta": "2024–26 · miLEAD Consulting · Project Manager / Consultant",
+    "intro": "At miLEAD, I helped early-stage life-science teams examine the commercial choices around their technology: a first market, a target customer, or a reason to change direction. The work joined primary research with recommendations for leadership.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "The engagements involved pre-clinical biotechnology startups and early-stage university innovations. My work combined project management, primary research and commercial analysis."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "A broad market can look attractive without identifying a reachable customer. The recommendation needed to connect a specific use, buyer and competitive setting to the team's capabilities."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "I developed market-entry and pivot recommendations for three biotechnology startups. The work included primary-research outreach, customer segmentation, pricing and positioning analysis, and market databases such as PitchBook.",
+          "I also contributed research for University of Michigan Coulter Partnership Program innovations. Across this work, the output was a recommendation leadership could examine, question and use—not a market-size number on its own."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "We presented market-entry and pivot recommendations directly to leadership teams, including options for less saturated markets and better-aligned target segments."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "A finding earns its place in a recommendation when it changes the proposed action. I became more disciplined about making that connection explicit."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "articulate",
+    "title": "Another way to express a feeling.",
+    "meta": "2025 · Ross +Tech Innovation Jam · Technical Architect",
+    "intro": "ARTiculate was a team product concept exploring guided drawing for autistic children, with context parents and therapists could revisit. I served as Technical Architect and contributed to discovery, prototyping, and the competition pitch.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "Our team brought together engineering, design, psychology and business backgrounds. The deck credits me as Technical Architect; my work also included discovery, prototyping and the final pitch."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "The concept responded to a gap between what a child experiences, what a parent can observe and what a therapist sees during a session. We explored whether drawing could create a more approachable starting point for expression."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "We framed a sequence around naming, expressing and reflecting on feelings. The concept paired guided drawing with a companion character, then proposed ways to revisit patterns with parents and therapists.",
+          "The challenge was connecting an inviting activity with useful context for the adults around it. The prototype and pitch made those relationships concrete enough to discuss."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "ARTiculate was a track winner at Michigan Ross’s +Tech Innovation Jam and received the $1,000 Audience Choice award for the team’s product concept."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "The first interaction is part of the product strategy. Technical feasibility matters only if the person being invited into the experience understands why they would begin."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "puf-security",
+    "title": "When variation becomes identity.",
+    "meta": "2023 · EECS 427 · Team circuit-design project",
+    "intro": "Our EECS 427 team compared ring-oscillator and SRAM physically unclonable functions: two ways to turn device variation into a repeatable chip identity. The choice ultimately depended on stability across changing conditions.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "The project compared ring-oscillator and SRAM PUF designs in the context of a 16-bit microprocessor. Both approaches used circuit variation; their behavior under temperature change differed."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "An identifier is not useful if it changes when the device warms up. The design needed both variation between devices and repeatability within a device."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "The ring-oscillator approach compared frequencies and used compensation, control logic and a settling interval to generate a value. The SRAM approach also explored compute-in-memory functionality, but stable cells were harder to obtain in the small design.",
+          "We compared the topologies through circuit simulation, Monte Carlo analysis and layout work. The final report discusses linking the PUF into the processor datapath through a custom instruction."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "The report favored the ring-oscillator approach for this project. It traded generation time and control complexity for better temperature robustness. The SRAM design offered useful additional functionality, but its simulated yield was too low for the project's intended use."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "Additional functionality could not compensate for an unreliable identifier. The deciding criterion was dependability under the conditions the project needed to tolerate."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "aurora-market-entry",
+    "title": "Choose the market. Make the route credible.",
+    "meta": "2026 · Southeast Case Competition · Team leader, Five Star Consulting",
+    "intro": "For the 2026 Southeast Case Competition, I led Five Star Consulting’s recommendation for Aurora Sparkling Juices. We connected U.S. segment choice to supply options, capacity constraints, and a staged entry plan.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "The competition case concerned an Australian beverage company considering U.S. expansion under investment and capacity constraints."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "The largest segment was not automatically the most attractive starting point. Entry strategy had to account for contribution margins, competitive positioning and the practical route to supply."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "We compared mainstream, premium single-serve and better-for-you segments. Our recommendation favored the better-for-you segment and a staged model: export supply to establish entry, then transition toward U.S. co-packing.",
+          "The roadmap connected supply-chain preparation, initial regions, channel selection, financial modeling, and feedback from the proposed launch."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "Our team reached the semifinals with an executive recommendation and a staged implementation roadmap."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "An attractive segment is only half a recommendation. The supply route and operating model have to make entry plausible."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "cagrisema-launch-strategy",
+    "title": "Positioning is the start of a launch.",
+    "meta": "2025 · Midwest Healthcare Case Competition · Team leader, Syntria Partners",
+    "intro": "I led Syntria Partners’ CagriSema launch recommendation in the 2025 Midwest Healthcare Case Competition. The team considered portfolio positioning alongside access, provider engagement, and patient support.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "The case asked us to examine an obesity-therapeutics launch within a competitive and changing market. Our submission reflected the information and assumptions used in the 2025 competition."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "The recommendation needed to consider how a new product could be positioned alongside an existing franchise, while accounting for the steps between a launch decision and adoption."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "We organized the analysis around the competitive landscape, portfolio differentiation, pricing assumptions and commercial levers. The launch plan considered insurance access, provider education and support for patients navigating treatment.",
+          "Each lever was presented as a chain of current context, risk and proposed action. That structure helped connect market analysis to an execution discussion."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "Our team reached the semifinals. The preserved quarterfinal submission shows how we connected portfolio positioning with access, provider engagement, and patient support."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "A launch plan gets clearer when it identifies whose decisions need to change. Positioning, access, and support belong in the same discussion."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "low-voltage-bandgap",
+    "title": "Holding a reference steady.",
+    "meta": "2023 · Analog integrated-circuit coursework · Team contributor",
+    "intro": "Our circuit-design team explored a low-voltage bandgap reference around a subthreshold operational amplifier. The project made the costs of low-power operation visible in stability, mismatch, startup, and layout.",
+    "sections": [
+      {
+        "label": "Context",
+        "paragraphs": [
+          "A voltage reference is intended to remain stable while the surrounding circuit conditions change. This project explored that problem at a 1.2 V supply using a bandgap core, bias generator, amplifier and startup circuit."
+        ]
+      },
+      {
+        "label": "Problem",
+        "paragraphs": [
+          "Low-power operation did not remove the need for gain, reliable startup or tolerance to variation. Improving one property could make another more difficult."
+        ]
+      },
+      {
+        "label": "Work",
+        "paragraphs": [
+          "We sized and evaluated the component blocks, examined process and mismatch behavior, and carried the design through layout and parasitic extraction. The report discusses larger devices as one response to variation and the costs in area and operating speed."
+        ]
+      },
+      {
+        "label": "Result",
+        "paragraphs": [
+          "The report's results section gives a simulated temperature coefficient of 13.14 ppm/°C at a 1.2 V supply over 0–70°C. It also discusses sensitivity to supply noise and opportunities to improve startup and yield."
+        ]
+      },
+      {
+        "label": "Reflection",
+        "paragraphs": [
+          "Low power was a set of tradeoffs, not a single setting. Each improvement had to be weighed against the limits the reference could tolerate."
+        ]
+      }
+    ]
+  }
+]

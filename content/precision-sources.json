@@ -1,0 +1,7 @@
+{
+  "brief": "../v2-planning/FINAL_UX_BRIEF.txt",
+  "preserved": ["Current visual identity", "Seven-stop chronology", "Twelve-chapter Book", "All eight case studies", "Original photographs and product designs"],
+  "fictionalFamily": {"Eleanor":"Storyteller / grandmother","Daniel":"Adult child / family organizer","Maya":"Granddaughter / family contributor","event":"Sunday at Eleanor’s"},
+  "pilotClaim": {"copy":"Four nursing homes.","source":"../v2-planning/source-text/documents--bao-vo-business-resume.txt","sourceLine":28,"excerpt":"successfully launching pilots in 4 nursing homes","publicSource":"/documents/bao-vo-business-resume.pdf"},
+  "imagery": {"newGeneration":false,"reusedConcept":"/media/story/sunday-table.webp","provenance":"content/generated-story-memory.json","suppliedProductScreens":"content/current-story-sources.json","note":"Supplied product designs are preserved as original artifacts. The authored demonstration around them uses one consistent fictional family."}
+}

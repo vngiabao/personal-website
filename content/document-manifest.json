@@ -1,0 +1,55 @@
+[
+  {
+    "source": "documents\\articulate-team-11.pdf",
+    "output": "/documents/articulate-selected-excerpts.pdf",
+    "originalPages": [
+      1,
+      11,
+      13,
+      17,
+      25
+    ],
+    "pages": 6,
+    "notes": [
+      "Product concept / Ross +Tech Innovation Jam / 2025",
+      "Selected concept and team slides.",
+      "Competition recognition is not evidence of clinical effectiveness.",
+      "Private personal case material and appendix artwork are excluded."
+    ]
+  },
+  {
+    "source": "documents\\secc-2026-five-star-consulting.pdf",
+    "output": "/documents/aurora-selected-excerpts.pdf",
+    "originalPages": [
+      1,
+      6,
+      14,
+      17
+    ],
+    "pages": 5,
+    "notes": [
+      "Competition recommendation / SECC / 2026",
+      "A historical team recommendation, not a deployed client program.",
+      "Selected positioning and execution exhibits.",
+      "Financial model pages and unverified outcome projections are excluded."
+    ]
+  },
+  {
+    "source": "documents\\mhcc-2025-syntria-partners.pdf",
+    "output": "/documents/cagrisema-selected-excerpts.pdf",
+    "originalPages": [
+      1,
+      10,
+      14,
+      16
+    ],
+    "pages": 5,
+    "notes": [
+      "Historical competition analysis / MHCC / 2025",
+      "The retained artifact is labeled Quarter Finals Submission.",
+      "The team reached the semifinals.",
+      "No current drug-status or clinical-superiority claim is made here.",
+      "Personal health histories and model pages are excluded."
+    ]
+  }
+]
