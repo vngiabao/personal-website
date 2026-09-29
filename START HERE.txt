@@ -1,0 +1,22 @@
+BAO VO - CURRENT WEBSITE - WINDOWS PORTABLE EXPORT
+
+1. Extract the entire ZIP into a new folder. Do not run from inside the ZIP.
+2. Double-click OPEN WEBSITE.cmd.
+3. Open http://127.0.0.1:3001 if the browser opens before the server is ready.
+4. Keep the command window open while viewing the site.
+
+This is the current Next.js website previously viewed at port 3000.
+Port 3001 avoids accidentally showing an older server already running on 3000.
+The content and design are identical; only the local address changes.
+
+Includes the exact production build QygSHc3N4NeI8PVMys0SJ, source files,
+all public images, fonts and PDFs, dependencies, and a Windows Node runtime.
+No installation or internet connection is required to run the included build.
+External links such as LinkedIn still require internet.
+
+This is a web application, not a single HTML file. Use the launcher.
+There is no older Claude HTML website in this export.
+
+To edit/rebuild, use the source and package.json instructions in README.md.
+The bundled runtime is for Windows x64. Other systems need their own Node
+installation and dependencies installed from pnpm-lock.yaml.

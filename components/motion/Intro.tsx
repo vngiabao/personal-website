@@ -18,7 +18,8 @@
  * remove the class. The inline script has its own timeout in case this
  * bundle never arrives. Click, tap or Escape skips to the lift.
  */
-import {useLayoutEffect,useRef,useState} from 'react';
+import {useCallback,useLayoutEffect,useRef,useState} from 'react';
+import {ChipIntro} from './ChipIntro';
 import {gsap,EASE} from '@/lib/motion';
 import {releaseIntro} from './introSignal';
 
@@ -36,23 +37,36 @@ const STOPS=[
 const LAST=STOPS.length-1;
 const at=(i:number)=>i/LAST*100;
 
+/** WebGL2 is what the silicon intro needs; without it the card intro plays. */
+const canChip=()=>{try{return !!document.createElement('canvas').getContext('webgl2')}catch{return false}};
+
 export function Intro(){
  // Rendered as nothing on the server and at hydration; the layout effect
  // below swaps the painted cover for this one before the first paint.
- const [active,setActive]=useState(false);
+ const [mode,setMode]=useState<'off'|'chip'|'card'>('off');
+ const done=useCallback(()=>setMode('off'),[]);
+ const fail=useCallback(()=>setMode('card'),[]);
+
+ useLayoutEffect(()=>{
+  const html=document.documentElement;
+  if(html.classList.contains('intro')&&matchMedia('(prefers-reduced-motion: no-preference)').matches)setMode(canChip()?'chip':'card');
+  else{html.classList.remove('intro');releaseIntro()}
+ },[]);
+
+ if(mode==='chip')return <ChipIntro onDone={done} onFail={fail}/>;
+ if(mode==='card')return <CardIntro onDone={done}/>;
+ return null;
+}
+
+/** The original title card: the Path as a trace, run once. Now the fallback. */
+function CardIntro({onDone}:{onDone:()=>void}){
  const root=useRef<HTMLDivElement>(null);
  const year=useRef<HTMLSpanElement>(null);
 
  useLayoutEffect(()=>{
   const html=document.documentElement;
-  if(html.classList.contains('intro')&&matchMedia('(prefers-reduced-motion: no-preference)').matches)setActive(true);
-  else{html.classList.remove('intro');releaseIntro()}
- },[]);
-
- useLayoutEffect(()=>{
-  const html=document.documentElement;
   const el=root.current;
-  if(!active||!el)return;
+  if(!el)return;
   try{sessionStorage.setItem(SEEN,'1')}catch{/* Private mode: the intro may play again, which is harmless. */}
   // This component's cover now stands where the painted one was.
   html.classList.remove('intro');
@@ -67,7 +81,7 @@ export function Intro(){
   // A context, so cleanup reverts every from() — StrictMode's rehearsal run
   // would otherwise leave the contents hidden.
   const ctx=gsap.context(()=>{
-   const tl=gsap.timeline({onComplete:()=>{html.style.overflow='';setActive(false)}});
+   const tl=gsap.timeline({onComplete:()=>{html.style.overflow='';onDone()}});
    tl.from(q('.intro-eyebrow'),{y:14,opacity:0,duration:.9,ease:EASE},.1)
     .from(q('.intro-name > span'),{yPercent:110,duration:1.3,ease:EASE,stagger:.06},.15)
     .from(q('.intro-keyline'),{scaleX:0,duration:1,ease:'expo.inOut'},.45)
@@ -98,9 +112,8 @@ export function Intro(){
   // No releaseIntro() in cleanup: StrictMode's rehearsal unmount would start
   // the hero under a cover that is about to be rebuilt.
   return()=>{ctx.revert();html.style.overflow=''};
- },[active]);
+ },[onDone]);
 
- if(!active)return null;
  return <div className="site-intro" ref={root} aria-hidden="true">
   <span className="intro-frame"/>
   <div className="intro-centre">

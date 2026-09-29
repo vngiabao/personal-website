@@ -1,0 +1,369 @@
+/*
+ * Atelier — the evolved visual layer (September 28, 2026). Imported last.
+ *
+ * Same site, same order, same navy / cream / brass. What changes is the
+ * craft underneath it:
+ *
+ *   Type     Mona Sans carries the engineering voice (condensed for display,
+ *            expanded for labels); Brygada 1918 carries the human one (the
+ *            italic turn in every headline, quotes, the Book).
+ *   Ground   One warm paper family instead of a dozen near-whites that
+ *            drifted between cream, sage and blue-grey; a fixed paper grain.
+ *   Form     Hairlines over boxed cards; one radius family; pills only for
+ *            actions, with the arrow set in its own capsule.
+ *   Motion   One easing vocabulary (Emil Kowalski's curves), press feedback
+ *            on everything pressable, hover gated to real pointers, page
+ *            transitions, a scroll-progress rule.
+ *
+ * Earlier layers stay in place; selectors here carry just enough weight to
+ * win the cascade. Reduced motion is honoured at the end of the file.
+ */
+
+/* ── Tokens ─────────────────────────────────────────────────────────── */
+:root{
+ --blue:#00274c;--ink:#0d2238;--cream:#f5f1e8;--paper:#ece5d6;--soft:#fbf8f1;--stone:#ddd4c3;
+ --muted:#545f6b;--brass:#b58420;--brass-text:#7a5612;--maize:#e8c064;
+ --line:rgb(13 34 56/.13);--line-strong:rgb(13 34 56/.24);--rule:var(--line);
+ --ease-out:cubic-bezier(.23,1,.32,1);--ease-in-out:cubic-bezier(.77,0,.175,1);--ease-drawer:cubic-bezier(.32,.72,0,1);
+ --display-stretch:86%;--label-stretch:116%;
+ --arrow-cream:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23fbf8f1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 8h11M9 3.5 13.5 8 9 12.5'/%3E%3C/svg%3E");
+ --arrow-navy:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2300274c' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 8h11M9 3.5 13.5 8 9 12.5'/%3E%3C/svg%3E");
+ --arrow-brass:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%237a5612' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 8h11M9 3.5 13.5 8 9 12.5'/%3E%3C/svg%3E");
+}
+
+/* ── Browser surfaces: the parts nobody draws ───────────────────────── */
+html{scrollbar-color:rgb(0 39 76/.34) transparent;scrollbar-width:thin;-webkit-tap-highlight-color:transparent}
+html.lenis,html.lenis body{scroll-behavior:auto}
+body{background:var(--cream);color:var(--ink);font-kerning:normal;font-optical-sizing:auto;text-rendering:optimizeLegibility}
+::selection{background:var(--blue);color:var(--soft)}
+.blue ::selection,.home-book-section ::selection{background:var(--maize);color:var(--blue)}
+input,textarea{caret-color:var(--brass)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:4px;border-radius:4px}
+a{text-underline-offset:.22em;text-decoration-thickness:1px}
+.proof-value,.career-year,.project-number,.intro-year,.book-folio,time{font-variant-numeric:lining-nums tabular-nums}
+
+/* Texture (layers injected by components/motion/Interactions): navy is the
+   Book's cloth, A Story's cream is paper, reading surfaces stay clean. */
+.tex-host{position:relative;isolation:isolate}
+.tex{position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;overflow:hidden}
+/* Cloth: every navy band shares the Book cover's material, the same fine
+   cross-weave at the same weight (app/master.css .book-face). */
+.tex-cloth{background:repeating-linear-gradient(0deg,rgb(255 255 255/.016) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgb(255 255 255/.012) 0 1px,transparent 1px 3px)}
+/* Paper: A Story is a family archive; its pages feel like kept paper. */
+main :is(.new-venture,.new-story-hero,.st-listen,.st-voices,.st-how,.st-different,.story-ending){background-image:url('/textures/paper-grain-soft.png');background-size:160px 160px}
+
+/* ── Page transitions ───────────────────────────────────────────────── */
+/* Same-document (next/link): React names the page boundary .page-in / .page-out. */
+::view-transition-old(root),::view-transition-new(root){animation:none}
+::view-transition-old(.page-out){animation:200ms var(--ease-out) both page-leave}
+::view-transition-new(.page-in){animation:640ms var(--ease-out) 80ms both page-arrive}
+@keyframes page-leave{to{opacity:0;transform:translateY(-10px);filter:blur(4px)}}
+@keyframes page-arrive{from{opacity:0;transform:translateY(22px);filter:blur(6px)}}
+/* Shared element: a Work preview becomes the case study's hero. Blur hides the resample. */
+::view-transition-group(.morph){animation-duration:680ms;animation-timing-function:var(--ease-in-out)}
+::view-transition-image-pair(.morph){animation:morph-blur 680ms var(--ease-in-out)}
+@keyframes morph-blur{40%{filter:blur(4px)}}
+.case-morph{height:100%}
+/* Cross-document (plain links, e.g. into a case study): the same feel for the whole page. */
+@view-transition{navigation:auto}
+@media(prefers-reduced-motion:reduce){
+ @view-transition{navigation:none}
+ ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}
+
+/* ── Type ───────────────────────────────────────────────────────────── */
+/* Display: the engineering voice, condensed and set tight. Serif headings ignore the width axis. */
+main :is(h1,h2),.contact-close h2{font-stretch:var(--display-stretch);font-weight:620;letter-spacing:-.026em;font-feature-settings:'ss01','kern'}
+main :is(h1,h2) em,.contact-close h2 em{font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:100%;letter-spacing:-.018em;padding-right:.04em}
+main h3{letter-spacing:-.012em}
+/* Labels: the same family opened wide, so small caps read as engraving rather than shouting. */
+.eyebrow,.small,figcaption{font-family:var(--sans)}
+main .eyebrow,.contact-close .eyebrow{font-stretch:var(--label-stretch);font-weight:560;font-size:11.5px;letter-spacing:.17em;color:rgb(13 34 56/.72)}
+.blue .eyebrow,.home-book-section .eyebrow{color:rgb(251 248 241/.74)}
+main .eyebrow .chapter-number{font-family:var(--serif);font-style:italic;font-stretch:100%;font-size:15px;letter-spacing:0;font-weight:400;color:var(--brass-text)}
+.blue .eyebrow .chapter-number{color:var(--maize)}
+/* Unicode ornaments are not an icon system. */
+.identity-copy .sparkle{display:none}
+main p,main li{hanging-punctuation:first}
+main p{text-wrap:pretty}
+
+/* ── Actions ────────────────────────────────────────────────────────── */
+/* Pills with the arrow in its own capsule. Press gives way (scale), hover
+   nudges the capsule; the magnetic pull (components/motion/Interactions)
+   moves `translate`, so the three never fight over `transform`. */
+:is(main,.contact-close,.site-footer) :is(.solid-link,:is(.outline-link,.secondary-link)){
+ position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:18px;
+ min-height:54px;padding:7px 7px 7px 24px;border-radius:999px;border:1px solid var(--blue);
+ font:560 15.5px/1.1 var(--sans);letter-spacing:.004em;text-decoration:none;box-shadow:none;transform:none;
+ transition:background-color 280ms ease,color 280ms ease,border-color 280ms ease,box-shadow 400ms var(--ease-out),scale 160ms var(--ease-out)}
+:is(main,.contact-close,.site-footer) :is(.solid-link,:is(.outline-link,.secondary-link))::after{
+ content:'';flex:none;width:40px;height:40px;border-radius:50%;
+ background:var(--arrow-cream) center/15px no-repeat,rgb(251 248 241/.14);
+ transition:transform 480ms var(--ease-out),background-color 280ms ease}
+:is(main,.contact-close,.site-footer) :is(.solid-link,:is(.outline-link,.secondary-link))>span[aria-hidden]{display:none}
+:is(main,.contact-close,.site-footer) :is(.solid-link,:is(.outline-link,.secondary-link))[href^="http"]::after{transform:rotate(-45deg)}
+:is(main,.contact-close,.site-footer) :is(.solid-link,:is(.outline-link,.secondary-link)):active{scale:.97;transform:none}
+main .solid-link{background:var(--blue);color:var(--soft)}
+main :is(.outline-link,.secondary-link){background:transparent;color:var(--blue);border-color:var(--line-strong)}
+:is(main,.site-footer) :is(.outline-link,.secondary-link)::after{background:var(--arrow-cream) center/15px no-repeat,var(--blue)}
+:is(.blue,.home-book-section,.contact-close,.closed-book-copy) .solid-link{background:var(--soft);color:var(--blue);border-color:var(--soft)}
+:is(.blue,.home-book-section,.contact-close,.closed-book-copy) .solid-link::after{background:var(--arrow-cream) center/15px no-repeat,var(--blue)}
+:is(.blue,.home-book-section,.contact-close,.closed-book-copy) :is(.outline-link,.secondary-link){background:transparent;color:var(--soft);border-color:rgb(251 248 241/.34)}
+:is(.blue,.home-book-section,.contact-close,.closed-book-copy) :is(.outline-link,.secondary-link)::after{background:var(--arrow-navy) center/15px no-repeat,var(--soft)}
+@media(hover:hover) and (pointer:fine){
+ main .solid-link:hover{background:#0a3561;transform:none;box-shadow:0 14px 34px -16px rgb(0 39 76/.55)}
+ main :is(.outline-link,.secondary-link):hover{background:rgb(0 39 76/.04);border-color:var(--blue);transform:none;box-shadow:none}
+ :is(.blue,.home-book-section,.contact-close,.closed-book-copy) .solid-link:hover{background:#fff;box-shadow:0 14px 34px -16px rgb(0 0 0/.5)}
+ :is(.blue,.home-book-section,.contact-close,.closed-book-copy) :is(.outline-link,.secondary-link):hover{background:rgb(251 248 241/.08);border-color:var(--soft)}
+ :is(main,.contact-close) :is(.solid-link,:is(.outline-link,.secondary-link)):hover::after{transform:translateX(3px)}
+ :is(main,.contact-close) :is(.solid-link,:is(.outline-link,.secondary-link))[href^="http"]:hover::after{transform:rotate(-45deg) translateX(3px)}
+}
+/* Compact actions inside panels keep the capsule, scaled down. */
+main .project-preview-copy .solid-link,main .journey-actions .solid-link,main .career-actions .solid-link{min-height:46px;padding:5px 5px 5px 18px;font-size:14px}
+main .project-preview-copy .solid-link::after,main .journey-actions .solid-link::after,main .career-actions .solid-link::after{width:34px;height:34px}
+
+/* Quiet links: a single hairline that withdraws and redraws on hover. */
+:is(main,.contact-close) .arrow-link:not(.solid-link):not(.outline-link,.secondary-link){
+ gap:14px;justify-content:flex-start;padding:12px 0 10px;border-bottom:0;min-height:44px;font-weight:540;
+ background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;transition:color 200ms ease}
+:is(main,.contact-close) .arrow-link:not(.solid-link):not(.outline-link,.secondary-link):hover{gap:14px}
+@media(hover:hover) and (pointer:fine){
+ :is(main,.contact-close) .arrow-link:not(.solid-link):not(.outline-link,.secondary-link):hover{animation:rule-redraw 720ms var(--ease-in-out)}
+}
+@keyframes rule-redraw{0%{background-size:100% 1px;background-position:100% 100%}45%{background-size:0% 1px;background-position:100% 100%}46%{background-size:0% 1px;background-position:0 100%}100%{background-size:100% 1px;background-position:0 100%}}
+
+/* Everything else that presses gives way under the finger. */
+main button:not(:disabled):active,.site-footer a:active{scale:.98}
+main button{transition:background-color 220ms ease,border-color 220ms ease,color 220ms ease,box-shadow 360ms var(--ease-out),scale 160ms var(--ease-out),transform 360ms var(--ease-out)}
+
+/* ── Grounds: one warm paper family ─────────────────────────────────── */
+main :is(.journey-section,.new-venture,.off-clock,.how-work,.about-path,.about-work-pair,.about-education,.st-voices,.story-ending,.contact-invitations){background-color:var(--paper)}
+main .st-listen{background-color:var(--soft)}
+/* Heroes sit on the page ground, so the transparent header never shows a seam above them. */
+main .new-story-hero{background-color:var(--cream)}
+main .case-chapter-problem{background-color:var(--paper)}
+main .identity-hero{background:radial-gradient(90% 70% at 78% 30%,rgb(181 132 32/.07),transparent 60%),linear-gradient(180deg,var(--cream),var(--cream))}
+/* Navy bands: a faint light from above so the colour has depth rather than flatness. */
+:is(main,body) :is(section.blue,.contact-close.blue,.case-next.blue){background-color:var(--blue);background-image:radial-gradient(120% 80% at 50% -10%,rgb(35 84 138/.55),transparent 62%)}
+
+/* ── Section bars (Home "In this edition", About, A Story) ───────────── */
+.chapter-nav,.section-navigation{background:rgb(245 241 232/.93);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-block:1px solid var(--line);box-shadow:none}
+.chapter-nav .chapter-links{position:relative;background:transparent;border:0;border-radius:0;padding:0;gap:0}
+.section-navigation>.container{position:relative}
+.chapter-nav .chapter-links>a,.section-navigation a{background:transparent;box-shadow:none;border-radius:0;color:rgb(13 34 56/.62);font:500 14.5px/1.25 var(--sans);letter-spacing:.005em;transition:color 200ms ease}
+.chapter-nav .chapter-links>a[aria-current=location],.section-navigation a[aria-current=location]{background:transparent;box-shadow:none;color:var(--blue);font-weight:600}
+@media(hover:hover){.chapter-nav .chapter-links>a:hover,.section-navigation a:hover{background:transparent;color:var(--blue)}}
+.nav-ink{position:absolute;left:0;bottom:0;width:100px;height:2px;background:var(--brass);transform-origin:0 50%;opacity:0;pointer-events:none;transition:transform 440ms var(--ease-in-out),opacity 200ms ease}
+.chapter-nav-label{font-family:var(--serif)!important;color:var(--brass-text)}
+
+/* ── Home: hero ─────────────────────────────────────────────────────── */
+.identity-hero h1{font-size:clamp(58px,7.3vw,122px);line-height:.9;letter-spacing:-.032em;font-weight:640}
+.identity-hero h1 em{color:var(--brass-text);letter-spacing:-.022em}
+/* The headline's weight follows the pointer; its lines must not re-wrap while it does. */
+@media(min-width:1024px){.identity-hero h1>span{white-space:nowrap}}
+.identity-hero .hello-line{font-family:var(--serif);font-style:italic;font-size:clamp(22px,1.8vw,27px);color:rgb(13 34 56/.72)}
+.identity-hero .identity-description{font-size:clamp(18px,1.35vw,21px);line-height:1.5;color:var(--ink);max-width:31ch}
+.identity-hero .current-note{border-top:1px solid var(--line);padding-top:18px}
+.identity-hero .current-note .small{font-stretch:var(--label-stretch);letter-spacing:.17em;font-weight:560}
+.identity-hero .hero-discovery{font-weight:520;border-bottom-color:var(--line-strong)}
+.identity-hero .identity-caption>span:first-child{font-family:var(--serif);font-style:italic}
+.identity-hero .arch-frame{box-shadow:0 40px 80px -48px rgb(0 39 76/.45)}
+
+/* ── The Path ───────────────────────────────────────────────────────── */
+.snake-map .chronology-stops button{border:1px solid var(--line-strong);border-radius:14px;background:var(--soft);box-shadow:none;transition:background-color 260ms ease,border-color 260ms ease,color 260ms ease,box-shadow 500ms var(--ease-out),transform 500ms var(--ease-out),scale 160ms var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.snake-map .chronology-stops button:hover{background:#fff;border-color:rgb(0 39 76/.45);transform:translateY(-3px);box-shadow:0 22px 40px -28px rgb(0 39 76/.5)}}
+.snake-map .chronology-stops button[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:var(--soft);transform:translateY(-3px);box-shadow:inset 0 -2px var(--brass),0 28px 50px -30px rgb(0 39 76/.75)}
+.snake-map .chronology-stops button .career-year{font-family:var(--sans);font-stretch:var(--label-stretch);font-weight:560;letter-spacing:.06em;font-size:12.5px}
+.snake-map .chronology-stops button small{font-stretch:var(--label-stretch);letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;font-weight:540}
+.chronology-rail path:not(.rail-directions){stroke:rgb(0 39 76/.32)}
+/* The Path's signal: brass up to the chosen chapter, and the pulse that runs there. */
+.snake-map .chronology-stops button[data-signal]:not([aria-pressed=true]){border-color:var(--brass);box-shadow:0 0 0 1px rgb(181 132 32/.55),0 14px 30px -18px rgb(181 132 32/.8);transition-duration:120ms}
+.chronology-rail path.rail-lit{stroke:var(--brass);stroke-width:2;fill:none;stroke-dasharray:1 1;stroke-dashoffset:1}
+.chronology-rail path.rail-pulse{stroke:#f3d58e;stroke-width:3.5;stroke-linecap:round;fill:none;stroke-dasharray:.024 2;stroke-dashoffset:0;opacity:0;filter:drop-shadow(0 0 4px rgb(210 166 74/.9)) drop-shadow(0 0 10px rgb(210 166 74/.5))}
+.career-intro>span{font-family:var(--serif);font-style:italic;color:var(--brass-text)}
+.career-deck{position:relative}
+/* Each chapter arrives: the photograph opens, the words rise after it. */
+.career-stage .career-media{animation:stage-open 900ms var(--ease-out) both}
+.career-stage .career-copy>*{animation:stage-rise 700ms var(--ease-out) both}
+.career-stage .career-copy>:nth-child(2){animation-delay:40ms}.career-stage .career-copy>:nth-child(3){animation-delay:80ms}.career-stage .career-copy>:nth-child(4){animation-delay:120ms}.career-stage .career-copy>:nth-child(5){animation-delay:160ms}.career-stage .career-copy>:nth-child(n+6){animation-delay:200ms}
+@keyframes stage-open{from{clip-path:inset(8% 10% 8% 10% round 12px);opacity:0;filter:blur(6px)}to{clip-path:inset(0 0 0 0 round 0);opacity:1;filter:blur(0)}}
+@keyframes stage-rise{from{opacity:0;transform:translateY(14px)}}
+@media(prefers-reduced-motion:reduce){.career-stage .career-media,.career-stage .career-copy>*{animation:stage-fade 200ms ease both}}
+@keyframes stage-fade{from{opacity:0}}
+.career-stage{border:1px solid var(--line);border-radius:16px;box-shadow:0 40px 80px -60px rgb(0 39 76/.4);overflow:hidden}
+
+/* ── Work ───────────────────────────────────────────────────────────── */
+main .work-lenses>button{border:1px solid var(--line-strong);border-radius:16px;background:transparent;box-shadow:none}
+main .work-lenses>button strong{font-stretch:var(--display-stretch)}
+@media(hover:hover) and (pointer:fine){main .work-lenses>button:hover{background:var(--soft);border-color:rgb(0 39 76/.45)}}
+main .work-lenses>button[aria-pressed=true]{background:var(--blue);color:var(--soft);border-color:var(--blue)}
+main .work-lenses>button[aria-pressed=true] :is(.eyebrow,p,span){color:rgb(251 248 241/.8)}
+main .work-filters button{border-radius:999px;border:1px solid var(--line-strong);background:transparent;box-shadow:none;font-weight:520;padding-inline:20px}
+main .work-filters button[aria-pressed=true]{background:var(--blue);color:var(--soft);border-color:var(--blue);box-shadow:none}
+main .project-selectors>button{border-radius:0;border:0;border-bottom:1px solid var(--line);background:transparent;box-shadow:none;transition:background-color 260ms ease,color 260ms ease}
+main .project-selectors>button strong{font-stretch:92%;font-weight:560;letter-spacing:-.012em}
+main .project-selectors>button .project-number{font-family:var(--serif);font-style:italic;color:var(--brass-text)}
+@media(hover:hover) and (pointer:fine){main .project-selectors>button:not([aria-pressed=true]):hover{background:rgb(0 39 76/.035)}}
+main .project-selectors>button[aria-pressed=true]{background:var(--blue);color:var(--soft);border-radius:10px;border-bottom-color:transparent;box-shadow:inset 3px 0 var(--brass)}
+main .project-selectors>button[aria-pressed=true] .project-number{color:var(--maize)}
+main .project-preview{border:1px solid var(--line);border-radius:18px;background:var(--soft);box-shadow:0 50px 90px -70px rgb(0 39 76/.55);overflow:hidden}
+main .project-preview .project-visual{animation:preview-in 620ms var(--ease-out) both}
+@keyframes preview-in{from{opacity:0;filter:blur(6px);transform:scale(1.015)}}
+
+/* ── Case studies ───────────────────────────────────────────────────── */
+main .case-hero{background:radial-gradient(80% 90% at 85% 20%,rgb(181 132 32/.08),transparent 60%),linear-gradient(180deg,var(--cream),var(--paper))}
+main .case-impact{font-variant-numeric:lining-nums tabular-nums}
+main .case-chapter-result{background-color:var(--blue);background-image:radial-gradient(120% 90% at 50% -20%,rgb(35 84 138/.6),transparent 60%);border-radius:16px}
+main .case-chapter-problem{border-radius:16px}
+
+/* ── Archive ─────────────────────────────────────────────────────────── */
+main .archive-controls{background:var(--soft);border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -50px rgb(0 39 76/.4)}
+main .archive-controls :is(input,select){background:#fff;border:1px solid var(--line-strong);border-radius:10px;transition:border-color 200ms ease,box-shadow 300ms var(--ease-out)}
+main .archive-controls :is(input,select):focus-visible{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgb(181 132 32/.22)}
+main :is(.archive-controls,.archive-results-line,.archive-empty) button{border-radius:999px;padding-inline:24px}
+main .archive-results-line button{background:transparent;color:var(--blue);border:1px solid var(--line-strong)}
+@media(hover:hover){main .archive-results-line button:hover{border-color:var(--blue);background:rgb(0 39 76/.04)}}
+main .archive-record{transition:background-color 260ms ease}
+main .archive-record .record-title{font-stretch:92%;letter-spacing:-.015em;transition:translate 480ms var(--ease-out)}
+main .archive-record :is(.record-num,.record-year){font-variant-numeric:lining-nums tabular-nums}
+@media(hover:hover) and (pointer:fine){main .archive-record:hover{background:rgb(0 39 76/.03)}main .archive-record:hover .record-title{translate:8px 0}}
+
+/* ── On the record ──────────────────────────────────────────────────── */
+main .proof-value{font-stretch:80%;font-weight:640;letter-spacing:-.035em}
+main .proof-value :is(em,i,span){font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:100%;letter-spacing:0}
+main .proof-point{border-color:var(--line)}
+
+/* ── Recognition ────────────────────────────────────────────────────── */
+.recognition blockquote{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1.08}
+.recognition .quote-ornament{font-family:var(--serif);color:var(--maize)}
+.recognition-records>a{transition:opacity 260ms ease}
+@media(hover:hover){.recognition-records:hover>a:not(:hover){opacity:.55}}
+
+/* ── Photographs ────────────────────────────────────────────────────── */
+@media(hover:hover) and (pointer:fine){
+ main .personal-grid .photo picture,main .archive-cards>a{overflow:hidden}
+ main .personal-grid .photo img{transition:transform 1100ms var(--ease-out)}
+ main .personal-grid .photo:hover img{transform:scale(1.04)}
+ main .archive-cards>a{transition:transform 600ms var(--ease-out),box-shadow 600ms var(--ease-out)}
+ main .archive-cards>a:hover{transform:translateY(-10px) rotate(0deg)!important;box-shadow:0 40px 60px -40px rgb(0 39 76/.55)}
+}
+main figcaption{letter-spacing:.01em}
+main .personal-grid figcaption{font-family:var(--serif);font-style:italic;font-size:14px}
+
+/* ── Contact (page) ─────────────────────────────────────────────────── */
+/* Three openings, set as an index rather than three boxes: a rule, a title, a line, an action. */
+main .contact-invitations a{position:relative;padding:30px 0 6px;background:transparent;border:0;border-top:1px solid var(--line-strong);border-radius:0;transition:border-color 300ms ease}
+main .contact-invitations a::before{content:'';position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:0 50%;transition:transform 620ms var(--ease-out)}
+main .contact-invitations a h3{font-size:clamp(28px,2.4vw,38px);transition:translate 520ms var(--ease-out)}
+main .contact-invitations a>span{display:inline-flex;align-items:center;gap:12px;margin-top:18px;font-weight:560;color:var(--blue);border:0;text-decoration:none}
+main .contact-invitations a>span::after{content:'';width:32px;height:32px;border-radius:50%;border:1px solid var(--line-strong);background:var(--arrow-navy) center/13px no-repeat;transition:transform 480ms var(--ease-out),background-color 240ms ease,border-color 240ms ease}
+@media(hover:hover) and (pointer:fine){
+ main .contact-invitations a:hover{background:transparent;transform:none}
+ main .contact-invitations a:hover::before{transform:scaleX(1)}
+ main .contact-invitations a:hover h3{translate:6px 0}
+ main .contact-invitations a:hover>span::after{transform:translateX(4px);background-color:var(--blue);background-image:var(--arrow-cream);border-color:var(--blue)}
+}
+main .contact-hero h1{font-size:clamp(84px,11vw,188px);line-height:.86}
+
+/* ── Closing band ───────────────────────────────────────────────────── */
+.contact-close h2{font-size:clamp(64px,8.4vw,150px);line-height:.88}
+.contact-close h2 em{color:var(--maize)}
+
+/* ── Footer: the signature ──────────────────────────────────────────── */
+.site-footer{position:relative;background:var(--cream);color:var(--blue);padding:clamp(56px,7vw,96px) 0 28px;border-top:1px solid var(--line);overflow:hidden}
+.site-footer>.container{display:block}
+.site-footer .footer-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:20px 48px}
+.site-footer .footer-line{order:0;width:auto;margin:0;max-width:none;font:400 clamp(20px,1.7vw,26px)/1.3 var(--serif);color:var(--ink)}
+.site-footer .footer-line em{color:var(--brass-text)}
+.site-footer nav{order:0;width:auto;margin:0;display:flex;flex-wrap:wrap;gap:8px 30px;font:520 15px/1 var(--sans)}
+.site-footer .footer-top nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 calc(100% - 10px)/0 1px no-repeat;transition:background-size 480ms var(--ease-out)}
+@media(hover:hover){.site-footer .footer-top nav a:hover{background-size:100% 1px}}
+/* Where to next: three destinations as ruled rows, the page's closing offer. */
+.site-footer .footer-next{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:24px 64px;align-items:start;margin-bottom:clamp(48px,6vw,88px)}
+.site-footer .footer-next-title{margin:0;font:620 clamp(40px,4.6vw,76px)/.95 var(--sans);font-stretch:86%;letter-spacing:-.028em;color:var(--blue)}
+.site-footer .footer-next-title em{font:italic 400 1em/1 var(--serif);letter-spacing:-.018em;color:var(--brass-text)}
+.site-footer .footer-next ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong)}
+.site-footer .footer-next li{border-bottom:1px solid var(--line-strong)}
+.site-footer .footer-next a{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto 44px;align-items:center;gap:24px;min-height:84px;padding:18px 0;text-decoration:none;color:var(--blue)}
+.site-footer .footer-next a::before{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:0 50%;transition:transform 620ms var(--ease-out)}
+.site-footer .footer-next a::after{content:'';width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:var(--arrow-navy) center/15px no-repeat;transition:transform 480ms var(--ease-out),background-color 240ms ease,border-color 240ms ease}
+.site-footer .footer-next strong{font:600 clamp(24px,2.3vw,36px)/1.05 var(--sans);font-stretch:90%;letter-spacing:-.02em;transition:translate 520ms var(--ease-out)}
+.site-footer .footer-next span{font-size:15px;color:var(--muted);text-align:right}
+@media(hover:hover) and (pointer:fine){
+ .site-footer .footer-next a:hover::before{transform:scaleX(1)}
+ .site-footer .footer-next a:hover strong{translate:8px 0}
+ .site-footer .footer-next a:hover::after{transform:translateX(4px);background-color:var(--blue);background-image:var(--arrow-cream);border-color:var(--blue)}
+}
+.site-footer .footer-next a:active{scale:.99}
+@media(max-width:1023px){.site-footer .footer-next{grid-template-columns:1fr}}
+@media(max-width:767px){.site-footer .footer-next a{grid-template-columns:minmax(0,1fr) 40px;gap:4px 16px}.site-footer .footer-next span{grid-row:2;text-align:left;font-size:14px}.site-footer .footer-next a::after{grid-row:1/3;grid-column:2;width:40px;height:40px}}
+.site-footer .footer-top{padding-bottom:28px}
+/* Earlier layers reorder footer paragraphs on phones; state the order outright. */
+.site-footer .footer-next-title{order:0;width:auto}.site-footer .footer-base .footer-clock{order:0}.site-footer .footer-base .small{order:1;margin-left:0}.site-footer .footer-base .footer-up{order:2}
+.site-footer .footer-base{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;padding-top:22px;border-top:1px solid var(--line);font:500 13px/1.4 var(--sans);color:var(--muted)}
+.site-footer .footer-base .small{order:0;margin:0;font-size:13px;color:var(--muted)}
+.site-footer .footer-clock{margin:0;font-family:var(--sans);font-style:normal;display:inline-flex;align-items:center;gap:10px;max-width:none;font-size:13px;color:var(--muted)}
+.site-footer .footer-clock time{color:var(--blue);font-weight:560;font-style:normal}
+.site-footer .footer-up{margin-left:auto;display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:var(--blue);font-weight:560}
+.site-footer .footer-up::after{content:'';width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);background:var(--arrow-navy) center/13px no-repeat;transform:rotate(-90deg);transition:transform 480ms var(--ease-out),background-color 240ms ease}
+@media(hover:hover){.site-footer .footer-up:hover::after{transform:rotate(-90deg) translateX(3px);background-color:rgb(0 39 76/.05)}}
+@media(max-width:767px){
+ .site-footer .footer-top{flex-direction:column;align-items:flex-start}
+ .site-footer .footer-up{margin-left:0}
+}
+
+/* ── Reduced motion: fewer, gentler — colour and opacity stay ────────── */
+@media(prefers-reduced-motion:reduce){
+ .nav-ink{transition:opacity 200ms ease}
+ main .project-preview .project-visual{animation:none}
+ :is(main,.contact-close) .arrow-link:not(.solid-link):not(.outline-link,.secondary-link):hover{animation:none}
+ :is(main,.contact-close,.site-footer) :is(.solid-link,:is(.outline-link,.secondary-link))::after,.site-footer .footer-up::after{transition:background-color 200ms ease}
+ .snake-map .chronology-stops button,.snake-map .chronology-stops button[aria-pressed=true]{transform:none}
+}
+
+/* ── The Book's page turn ───────────────────────────────────────────── */
+/* A long lens: at 2200px the lifting leaf swung toward the reader and grew
+   ~1.5× past the book's edges before settling. At 5200px it lifts like paper
+   (≤1.2×). The turn is on-screen movement, so it eases in and out rather than
+   launching fast. */
+.book-theatre.reader-shell,.book-theatre .book-pages{perspective:5200px}
+.book-theatre .turning-leaf{animation-timing-function:cubic-bezier(.5,.05,.2,1)}
+
+/* ── Two more textures, each from the subject ───────────────────────── */
+/* Laid paper: the Book's pages carry the chain lines of real book paper under
+   their gutter shading (same layers as app/book.css, with the paper appended). */
+html .book-modal .book-left{background-image:linear-gradient(to left,rgb(92 64 20/.16),rgb(92 64 20/.05) 5%,transparent 12%),linear-gradient(to right,rgb(92 64 20/.07),transparent 3%),repeating-linear-gradient(90deg,rgb(120 96 52/.055) 0 1px,transparent 1px 28px),repeating-linear-gradient(0deg,rgb(120 96 52/.028) 0 1px,transparent 1px 3px)!important}
+html .book-modal .book-right{background-image:linear-gradient(to right,rgb(92 64 20/.16),rgb(92 64 20/.05) 5%,transparent 12%),linear-gradient(to left,rgb(92 64 20/.07),transparent 3%),repeating-linear-gradient(90deg,rgb(120 96 52/.055) 0 1px,transparent 1px 28px),repeating-linear-gradient(0deg,rgb(120 96 52/.028) 0 1px,transparent 1px 3px)!important}
+/* Drafting grid: the technical exhibits are datasheets, so they sit on one —
+   the same 40px blueprint grid the NTT artifact already used, now shared. */
+main :is(.spec-sheet,.career-teaching){background-image:repeating-linear-gradient(0deg,transparent 0 39px,rgb(183 202 208/.07) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgb(183 202 208/.07) 39px 40px)}
+
+/* ── The Book's cover: a fine clothbound edition ────────────────────── */
+/* The boards keep their original linen cloth (app/master.css); on it, a blind-debossed panel with one gilt hairline inside it; gilt foil
+   pressed into the cloth; a rounded spine with raised bands; a cream page
+   block; a silk ribbon. A satin sheen glides across on hover. */
+html body .book-object.bc{border-radius:2px 6px 6px 2px;filter:drop-shadow(0 34px 34px rgb(1 8 20/.5)) drop-shadow(0 8px 10px rgb(1 8 20/.35))}
+html body .book-object.bc .book-face{border-radius:2px 6px 6px 2px;overflow:hidden;
+ box-shadow:inset 0 0 0 1px rgb(255 255 255/.045),inset 0 1px 0 rgb(255 255 255/.09),inset 0 -2px 3px rgb(0 0 0/.35),inset -1px 0 0 rgb(255 255 255/.05)!important}
+/* The panel: pressed into the board (a dark edge above, a lit edge below), then a gilt rule inside. */
+html body .book-object.bc .book-face::before{inset:7cqw 7.5cqw 7cqw 11cqw!important;border:0!important;border-radius:1px;
+ box-shadow:inset 0 1px 1px rgb(0 0 0/.55),inset 0 -1px 0 rgb(255 255 255/.07),0 1px 0 rgb(255 255 255/.06),0 -1px 1px rgb(0 0 0/.45)!important;background:none!important;outline:1px solid rgb(214 176 96/.62);outline-offset:-2.2cqw}
+/* Hinge groove beside the spine, and a satin sheen across the cloth. */
+html body .book-object.bc .book-face::after{content:'';display:block!important;position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(90deg,rgb(0 0 0/.42) 0,rgb(0 0 0/.18) 2.4cqw,rgb(255 255 255/.07) 3.2cqw,transparent 5cqw),linear-gradient(118deg,transparent 30%,rgb(255 244 220/.07) 44%,rgb(255 244 220/.12) 48%,transparent 62%) 0 0/250% 100% no-repeat;
+ background-position:0 0,100% 0;transition:background-position 1.6s cubic-bezier(.23,1,.32,1)}
+.book-stage:hover .book-object.bc .book-face::after,.book-stage:focus-visible .book-object.bc .book-face::after{background-position:0 0,0% 0}
+/* Gilt, pressed in: foil gradient kept, with a deboss shadow and a finer hand. */
+html body .book-object.bc .bc-author{letter-spacing:.5em;font-size:2.9cqw;filter:drop-shadow(0 -1px 0 rgb(0 0 0/.45)) drop-shadow(0 1px 0 rgb(255 255 255/.06))}
+html body .book-object.bc .bc-title{font-size:15.5cqw;line-height:.96;filter:drop-shadow(0 -1px 0 rgb(0 0 0/.5)) drop-shadow(0 1px 0 rgb(255 240 200/.12))}
+html body .book-object.bc .bc-trace line{stroke:#d9b366;opacity:.95}
+html body .book-object.bc .bc-trace circle{fill:#0a2140;stroke:#e0bd72}
+html body .book-object.bc :is(.bc-years,.bc-sub){filter:drop-shadow(0 -1px 0 rgb(0 0 0/.45))}
+/* Spine: rounded, catching light along its crown, with raised bands in gilt. */
+html body .book-object.bc .book-spine{background:linear-gradient(90deg,#03101f 0%,#0a2442 30%,#14365c 52%,#0a2442 74%,#040f1e 100%)!important;box-shadow:inset 0 1px 0 rgb(255 255 255/.06)}
+html body .book-object.bc .bc-spine-band{height:1.6cqw;background:linear-gradient(90deg,rgb(0 0 0/.35),rgb(255 255 255/.14) 50%,rgb(0 0 0/.35));border-block:1px solid rgb(214 176 96/.55)}
+/* The page block: cream leaves, finely ruled, shaded toward the back. */
+html body .book-object.bc::after{background:linear-gradient(90deg,rgb(0 0 0/.18),transparent 40%),repeating-linear-gradient(90deg,#d9cfbb 0 1px,#f5eedf 1px 2.5px)!important}
+/* A silk ribbon with its own sheen. */
+html body .book-object.bc .book-ribbon{background:linear-gradient(90deg,#8f6516,#d9a93e 45%,#f0cf7a 55%,#a6781f)!important;filter:drop-shadow(0 2px 2px rgb(0 0 0/.35))}
+@media(prefers-reduced-motion:reduce){html body .book-object.bc .book-face::after{transition:none}}

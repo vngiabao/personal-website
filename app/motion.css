@@ -49,3 +49,29 @@ html.hero-hold .identity-hero .identity-layout,html.hero-hold .new-home .chapter
 
 /* ── Scroll scenes ──────────────────────────────────────────────────── */
 @media print{main *{opacity:1!important;transform:none!important;clip-path:none!important}}
+
+/* ── The silicon intro (components/motion/ChipIntro.tsx) ─────────────── */
+.chip-intro{position:fixed;inset:0;z-index:1000;background:#040b18;color:var(--intro-cream);clip-path:inset(0% 0% 0% 0%);cursor:default;-webkit-user-select:none;user-select:none;overflow:hidden}
+.chip-intro .chip-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* A lens vignette: the frame falls off to black, as a product film does. */
+.chip-intro::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(110% 85% at 50% 55%,transparent 50%,rgb(2 6 14/.78) 100%)}
+/* While three.js loads, one brass hairline breathes in the dark. */
+.chip-intro:not([data-ready=true])>:not(canvas){visibility:hidden}
+.chip-intro:not([data-ready=true])::before{content:'';position:absolute;left:50%;top:50%;width:min(180px,36vw);height:1px;margin-left:min(-90px,-18vw);background:linear-gradient(90deg,transparent,var(--intro-brass),transparent);animation:chip-charge 2.4s ease-in-out infinite;z-index:1}
+@keyframes chip-charge{0%,100%{opacity:.15;transform:scaleX(.4)}50%{opacity:.8;transform:scaleX(1)}}
+.chip-intro .chip-centre{position:absolute;inset:0 0 auto;height:56%;z-index:2;display:grid;justify-items:center;align-content:center;text-align:center;pointer-events:none}
+.chip-intro .chip-name{margin:0;font:400 clamp(64px,10.5vw,176px)/.95 var(--serif);white-space:nowrap}
+.chip-intro .chip-name>span{display:inline-block;letter-spacing:-.02em}
+.chip-intro .chip-name b{font-weight:400;color:var(--intro-brass)}
+.chip-intro .chip-keyline{display:block;width:clamp(48px,5vw,80px);height:1px;margin:clamp(20px,3.2vh,34px) 0;background:var(--intro-brass)}
+.chip-intro .chip-thesis{margin:0;font:italic 400 clamp(20px,2vw,32px)/1.2 var(--serif);color:rgb(245 240 230/.82)}
+/* Chapter title cards: set like a film's chapter titles, bottom left, over
+   a soft scrim so they read against the brightest part of the die. */
+.chip-intro .chip-cards{position:absolute;inset:auto 0 0;height:52%;z-index:2;pointer-events:none;background:linear-gradient(to top,rgb(2 7 16/.82),rgb(2 7 16/.45) 45%,transparent)}
+.chip-intro .chip-card{position:absolute;left:clamp(24px,4.5vw,72px);bottom:clamp(40px,8vh,88px);visibility:hidden}
+.chip-intro .chip-card-meta{margin:0 0 clamp(10px,1.4vh,16px);overflow:hidden;display:flex;align-items:baseline;gap:18px;font:560 12px/1.2 var(--sans);font-stretch:118%;letter-spacing:.3em;text-transform:uppercase;color:rgb(245 240 230/.72)}
+.chip-intro .chip-card-meta span{font:italic 400 18px/1 var(--serif);letter-spacing:0;color:var(--intro-brass)}
+.chip-intro .chip-card-name{margin:0;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em;font:italic 400 clamp(54px,6.6vw,116px)/1 var(--serif);letter-spacing:-.02em;color:var(--intro-cream);white-space:nowrap}
+.chip-intro .chip-card-name>span{display:inline-block}
+.chip-intro .chip-skip{position:absolute;right:clamp(24px,4vw,56px);top:clamp(22px,3.5vh,40px);z-index:2;font:500 11px/1 var(--sans);font-stretch:118%;letter-spacing:.22em;text-transform:uppercase;color:rgb(245 240 230/.4)}
+@media print{.chip-intro{display:none}}

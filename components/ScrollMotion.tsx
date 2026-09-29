@@ -64,11 +64,38 @@ function home(main:HTMLElement,c:Conditions){
  if(hero){
   const h1=hero.querySelector('h1')!;
   const split=SplitText.create(h1,{type:'lines',mask:'lines'});
-  openMasks(split.masks);
+  // Set this tight (line-height .9), Brygada's italic g and y reach well below the line box.
+  openMasks(split.masks,'.32em');
   const frame=hero.querySelector('.arch-frame');
-  const tl=gsap.timeline({paused:true,onComplete:()=>split.revert()});
+  // Once the entrance has settled, the hero answers the pointer: the arch
+  // tilts a few degrees with the portrait moving against it (depth), and the
+  // headline's weight gathers toward the pointer. Mouse only; decorative.
+  const respond=()=>{
+   if(!c.wide||!matchMedia('(hover: hover) and (pointer: fine)').matches||!frame)return;
+   const img=frame.querySelector('img');
+   gsap.set(frame,{transformPerspective:1200,transformOrigin:'50% 60%'});
+   if(img)gsap.set(img,{scale:1.07});
+   const rx=gsap.quickTo(frame,'rotationX',{duration:1,ease:'power3'}),ry=gsap.quickTo(frame,'rotationY',{duration:1,ease:'power3'});
+   const ix=img?gsap.quickTo(img,'x',{duration:1.2,ease:'power3'}):null,iy=img?gsap.quickTo(img,'y',{duration:1.2,ease:'power3'}):null;
+   const weight=gsap.quickTo(h1,'fontWeight',{duration:.8,ease:'power2'});
+   const move=(e:PointerEvent)=>{
+    const box=hero.getBoundingClientRect();if(box.bottom<0)return;
+    const nx=e.clientX/innerWidth-.5,ny=e.clientY/innerHeight-.5;
+    ry(nx*7);rx(-ny*5);ix?.(-nx*16);iy?.(-ny*12);
+    const r=h1.getBoundingClientRect(),d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));
+    weight(640+gsap.utils.clamp(0,1,1-d/650)*70);
+   };
+   window.addEventListener('pointermove',move,{passive:true});
+   restore.push(()=>window.removeEventListener('pointermove',move));
+  };
+  const tl=gsap.timeline({paused:true,onComplete:()=>{split.revert();respond()}});
   tl.from(all(hero,'.identity-copy > .eyebrow, .hello-line'),{y:16,opacity:0,duration:1,ease:EASE,stagger:.08},0)
    .from(split.lines,{yPercent:115,duration:1.35,ease:EASE,stagger:.11},.12)
+   // "From silicon" is deposited: it rises as a hairline, narrow cut and
+   // settles into its full weight. It only ever grows toward its authored
+   // width, so the line masks never clip it. The serif "strategy." keeps
+   // its own weight and is untouched.
+   .fromTo(h1,{fontWeight:260,fontStretch:'75%'},{fontWeight:640,fontStretch:'86%',duration:2.1,ease:'expo.out',clearProps:'fontWeight,fontStretch'},.12)
    .from(all(hero,'.identity-description, .identity-actions, .hero-discovery, .current-note'),{y:22,opacity:0,duration:1.1,ease:EASE,stagger:.08,clearProps:'transform,opacity'},.5);
   if(frame){
    tl.fromTo(frame,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.5,ease:'expo.inOut',clearProps:'clipPath'},0)

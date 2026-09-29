@@ -60,8 +60,8 @@ export function riseLines(target:Element,vars:{delay?:number;stagger?:number;tri
  * in tightly set serif italics ("strategy."). Give each mask room below the
  * baseline and take the same room back, so the layout does not move.
  */
-export function openMasks(masks:Element[]|undefined){
- masks?.forEach(m=>{const el=m as HTMLElement;el.style.paddingBottom='.18em';el.style.marginBottom='-.18em'});
+export function openMasks(masks:Element[]|undefined,room='.18em'){
+ masks?.forEach(m=>{const el=m as HTMLElement;el.style.paddingBottom=room;el.style.marginBottom=`-${room}`});
 }
 
 /** After fonts and lazy images settle, measured scenes need their positions redone. */

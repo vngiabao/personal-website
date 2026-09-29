@@ -1,0 +1,1764 @@
+PROJECT: BAO VO PERSONAL WEBSITE — FULL CREATIVE RESET + COMPLETE V2 IMPLEMENTATION
+
+IMPORTANT:
+The previous V2 direction is NOT approved.
+
+It is too stripped down, too generic, too engineering-coded, too visually flat,
+and does not feel premium, strategic, or tailored enough.
+
+I am explicitly rejecting the current “Signal” theme as the main organizing idea.
+
+I am giving you FULL PERMISSION to rethink, rewrite, redesign, restructure,
+reorder, restyle, and fully implement the website without asking for step-by-step
+approval from me.
+
+You do NOT need to pause for checkpoints or approval.
+You are authorized to make design, content, interaction, layout, asset-selection,
+image-generation, and implementation decisions independently.
+
+However:
+- preserve the original site as an archived baseline
+- preserve ALL source materials
+- use ALL meaningful materials somewhere in the final site
+- never invent factual evidence
+- never delete the archive richness
+- build the best complete version, not a partial draft
+
+Your job is to produce a final, premium, highly curated, fully implemented
+website that feels custom-authored, expensive, interactive, and strategically
+positioned.
+
+This should feel like a million-dollar personal website, not an AI portfolio.
+
+===============================================================================
+0. MASTER CREATIVE DIRECTION
+===============================================================================
+
+This website is no longer centered on Bao as an “engineer with a signal motif.”
+
+It is centered on Bao as:
+
+- founder
+- strategist
+- product-minded builder
+- operator
+- business thinker with engineering depth
+- someone whose current flagship work is A Story
+
+Engineering remains a chapter in the story, but it is NOT the visual identity.
+
+The website must feel:
+- premium
+- intelligent
+- editorial
+- strategic
+- visually rich
+- interactive
+- layered
+- highly curated
+- tailored
+- confident
+- business-forward
+- founder-level
+- worthy of A Story being the flagship
+
+The website must NOT feel:
+- overly minimal
+- stripped to the point of emptiness
+- engineering-themed
+- wireframe-ish
+- template-like
+- Framer-template premium
+- SaaS landing page
+- generic luxury portfolio
+- Apple copycat
+- Anthropic copycat
+- dribbble concept
+- thin-line conceptual art project
+- soulless AI redesign
+- childish
+- gimmicky
+- like a school project
+- like a “designer’s experiment” rather than a real personal brand
+
+===============================================================================
+1. CORE CONCEPT — “THE FOUNDER’S LEDGER”
+===============================================================================
+
+This is an internal concept only, not necessarily visible text.
+
+The visual and structural system should feel inspired by:
+- an elegantly designed annual report
+- a founder’s journal
+- a high-end editorial publication
+- a private strategy memorandum
+- a curated archive
+- a living book
+
+The recurring motifs are:
+- chapter numbering
+- index structure
+- jump navigation
+- side notes
+- section dividers
+- editorial rules
+- tabbed chapter logic
+- archival exhibits
+- margin labels
+- premium book/spine interactions
+- exhibition-style previews
+- layered but disciplined page choreography
+
+Do NOT use the old “casebook” theatrics literally.
+Do NOT use the “signal” path as the unifying theme.
+
+If a unifying visual grammar is needed, use:
+- chapter spine
+- page index
+- tab system
+- editorial dividers
+- ledger/grid
+- exhibit references
+- split-view composition
+- side annotations
+
+===============================================================================
+2. COLOR DIRECTION
+===============================================================================
+
+Keep blue as the anchor.
+
+You have full freedom to change all remaining colors as needed.
+
+Preferred core palette:
+- Primary Blue: Michigan-rooted deep blue, approx #0B2D5C or refined variant
+- Midnight Ink: #091A2C
+- Warm Cream: #F5F0E6
+- Paper: #ECE3D3
+- Soft Stone: #D8CCB9
+- Warm Gray text support: #6F665A
+- Accent Gold/Maize: subtle and rare, approx #C79A2B or refined maize/brass
+- Optional muted olive-gray or slate accent ONLY if useful, but keep restrained
+
+Rules:
+- Blue must remain the dominant brand anchor.
+- Cream / paper / stone should provide luxury warmth.
+- Gold/maize/brass should be restrained, elegant, and never loud.
+- Avoid bright yellow.
+- Avoid too much white.
+- Avoid cold grayscale.
+- Avoid blue-on-blue monotony.
+
+This should feel more like:
+- bespoke editorial luxury
+than
+- university colors or sports branding.
+
+===============================================================================
+3. TYPOGRAPHY
+===============================================================================
+
+The current new V2 typography is not good enough.
+
+Typography must be dramatically improved.
+
+Use a high-end pairing:
+- strong serif with authority, elegance, and maturity
+- precise sans for metadata, navigation, UI, labels, side notes
+
+Target feel:
+- business + editorial
+- sophisticated, not precious
+- premium, not trendy
+- readable, not artsy
+- powerful, not cute
+
+Possible approach:
+- Serif for major headlines, quotations, narrative statements
+- Sans for navigation, metadata, labels, small UI, project info, archive details
+
+Typography must do real compositional work.
+
+Avoid:
+- default “clean sans everywhere”
+- weak generic minimalist typography
+- overly skinny letterforms
+- overly compressed letterforms
+- overuse of one font
+- sterile presentation
+
+Use italic strategically.
+Use scale strategically.
+Use line breaks intentionally.
+Use negative space with conviction, not emptiness.
+
+===============================================================================
+4. GLOBAL STRUCTURE
+===============================================================================
+
+Build the complete website.
+
+Final routes should include at minimum:
+
+/
+Home
+
+/a-story
+Flagship A Story page
+
+/work
+Curated selected work
+
+/work/[slug]
+Detailed case-study pages
+
+/book
+Interactive “book so far” experience
+
+/archive
+Complete archive / index of all materials
+
+/about
+Biography / thinking / background / leadership / personal life
+
+/contact
+Contact route
+
+If appropriate, you may also create:
+- /resume
+- /recognition
+- /library or /index
+but only if it improves the system cleanly.
+
+===============================================================================
+5. NAVIGATION SYSTEM
+===============================================================================
+
+The new V2 navigation is too weak compared with the older site.
+
+I want better navigation, better part-to-part jumps, and better orientation.
+
+Implement TWO layers of navigation:
+
+A. Primary top navigation
+B. Contextual section jump system
+
+----------------------------------------------------------------
+5A. PRIMARY TOP NAV
+----------------------------------------------------------------
+
+Desktop top nav:
+Left:
+BAO VO
+
+Right:
+A Story
+Work
+Book
+About
+Archive
+Contact
+
+Optional small micro-label near top nav:
+Product · Strategy · Founder
+
+Do NOT hide too much.
+Do NOT reduce navigation to the point of lifelessness.
+
+Contact should feel like a premium CTA but not a giant ugly pill.
+Use a refined button or underline treatment.
+
+Optional subtle live-location / Michigan note may remain if elegant,
+but do not let it clutter the masthead.
+
+----------------------------------------------------------------
+5B. CONTEXTUAL JUMP NAV
+----------------------------------------------------------------
+
+The website needs a better way to move section-to-section.
+
+Implement a sticky jump rail or jump bar for the homepage.
+
+Could be:
+- a slim horizontal chapter bar below the hero after initial scroll
+OR
+- a right-side vertical chapter navigator on desktop
+OR
+- a left-side editorial chapter spine
+
+This jump system should link to:
+- Overview
+- Current Venture
+- Selected Work
+- Timeline
+- Book
+- Archive
+- Off the Clock
+- Contact
+
+On mobile:
+adapt this into a compact floating chapter index or a clean modal section list.
+
+The user should always feel like they can jump intelligently.
+
+===============================================================================
+6. USE ALL MATERIALS
+===============================================================================
+
+IMPORTANT:
+You must use all meaningful materials somewhere in the final website.
+
+That means:
+- nothing important gets discarded
+- old content can be restructured or moved
+- weaker content can move deeper
+- archive can carry detail
+- homepage can stay curated
+- but everything meaningful must remain represented
+
+Materials to preserve and reuse include:
+- current personal portraits
+- Michigan imagery
+- Faraday group / work imagery
+- competition imagery
+- A Story materials
+- A Story recovered backup visuals
+- book-related visuals
+- selected project imagery
+- affiliations
+- recognition
+- off-the-clock images
+- poker / sports / VISA imagery
+- documents, reports, decks, case materials where appropriate
+- project inventory from the old website
+- archive depth from the old website
+- any meaningful case-study or project records already defined
+
+Do NOT flatten the site into a smaller, emptier site.
+
+The new site should be more structured, not less rich.
+
+===============================================================================
+7. POSITIONING + CONTENT STRATEGY
+===============================================================================
+
+The site should reposition Bao as:
+
+- a technically literate strategist
+- a founder and operator
+- someone who can move from technical systems to markets, products, and human stories
+- someone whose past in engineering strengthens rather than defines his present
+- someone currently building A Story
+
+A Story should be the flagship, clearly and decisively.
+
+However:
+Bao’s prior work is not filler.
+It is the proof of range and capability.
+
+The story becomes:
+
+Foundation:
+engineering, materials, circuits, silicon
+
+Expansion:
+medical devices, commercialization, strategy
+
+Current chapter:
+A Story
+
+Supporting character:
+Michigan, teaching, leadership, community, competition, poker, off-the-clock thinking
+
+===============================================================================
+8. NEW CONTENT TONE
+===============================================================================
+
+Rewrite copy across the whole site.
+
+Tone:
+- intelligent
+- calm
+- confident
+- direct
+- premium
+- not too casual
+- not startup cliché
+- not LinkedIn language
+- not over-poetic
+- not sentimental
+- not robotic
+- not academic in a dry way
+
+Avoid phrases like:
+- passionate about
+- results-driven
+- innovative
+- at the intersection of
+- leveraging
+- multidisciplinary professional
+- cutting-edge
+- visionary
+- game-changing
+- AI-powered [unless factual context requires it]
+- next-generation
+
+Prefer:
+- concise
+- specific
+- well-paced
+- strategically framed
+- grounded in evidence
+
+===============================================================================
+9. HOMEPAGE — DETAILED PAGE SPEC
+===============================================================================
+
+The homepage should feel like a complete, premium narrative.
+
+It should NOT be a long stack of similar sections.
+It should have rhythm, surprise, movement, scale shifts, and different “modes.”
+
+Use a 12-column grid on desktop.
+Target max content width around 1400–1500px, but allow certain full-bleed sections.
+
+----------------------------------------------------------------------------
+9.1 HOME — HERO
+----------------------------------------------------------------------------
+
+Goal:
+Immediately establish Bao as premium, credible, current, and strategic.
+
+Visual direction:
+This is NOT a “signal” hero.
+It is NOT a generic split-hero.
+It should feel like an opening spread.
+
+Layout:
+- background: warm cream / paper
+- top nav visible
+- very large left-biased headline block
+- right side contains a strong portrait composition
+- subtle chapter label / intro line above the headline
+- bottom edge hints there is much more below
+
+Desktop composition:
+- left 6 columns: headline, intro text, CTAs
+- right 5 columns: portrait composition
+- 1 column buffer/gutter between
+- portrait should NOT be a tiny image
+- portrait should feel authoritative and intentional
+- use the better real portrait from the older/current materials
+- crop elegantly; do not put it inside a silly card
+- the portrait may sit within an architectural frame, editorial frame, or asymmetrical window
+- optional thin double rule or curved-corner frame is allowed if it helps premium feel
+- avoid the huge circular/arched engineering vibe from the earlier attempt
+
+Hero copy:
+Eyebrow:
+BAO VO — PRODUCT · STRATEGY · FOUNDER
+
+Main headline:
+Building products,
+strategy, and ventures
+around difficult technology.
+
+Alternative smaller secondary line beneath or beside:
+From silicon to strategy.
+
+Do NOT make “From silicon to strategy” the dominant hero headline.
+It should become a supporting identity line, not the whole hero.
+
+Supporting paragraph:
+I started in engineering and kept following the decisions around the work —
+from circuits and medical technology to commercialization, product, and
+venture-building. Today, I’m co-founding A Story.
+
+Primary CTA:
+Explore A Story
+
+Secondary CTA:
+View selected work
+
+Tertiary text link:
+Open the Book
+
+Micro-note:
+Based in Michigan. Building across product, strategy, and story.
+
+Possible premium small detail:
+A small “Current chapter: A Story” indicator under the CTAs.
+
+What image to use:
+- use the strongest current professional portrait, preferably the better Michigan portrait
+- if there are multiple portrait candidates, choose the one with the strongest confidence and cleanliness
+- do not use an awkwardly distant portrait
+- do not use low-quality cutout aesthetics
+- do not generate Bao’s portrait
+
+Mobile hero:
+- top nav compresses cleanly
+- portrait moves above or below headline depending on what looks strongest
+- headline remains dramatic and readable
+- CTAs remain visible without overwhelming
+- no crammed layout
+
+----------------------------------------------------------------------------
+9.2 HOME — QUICK POSITIONING / “HOW I WORK”
+----------------------------------------------------------------------------
+
+Purpose:
+Translate the hero into 3 clear operating modes.
+
+Layout:
+- full-width cream section
+- three-column structure on desktop
+- stacked cards/columns on mobile, but not generic cards
+- each column separated by rules or spacing
+
+Title:
+How I work
+
+Three pillars:
+1. Product
+I like turning difficult ideas into things people can actually use.
+
+2. Strategy
+I care about the market, the positioning, and the decisions around the build.
+
+3. Execution
+I still respect the details enough to know whether the work holds up.
+
+Optional subline:
+The technical foundation matters. So does everything around it.
+
+This is where you can reintroduce “From silicon to strategy” as a smaller chapter note.
+
+----------------------------------------------------------------------------
+9.3 HOME — A STORY FLAGSHIP BLOCK
+----------------------------------------------------------------------------
+
+This must be the emotional and strategic center of the homepage.
+
+It must feel substantially bigger and more special than every other project section.
+
+This section should not feel like just another work card.
+
+Layout:
+- large editorial composition
+- section occupies significant vertical space
+- giant “A Story” or “Current Venture” treatment
+- real A Story visual materials integrated
+- image and text should feel intentional and premium
+- use a mix of scale: one very large title, one featured image, one strong statement, one supporting paragraph, one CTA block
+
+Desktop layout:
+- left side: section label + giant “A Story”
+- center or lower-left: major visual
+- right side: thesis copy + CTA + role line
+- use whitespace intelligently but not emptily
+
+Use existing A Story assets first:
+- book still life / book object
+- approved A Story visuals
+- approved editorial family/archive materials
+- any recovered A Story materials that are cleared as conceptual or appropriate
+
+Do NOT imply documentary evidence if the image is conceptual.
+If necessary, label subtly:
+“Editorial concept”
+or
+“Future keepsake concept”
+or
+“Conceptual archive image”
+where appropriate.
+
+A Story headline:
+A Story
+
+A Story statement:
+Preserving family history should feel more like conversation than paperwork.
+
+Supporting copy:
+I’m co-founding A Story — a family archive built through conversation,
+photographs, and the different ways people remember. We’re developing the
+product and learning through pilots.
+
+CTA:
+Explore A Story
+
+Secondary metadata:
+Co-founder · Product strategy & operations
+
+Important:
+Prototype at least TWO homepage A Story compositions and choose the strongest:
+A. book-object-led
+B. richer editorial archive composition
+
+Choose the more premium and emotionally resonant one.
+
+----------------------------------------------------------------------------
+9.4 HOME — SELECTED WORK
+----------------------------------------------------------------------------
+
+Purpose:
+Show that A Story is the present, but the rest of the track record is real.
+
+Do NOT use generic small equal cards.
+Do NOT compress everything into lifeless neatness.
+
+Preferred structure:
+Large stacked project rows with a fixed preview stage or floating preview zone.
+
+Section label:
+Selected work
+
+Section title:
+A few chapters behind the current one.
+
+Rows should feel editorial and navigable.
+Hover/focus/click should reveal:
+- image preview
+- metadata
+- quick note
+- maybe small excerpt
+
+Required featured rows:
+1. A Story
+2. Healthcare commercialization / strategy
+3. Faraday silicon / tape-out
+4. Implantable medical-device research
+5. ARTiculate
+6. Aurora
+Optional to feature more, but do not overload the homepage.
+
+At bottom:
+View all work →
+goes to /work
+
+----------------------------------------------------------------------------
+9.5 HOME — TRACK RECORD / RECOGNITION
+----------------------------------------------------------------------------
+
+Purpose:
+Use evidence without turning the site into a trophy shelf.
+
+Layout:
+- deep blue section
+- left side: testimonial / quote
+- right side: selective evidence items and/or image
+- this should feel elegant and substantial
+
+Keep one big quote:
+Example:
+“His performance has consistently been in the Top 10%.”
+
+Credit cleanly.
+
+Then 4–6 recognition bullets, refined and fact-checked:
+- Tech Innovation Jam — Track Winner
+- Midwest Healthcare Case Competition — Semifinalist
+- Southeast Case Competition — Semifinalist
+- GMAT Focus 695 — 97th percentile
+- other key evidence if appropriate
+
+Use competition/winning imagery here if strong.
+Use clean layout, not scrapbook chaos.
+
+----------------------------------------------------------------------------
+9.6 HOME — TIMELINE / CAREER CHAPTERS
+----------------------------------------------------------------------------
+
+This replaces the old “signal”-style progression.
+
+Do NOT use a signal line.
+Use a premium chapter/timeline system.
+
+Concept:
+“The path here.”
+
+Layout options:
+- horizontal scrolly timeline with chapter cards
+- vertical split timeline
+- ledger-style chronology with year markers
+- chapter tabs along a spine
+
+Preferred content arc:
+2019 — Arrive in Michigan
+2020–2022 — Materials / engineering foundation
+2023–2024 — Circuits / silicon / tape-out
+2024–2025 — Medical technology / commercialization
+2025–2026 — Strategy / competitions / product thinking
+2026 — A Story
+
+This section should feel like:
+an elegant career map, not an engineering diagram.
+
+Title:
+From silicon to strategy.
+
+Short supporting line:
+The path was not linear, but each chapter widened the question.
+
+Each chapter node can open a small preview or note.
+
+----------------------------------------------------------------------------
+9.7 HOME — THE BOOK TEASER
+----------------------------------------------------------------------------
+
+The book is one of the strongest things in the old site.
+Keep it, but redesign it to feel truly premium.
+
+This should be a major interaction on the site, not a minor gimmick.
+
+Homepage book teaser:
+- large section
+- elegant physical book object or book-stage
+- invitation to open the story
+- chapter tabs visible or hinted
+- “Open the Book” CTA
+- use the book to summarize the whole path
+
+This book should feel like:
+a beautiful private artifact, not a novelty flipbook.
+
+Headline:
+The story, bound together.
+
+Supporting copy:
+A more personal way through the same path — Michigan, silicon, strategy,
+and the chapter that became A Story.
+
+CTA:
+Open the Book
+
+----------------------------------------------------------------------------
+9.8 HOME — OFF THE CLOCK / PERSONAL DIMENSION
+----------------------------------------------------------------------------
+
+Keep this section.
+The old site had a good instinct here.
+
+Purpose:
+Show humanity and strategy-thinking outside formal work.
+
+Layout:
+- cream/paper section
+- left side: text
+- right side: three-image arrangement or modular image composition
+- no sloppy collage
+- can feel like pinned editorial snapshots, but refined
+
+Use:
+- poker image
+- soccer image
+- VISA/community image
+- possibly another personal image if available
+
+Title:
+Off the clock
+
+Main headline:
+Reading the room.
+
+Body copy:
+Most of what I do outside work still comes back to judgment, timing, and
+people. Sports taught me competition. Poker taught me incomplete information.
+Community work gave Michigan the feeling of home.
+
+Second paragraph:
+I came to the U.S. in 2019 not knowing many people. Years later, Michigan
+feels like home — and along the way I co-founded VISA so that the next
+students arriving from Vietnam would have a better start.
+
+This section should feel warm, not sentimental.
+
+----------------------------------------------------------------------------
+9.9 HOME — AFFILIATIONS / ORGANIZATIONS
+----------------------------------------------------------------------------
+
+If still useful, include a slimmer strip or modular list:
+- Michigan
+- Michigan Ross
+- Faraday Technology
+- miLEAD
+- VISA
+- etc.
+
+This can be elegant, subtle, and smaller in footprint.
+
+----------------------------------------------------------------------------
+9.10 HOME — FINAL CONTACT
+----------------------------------------------------------------------------
+
+A premium ending.
+
+Do not make this generic.
+
+Layout:
+- quieter section
+- strong statement
+- concise contact methods
+- maybe one final image or none
+- use white/cream or blue depending on what gives strongest closure
+
+Headline:
+Let’s talk.
+
+Supporting copy:
+I’m interested in ambitious products, difficult technology, and the
+strategy that turns one into the other.
+
+Contact methods:
+- Email
+- LinkedIn
+- Résumé / CV
+
+Small final note:
+Currently building A Story from Michigan.
+
+===============================================================================
+10. /A-STORY — FLAGSHIP PAGE
+===============================================================================
+
+This page must be the deepest, strongest, and most premium single page on the site.
+
+It should feel like:
+- a founder case study
+- a product vision page
+- a documentary editorial spread
+- a business and product narrative
+- a major current chapter
+
+It must NOT feel like:
+- a fake launch page
+- a generic startup landing page
+- a fundraising deck pasted into the web
+- a sentimental family-site clone
+
+Overall page sequence:
+
+1. Hero
+2. The problem
+3. Why conversation
+4. What A Story is
+5. Product / experience
+6. Multiple voices
+7. The keepsake / archive / book
+8. Why I’m building it
+9. Validation / pilots
+10. CTA / close
+
+----------------------------------------------------------------------------
+10.1 A STORY HERO
+----------------------------------------------------------------------------
+
+Layout:
+- generous, cinematic but restrained
+- use strongest approved A Story visual
+- strong title and supporting thesis
+- more emotional than the homepage, but still controlled
+
+Title:
+A Story
+
+Eyebrow:
+Current venture
+
+Headline:
+Preserving family history should feel more like a conversation than a chore.
+
+Supporting copy:
+I’m co-founding A Story, a family archive built through conversation,
+photographs, and the different ways people remember. We’re developing the
+product and learning through pilots.
+
+CTA:
+See how it works
+
+Secondary CTA:
+Why I’m building it
+
+----------------------------------------------------------------------------
+10.2 THE PROBLEM
+----------------------------------------------------------------------------
+
+Headline:
+The stories people mean to ask about are often the easiest to lose.
+
+Copy:
+Most families do not lose history all at once. They lose it gradually:
+in details never written down, in photographs without context, in stories
+people assume they’ll ask about later.
+
+Image:
+Use approved conceptual or real A Story archival imagery.
+
+----------------------------------------------------------------------------
+10.3 WHY CONVERSATION
+----------------------------------------------------------------------------
+
+Headline:
+Most people won’t write a memoir. They will talk.
+
+Copy:
+The insight behind A Story is simple: asking a good question is easier
+than filling a blank page. Conversation creates momentum. It helps memory
+surface naturally. It also creates room for different people to remember
+the same moment differently.
+
+This section can be partly diagrammatic, partly editorial.
+
+----------------------------------------------------------------------------
+10.4 WHAT A STORY IS
+----------------------------------------------------------------------------
+
+Headline:
+A living family archive.
+
+Copy:
+A Story is designed to help families gather memories through conversation,
+photos, people, places, and timelines — then shape them into something
+coherent, collaborative, and worth keeping.
+
+Key features:
+- conversation-led memory capture
+- people / places / events organization
+- multiple voices around one memory
+- long-term family archive
+- possible keepsake output / book outcome
+
+----------------------------------------------------------------------------
+10.5 PRODUCT EXPERIENCE
+----------------------------------------------------------------------------
+
+Important:
+If there are no actual production screenshots, do NOT fake them as live product.
+Instead:
+- build high-end product concept frames
+- clearly label them as product concept / interaction concept if needed
+
+Structure:
+- Ask
+- Remember
+- Organize
+- Share / keep
+
+Do not overdo fake UI.
+If actual UI exists, use it.
+If not, create elegant conceptual interface panels.
+
+----------------------------------------------------------------------------
+10.6 MULTIPLE VOICES
+----------------------------------------------------------------------------
+
+This is one of the signature interactions.
+
+Build a beautiful interaction showing how one event can hold multiple perspectives.
+
+Example:
+Center event:
+A Sunday meal
+
+Surrounding voices:
+Storyteller
+Family organizer
+Family contributor
+
+User can switch or layer perspectives.
+
+Goal:
+communicate the idea, not over-engineer the interaction.
+
+----------------------------------------------------------------------------
+10.7 THE KEEPSAKE / BOOK OBJECT
+----------------------------------------------------------------------------
+
+Use the A Story book object system and related imagery.
+
+Headline:
+From conversation to keepsake.
+
+Copy:
+Some memories live digitally. Some deserve a more durable form.
+A Story is also interested in how a family archive can become something
+tangible: something to revisit, hold, and pass on.
+
+If the printed artifact is still conceptual, say so honestly.
+
+----------------------------------------------------------------------------
+10.8 WHY I’M BUILDING IT
+----------------------------------------------------------------------------
+
+Title:
+Why I’m building it
+
+Copy:
+The longer I worked around technology, the more interested I became in
+what technology often leaves out: memory, family, ambiguity, and the way
+stories change depending on who tells them.
+
+My background in engineering taught me rigor. Strategy taught me context.
+A Story sits where both matter.
+
+----------------------------------------------------------------------------
+10.9 VALIDATION / PILOTS
+----------------------------------------------------------------------------
+
+Be accurate and conservative.
+
+Title:
+Where it stands today
+
+Copy:
+A Story is still in development. We’ve been refining the scope, learning
+through pilots, and clarifying what should exist first.
+
+If the résumé mentions nursing-home pilots, represent them honestly and
+without overclaiming.
+
+Do NOT imply broad launch.
+Do NOT create fake waitlists or fake product CTAs.
+
+----------------------------------------------------------------------------
+10.10 A STORY CLOSING
+----------------------------------------------------------------------------
+
+Headline:
+Some stories deserve better than “we meant to ask.”
+
+CTA:
+Back to Bao’s work
+or
+Contact
+
+===============================================================================
+11. /WORK — CURATED WORK PAGE
+===============================================================================
+
+This page should feel like a strong overview of major work, not just an archive dump.
+
+Title:
+Selected work
+
+Subtitle:
+Projects across product, strategy, engineering, and venture-building.
+
+Use large modular rows or blocks.
+Each project gets:
+- title
+- year
+- domain
+- one-line thesis
+- supporting note
+- preview image
+- link to case study
+
+Required items:
+- A Story
+- Healthcare commercialization / miLEAD / GLP-1
+- Faraday / ASIC shuttle / tape-out
+- Implantable auditory-prosthesis circuits
+- ARTiculate
+- Aurora
+- PUF
+- Bandgap reference
+
+You may structure them as:
+featured work + other work
+but everything meaningful must remain reachable.
+
+===============================================================================
+12. /WORK/[SLUG] — CASE STUDY TEMPLATE
+===============================================================================
+
+Each case study page should have:
+- big title
+- year / role / domain
+- hero image or exhibit
+- context
+- problem
+- what I did
+- what mattered
+- reflection / takeaway
+- evidence / artifacts
+- links to reports or supporting material where available
+
+Tone:
+authoritative, concise, thoughtful.
+
+Do not paste raw slide content.
+Rewrite for web.
+
+===============================================================================
+13. /BOOK — THE INTERACTIVE BOOK
+===============================================================================
+
+This is a major signature feature and must be much better than the current/new weak implementation.
+
+It should preserve the spirit of the old flipbook — a personal book that summarizes the path —
+but elevate it significantly.
+
+Requirements:
+- beautiful book object
+- elegant closed state
+- satisfying open state
+- page-turn interaction
+- keyboard support
+- touch support
+- alternative “view as scroll” mode
+- chapter tabs or chapter index
+- visually rich but not kitschy
+- premium and tactile
+
+Book title:
+The Path, So Far.
+or
+The Book So Far.
+Choose the more premium option after visual testing.
+
+Suggested chapter sequence:
+1. Cover
+2. Michigan / arrival
+3. Engineering foundation
+4. Silicon / Faraday
+5. Medical-device research
+6. Strategy / commercialization
+7. Competitions / structured thinking
+8. Community / VISA / belonging
+9. A Story
+10. Next chapter
+
+You may use more chapters if needed, but keep it elegant.
+
+The book should be a better summary experience than the current one.
+
+===============================================================================
+14. /ARCHIVE — EVERYTHING, BUT ORGANIZED
+===============================================================================
+
+This is where “use all materials” gets fully honored.
+
+This page should feel like a clean, deep, premium archive.
+
+Title:
+Archive
+
+Supporting line:
+Everything on the record.
+
+Include:
+- search
+- filters
+- categories
+- years
+- expandable records
+- image/document previews
+- project links
+- report/deck links where applicable
+
+Categories can include:
+- Product
+- Strategy
+- Engineering
+- Research
+- Leadership
+- Writing
+- Community
+- Personal
+
+This page should preserve the density of the old site,
+but in a much more elegant information design system.
+
+===============================================================================
+15. /ABOUT — FULLER NARRATIVE
+===============================================================================
+
+This should be more reflective and structured.
+
+Suggested structure:
+1. Intro
+2. How I think
+3. The path here
+4. Michigan / community
+5. Outside work
+6. résumé / contact
+
+Title:
+About
+
+Hero line:
+I started in engineering and stayed interested in the questions around the work.
+
+Key themes:
+- Vietnam to Michigan
+- engineering as foundation
+- strategy/product expansion
+- teaching and leadership
+- VISA/community
+- the bridge into A Story
+- what Bao cares about now
+
+Use additional portraits / life imagery here if available.
+
+===============================================================================
+16. /CONTACT
+===============================================================================
+
+Keep it simple and polished.
+
+Title:
+Let’s talk.
+
+Supporting copy:
+If you’re working on something ambitious — a product, a strategy problem,
+or a venture that needs both technical and commercial judgment — I’d love
+to hear from you.
+
+Include:
+- email
+- LinkedIn
+- résumé download
+
+Optional small prompt group:
+- Work together
+- Talk strategy
+- Ask about A Story
+
+===============================================================================
+17. IMAGE STRATEGY — REUSE FIRST
+===============================================================================
+
+You MUST inspect and use all existing materials first.
+
+Prioritize:
+- real portraits of Bao
+- real Michigan images
+- real Faraday image(s)
+- real competition images
+- real off-the-clock images
+- recovered A Story assets
+- approved book images
+- project visuals
+- any relevant document images / deck images where appropriate
+
+Use generation only when it truly improves the presentation and only for
+editorial/conceptual support.
+
+Never generate:
+- fake Bao portrait
+- fake awards
+- fake client evidence
+- fake product traction
+- fake documentary evidence
+- fake user evidence
+- fake pilot photography
+- fake technical project evidence
+- fake app screenshots represented as real
+
+If you generate imagery, label or handle it so it remains conceptually honest.
+
+===============================================================================
+18. OPTIONAL IMAGE GENERATION SLOTS
+===============================================================================
+
+Only generate if visually necessary.
+
+Generate at most a small set of supporting assets.
+
+----------------------------------------------------------------
+G01 — Editorial paper / chapter texture
+----------------------------------------------------------------
+Purpose:
+background surfaces, social cards, section dividers
+
+Prompt:
+Luxury editorial paper texture, warm cream archival stock with subtle fiber,
+soft edge variation, faint blind-deboss frame references, highly refined and
+minimal, museum-quality paper surface, no text, no stains, no vintage grunge,
+premium and tactile, soft natural light, 4:3 and 16:9 variants.
+
+----------------------------------------------------------------
+G02 — A Story archival still life
+----------------------------------------------------------------
+Purpose:
+support A Story page or home A Story section
+
+Prompt:
+Premium editorial still life of a family-archive-inspired tabletop with an
+open photo book, blank archival sleeves, photo corners, neutral prints without
+identifiable faces, warm natural window light, cream and wood tones, restrained
+deep-blue accent, sophisticated and emotionally quiet, no readable text, no
+branding, no fake historical claims, 4:3.
+
+----------------------------------------------------------------
+G03 — Book-material texture
+----------------------------------------------------------------
+Purpose:
+book covers, book UI object textures, book-related detail shots
+
+Prompt:
+Close editorial study of cream clothbound book material with refined weave,
+soft shadow, navy foil or deep-blue edge detail, elegant and tactile,
+luxury publishing aesthetic, no visible title text, high realism, 3:4 and 1:1.
+
+----------------------------------------------------------------
+G04 — Strategy/editorial surface
+----------------------------------------------------------------
+Purpose:
+support business/strategy feeling rather than engineering feeling
+
+Prompt:
+Premium editorial composition inspired by an annual report and strategist’s
+notebook: layered cream paper, refined blue rules, small typographic grid
+placeholders, subtle brass accents, no readable words, no charts with fake data,
+no technology cliché, elegant and quiet, top-view, 4:3.
+
+Do NOT overgenerate.
+Use only if the existing real/conceptual materials do not sufficiently support the design.
+
+===============================================================================
+19. CONTENT REWRITE — EXACT COPY DIRECTION
+===============================================================================
+
+Below is the default copy direction. You may polish slightly if needed,
+but preserve the tone and strategic positioning.
+
+----------------------------------------------------------------
+19.1 HOME HERO COPY
+----------------------------------------------------------------
+
+Eyebrow:
+BAO VO — PRODUCT · STRATEGY · FOUNDER
+
+Headline:
+Building products,
+strategy, and ventures
+around difficult technology.
+
+Secondary line:
+From silicon to strategy.
+
+Body:
+I started in engineering and kept following the decisions around the work —
+from circuits and medical technology to commercialization, product, and
+venture-building. Today, I’m co-founding A Story.
+
+CTA 1:
+Explore A Story
+
+CTA 2:
+View selected work
+
+Text link:
+Open the Book
+
+Micro-note:
+Based in Michigan. Building across product, strategy, and story.
+
+----------------------------------------------------------------
+19.2 HOME “HOW I WORK”
+----------------------------------------------------------------
+
+Section label:
+How I work
+
+Section title:
+The technical foundation matters.
+So does everything around it.
+
+Column 1:
+Product
+I like turning difficult ideas into things people can actually use.
+
+Column 2:
+Strategy
+I care about the market, the positioning, and the decisions around the build.
+
+Column 3:
+Execution
+I still respect the details enough to know whether the work holds up.
+
+----------------------------------------------------------------
+19.3 HOME A STORY COPY
+----------------------------------------------------------------
+
+Label:
+Current venture
+
+Title:
+A Story
+
+Statement:
+Preserving family history should feel more like conversation than paperwork.
+
+Body:
+I’m co-founding A Story — a family archive built through conversation,
+photographs, and the different ways people remember. We’re developing the
+product and learning through pilots.
+
+CTA:
+Explore A Story
+
+Metadata:
+Co-founder · Product strategy & operations
+
+----------------------------------------------------------------
+19.4 HOME SELECTED WORK INTRO
+----------------------------------------------------------------
+
+Label:
+Selected work
+
+Title:
+A few chapters behind the current one.
+
+Support:
+From silicon to healthcare strategy to product concepts, the work is varied
+but connected: I’m interested in what makes difficult ideas usable.
+
+----------------------------------------------------------------
+19.5 HOME TIMELINE INTRO
+----------------------------------------------------------------
+
+Label:
+The path here
+
+Title:
+From silicon to strategy.
+
+Body:
+The path was not linear, but each chapter widened the question —
+from how the technology works to why it matters, who it serves, and what
+should be built around it.
+
+----------------------------------------------------------------
+19.6 HOME BOOK COPY
+----------------------------------------------------------------
+
+Label:
+The Book
+
+Title:
+The story, bound together.
+
+Body:
+A more personal way through the same path — Michigan, silicon, strategy,
+and the chapter that became A Story.
+
+CTA:
+Open the Book
+
+----------------------------------------------------------------
+19.7 HOME OFF THE CLOCK COPY
+----------------------------------------------------------------
+
+Label:
+Off the clock
+
+Title:
+Reading the room.
+
+Body:
+Most of what I do outside work still comes back to judgment, timing, and
+people. Sports taught me competition. Poker taught me incomplete information.
+Community work gave Michigan the feeling of home.
+
+Second paragraph:
+I came to the U.S. in 2019 not knowing many people. Years later, Michigan
+feels like home — and along the way I co-founded VISA so that the next
+students arriving from Vietnam would have a better start.
+
+----------------------------------------------------------------
+19.8 HOME CONTACT COPY
+----------------------------------------------------------------
+
+Label:
+Contact
+
+Title:
+Let’s talk.
+
+Body:
+I’m interested in ambitious products, difficult technology, and the strategy
+that turns one into the other.
+
+Links:
+Email
+LinkedIn
+Résumé
+
+----------------------------------------------------------------
+19.9 A STORY PAGE COPY
+----------------------------------------------------------------
+
+Hero label:
+Current venture
+
+Hero title:
+A Story
+
+Hero statement:
+Preserving family history should feel more like a conversation than a chore.
+
+Hero body:
+I’m co-founding A Story, a family archive built through conversation,
+photographs, and the different ways people remember. We’re developing the
+product and learning through pilots.
+
+Problem title:
+The stories people mean to ask about are often the easiest to lose.
+
+Problem body:
+Most families do not lose history all at once. They lose it gradually:
+in details never written down, in photographs without context, and in the
+stories people assume they’ll ask about later.
+
+Conversation title:
+Most people won’t write a memoir. They will talk.
+
+Conversation body:
+A good question lowers the barrier. It gives memory somewhere to start.
+Conversation makes room for spontaneity, detail, and disagreement in a
+way that blank pages rarely do.
+
+What-it-is title:
+A living family archive.
+
+What-it-is body:
+A Story is designed to help families gather memories through conversation,
+photos, people, places, and timelines — then shape them into something
+coherent, collaborative, and worth keeping.
+
+Keepsake title:
+From conversation to keepsake.
+
+Keepsake body:
+Some memories live digitally. Some deserve a more durable form.
+A Story is also interested in how a family archive can become something
+tangible: something to revisit, hold, and pass on.
+
+Why-I’m-building-it title:
+Why I’m building it
+
+Why-I’m-building-it body:
+The longer I worked around technology, the more interested I became in
+what technology often leaves out: memory, family, ambiguity, and the way
+stories change depending on who tells them.
+
+My background in engineering taught me rigor. Strategy taught me context.
+A Story sits where both matter.
+
+Where-it-stands title:
+Where it stands today
+
+Where-it-stands body:
+A Story is still in development. We’ve been refining the scope, learning
+through pilots, and clarifying what should exist first.
+
+Closing title:
+Some stories deserve better than “we meant to ask.”
+
+----------------------------------------------------------------
+19.10 ABOUT PAGE COPY
+----------------------------------------------------------------
+
+Title:
+About
+
+Intro:
+I started in engineering and stayed interested in the questions around the work.
+
+Paragraph 1:
+My background began in materials, devices, circuits, and real silicon work.
+Over time, I became more interested in the decisions surrounding the build:
+commercialization, product definition, positioning, and what actually makes
+a difficult idea matter in the world.
+
+Paragraph 2:
+That path led through medical-device research, strategy work, competition
+teams, teaching, and community building — and eventually into A Story.
+
+Paragraph 3:
+I came to Michigan in 2019. Since then, it has become more than a place I
+studied. It became the place where I built, competed, taught, and found
+community.
+
+Section:
+Outside work
+
+Body:
+Outside formal work, I’m still drawn to competition and judgment under
+uncertainty — from sports to poker. I also care deeply about helping people
+find community, which is part of why I co-founded VISA.
+
+----------------------------------------------------------------------------
+19.11 CONTACT PAGE COPY
+----------------------------------------------------------------------------
+
+Title:
+Let’s talk.
+
+Body:
+If you’re working on something ambitious — a product, a strategy problem,
+or a venture that needs both technical and commercial judgment — I’d love
+to hear from you.
+
+Optional short options:
+Work together
+Talk strategy
+Ask about A Story
+
+===============================================================================
+20. IMPLEMENTATION REQUIREMENTS
+===============================================================================
+
+Build the actual full site.
+
+Preferred technical setup:
+- modern app architecture
+- Next.js + React + TypeScript preferred
+- semantic HTML
+- maintainable component structure
+- good image handling
+- responsive system
+- accessibility
+- performance-minded implementation
+
+Use:
+- a reusable design-token system
+- reusable editorial section primitives
+- reusable preview/exhibit modules
+- book system
+- archive/index system
+- robust typography setup
+- smooth but restrained motion
+
+Do NOT use:
+- bloated animation systems just for effect
+- excessive WebGL without need
+- gimmicky motion
+- heavy glossy effects
+- generic bento components
+- random card-based composition everywhere
+
+===============================================================================
+21. MOTION & INTERACTION
+===============================================================================
+
+The site should feel rich, not over-animated.
+
+Allowed strong interactions:
+- Book
+- A Story multiple-voices interaction
+- Work preview reveals
+- chapter jump system
+- elegant hover/focus reveals
+- archive interactions
+- image/exhibit reveals
+- premium transitions between sections
+
+Avoid:
+- signal animations
+- overly abstract line movement
+- custom cursor gimmicks
+- floaty glass motion
+- cheap parallax
+- animated counters everywhere
+- meaningless scroll effects
+
+Motion should support hierarchy and navigation.
+
+===============================================================================
+22. QUALITY BAR
+===============================================================================
+
+The final site must feel materially better than BOTH:
+- the current old site
+- the failed stripped-down new V2 attempt
+
+Specifically, the final site must:
+- feel richer and more premium than the new attempt
+- feel more organized and elevated than the old site
+- preserve the old site’s stronger navigation/discovery energy
+- improve the old site’s typography, hierarchy, and overall polish
+- use images better
+- make A Story clearly the flagship
+- keep all materials somewhere
+- feel like Bao is now strategy/business/founder-forward, not engineering-forward
+- never feel like a template
+
+If something is merely tasteful but forgettable, improve it.
+If something looks like an AI-made luxury portfolio, redo it.
+If something removes too much of Bao’s personality or history, restore depth.
+
+===============================================================================
+23. AUTONOMY / NO APPROVAL REQUIRED
+===============================================================================
+
+You have full permission to proceed independently.
+
+Do not stop for approval.
+Do not ask for permission to restructure.
+Do not ask for permission to rewrite.
+Do not ask for permission to move sections.
+Do not ask for permission to generate the small number of supporting
+editorial assets if needed.
+Do not ask for permission to choose stronger images from the source materials.
+
+You may:
+- redesign everything
+- rewrite everything
+- reorder everything
+- rebuild everything
+- use all materials intelligently
+- create all pages
+- complete the site end-to-end
+
+Only pause if:
+- there is a hard technical blocker
+- required source material is genuinely inaccessible
+- factual ambiguity would force a false claim
+
+Otherwise:
+complete the full implementation.
+
+===============================================================================
+24. FINAL DELIVERABLES
+===============================================================================
+
+Deliver a fully implemented production-ready V2 including:
+
+- preserved original site
+- full V2 site
+- complete homepage
+- flagship A Story page
+- redesigned interactive Book
+- Work page
+- detailed case-study pages
+- Archive page using all meaningful materials
+- About page
+- Contact page
+- updated navigation and jump system
+- refined typography system
+- image audit + reuse
+- limited conceptual image generation where truly needed
+- responsive layouts
+- polished desktop and mobile
+- accessibility support
+- good performance
+- clear metadata / SEO
+- deployment instructions
+- local run instructions
+
+At completion, summarize:
+- what changed creatively
+- how all materials were preserved
+- where generated images were used
+- which images are real / conceptual
+- why the final site is strategically stronger
+
+END GOAL:
+A premium, tailored, interactive, business-forward personal website that
+still feels warm, human, and full of material — with A Story as the
+clear flagship and the rest of Bao’s work elegantly preserved.
