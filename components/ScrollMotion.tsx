@@ -13,11 +13,17 @@
  *   draw   — the Path's rail is drawn by the reader's scroll.
  *   count  — the numbers on the record count up once.
  *
+ * Home and A Story were authored first; about(), workIndex(), archive(),
+ * contact() and caseStudy() give every other page the same vocabulary rather
+ * than leaving it on everyPage()'s generic rise.
+ *
  * Everything is authored inside gsap.matchMedia, so reduced motion gets the
  * complete static page and every tween, pin and split is reverted on route
  * change. Stateful widgets (the Book, the product theatre, the Path's detail
- * panel, the Work browser) own their own motion and are never split or
- * hidden from here — see OWN.
+ * panel) own their own motion and are never split or hidden from here — see
+ * OWN. The two React-rendered lists in OWN (the Archive's records, the Work
+ * browser's rows) are the exception: they arrive once through arriveRowsOnce,
+ * which hands the list back to React the moment it re-renders.
  */
 import {useLayoutEffect} from 'react';
 import {usePathname} from 'next/navigation';
@@ -43,6 +49,50 @@ function arriveEach(targets:Element[]){
  gsap.set(targets,{y:24,opacity:0});
  ScrollTrigger.batch(targets,{start:'top 90%',once:true,
   onEnter:batch=>gsap.to(batch,{y:0,opacity:1,duration:1,ease:EASE,stagger:.06,overwrite:true,clearProps:'transform,opacity'})});
+}
+
+/**
+ * A number counts up once as it is read. Used by the record on home, the
+ * teaching figure on About, and a case study's impact table.
+ */
+function countUp(value:Element,restore:(()=>void)[]){
+ const text=[...value.childNodes].find(n=>n.nodeType===Node.TEXT_NODE&&/\d/.test(n.textContent??''));
+ if(!text)return;
+ const original=text.textContent!;
+ const match=original.match(/\d+(\.\d+)?/);
+ if(!match)return;
+ const target=parseFloat(match[0]),places=match[1]?match[1].length-1:0;
+ const n={v:0};
+ text.textContent=original.replace(match[0],(0).toFixed(places));
+ gsap.to(n,{v:target,duration:1.6,ease:'power3.out',scrollTrigger:{trigger:value,start:'top 90%',once:true},
+  onUpdate:()=>{text.textContent=original.replace(match[0],n.v.toFixed(places))}});
+ // Revert restores the authored figure.
+ restore.push(()=>{text.textContent=original});
+}
+
+/** One sentence fills in as it is read: the site's signature for a claim it stands behind. */
+function fillWords(quote:Element){
+ const words=SplitText.create(quote,{type:'words'});
+ gsap.fromTo(words.words,{opacity:.16},{opacity:1,ease:'none',stagger:.1,
+  scrollTrigger:{trigger:quote,start:'top 82%',end:'bottom 52%',scrub:.6}});
+}
+
+/**
+ * A React-rendered list arrives once, on the reader's first pass. Re-renders
+ * (the Archive's filters, the Work browser's lenses) are repeated actions, so
+ * they resolve instantly: the first mutation clears the entrance and the
+ * observer stops. Nothing can be left hidden by a row that never scrolled in.
+ */
+function arriveRowsOnce(list:Element,selector:string){
+ const rows=[...list.querySelectorAll(selector)];
+ if(!rows.length)return()=>{};
+ gsap.set(rows,{y:22,opacity:0});
+ const batch=ScrollTrigger.batch(rows,{start:'top 92%',once:true,
+  onEnter:group=>gsap.to(group,{y:0,opacity:1,duration:.9,ease:EASE,stagger:.05,overwrite:true,clearProps:'transform,opacity'})});
+ const stop=()=>{batch.forEach(t=>t.kill());gsap.set(rows,{clearProps:'transform,opacity'})};
+ const observer=new MutationObserver(()=>{stop();observer.disconnect()});
+ observer.observe(list,{childList:true});
+ return()=>{observer.disconnect();stop()};
 }
 
 /** Photographs open from the centre while the print settles from a slight zoom. */
@@ -134,33 +184,15 @@ function home(main:HTMLElement,c:Conditions){
  arrive(q('.venture-principles > div'),{stagger:.1});
 
  // ── Selected work: the lenses, then the list row by row.
- arrive(q('.work-lenses > *'),{stagger:.1});
- arrive(q('.work-filters'));
- arriveEach(q('.project-selectors > *'));
- arrive(q('.project-preview'),{y:50});
+ restore.push(workIndex(main));
 
  // ── On the record: each figure counts up once, in place.
- q('.proof-value').forEach(value=>{
-  const text=[...value.childNodes].find(n=>n.nodeType===Node.TEXT_NODE&&/\d/.test(n.textContent??''));
-  if(!text)return;
-  const original=text.textContent!;
-  const match=original.match(/\d+(\.\d+)?/)!;
-  const target=parseFloat(match[0]),places=match[1]?match[1].length-1:0;
-  const n={v:0};
-  text.textContent=original.replace(match[0],(0).toFixed(places));
-  gsap.to(n,{v:target,duration:1.6,ease:'power3.out',scrollTrigger:{trigger:value,start:'top 90%',once:true},
-   onUpdate:()=>{text.textContent=original.replace(match[0],n.v.toFixed(places))}});
-  // Revert restores the authored figure.
-  restore.push(()=>{text.textContent=original});
- });
+ q('.proof-value').forEach(value=>countUp(value,restore));
  arriveEach(q('.proof-point'));
 
  // ── Recognition: the testimonial fills in as it is read.
  const quote=main.querySelector('.recognition blockquote');
- if(quote){
-  const words=SplitText.create(quote,{type:'words'});
-  gsap.fromTo(words.words,{opacity:.16},{opacity:1,ease:'none',stagger:.1,scrollTrigger:{trigger:quote,start:'top 82%',end:'bottom 52%',scrub:.6}});
- }
+ if(quote)fillWords(quote);
  const award=main.querySelector('.recognition-photo');
  if(award){
   gsap.from(award,{y:120,rotation:'-=9',opacity:0,duration:1.6,ease:EASE,clearProps:'transform,opacity',scrollTrigger:{trigger:award,start:'top 88%',once:true}});
@@ -192,6 +224,107 @@ function story(main:HTMLElement){
  });
  // Who it's for: the three audiences step in.
  arrive(q('.st-for-list > li'),{stagger:.12,y:40});
+}
+
+/**
+ * The Work browser, on home and on /work alike. The lenses and filters set
+ * the frame, the list arrives row by row, and the preview follows. The list
+ * is React's, so it arrives once and then answers the filters instantly.
+ */
+function workIndex(main:HTMLElement){
+ arrive(all(main,'.work-lenses > *'),{stagger:.1});
+ arrive(all(main,'.work-filters'));
+ const selectors=main.querySelector('.project-selectors');
+ const undo=selectors?arriveRowsOnce(selectors,':scope > *'):()=>{};
+ arrive(all(main,'.project-preview'),{y:50});
+ return undo;
+}
+
+/**
+ * About. The page argues that one discipline runs through different problems,
+ * so its three methods are counted out one at a time, the pull quote fills in
+ * as the claim it is, and the teaching figure counts up beside it.
+ */
+function about(main:HTMLElement,c:Conditions){
+ const q=(sel:string)=>all(main,sel);
+ const restore:(()=>void)[]=[];
+
+ // The hero portrait rides a little against the scroll, so the opening has depth.
+ if(c.wide)gsap.to(main.querySelector('.about-portrait > .photo'),{yPercent:7,ease:'none',
+  scrollTrigger:{trigger:main.querySelector('.about-hero'),start:'top top',end:'bottom top',scrub:true}});
+ arrive(q('.portrait-note'),{delay:.5,y:14});
+
+ // How I work: each method steps forward with its own index.
+ q('.work-methods > article').forEach((article,i)=>{
+  const st={trigger:article,start:'top 82%',once:true};
+  gsap.from(article,{y:34,opacity:0,duration:1.1,ease:EASE,delay:i*.06,clearProps:'transform,opacity',scrollTrigger:st});
+  gsap.from(article.querySelector('.method-index'),{opacity:0,x:-14,duration:1,ease:EASE,delay:.22+i*.06,clearProps:'transform,opacity',scrollTrigger:st});
+ });
+
+ // The path: the two chapters of the essay, then the claim they add up to.
+ arrive(q('.path-essay > article'),{stagger:.14,y:34});
+ const pullquote=main.querySelector('.about-pullquote');
+ if(pullquote)fillWords(pullquote);
+
+ // Research: the keywords are set like index terms, in order.
+ arrive(q('.research-keywords > span'),{stagger:.05,y:12});
+
+ // Teaching: four hundred students, counted.
+ q('.about-numeral').forEach(value=>countUp(value,restore));
+
+ // Outside work: the prints drift at their own depths, as they do on home.
+ if(c.wide)q('.outside-composition .photo').forEach((p,i)=>
+  gsap.fromTo(p,{y:[40,-20,55][i%3]},{y:[-35,25,-45][i%3],ease:'none',
+   scrollTrigger:{trigger:p.closest('.outside-composition'),start:'top bottom',end:'bottom top',scrub:true}}));
+
+ // Education: the two records, then the people behind them.
+ arrive(q('.education-spread > div'),{stagger:.14,y:36});
+ arrive(q('.mentorship-note > *'),{stagger:.12,y:30});
+
+ return()=>restore.forEach(r=>r());
+}
+
+/** The Archive. A ruled index sets itself line by line as the reader arrives. */
+function archive(main:HTMLElement){
+ arrive(all(main,'.archive-controls'),{y:24});
+ arrive(all(main,'.archive-results-line'),{y:14,delay:.15});
+ const records=main.querySelector('.archive-records');
+ const undo=records?arriveRowsOnce(records,':scope > .archive-record'):()=>{};
+ arrive(all(main,'.archive-source-note > *'),{stagger:.1});
+ return undo;
+}
+
+/** Contact. The page is one invitation, so it opens rather than assembles. */
+function contact(main:HTMLElement,c:Conditions){
+ const q=(sel:string)=>all(main,sel);
+ arrive(q('.contact-primary > *'),{stagger:.08,delay:.5,y:20});
+ arrive(q('.contact-direct > *'),{stagger:.08,delay:.7,y:16});
+ arrive(q('.contact-current'),{delay:.6,y:20});
+ if(c.wide)gsap.to(main.querySelector('.contact-portrait > .photo'),{yPercent:6,ease:'none',
+  scrollTrigger:{trigger:main.querySelector('.contact-hero'),start:'top top',end:'bottom top',scrub:true}});
+ // The three ways in, dealt out in order.
+ arrive(q('.contact-invitations > .container > div > a'),{stagger:.1,y:38});
+ arrive(q('.contact-resumes > div'),{stagger:.12,y:26});
+}
+
+/**
+ * A case study. The impact table is the evidence, so it is set out fact by
+ * fact; the takeaway fills in as it is read, the way the home page's
+ * testimonial does.
+ */
+function caseStudy(main:HTMLElement){
+ const q=(sel:string)=>all(main,sel);
+ arrive(q('.case-thesis'),{delay:.3,y:20});
+ // The impact table is evidence: each fact is set down in turn, not counted
+ // (these are process names and places, not quantities).
+ const impact=main.querySelector('.case-impact');
+ if(impact)arrive(all(impact,':scope > div'),{stagger:.08,y:22,trigger:impact});
+ // The contents list finds its place before the reader starts the first chapter.
+ arrive(q('.case-navigation a'),{stagger:.05,y:14});
+ // The spec sheet reads as a report: a row at a time.
+ arrive(q('.spec-sheet dl > div'),{stagger:.07,y:16});
+ q('.case-takeaway').forEach(fillWords);
+ arrive(q('.case-curated-artifact, .artifact-links > *'),{stagger:.08,y:22});
 }
 
 function everyPage(main:HTMLElement,c:Conditions){
@@ -234,10 +367,19 @@ export function ScrollMotion(){
   mm.add(MOTION,context=>{
    const c=context.conditions as Conditions;
    if(!c.motion)return;
-   const undo=main.classList.contains('new-home')?home(main,c):undefined;
+   // One scene set per page, chosen the way the page identifies itself.
+   const undo:(()=>void)[]=[];
+   const add=(u?:(()=>void)|void)=>{if(u)undo.push(u)};
+   if(main.classList.contains('new-home'))add(home(main,c));
    if(main.classList.contains('story-page'))story(main);
+   if(main.classList.contains('about-editorial'))add(about(main,c));
+   if(main.classList.contains('contact-editorial'))contact(main,c);
+   if(main.classList.contains('case-page'))caseStudy(main);
+   if(main.querySelector('.archive-index'))add(archive(main));
+   // /work runs the same browser home does, without home's other scenes.
+   if(!main.classList.contains('new-home')&&main.querySelector('.project-browser'))add(workIndex(main));
    everyPage(main,c);
-   return undo;
+   return()=>undo.forEach(u=>u());
   });
   // Without motion the hero is never held.
   if(!matchMedia(MOTION.motion).matches)document.documentElement.classList.remove('hero-hold');

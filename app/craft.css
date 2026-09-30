@@ -1,0 +1,164 @@
+/*
+ * Craft — the pass that takes the rest of the site to the home page's
+ * standard (September 30, 2026). Imported after atelier.css.
+ *
+ * Atelier rebuilt the type, the grounds and the actions, but it landed
+ * unevenly: the home page and A Story got authored scenes and a paper
+ * texture, and every other page kept the flat cream and the earlier layers'
+ * costume shadows underneath. Nothing here changes what a page says or the
+ * order it says it in. What changes is the material:
+ *
+ *   Grain    one film over the whole site instead of a background-image on
+ *            nine hand-listed sections, which is why the texture used to
+ *            stop mid-scroll.
+ *   Ground   the last surface still drifting cool (About's path) rejoins the
+ *            warm paper family.
+ *   Frame    photographs sit on a mat with one hairline and one real cast
+ *            shadow, replacing the zero-blur offset block from redesign.css.
+ *   Seam     bands meet the page on a hairline instead of a hard colour cut.
+ *   Detail   the Archive's rows, the case study's contents, and Contact's
+ *            address become things you can feel under the pointer.
+ *
+ * Scroll scenes for these pages live in components/ScrollMotion.tsx. Reduced
+ * motion is honoured at the end of the file.
+ */
+
+/* ── Grain: one film, the whole site ────────────────────────────────── */
+/* Was: background-image on a hand-listed set of A Story sections, so the
+   texture stopped at the first section nobody had listed. A fixed layer
+   covers every ground at once and never repaints while scrolling (it is the
+   only safe place for grain; on a scrolling container it costs a repaint a
+   frame). Below the intro's z-index 1000 so the cover film stays clean. */
+body::before{content:'';position:fixed;inset:0;z-index:900;pointer-events:none;
+ background:url('/textures/paper-grain-soft.png') 0 0/160px 160px repeat;opacity:.62}
+/* The per-section grain is now redundant; atelier.css's rule is retired here
+   so A Story does not carry it twice. */
+main :is(.new-venture,.new-story-hero,.st-listen,.st-voices,.st-how,.st-different,.story-ending){background-image:none}
+@media print{body::before{display:none}}
+
+/* ── Grounds: the last drift ────────────────────────────────────────── */
+/* quality.css set About's path section two classes deep (#eff0e8, a cool
+   sage), which outranked atelier's paper family and read as a different
+   site for one screen. */
+main.about-editorial .about-path{background:var(--paper)}
+main.story-page .voices-section{background:var(--paper)}
+
+/* ── Seams: where a ground changes ──────────────────────────────────── */
+/* A paper band against cream used to meet on a hard colour cut. One hairline
+   at the join reads as a sheet laid on the page rather than a CSS boundary. */
+main :is(.journey-section,.off-clock,.how-work,.about-path,.about-work-pair,.about-education,.contact-invitations,.st-voices,.case-chapter-problem){
+ border-block:1px solid var(--line)}
+
+/* ── Frames: one plate system ───────────────────────────────────────── */
+/* redesign.css framed prints with a zero-blur offset block (box-shadow:3px
+   4px 0), which is a costume rather than depth. A print resting on paper has
+   two shadows: a tight contact edge and a soft cast. One hairline, one mat. */
+main .photo[data-frame] img{
+ padding:7px;background:var(--soft);border:1px solid rgb(13 34 56/.15);border-radius:2px;
+ box-shadow:0 1px 2px rgb(0 39 76/.07),0 14px 30px -16px rgb(0 39 76/.38);
+ transition:box-shadow 520ms var(--ease-out),translate 520ms var(--ease-out)}
+/* Research and artifact prints are documents, not keepsakes: they lie flat. */
+main .photo[data-frame=research] img{padding:5px;border-color:rgb(13 34 56/.2);border-radius:1px;
+ box-shadow:0 1px 2px rgb(0 39 76/.06),0 8px 18px -12px rgb(0 39 76/.3)}
+main .photo[data-frame=personal] img{padding:8px;border-color:var(--stone)}
+/* The hero's arch and the Book's plates own their treatment already. */
+main :is(.identity-image,.book-theatre,.chronology-map) .photo img{box-shadow:none;translate:none}
+@media(hover:hover) and (pointer:fine){
+ main .photo[data-frame]:hover img{translate:0 -3px;box-shadow:0 2px 3px rgb(0 39 76/.08),0 22px 44px -18px rgb(0 39 76/.42)}
+}
+/* The remaining offset blocks from the earlier layers, retired in place. */
+main :is(.case-exhibit .photo,.life-gallery .photo,.record-content>.photo,.journey-photo,.voices-object,.project-preview){
+ box-shadow:0 1px 2px rgb(0 39 76/.05),0 18px 40px -22px rgb(0 39 76/.34)}
+/* A 1px border under a wide shadow is a ghost card: the preview picks one. */
+main .project-preview{border:0}
+
+/* ── Panels that were cool grey ─────────────────────────────────────── */
+main :is(.case-exhibit,.record-text-exhibit,.thinking-principles>article){background:var(--soft);border-color:var(--line)}
+main .archive-record[open]{border-inline:0}
+
+/* ── The Archive: a ruled index you can feel ────────────────────────── */
+/* The rows carried a fullwidth "＋" from the system font and opened with no
+   transition. The toggle is drawn now, and turns into a close as it opens. */
+main .record-toggle{position:relative;display:block;width:22px;height:22px;justify-self:end;
+ transition:rotate 420ms var(--ease-out),opacity 200ms ease}
+main .record-toggle::before,main .record-toggle::after{content:'';position:absolute;left:50%;top:50%;
+ width:13px;height:1px;background:var(--brass-text);translate:-50% -50%;
+ transition:rotate 420ms var(--ease-out),background-color 200ms ease}
+main .record-toggle::after{rotate:90deg}
+main .archive-record[open] .record-toggle{rotate:135deg}
+/* The year and number are set as an index, in figures that line up down the column. */
+main .archive-record :is(.record-num,.record-year){font-stretch:var(--label-stretch);letter-spacing:.1em;color:rgb(13 34 56/.5)}
+main .archive-record[open]{background:var(--paper);border-radius:10px}
+main .archive-record summary{cursor:pointer;transition:padding-left 420ms var(--ease-out)}
+@media(hover:hover) and (pointer:fine){
+ main .archive-record:hover .record-toggle::before,main .archive-record:hover .record-toggle::after{background:var(--blue)}
+ main .archive-record:hover .record-num{color:var(--brass-text)}
+}
+/* The disclosure opens instead of appearing. ::details-content is ignored by
+   browsers that do not have it, which get today's instant open. */
+@supports selector(::details-content){
+ main .archive-record::details-content{block-size:0;overflow:clip;opacity:0;
+  transition:content-visibility 520ms allow-discrete,block-size 520ms var(--ease-out),opacity 340ms ease}
+ main .archive-record[open]::details-content{block-size:auto;opacity:1}
+}
+
+/* ── Selected work: the browser reads as one instrument ─────────────── */
+main .project-selectors button{transition:background-color 260ms ease,color 260ms ease,padding-left 420ms var(--ease-out)}
+@media(hover:hover) and (pointer:fine){
+ main .project-selectors button:not([aria-pressed=true]):hover{padding-left:12px;background:rgb(0 39 76/.03)}
+}
+main .project-number{font-family:var(--serif);font-style:italic;color:var(--brass-text)}
+
+/* ── The case study's contents ──────────────────────────────────────── */
+/* The active chapter was marked with a cool green fill and a 3px brass slab
+   inset down its left edge. A rule that draws into the margin, the chapter's
+   own weight, and the paper family carry it instead. */
+main .case-navigation a{position:relative;background:transparent;box-shadow:none;border-radius:0;
+ padding-left:22px;color:var(--muted);transition:color 220ms ease,padding-left 420ms var(--ease-out)}
+main .case-navigation a>span{color:rgb(13 34 56/.42);font-variant-numeric:lining-nums tabular-nums;transition:color 220ms ease}
+main .case-navigation a::before{content:'';position:absolute;left:0;top:50%;width:12px;height:1px;
+ background:var(--brass);translate:0 -50%;transform-origin:0 50%;scale:0 1;
+ transition:scale 420ms var(--ease-out)}
+main .case-navigation a[aria-current=location]{color:var(--blue);font-weight:600;background:transparent;box-shadow:none}
+main .case-navigation a[aria-current=location]>span{color:var(--brass-text)}
+main .case-navigation a[aria-current=location]::before{scale:1 1}
+@media(hover:hover) and (pointer:fine){
+ main .case-navigation a:hover{background:transparent;color:var(--blue);padding-left:26px}
+ main .case-navigation a:hover::before{scale:1 1;background:var(--line-strong)}
+}
+/* On narrow screens the contents becomes a bar: the rule belongs underneath. */
+@media(max-width:1023px){
+ main .case-navigation a{padding-left:4px}
+ main .case-navigation a::before{left:50%;top:auto;bottom:4px;width:22px;translate:-50% 0;transform-origin:50% 50%}
+ main .case-navigation a:hover{padding-left:4px}
+}
+
+/* ── Contact: the address is the action ─────────────────────────────── */
+/* It was two plain underlined links under a fold of white space, which made
+   the quietest element on the page the one thing the page is for. */
+main .contact-direct{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;
+ margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+main .contact-direct>a{font:560 clamp(19px,1.9vw,27px)/1.2 var(--sans);font-stretch:96%;letter-spacing:-.022em;
+ color:var(--blue);text-decoration:none;
+ background:linear-gradient(var(--brass),var(--brass)) 0 100%/100% 1px no-repeat;padding-bottom:4px;
+ transition:background-size 420ms var(--ease-out),color 220ms ease}
+@media(hover:hover) and (pointer:fine){
+ main .contact-direct>a:hover{color:var(--brass-text);background-size:100% 2px}
+}
+main .contact-current .live-dot{box-shadow:0 0 0 4px rgb(107 138 92/.14)}
+
+/* ── Page openings ──────────────────────────────────────────────────── */
+/* Every secondary page began with a label, a headline and a paragraph sitting
+   on nothing. A rule under the opening gives the page a masthead. */
+main .page-intro{border-bottom:1px solid var(--line);padding-bottom:46px}
+main .page-intro .intro-copy{max-width:58ch}
+
+/* ── Browser surfaces on the darker grounds ─────────────────────────── */
+.blue ::selection,.case-next ::selection{background:var(--maize);color:var(--blue)}
+
+/* ── Reduced motion ─────────────────────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+ main :is(.photo[data-frame] img,.record-toggle,.record-toggle::before,.record-toggle::after,
+  .archive-record summary,.project-selectors button,.case-body>nav a::before,.contact-direct>a){transition:none}
+ @supports selector(::details-content){main .archive-record::details-content{transition:none}}
+}

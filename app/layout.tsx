@@ -16,6 +16,7 @@ import './book.css';
 import './motion.css';
 import 'lenis/dist/lenis.css';
 import './atelier.css';
+import './craft.css';
 import {ScrollMotion} from '@/components/ScrollMotion';
 import {Intro} from '@/components/motion/Intro';
 import {SmoothScroll} from '@/components/motion/SmoothScroll';
