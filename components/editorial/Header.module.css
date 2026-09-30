@@ -6,8 +6,8 @@
 @keyframes read-progress{to{transform:scaleX(1)}}
 .header[data-scrolled=true]{height:64px;background:rgb(245 241 232/.93);border-color:rgb(13 34 56/.1);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);box-shadow:0 10px 30px -24px rgb(0 39 76/.35)}
 .row{height:100%;display:flex;align-items:center;justify-content:space-between;gap:30px}
-.wordmark{display:inline-flex;align-items:baseline;min-height:44px;line-height:44px;font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-.03em;color:#00274c;text-decoration:none;white-space:nowrap;transform-origin:left center;transition:transform 320ms cubic-bezier(.23,1,.32,1)}
-.wordmark span{color:#b58420}.header[data-scrolled=true] .wordmark{transform:scale(.91)}
+.wordmark{display:inline-flex;align-items:center;flex-shrink:0;min-height:48px;color:var(--blue);text-decoration:none;white-space:nowrap;transform-origin:left center;transition:transform 320ms cubic-bezier(.23,1,.32,1)}
+.header[data-scrolled=true] .wordmark{transform:scale(.94)}
 .desktop{display:flex;align-items:center;gap:8px}
 .desktop a{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 14px;font:500 15px/1.4 var(--sans);letter-spacing:.004em;color:rgb(13 34 56/.72);text-decoration:none;white-space:nowrap;transition:color 200ms ease}
 .desktop a:not(:last-child):after{content:'';position:absolute;left:14px;right:14px;bottom:8px;height:1.5px;background:#b58420;transform:scaleX(0);transform-origin:100% 50%;transition:transform 380ms cubic-bezier(.23,1,.32,1)}

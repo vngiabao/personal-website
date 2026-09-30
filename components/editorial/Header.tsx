@@ -4,6 +4,7 @@ import {navigation,site} from '@/content/site';
 import styles from './Header.module.css';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
+import {Brand} from '@/components/brand/Brand';
 
 export function Header(){
   const pathname=usePathname();
@@ -40,7 +41,7 @@ export function Header(){
     <div className={styles.reserve} aria-hidden="true"/>
     <header className={styles.header} data-scrolled={scrolled} data-site-header>
       <div className={`container ${styles.row}`}>
-        <Link href="/" className={styles.wordmark} aria-label="Bao Vo, home">BAO VO<span aria-hidden="true">.</span></Link>
+        <Link href="/" className={styles.wordmark} aria-label="Bao Vo, home"><Brand/></Link>
         <nav className={styles.desktop} aria-label="Main navigation">{navigation.map(item=><Link key={item.href} href={item.href} aria-current={pathname===item.href||pathname.startsWith(item.href+'/')?'page':undefined}>{item.label}</Link>)}</nav>
         <button ref={menu} className={styles.menu} onClick={show} aria-haspopup="dialog" aria-expanded={open} aria-controls="navigation-sheet">Menu <span aria-hidden="true"><i/><i/></span></button>
       </div>
@@ -48,7 +49,7 @@ export function Header(){
     <noscript><nav className={`container ${styles.noScript}`} aria-label="Navigation without JavaScript">{navigation.map(item=><a href={item.href} key={item.href}>{item.label}</a>)}</nav><style>{`.${styles.menu}{display:none}`}</style></noscript>
     <dialog id="navigation-sheet" ref={dialog} className={styles.sheet} aria-label="Site navigation" onClose={closed} onKeyDown={trap}>
       <div className={`container ${styles.sheetInner}`}>
-        <div className={styles.sheetTop}><Link className={styles.wordmark} href="/" onClick={()=>{if(pathname!=='/')savedScroll.current=0;dialog.current?.close()}}>BAO VO<span aria-hidden="true">.</span></Link><button ref={closeButton} onClick={()=>dialog.current?.close()}>Close <span aria-hidden="true">×</span></button></div>
+        <div className={styles.sheetTop}><Link className={styles.wordmark} href="/" aria-label="Bao Vo, home" onClick={()=>{if(pathname!=='/')savedScroll.current=0;dialog.current?.close()}}><Brand/></Link><button ref={closeButton} onClick={()=>dialog.current?.close()}>Close <span aria-hidden="true">×</span></button></div>
         <nav aria-label="Mobile navigation" className={styles.sheetLinks}>{navigation.map(item=><Link href={item.href} key={item.href} aria-current={pathname===item.href||pathname.startsWith(item.href+'/')?'page':undefined} onClick={()=>{if(item.href!==pathname)savedScroll.current=0;dialog.current?.close()}}><span>{item.label}</span></Link>)}</nav>
         <div className={styles.sheetFoot}><a href={`mailto:${site.email}`}>{site.email}</a><Link href="/archive" onClick={()=>{savedScroll.current=0;dialog.current?.close()}}>Archive</Link><p>Bao Vo · Ann Arbor, Michigan</p></div>
       </div>

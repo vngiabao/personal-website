@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {LocalTime} from './LocalTime';
 import {FooterNext} from './FooterNext';
+import {Brand} from './brand/Brand';
 import originalMedia from '@/content/ledger-media.json';
 import suppliedMedia from '@/content/supplied-media.json';
 const media=[...originalMedia,...suppliedMedia];
@@ -28,6 +29,7 @@ export function Footer(){return <footer className="site-footer">
 </nav>
 </div>
 <div className="footer-base">
+<Link className="footer-brand" href="/" aria-label="Bao Vo, home"><Brand compact/></Link>
 <LocalTime/>
 <span className="small">© {new Date().getFullYear()} Bao Vo</span>
 <a className="footer-up" href="#main">Back to top</a>
@@ -40,5 +42,6 @@ export function Footer(){return <footer className="site-footer">
  * via for each of its seven chapters, the last one lit (A Story, now). Outer
  * classes stay as they were: the reader's open/close animation drives them.
  */
-export function BookCover({small=false}:{small?:boolean}){return <div className={`book-object bc ${small?'compact':''}`} aria-hidden="true"><div className="book-spine"><span className="bc-spine-band"/>BAO VO · THE PATH, SO FAR.<span className="bc-spine-band"/></div><div className="book-face"><span className="bc-author">Bao Vo</span><span className="bc-title">The Path,<br/><em>So Far.</em></span><svg className="bc-trace" viewBox="0 0 260 24"><line x1="8" y1="12" x2="252" y2="12"/>{[0,1,2,3,4,5,6].map(n=><circle key={n} cx={8+n*244/6} cy="12" r={n===6?4.2:3} className={n===6?'now':undefined}/>)}<circle cx="252" cy="12" r="8.5" className="halo"/></svg><span className="bc-years">Michigan · 2019 — 2026</span><span className="bc-sub">A personal record</span></div><span className="book-ribbon"/></div>}
+export function BookCover({small=false}:{small?:boolean}){return <div className={`book-object bc ${small?'compact':''}`} aria-hidden="true"><div className="book-spine"><span className="bc-spine-band"/>BAO VO · THE PATH, SO FAR.<span className="bc-spine-band"/></div><div className="book-face"><span className="bc-emblem"/>
+<span className="bc-author">Bao Vo</span><span className="bc-title">The Path,<br/><em>So Far.</em></span><svg className="bc-trace" viewBox="0 0 260 24"><line x1="8" y1="12" x2="252" y2="12"/>{[0,1,2,3,4,5,6].map(n=><circle key={n} cx={8+n*244/6} cy="12" r={n===6?4.2:3} className={n===6?'now':undefined}/>)}<circle cx="252" cy="12" r="8.5" className="halo"/></svg><span className="bc-years">Michigan · 2019 — 2026</span><span className="bc-sub">A personal record</span></div><span className="book-ribbon"/></div>}
 

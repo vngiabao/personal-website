@@ -6,19 +6,21 @@
  * the chapters of the Path. Each chapter gets a title card, set large like a
  * film's chapter title, the moment the signal nears its block, and it holds
  * until the next. Then the camera rises to the whole chip, settles low; the
- * die sinks into shadow, only the A Story core keeps its light, and the name
- * resolves as its letter-spacing closes. The cover lifts off the hero, which
- * starts its own entrance as it goes.
+ * die sinks into shadow, only the A Story core keeps its light, the GB mark is
+ * written in with its brass period, and the name, a plain welcome and one line
+ * about him settle beneath it; the thesis is left for the hero to say. The cover lifts off the hero, which starts its
+ * own entrance as it goes.
  *
  * three.js is imported only here, on demand. If WebGL or the import fails,
- * `onFail` hands over to the card intro. Click, tap, Escape or Skip jumps to
- * the lift.
+ * `onFail` hands over to the card intro. The Skip button or Escape jumps to
+ * the lift; a stray click does not.
  */
 import {useLayoutEffect,useRef,useState} from 'react';
 import {gsap,EASE} from '@/lib/motion';
 import {releaseIntro} from './introSignal';
 import {STOPS,BLOCK_T} from './chip/dieArt';
 import type {ChipState} from './chip/chipScene';
+import {BrandMark} from '@/components/brand/Brand';
 
 /** A card appears this far (in route progress) before its block is reached. */
 const LEAD=.05;
@@ -77,12 +79,16 @@ export function ChipIntro({onDone,onFail}:{onDone:()=>void;onFail:()=>void}){
     .to(state,{settle:1,duration:1.8,ease:'power2.inOut'},7.1)
     .to(state,{dim:1,duration:1.6,ease:'sine.inOut'},7.2)
     .to(state,{core:1,duration:1.4,ease:'sine.out'},7.3)
-    // The name resolves as its spacing closes; the brass period arrives last.
-    .fromTo(name??[],{letterSpacing:'.34em',opacity:0,filter:'blur(8px)'},{letterSpacing:'-.02em',opacity:1,filter:'blur(0px)',duration:2,ease:'expo.out'},7.6)
-    .from(q('.chip-name b'),{opacity:0,duration:.8,ease:'sine.out'},8.5)
-    .from(q('.chip-keyline'),{scaleX:0,duration:1.1,ease:'expo.inOut'},8.2)
-    .from(q('.chip-thesis'),{opacity:0,y:8,duration:1,ease:'sine.out'},8.5)
-    .addLabel('lift',9.7)
+    // The GB mark is written in, left to right like a pen; its brass period
+    // lands last. Then the name settles beneath it, the welcome, the bio line.
+    .fromTo(q('.chip-mark'),{clipPath:'inset(-10% 100% -10% 0%)'},{clipPath:'inset(-10% 0% -10% 0%)',duration:1.9,ease:'power2.inOut'},7.4)
+    .from(q('.chip-mark circle'),{opacity:0,scale:.5,transformOrigin:'50% 50%',duration:.8,ease:'expo.out'},9.05)
+    .fromTo(name??[],{letterSpacing:'.7em',opacity:0},{letterSpacing:'.32em',opacity:1,duration:1.6,ease:'expo.out'},8.3)
+    .from(q('.chip-keyline'),{scaleX:0,duration:1.1,ease:'expo.inOut'},8.7)
+    .from(q('.chip-thesis'),{opacity:0,y:8,duration:1,ease:'sine.out'},9.0)
+    .from(q('.chip-bio'),{opacity:0,y:6,duration:1,ease:'sine.out'},9.5)
+    // Long enough to read the welcome and the line about him.
+    .addLabel('lift',11)
     .add(()=>releaseIntro(),'lift')
     .to(q('.chip-centre, .chip-skip'),{opacity:0,y:-24,duration:.8,ease:'sine.in'},'lift')
     .to(el,{clipPath:'inset(0% 0% 100% 0%)',duration:1.35,ease:'power3.inOut'},'lift+=.1');
@@ -90,21 +96,25 @@ export function ChipIntro({onDone,onFail}:{onDone:()=>void;onFail:()=>void}){
    if(process.env.NODE_ENV!=='production'){const at=new URLSearchParams(location.search).get('chip-at');if(at)tl.pause(parseFloat(at),false)}
   })();
 
-  el.addEventListener('pointerdown',skip);window.addEventListener('keydown',skip);
-  return()=>{disposed=true;tl?.kill();scene?.dispose();el.removeEventListener('pointerdown',skip);window.removeEventListener('keydown',skip);html.style.overflow=''};
+  // A stray click must not end it: only the Skip button or Escape does.
+  const button=el.querySelector<HTMLButtonElement>('.chip-skip');
+  button?.addEventListener('click',skip);window.addEventListener('keydown',skip);
+  return()=>{disposed=true;tl?.kill();scene?.dispose();button?.removeEventListener('click',skip);window.removeEventListener('keydown',skip);html.style.overflow=''};
  },[onDone,onFail]);
 
- return <div className="chip-intro" ref={root} data-ready={ready} aria-hidden="true">
-  <canvas ref={canvas} className="chip-canvas"/>
-  <div className="chip-cards">{STOPS.map((s,i)=><div key={s.label} className="chip-card">
+ return <div className="chip-intro" ref={root} data-ready={ready}>
+  <canvas ref={canvas} className="chip-canvas" aria-hidden="true"/>
+  <div className="chip-cards" aria-hidden="true">{STOPS.map((s,i)=><div key={s.label} className="chip-card">
    <p className="chip-card-meta"><span>{String(i+1).padStart(2,'0')}</span>{s.year} · {s.tag}</p>
    <p className="chip-card-name"><span>{s.label}</span></p>
   </div>)}</div>
-  <div className="chip-centre">
-   <p className="chip-name"><span>Bao Vo<b>.</b></span></p>
+  <div className="chip-centre" aria-hidden="true">
+   <BrandMark className="chip-mark"/>
+   <p className="chip-name"><span>Bao Vo</span></p>
    <span className="chip-keyline"/>
-   <p className="chip-thesis">From silicon to strategy.</p>
+   <p className="chip-thesis">Welcome to my corner.</p>
+   <p className="chip-bio">Engineer · Founder · Ann Arbor, by way of Vietnam</p>
   </div>
-  <span className="chip-skip">Skip intro</span>
+  <button type="button" className="chip-skip">Skip intro</button>
  </div>;
 }

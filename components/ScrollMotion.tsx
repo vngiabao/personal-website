@@ -65,7 +65,7 @@ function home(main:HTMLElement,c:Conditions){
   const h1=hero.querySelector('h1')!;
   const split=SplitText.create(h1,{type:'lines',mask:'lines'});
   // Set this tight (line-height .9), Brygada's italic g and y reach well below the line box.
-  openMasks(split.masks,'.32em');
+  openMasks(split.masks,'.46em');
   const frame=hero.querySelector('.arch-frame');
   // Once the entrance has settled, the hero answers the pointer: the arch
   // tilts a few degrees with the portrait moving against it (depth), and the
@@ -88,9 +88,13 @@ function home(main:HTMLElement,c:Conditions){
    window.addEventListener('pointermove',move,{passive:true});
    restore.push(()=>window.removeEventListener('pointermove',move));
   };
-  const tl=gsap.timeline({paused:true,onComplete:()=>{split.revert();respond()}});
+  const tl=gsap.timeline({paused:true,onComplete:respond});
   tl.from(all(hero,'.identity-copy > .eyebrow, .hello-line'),{y:16,opacity:0,duration:1,ease:EASE,stagger:.08},0)
    .from(split.lines,{yPercent:115,duration:1.35,ease:EASE,stagger:.11},.12)
+   // Unmask as soon as the lines have landed, not when the whole entrance
+   // ends: the masks would otherwise clip the italic descenders while the
+   // weight is still settling.
+   .add(()=>split.revert(),1.6)
    // "From silicon" is deposited: it rises as a hairline, narrow cut and
    // settles into its full weight. It only ever grows toward its authored
    // width, so the line masks never clip it. The serif "strategy." keeps

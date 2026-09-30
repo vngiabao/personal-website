@@ -159,6 +159,9 @@ main .identity-hero{background:radial-gradient(90% 70% at 78% 30%,rgb(181 132 32
 /* ── Home: hero ─────────────────────────────────────────────────────── */
 .identity-hero h1{font-size:clamp(58px,7.3vw,122px);line-height:.9;letter-spacing:-.032em;font-weight:640}
 .identity-hero h1 em{color:var(--brass-text);letter-spacing:-.022em}
+/* master.css masked each headline line for an old CSS reveal; that mask cut Brygada's
+   italic descenders (the g and y of "strategy."). The reveal is GSAP's now, with its own room. */
+.identity-hero .identity-copy h1>span{overflow:visible}
 /* The headline's weight follows the pointer; its lines must not re-wrap while it does. */
 @media(min-width:1024px){.identity-hero h1>span{white-space:nowrap}}
 .identity-hero .hello-line{font-family:var(--serif);font-style:italic;font-size:clamp(22px,1.8vw,27px);color:rgb(13 34 56/.72)}
@@ -304,6 +307,7 @@ main .contact-hero h1{font-size:clamp(84px,11vw,188px);line-height:.86}
 .site-footer .footer-base .small{order:0;margin:0;font-size:13px;color:var(--muted)}
 .site-footer .footer-clock{margin:0;font-family:var(--sans);font-style:normal;display:inline-flex;align-items:center;gap:10px;max-width:none;font-size:13px;color:var(--muted)}
 .site-footer .footer-clock time{color:var(--blue);font-weight:560;font-style:normal}
+.site-footer .footer-brand{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;margin-right:8px}
 .site-footer .footer-up{margin-left:auto;display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:var(--blue);font-weight:560}
 .site-footer .footer-up::after{content:'';width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);background:var(--arrow-navy) center/13px no-repeat;transform:rotate(-90deg);transition:transform 480ms var(--ease-out),background-color 240ms ease}
 @media(hover:hover){.site-footer .footer-up:hover::after{transform:rotate(-90deg) translateX(3px);background-color:rgb(0 39 76/.05)}}
@@ -359,6 +363,11 @@ html body .book-object.bc .bc-title{font-size:15.5cqw;line-height:.96;filter:dro
 html body .book-object.bc .bc-trace line{stroke:#d9b366;opacity:.95}
 html body .book-object.bc .bc-trace circle{fill:#0a2140;stroke:#e0bd72}
 html body .book-object.bc :is(.bc-years,.bc-sub){filter:drop-shadow(0 -1px 0 rgb(0 0 0/.45))}
+/* The GB monogram, stamped in the same gilt as the title. */
+html body .book-object.bc .bc-emblem{position:relative;z-index:1;display:block;width:20cqw;aspect-ratio:690/462;margin:0 auto 3.4cqw;
+ background:linear-gradient(100deg,#b48636 0%,#f4dc9a 24%,#c7973f 42%,#f8e6b0 60%,#ad7c2f 80%,#e7c476 100%);
+ -webkit-mask:url('/brand/gb-mark.svg') center/contain no-repeat;mask:url('/brand/gb-mark.svg') center/contain no-repeat;
+ filter:drop-shadow(0 -1px 0 rgb(0 0 0/.5)) drop-shadow(0 1px 0 rgb(255 240 200/.12))}
 /* Spine: rounded, catching light along its crown, with raised bands in gilt. */
 html body .book-object.bc .book-spine{background:linear-gradient(90deg,#03101f 0%,#0a2442 30%,#14365c 52%,#0a2442 74%,#040f1e 100%)!important;box-shadow:inset 0 1px 0 rgb(255 255 255/.06)}
 html body .book-object.bc .bc-spine-band{height:1.6cqw;background:linear-gradient(90deg,rgb(0 0 0/.35),rgb(255 255 255/.14) 50%,rgb(0 0 0/.35));border-block:1px solid rgb(214 176 96/.55)}

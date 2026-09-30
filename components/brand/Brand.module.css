@@ -1,0 +1,40 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.mark {
+  display: block;
+  flex: none;
+  height: 34px;
+  width: auto;
+  aspect-ratio: 690 / 462;
+  color: var(--blue);
+  overflow: visible;
+}
+
+.type {
+  display: block;
+}
+
+.name {
+  display: block;
+  padding-top: 2px;
+  font: 400 23px/1.2 var(--serif);
+  font-kerning: normal;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.compact { gap: 14px; }
+.compact .mark { height: 29px; }
+.compact .name { font-size: 20px; }
+
+@media (max-width: 767px) {
+  .brand { gap: 12px; }
+  .mark { height: 29px; }
+  .name { font-size: 20px; letter-spacing: .15em; }
+}

@@ -128,7 +128,7 @@ export function drawDie(size=2048){
  // Chip art: designers sign their dies. Bottom right, beneath the last row.
  g.fillStyle='rgba(222,196,140,.7)';g.letterSpacing='4px';g.font=`600 ${S*.0095}px ${sans}`;
  g.fillText('BV · MMXXVI · REV A',px(.60),px(.905));
- g.font=`italic 400 ${S*.016}px ${serif}`;g.letterSpacing='0px';g.fillText('From silicon to strategy.',px(.60),px(.935));
+ g.font=`italic 400 ${S*.016}px ${serif}`;g.letterSpacing='0px';g.fillText('The path, so far.',px(.60),px(.935));
  // A tiny arch, the portrait's frame, etched beside the signature.
  g.strokeStyle='rgba(222,196,140,.7)';g.lineWidth=2;g.beginPath();const ax=px(.905),ay=px(.94),aw=px(.028),ah=px(.05);
  g.moveTo(ax-aw/2,ay);g.lineTo(ax-aw/2,ay-ah+aw/2);g.arc(ax,ay-ah+aw/2,aw/2,Math.PI,0);g.lineTo(ax+aw/2,ay);g.stroke();
