@@ -153,6 +153,30 @@ main .contact-current .live-dot{box-shadow:0 0 0 4px rgb(107 138 92/.14)}
 main .page-intro{border-bottom:1px solid var(--line);padding-bottom:46px}
 main .page-intro .intro-copy{max-width:58ch}
 
+/* ── The Book: the page turn on one column ──────────────────────────── */
+/* The 3D turn duplicates the page into a leaf and rotates it. On a spread
+   that works: the leaf is one side of the book and measures the same as the
+   page it replaces. On a phone there is no spread. The column carries the
+   photograph and the prose together and scrolls, so the leaf renders both of
+   them into a clipped box that is neither: the photograph turns at one size
+   and re-seats at another when the turn lands, which is the settle you see.
+   A phone is not a two-page spread, so the page moves instead of turning,
+   from the edge the reader is heading toward. The desktop book keeps its
+   turn, where the leaf and the page it hands over to already agree. */
+@media(max-width:767px){
+ .book-theatre .turning-leaf,.book-theatre .turn-static,
+ .book-theatre .book-spread[data-under=true]{display:none!important}
+ /* The spread is display:none until it is current, so the animation runs
+    again on every turn without needing a key or a class to retrigger it. */
+ .book-theatre[data-mode=pages] .book-spread[data-current=true]{animation:bk-page-in 440ms var(--ease-out) both}
+ .book-theatre[data-mode=pages] .book-pages[data-dir="-1"] .book-spread[data-current=true]{animation-name:bk-page-in-back}
+}
+@keyframes bk-page-in{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes bk-page-in-back{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+ .book-theatre[data-mode=pages] .book-spread[data-current=true]{animation:none}
+}
+
 /* ── Browser surfaces on the darker grounds ─────────────────────────── */
 .blue ::selection,.case-next ::selection{background:var(--maize);color:var(--blue)}
 

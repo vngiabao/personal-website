@@ -241,7 +241,9 @@ export function BookReader({initialChapter='',initialMode='pages',embedded=false
      <button onClick={close}>Close ×</button>
     </div>
 
-    <div className="book-pages" onDragStart={e=>e.preventDefault()} onPointerDown={down} onPointerMove={move} onPointerUp={e=>end(e)} onPointerCancel={e=>end(e,true)} style={{'--drag':`${drag}deg`} as React.CSSProperties}>
+    {/* data-dir carries which way the reader is going, so the narrow-screen
+        page move (app/craft.css) can come from the edge being turned from. */}
+    <div className="book-pages" data-dir={dragDirection} onDragStart={e=>e.preventDefault()} onPointerDown={down} onPointerMove={move} onPointerUp={e=>end(e)} onPointerCancel={e=>end(e,true)} style={{'--drag':`${drag}deg`} as React.CSSProperties}>
      {SPREADS.map((id,i)=><article id={`chapter-${id}`} key={id} className="book-spread" data-chapter={id} data-front={i===0||undefined} data-current={i===current} data-under={drag>0&&i===current+dragDirection}>
       <Pages i={i} onJump={jump}/>
      </article>)}
