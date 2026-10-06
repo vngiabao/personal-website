@@ -150,7 +150,7 @@ main .identity-hero{background:radial-gradient(90% 70% at 78% 30%,rgb(181 132 32
 .chapter-nav,.section-navigation{background:rgb(245 241 232/.93);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-block:1px solid var(--line);box-shadow:none}
 .chapter-nav .chapter-links{position:relative;background:transparent;border:0;border-radius:0;padding:0;gap:0}
 .section-navigation>.container{position:relative}
-.chapter-nav .chapter-links>a,.section-navigation a{background:transparent;box-shadow:none;border-radius:0;color:rgb(13 34 56/.62);font:500 14.5px/1.25 var(--sans);letter-spacing:.005em;transition:color 200ms ease}
+.chapter-nav .chapter-links>a,.section-navigation a{background:transparent;box-shadow:none;border-radius:0;color:rgb(13 34 56/.66);font:500 14.5px/1.25 var(--sans);letter-spacing:.005em;transition:color 200ms ease}
 .chapter-nav .chapter-links>a[aria-current=location],.section-navigation a[aria-current=location]{background:transparent;box-shadow:none;color:var(--blue);font-weight:600}
 @media(hover:hover){.chapter-nav .chapter-links>a:hover,.section-navigation a:hover{background:transparent;color:var(--blue)}}
 .nav-ink{position:absolute;left:0;bottom:0;width:100px;height:2px;background:var(--brass);transform-origin:0 50%;opacity:0;pointer-events:none;transition:transform 440ms var(--ease-in-out),opacity 200ms ease}
@@ -403,4 +403,11 @@ main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);l
 @media(max-width:900px){
  .st-inception-in{grid-template-columns:1fr;gap:16px}
  .st-inception-badge{--badge-h:64px;margin-left:-15px}
+}
+
+/* Keep text contrast and narrow-screen contact content within the page. */
+main .st-step-n span{color:var(--brass-text)}
+@media(max-width:767px){
+ main .contact-hero>div{width:100%;min-width:0}
+ main .contact-primary{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
