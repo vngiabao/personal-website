@@ -376,3 +376,31 @@ html body .book-object.bc::after{background:linear-gradient(90deg,rgb(0 0 0/.18)
 /* A silk ribbon with its own sheen. */
 html body .book-object.bc .book-ribbon{background:linear-gradient(90deg,#8f6516,#d9a93e 45%,#f0cf7a 55%,#a6781f)!important;filter:drop-shadow(0 2px 2px rgb(0 0 0/.35))}
 @media(prefers-reduced-motion:reduce){html body .book-object.bc .book-face::after{transition:none}}
+
+/* ── NVIDIA Inception ────────────────────────────────────────────────
+   The badge is NVIDIA's artwork, shown unaltered: never recoloured or
+   cropped, never under the 30px digital minimum, never larger than A
+   Story's own logo, and always with clear space around it (the padding).
+   Everything around it is ours, set quietly in the site's own voice. */
+/* The image is 216 tall with the badge 165 of it, so 40px of image = 30px of badge. */
+img.inception-badge{display:block;flex:none;width:auto;height:var(--badge-h,52px);min-height:40px}
+
+.venture-intro .venture-backing{display:flex;align-items:center;gap:10px;margin:10px 0 28px -12px}
+.venture-intro .venture-backing p{margin:0;max-width:30ch;font:400 16px/1.45 var(--sans);color:var(--muted)}
+.venture-backing strong{color:var(--ink);font-weight:560}
+
+.identity-hero .current-note .current-sub{margin-top:3px;font:450 14px/1.4 var(--sans);color:var(--muted)}
+
+main .st-inception{position:relative;background:var(--soft);border-block:1px solid var(--line)}
+.st-inception-in{display:grid;grid-template-columns:auto minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(28px,4.4vw,72px);padding-block:clamp(40px,4.6vw,64px)}
+.st-inception-badge{--badge-h:80px;margin-left:-19px}
+.st-inception-copy .eyebrow{margin-bottom:14px}
+main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);line-height:1.1}
+.st-inception-about{margin:0;max-width:44ch;font-size:16px;line-height:1.6;color:var(--muted)}
+
+.site-footer .footer-base .footer-legal{order:3;flex-basis:100%;margin:0;max-width:96ch;font:400 11.5px/1.55 var(--sans);color:var(--muted)}
+
+@media(max-width:900px){
+ .st-inception-in{grid-template-columns:1fr;gap:16px}
+ .st-inception-badge{--badge-h:64px;margin-left:-15px}
+}

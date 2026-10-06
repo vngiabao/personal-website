@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {LocalTime} from './LocalTime';
+import {inception} from '@/content/inception';
 import {FooterNext} from './FooterNext';
 import {Brand} from './brand/Brand';
 import originalMedia from '@/content/ledger-media.json';
@@ -33,6 +34,7 @@ export function Footer(){return <footer className="site-footer">
 <LocalTime/>
 <span className="small">© {new Date().getFullYear()} Bao Vo</span>
 <a className="footer-up" href="#main">Back to top</a>
+<p className="footer-legal">{inception.legal}</p>
 </div>
 </div>
 </footer>}

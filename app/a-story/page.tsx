@@ -3,9 +3,11 @@ import {SectionNav} from '@/components/SectionNav';
 import {pageMetadata} from '@/content/metadata';
 import {ArrowLink,Label} from '@/components/Ledger';
 import {story} from '@/content/story';
+import {inception} from '@/content/inception';
+import {InceptionBadge} from '@/components/InceptionBadge';
 import '../pages.css';
 
-export const metadata=pageMetadata('A Story — Most of a life goes undocumented','Bao Vo’s current venture. A Story calls someone you love, listens, and follows up the way someone who knows them would — and what they say becomes a private archive the whole family can add to.','/a-story');
+export const metadata=pageMetadata('A Story — Most of a life goes undocumented','Bao Vo’s current venture. A Story calls someone you love, listens, and follows up the way someone who knows them would — and what they say becomes a private archive the whole family can add to. A member of the NVIDIA Inception program.','/a-story');
 
 /** A phone with one of A Story's real Figma screens; tall screens are cropped from the top. */
 function Screen({src,alt,className=''}:{src:string;alt:string;className?:string}){
@@ -36,6 +38,17 @@ export default function Page(){const w=story.witness;return <main id="main" clas
    </div>
   </div>
  </header>
+
+ <section className="st-inception" aria-labelledby="inception-title">
+  <div className="container st-inception-in">
+   <InceptionBadge className="st-inception-badge"/>
+   <div className="st-inception-copy">
+    <Label>Recognition · {inception.joined}</Label>
+    <h2 id="inception-title">A Story is a member of the <em>NVIDIA Inception program.</em></h2>
+   </div>
+   <p className="st-inception-about">{inception.about}</p>
+  </div>
+ </section>
 
  <SectionNav label="A Story sections" items={[['problem','What gets lost'],['listen','The conversation'],['how','How it works'],['voices','Every voice'],['different','What’s different'],['for','Who it’s for']]}/>
 
