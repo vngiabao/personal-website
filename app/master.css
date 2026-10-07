@@ -177,7 +177,7 @@ body:has(.new-home[data-entrance=first])>header{animation:master-header 180ms bo
 .book-theatre .turning-leaf.from-left{left:0;right:auto;transform-origin:right center}
 .leaf-photo{--media-height:250px;margin:15px 0}
 .turning-leaf .leaf-photo h2{font-size:30px}
-.book-theatre .turning-leaf p{font-size:18px!important;line-height:1.5!important}
+
 @media(min-width:768px) and (max-width:1279px){
  .career-stage{height:940px;min-height:940px;grid-template-columns:1fr 1.05fr}.career-copy{padding:28px}.career-copy h3{font-size:34px}.career-media{padding:20px;--media-height:620px}.career-media.has-secondary{--media-height:350px}.career-media .career-secondary{width:92%;--media-height:190px}.career-actions{gap:8px}.career-copy .path-proof{font-size:17px}.career-copy>p{font-size:19px!important}.career-copy>.eyebrow{font-size:13px!important}.career-copy .career-organization,.career-copy .career-role{font-size:16px!important}
  .work-track-grid{gap:6%}.work-track-grid h2{font-size:65px}.work-track-grid .solid-link,.work-track-grid .outline-link{font-size:16px;padding-inline:17px}

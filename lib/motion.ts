@@ -64,15 +64,26 @@ export function openMasks(masks:Element[]|undefined,room='.18em'){
  masks?.forEach(m=>{const el=m as HTMLElement;el.style.paddingBottom=room;el.style.marginBottom=`-${room}`});
 }
 
-/** After fonts and lazy images settle, measured scenes need their positions redone. */
+/** Refresh only when page geometry changes, coalesced after scrolling settles. */
 export function refreshWhenSettled(){
  let active=true;
- const refresh=()=>{if(active)ScrollTrigger.refresh()};
- document.fonts?.ready.then(refresh);
- if(document.readyState!=='complete')window.addEventListener('load',refresh,{once:true});
- // Lazy photographs change section heights as they arrive.
- const images=[...document.querySelectorAll<HTMLImageElement>('main img[loading=lazy]')].filter(i=>!i.complete);
- let frame=0;const soon=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(refresh)};
- images.forEach(i=>i.addEventListener('load',soon,{once:true}));
- return()=>{active=false;cancelAnimationFrame(frame);window.removeEventListener('load',refresh);images.forEach(i=>i.removeEventListener('load',soon))};
+ let timer:ReturnType<typeof setTimeout>|undefined;
+ const refresh=()=>{
+  if(!active)return;
+  if(ScrollTrigger.isScrolling()){timer=setTimeout(refresh,150);return;}
+  ScrollTrigger.refresh();
+ };
+ const soon=()=>{if(!active)return;clearTimeout(timer);timer=setTimeout(refresh,150)};
+ document.fonts?.ready.then(soon);
+ if(document.readyState!=='complete')window.addEventListener('load',soon,{once:true});
+ // Image dimensions are reserved in markup. Decoding an image is not itself
+ // a reason to reset every scroll scene; only an actual height change is.
+ const main=document.querySelector('main');
+ let height=main?.getBoundingClientRect().height??0;
+ const observer=new ResizeObserver(entries=>{
+  const next=entries[0]?.contentRect.height??height;
+  if(Math.abs(next-height)>1){height=next;soon()}
+ });
+ if(main)observer.observe(main);
+ return()=>{active=false;clearTimeout(timer);observer.disconnect();window.removeEventListener('load',soon)};
 }
