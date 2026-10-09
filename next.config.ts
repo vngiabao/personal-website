@@ -3,25 +3,8 @@ const config: NextConfig = {
   poweredByHeader: false,
   devIndicators: false,
   turbopack: { root: process.cwd() },
-  redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.gbaonvo.com' }],
-        destination: 'https://gbaonvo.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [
-          { type: 'host', value: 'gbaonvo.com' },
-          { type: 'header', key: 'x-forwarded-proto', value: 'http' },
-        ],
-        destination: 'https://gbaonvo.com/:path*',
-        permanent: true,
-      },
-    ];
-  },
+  // HTTPS/host redirects belong at the hosting edge. Its origin connection
+  // can be HTTP even when the visitor is on HTTPS, causing a redirect loop.
   headers() {
     return [{
       source: '/fonts/:path*',
