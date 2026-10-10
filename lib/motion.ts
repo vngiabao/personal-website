@@ -39,15 +39,15 @@ export const EASE='expo.out';
  * re-render inside a split.
  */
 export function riseLines(target:Element,vars:{delay?:number;stagger?:number;trigger?:Element|false;paused?:boolean}={}){
- const {delay=0,stagger=.08,trigger,paused}=vars;
+ const {delay=0,stagger=.06,trigger,paused}=vars;
  let tween:gsap.core.Tween|undefined;
  const split=SplitText.create(target,{
   type:'lines',mask:'lines',autoSplit:true,
   onSplit:self=>{
    openMasks(self.masks);
    tween=gsap.from(self.lines,{
-    yPercent:115,duration:1.25,ease:EASE,stagger,delay,paused,
-    scrollTrigger:trigger===false||paused?undefined:{trigger:trigger??target,start:'top 88%',once:true},
+    yPercent:115,duration:.85,ease:EASE,stagger,delay,paused,
+    scrollTrigger:trigger===false||paused?undefined:{trigger:trigger??target,start:'top 96%',once:true},
    });
    return tween;
   },

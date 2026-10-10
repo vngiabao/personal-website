@@ -51,7 +51,7 @@ export function SmoothScroll(){
 
   const start=()=>{
    if(lenis)return;
-   lenis=new Lenis({lerp:.095,wheelMultiplier:.95,smoothWheel:true,prevent:node=>!!node.closest?.('dialog,[data-lenis-prevent]')});
+   lenis=new Lenis({lerp:.15,wheelMultiplier:1,smoothWheel:true,prevent:node=>!!node.closest?.('dialog,[data-lenis-prevent]')});
    lenis.on('scroll',ScrollTrigger.update);
    gsap.ticker.add(tick);
    gsap.ticker.lagSmoothing(0);

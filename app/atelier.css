@@ -55,13 +55,13 @@ main :is(.new-venture,.new-story-hero,.st-listen,.st-voices,.st-how,.st-differen
 /* ── Page transitions ───────────────────────────────────────────────── */
 /* Same-document (next/link): React names the page boundary .page-in / .page-out. */
 ::view-transition-old(root),::view-transition-new(root){animation:none}
-::view-transition-old(.page-out){animation:200ms var(--ease-out) both page-leave}
-::view-transition-new(.page-in){animation:640ms var(--ease-out) 80ms both page-arrive}
-@keyframes page-leave{to{opacity:0;transform:translateY(-10px);filter:blur(4px)}}
-@keyframes page-arrive{from{opacity:0;transform:translateY(22px);filter:blur(6px)}}
+::view-transition-old(.page-out){animation:150ms var(--ease-out) both page-leave}
+::view-transition-new(.page-in){animation:380ms var(--ease-out) 40ms both page-arrive}
+@keyframes page-leave{to{opacity:0;transform:translateY(-8px)}}
+@keyframes page-arrive{from{opacity:0;transform:translateY(16px)}}
 /* Shared element: a Work preview becomes the case study's hero. Blur hides the resample. */
-::view-transition-group(.morph){animation-duration:680ms;animation-timing-function:var(--ease-in-out)}
-::view-transition-image-pair(.morph){animation:morph-blur 680ms var(--ease-in-out)}
+::view-transition-group(.morph){animation-duration:520ms;animation-timing-function:var(--ease-in-out)}
+::view-transition-image-pair(.morph){animation:morph-blur 520ms var(--ease-in-out)}
 @keyframes morph-blur{40%{filter:blur(4px)}}
 .case-morph{height:100%}
 /* Cross-document (plain links, e.g. into a case study): the same feel for the whole page. */
@@ -147,7 +147,7 @@ main .identity-hero{background:radial-gradient(90% 70% at 78% 30%,rgb(181 132 32
 :is(main,body) :is(section.blue,.contact-close.blue,.case-next.blue){background-color:var(--blue);background-image:radial-gradient(120% 80% at 50% -10%,rgb(35 84 138/.55),transparent 62%)}
 
 /* ── Section bars (Home "In this edition", About, A Story) ───────────── */
-.chapter-nav,.section-navigation{background:rgb(245 241 232/.93);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-block:1px solid var(--line);box-shadow:none}
+.chapter-nav,.section-navigation{background:rgb(245 241 232/.975);-webkit-backdrop-filter:none;backdrop-filter:none;border-block:1px solid var(--line);box-shadow:none}
 .chapter-nav .chapter-links{position:relative;background:transparent;border:0;border-radius:0;padding:0;gap:0}
 .section-navigation>.container{position:relative}
 .chapter-nav .chapter-links>a,.section-navigation a{background:transparent;box-shadow:none;border-radius:0;color:rgb(13 34 56/.66);font:500 14.5px/1.25 var(--sans);letter-spacing:.005em;transition:color 200ms ease}

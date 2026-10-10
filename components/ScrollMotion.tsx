@@ -38,17 +38,17 @@ const all=<T extends Element=HTMLElement>(root:ParentNode,sel:string)=>[...root.
 /** A block rises into place once; inline styles are cleared so hover and selected states keep their own transforms. */
 function arrive(targets:Element[],vars:{stagger?:number;y?:number;delay?:number;trigger?:Element|false}={}){
  if(!targets.length)return;
- const {stagger=.08,y=28,delay=0,trigger}=vars;
- gsap.from(targets,{y,opacity:0,duration:1.1,ease:EASE,stagger,delay,clearProps:'transform,opacity',
-  scrollTrigger:trigger===false?undefined:{trigger:trigger??targets[0],start:'top 88%',once:true}});
+ const {stagger=.06,y=28,delay=0,trigger}=vars;
+ gsap.from(targets,{y,opacity:0,duration:.7,ease:EASE,stagger,delay,clearProps:'transform,opacity',
+  scrollTrigger:trigger===false?undefined:{trigger:trigger??targets[0],start:'top 96%',once:true}});
 }
 
 /** Many small blocks down a page: each arrives as its own row enters. */
 function arriveEach(targets:Element[]){
  if(!targets.length)return;
  gsap.set(targets,{y:24,opacity:0});
- ScrollTrigger.batch(targets,{start:'top 90%',once:true,
-  onEnter:batch=>gsap.to(batch,{y:0,opacity:1,duration:1,ease:EASE,stagger:.06,overwrite:true,clearProps:'transform,opacity'})});
+ ScrollTrigger.batch(targets,{start:'top 97%',once:true,
+  onEnter:batch=>gsap.to(batch,{y:0,opacity:1,duration:.65,ease:EASE,stagger:.04,overwrite:true,clearProps:'transform,opacity'})});
 }
 
 /**
@@ -64,7 +64,7 @@ function countUp(value:Element,restore:(()=>void)[]){
  const target=parseFloat(match[0]),places=match[1]?match[1].length-1:0;
  const n={v:0};
  text.textContent=original.replace(match[0],(0).toFixed(places));
- gsap.to(n,{v:target,duration:1.6,ease:'power3.out',scrollTrigger:{trigger:value,start:'top 90%',once:true},
+ gsap.to(n,{v:target,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:value,start:'top 95%',once:true},
   onUpdate:()=>{text.textContent=original.replace(match[0],n.v.toFixed(places))}});
  // Revert restores the authored figure.
  restore.push(()=>{text.textContent=original});
@@ -74,7 +74,7 @@ function countUp(value:Element,restore:(()=>void)[]){
 function fillWords(quote:Element){
  const words=SplitText.create(quote,{type:'words'});
  gsap.fromTo(words.words,{opacity:.16},{opacity:1,ease:'none',stagger:.1,
-  scrollTrigger:{trigger:quote,start:'top 82%',end:'bottom 52%',scrub:.6}});
+  scrollTrigger:{trigger:quote,start:'top 88%',end:'bottom 58%',scrub:.2}});
 }
 
 /**
@@ -87,8 +87,8 @@ function arriveRowsOnce(list:Element,selector:string){
  const rows=[...list.querySelectorAll(selector)];
  if(!rows.length)return()=>{};
  gsap.set(rows,{y:22,opacity:0});
- const batch=ScrollTrigger.batch(rows,{start:'top 92%',once:true,
-  onEnter:group=>gsap.to(group,{y:0,opacity:1,duration:.9,ease:EASE,stagger:.05,overwrite:true,clearProps:'transform,opacity'})});
+ const batch=ScrollTrigger.batch(rows,{start:'top 98%',once:true,
+  onEnter:group=>gsap.to(group,{y:0,opacity:1,duration:.6,ease:EASE,stagger:.035,overwrite:true,clearProps:'transform,opacity'})});
  const stop=()=>{batch.forEach(t=>t.kill());gsap.set(rows,{clearProps:'transform,opacity'})};
  const observer=new MutationObserver(()=>{stop();observer.disconnect()});
  observer.observe(list,{childList:true});
@@ -99,9 +99,12 @@ function arriveRowsOnce(list:Element,selector:string){
 function openPhoto(figure:Element){
  const picture=figure.querySelector('picture'),img=figure.querySelector('img');
  if(!picture||!img)return;
- const st={trigger:figure,start:'top 86%',once:true};
- gsap.fromTo(picture,{clipPath:'inset(14% 12% 14% 12%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.5,ease:'expo.inOut',clearProps:'clipPath',scrollTrigger:st});
- gsap.fromTo(img,{scale:1.22},{scale:1,duration:1.9,ease:EASE,clearProps:'transform',scrollTrigger:st});
+ // Decode as soon as the file arrives, so the opening's first frames never wait on it.
+ const decode=()=>{img.decode?.().catch(()=>{})};
+ if(img.complete)decode();else img.addEventListener('load',decode,{once:true});
+ const st={trigger:figure,start:'top 95%',once:true};
+ gsap.fromTo(picture,{clipPath:'inset(14% 12% 14% 12%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:.95,ease:'expo.out',clearProps:'clipPath',scrollTrigger:st});
+ gsap.fromTo(img,{scale:1.22},{scale:1,duration:1.2,ease:EASE,clearProps:'transform',scrollTrigger:st});
 }
 
 function home(main:HTMLElement,c:Conditions){
@@ -125,8 +128,8 @@ function home(main:HTMLElement,c:Conditions){
    const img=frame.querySelector('img');
    gsap.set(frame,{transformPerspective:1200,transformOrigin:'50% 60%'});
    if(img)gsap.set(img,{scale:1.07});
-   const rx=gsap.quickTo(frame,'rotationX',{duration:1,ease:'power3'}),ry=gsap.quickTo(frame,'rotationY',{duration:1,ease:'power3'});
-   const ix=img?gsap.quickTo(img,'x',{duration:1.2,ease:'power3'}):null,iy=img?gsap.quickTo(img,'y',{duration:1.2,ease:'power3'}):null;
+   const rx=gsap.quickTo(frame,'rotationX',{duration:.6,ease:'power3'}),ry=gsap.quickTo(frame,'rotationY',{duration:.6,ease:'power3'});
+   const ix=img?gsap.quickTo(img,'x',{duration:.7,ease:'power3'}):null,iy=img?gsap.quickTo(img,'y',{duration:.7,ease:'power3'}):null;
    const move=(e:PointerEvent)=>{
     const box=hero.getBoundingClientRect();if(box.bottom<0)return;
     const nx=e.clientX/innerWidth-.5,ny=e.clientY/innerHeight-.5;
@@ -136,22 +139,22 @@ function home(main:HTMLElement,c:Conditions){
    restore.push(()=>window.removeEventListener('pointermove',move));
   };
   const tl=gsap.timeline({paused:true,onComplete:respond});
-  tl.from(all(hero,'.identity-copy > .eyebrow, .hello-line'),{y:16,opacity:0,duration:1,ease:EASE,stagger:.08},0)
-   .from(split.lines,{yPercent:115,duration:1.35,ease:EASE,stagger:.11},.12)
+  tl.from(all(hero,'.identity-copy > .eyebrow, .hello-line'),{y:16,opacity:0,duration:.7,ease:EASE,stagger:.06},0)
+   .from(split.lines,{yPercent:115,duration:.95,ease:EASE,stagger:.08},.08)
    // Unmask as soon as the lines have landed, not when the whole entrance
    // ends: the masks would otherwise clip the italic descenders.
-   .add(()=>split.revert(),1.6)
+   .add(()=>split.revert(),1.15)
    // Keep the authored font metrics fixed throughout the reveal. A slight
    // compositor-scale settle gives the same sense of arrival without
    // reflowing every section below the hero on every animation frame.
-   .fromTo(h1,{scaleX:.985,transformOrigin:'left center'},{scaleX:1,duration:2.1,ease:'expo.out',clearProps:'transform,transformOrigin'},.12)
-   .from(all(hero,'.identity-description, .identity-actions, .hero-discovery, .current-note'),{y:22,opacity:0,duration:1.1,ease:EASE,stagger:.08,clearProps:'transform,opacity'},.5);
+   .fromTo(h1,{scaleX:.985,transformOrigin:'left center'},{scaleX:1,duration:1.4,ease:'expo.out',clearProps:'transform,transformOrigin'},.08)
+   .from(all(hero,'.identity-description, .identity-actions, .hero-discovery, .current-note'),{y:22,opacity:0,duration:.75,ease:EASE,stagger:.06,clearProps:'transform,opacity'},.32);
   if(frame){
-   tl.fromTo(frame,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.5,ease:'expo.inOut',clearProps:'clipPath'},0)
-    .from(frame.querySelector('img'),{scale:1.3,duration:2.1,ease:EASE,clearProps:'transform'},.1)
-    .from(hero.querySelector('.identity-caption'),{y:12,opacity:0,duration:.9,ease:EASE},1);
+   tl.fromTo(frame,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.05,ease:'expo.inOut',clearProps:'clipPath'},0)
+    .from(frame.querySelector('img'),{scale:1.3,duration:1.4,ease:EASE,clearProps:'transform'},.06)
+    .from(hero.querySelector('.identity-caption'),{y:12,opacity:0,duration:.6,ease:EASE},.7);
   }
-  tl.from(main.querySelector('.chapter-nav'),{opacity:0,duration:.8},1.1);
+  tl.from(main.querySelector('.chapter-nav'),{opacity:0,duration:.5},.75);
   // The hero is now held by its from() states, not by the class.
   document.documentElement.classList.remove('hero-hold');
   let alive=true;
@@ -164,15 +167,15 @@ function home(main:HTMLElement,c:Conditions){
  const route=main.querySelector('.chronology-route');
  if(route){
   const rail=route.querySelector<SVGPathElement>('.chronology-rail path:not(.rail-directions)');
-  if(rail)gsap.fromTo(rail,{strokeDasharray:1,strokeDashoffset:1},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:route,start:'top 78%',end:'bottom 62%',scrub:.8}});
-  gsap.from(route.querySelector('.rail-directions'),{opacity:0,duration:.6,scrollTrigger:{trigger:route,start:'center 62%',toggleActions:'play none none reverse'}});
+  if(rail)gsap.fromTo(rail,{strokeDasharray:1,strokeDashoffset:1},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:route,start:'top 85%',end:'bottom 66%',scrub:.3}});
+  gsap.from(route.querySelector('.rail-directions'),{opacity:0,duration:.4,scrollTrigger:{trigger:route,start:'center 70%',toggleActions:'play none none reverse'}});
   arrive(all(route,'.chronology-stops > button'),{stagger:.07,trigger:route});
   arrive(q('.career-stage, .career-controls'),{stagger:.1});
  }
 
  // ── The Book: the closed volume lifts toward the reader as the band opens.
  const book=main.querySelector('.home-book-section .book-object');
- if(book&&c.wide)gsap.from(book,{y:90,rotation:-5,ease:'none',scrollTrigger:{trigger:book,start:'top bottom',end:'center 55%',scrub:1}});
+ if(book&&c.wide)gsap.from(book,{y:90,rotation:-5,ease:'none',scrollTrigger:{trigger:book,start:'top bottom',end:'center 55%',scrub:.35}});
 
  // ── A Story. The product theatre arrives as one object; its tabs are its own.
  arrive(q('.venture-kicker > *'),{stagger:.1});
@@ -192,14 +195,14 @@ function home(main:HTMLElement,c:Conditions){
  if(quote)fillWords(quote);
  const award=main.querySelector('.recognition-photo');
  if(award){
-  gsap.from(award,{y:120,rotation:'-=9',opacity:0,duration:1.6,ease:EASE,clearProps:'transform,opacity',scrollTrigger:{trigger:award,start:'top 88%',once:true}});
-  gsap.from(award.querySelector('.award-sticker'),{scale:.4,rotation:-24,opacity:0,duration:1,ease:'back.out(2)',delay:.7,clearProps:'transform,opacity',scrollTrigger:{trigger:award,start:'top 88%',once:true}});
+  gsap.from(award,{y:120,rotation:'-=9',opacity:0,duration:1,ease:EASE,clearProps:'transform,opacity',scrollTrigger:{trigger:award,start:'top 95%',once:true}});
+  gsap.from(award.querySelector('.award-sticker'),{scale:.4,rotation:-24,opacity:0,duration:.6,ease:'back.out(2)',delay:.4,clearProps:'transform,opacity',scrollTrigger:{trigger:award,start:'top 95%',once:true}});
  }
  arrive(q('.recognition-records > a'),{stagger:.1});
 
  // ── Archive: the three prints are dealt onto the table.
  const cards=q('.archive-cards > a');
- if(cards.length)gsap.from(cards,{y:140,x:(i:number)=>(1-i)*60,rotation:(i:number)=>(i-1)*-10,opacity:0,duration:1.4,ease:EASE,stagger:.13,clearProps:'transform,opacity',scrollTrigger:{trigger:cards[0].parentElement,start:'top 82%',once:true}});
+ if(cards.length)gsap.from(cards,{y:140,x:(i:number)=>(1-i)*60,rotation:(i:number)=>(i-1)*-10,opacity:0,duration:.9,ease:EASE,stagger:.08,clearProps:'transform,opacity',scrollTrigger:{trigger:cards[0].parentElement,start:'top 92%',once:true}});
 
  // ── Off the clock: the four prints drift at their own depths.
  if(c.wide)q('.personal-grid > .photo').forEach((p,i)=>gsap.fromTo(p,{y:[50,-20,70,10][i%4]},{y:[-40,30,-50,-10][i%4],ease:'none',scrollTrigger:{trigger:p.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
@@ -211,13 +214,13 @@ function story(main:HTMLElement){
  const q=(sel:string)=>all(main,sel);
  // What gets lost: the everyday collage drifts at its own depths behind the words.
  q('.st-collage img').forEach((img,n)=>gsap.fromTo(img,{y:[60,-30,90,20][n%4]},{y:[-50,40,-70,-20][n%4],ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
- arrive(q('.st-everyday-pre, .st-everyday-post'),{stagger:.2,delay:.2});
+ arrive(q('.st-everyday-pre, .st-everyday-post'),{stagger:.12,delay:.1});
  // The call plays step by step: the verb, then each line of the exchange.
  arrive(q('.st-call-setup'));
  q('.st-step').forEach(step=>{
-  const st={trigger:step,start:'top 78%',once:true};
-  gsap.from(step.querySelector('.st-step-label'),{y:24,opacity:0,duration:1,ease:EASE,clearProps:'transform,opacity',scrollTrigger:st});
-  gsap.from(step.querySelectorAll('.st-bubble'),{y:26,opacity:0,duration:.9,ease:EASE,stagger:.45,delay:.3,clearProps:'transform,opacity',scrollTrigger:st});
+  const st={trigger:step,start:'top 90%',once:true};
+  gsap.from(step.querySelector('.st-step-label'),{y:24,opacity:0,duration:.6,ease:EASE,clearProps:'transform,opacity',scrollTrigger:st});
+  gsap.from(step.querySelectorAll('.st-bubble'),{y:26,opacity:0,duration:.55,ease:EASE,stagger:.28,delay:.15,clearProps:'transform,opacity',scrollTrigger:st});
  });
  // Who it's for: the three audiences step in.
  arrive(q('.st-for-list > li'),{stagger:.12,y:40});
@@ -249,13 +252,13 @@ function about(main:HTMLElement,c:Conditions){
  // The hero portrait rides a little against the scroll, so the opening has depth.
  if(c.wide)gsap.to(main.querySelector('.about-portrait > .photo'),{yPercent:7,ease:'none',
   scrollTrigger:{trigger:main.querySelector('.about-hero'),start:'top top',end:'bottom top',scrub:true}});
- arrive(q('.portrait-note'),{delay:.5,y:14});
+ arrive(q('.portrait-note'),{delay:.3,y:14});
 
  // How I work: each method steps forward with its own index.
  q('.work-methods > article').forEach((article,i)=>{
-  const st={trigger:article,start:'top 82%',once:true};
-  gsap.from(article,{y:34,opacity:0,duration:1.1,ease:EASE,delay:i*.06,clearProps:'transform,opacity',scrollTrigger:st});
-  gsap.from(article.querySelector('.method-index'),{opacity:0,x:-14,duration:1,ease:EASE,delay:.22+i*.06,clearProps:'transform,opacity',scrollTrigger:st});
+  const st={trigger:article,start:'top 94%',once:true};
+  gsap.from(article,{y:34,opacity:0,duration:.7,ease:EASE,delay:i*.04,clearProps:'transform,opacity',scrollTrigger:st});
+  gsap.from(article.querySelector('.method-index'),{opacity:0,x:-14,duration:.6,ease:EASE,delay:.12+i*.04,clearProps:'transform,opacity',scrollTrigger:st});
  });
 
  // The path: the two chapters of the essay, then the claim they add up to.
@@ -294,9 +297,9 @@ function archive(main:HTMLElement){
 /** Contact. The page is one invitation, so it opens rather than assembles. */
 function contact(main:HTMLElement,c:Conditions){
  const q=(sel:string)=>all(main,sel);
- arrive(q('.contact-primary > *'),{stagger:.08,delay:.5,y:20});
- arrive(q('.contact-direct > *'),{stagger:.08,delay:.7,y:16});
- arrive(q('.contact-current'),{delay:.6,y:20});
+ arrive(q('.contact-primary > *'),{stagger:.06,delay:.3,y:20});
+ arrive(q('.contact-direct > *'),{stagger:.06,delay:.42,y:16});
+ arrive(q('.contact-current'),{delay:.36,y:20});
  if(c.wide)gsap.to(main.querySelector('.contact-portrait > .photo'),{yPercent:6,ease:'none',
   scrollTrigger:{trigger:main.querySelector('.contact-hero'),start:'top top',end:'bottom top',scrub:true}});
  // The three ways in, dealt out in order.
@@ -311,7 +314,7 @@ function contact(main:HTMLElement,c:Conditions){
  */
 function caseStudy(main:HTMLElement){
  const q=(sel:string)=>all(main,sel);
- arrive(q('.case-thesis'),{delay:.3,y:20});
+ arrive(q('.case-thesis'),{delay:.18,y:20});
  // The impact table is evidence: each fact is set down in turn, not counted
  // (these are process names and places, not quantities).
  const impact=main.querySelector('.case-impact');
@@ -327,8 +330,8 @@ function caseStudy(main:HTMLElement){
 function everyPage(main:HTMLElement,c:Conditions){
  // Page titles rise on arrival; everything else in their opening block follows.
  free(all(main,'h1')).filter(h=>!h.classList.contains('sr-only')).forEach(h1=>{
-  riseLines(h1,{delay:.1,trigger:false,stagger:.1});
-  arrive([...h1.parentElement!.children].filter(e=>e!==h1&&e.tagName!=='H1'),{delay:.35,stagger:.07,trigger:false});
+  riseLines(h1,{delay:.05,trigger:false,stagger:.07});
+  arrive([...h1.parentElement!.children].filter(e=>e!==h1&&e.tagName!=='H1'),{delay:.22,stagger:.05,trigger:false});
  });
  free(all(main,'h2')).forEach(h2=>riseLines(h2));
 
@@ -348,7 +351,7 @@ function everyPage(main:HTMLElement,c:Conditions){
  // Navy bands grow from an inset card to the full width as they arrive.
  if(c.wide)all(main,'section.blue, .home-book-section').forEach(band=>{
   gsap.fromTo(band,{clipPath:'inset(0% 3% 0% 3% round 40px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'none',
-   scrollTrigger:{trigger:band,start:'top 96%',end:'top 18%',scrub:.6,
+   scrollTrigger:{trigger:band,start:'top 98%',end:'top 30%',scrub:.2,
     // At rest the band is not clipped at all, so nothing inside it is cut.
     onLeave:()=>{band.style.clipPath='none'},onEnterBack:()=>{band.style.clipPath=''}}});
  });
