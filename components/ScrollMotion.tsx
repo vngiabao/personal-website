@@ -338,15 +338,8 @@ function everyPage(main:HTMLElement,c:Conditions){
  // Photographs open; source exhibits (artifacts) stay as documents.
  free(all(main,'figure.photo')).filter(f=>f.getAttribute('data-kind')!=='concept').forEach(openPhoto);
 
- // Reading blocks arrive as their row enters, skipping the ones home already
- // choreographed and anything nested in another arriving block.
- const handled='.st-everyday-copy, .st-for-list, .st-call-setup, .st-steps-call, .st-transcript, .st-margin, .st-steps, .st-memory, .st-additions, .st-diff, .st-own, .new-venture, .proof-point, .recognition blockquote, .recognition-records, .archive-cards, .work-filters';
- const opening=new Set(free(all(main,'h1')).map(h=>h.parentElement));
- const blocks=free(all(main,'p, ul, ol, blockquote, table, .arrow-link, .eyebrow')).filter(el=>
-  !el.closest('h1, h2, h3, '+handled)&&
-  !opening.has(el.parentElement)&&
-  !el.parentElement!.closest('p, ul, ol, blockquote, table, .arrow-link'));
- arriveEach(blocks);
+ // Body copy is simply there when the reader arrives. Motion is kept for the
+ // authored scenes (headlines, photographs, the Path, the Book, the bands).
 
  // Navy bands grow from an inset card to the full width as they arrive.
  if(c.wide)all(main,'section.blue, .home-book-section').forEach(band=>{

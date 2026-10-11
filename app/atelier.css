@@ -418,3 +418,82 @@ main .st-step-n span{color:var(--brass-text)}
  main .contact-hero>div{width:100%;min-width:0}
  main .contact-primary{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* ── Grounds and plates (October 11, 2026) ──────────────────────────────
+   The pages had become cream on slightly different cream, so blocks melted
+   into the page. Contrast now comes from value, not new hues:
+     · section grounds alternate cream / stone, with navy cloth every few;
+     · anything that deserves a frame is a mounted plate (a solid sheet with
+       an inset brass hairline, like a print in its mat), never a floating
+       card or a coloured edge;
+     · the serif italic turn is kept for a few signature lines only. */
+:root{--stone:#e4d9c5;--plate:#fbf8f1}
+
+/* Grounds. Sections inside .container bleed their ground to the edges. */
+main .identity-hero{background:var(--cream)}
+main #timeline,main #selected-work,main #archive{background:var(--stone);box-shadow:0 0 0 100vmax var(--stone);clip-path:inset(0 -100vmax)}
+main #current-venture,main #off-the-clock{background:var(--cream)}
+
+/* The plate. */
+.plate{position:relative;background:var(--plate);border:1px solid rgb(13 34 56/.12);border-radius:14px;
+ box-shadow:inset 0 0 0 7px var(--plate),inset 0 0 0 8px rgb(181 132 32/.32),0 1px 0 rgb(13 34 56/.04),0 22px 44px -36px rgb(13 34 56/.45)}
+
+/* Hero: the current chapter is set on a plate instead of floating. */
+.identity-hero .current-note.plate{border-top:1px solid rgb(13 34 56/.12);padding:22px 26px 20px;margin-top:30px;max-width:560px}
+
+/* Selected-state cards are carried by their fill alone: no coloured edges. */
+.project-selectors button[aria-pressed=true]{box-shadow:none}
+.snake-map .chronology-stops button[aria-pressed=true]{box-shadow:0 28px 50px -30px rgb(0 39 76/.75)}
+
+/* Work lenses become two plain plates; the pressed one turns navy. */
+main .work-lenses>button{background-color:var(--plate);border-color:rgb(13 34 56/.12);
+ box-shadow:inset 0 0 0 7px var(--plate),inset 0 0 0 8px rgb(181 132 32/.28),0 22px 44px -36px rgb(13 34 56/.45)}
+main .work-lenses>button:hover{background-color:#fffdf8}
+main .work-lenses>button[aria-pressed=true]{background-color:var(--blue);box-shadow:inset 0 0 0 7px var(--blue),inset 0 0 0 8px rgb(232 192 100/.45),0 28px 50px -32px rgb(0 39 76/.8)}
+
+/* Off the clock: the words ride beside the photographs instead of waiting
+   at the bottom of an empty column. */
+@media(min-width:1024px){main .off-copy{position:sticky;top:calc(var(--header,72px) + 110px);align-self:start}}
+
+/* The italic turn: kept for the hero, the Book, the closing invitation and
+   the work lenses. Everywhere else a headline is set straight. */
+main h2 em:not(.home-book-section *):not(.contact-close *):not(.closed-book-copy *){font:inherit;color:inherit;letter-spacing:inherit;margin:0;padding:0}
+
+/* Work: the page intro gets a contents plate in its empty half. */
+.page-intro.has-aside{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);column-gap:8%;align-items:end}
+.page-intro.has-aside>:not(.intro-aside){grid-column:1}
+.page-intro.has-aside>.intro-aside{grid-column:2;grid-row:1/span 3;align-self:end}
+.work-contents{padding:30px 32px 26px}
+.work-contents .eyebrow{margin:0 0 14px}
+.work-contents-total{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;font:500 20px/1 var(--sans);color:var(--ink)}
+.work-contents-total b{font:500 clamp(64px,5vw,84px)/.9 var(--sans);font-stretch:var(--display-stretch);letter-spacing:-.04em;color:var(--blue)}
+.work-contents-total span{margin-left:auto;font:500 13px/1 var(--sans);letter-spacing:.14em;color:var(--muted)}
+.work-contents dl{margin:0;border-top:1px solid var(--line)}
+.work-contents dl>div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.work-contents dt{font:400 16px/1.3 var(--sans);color:var(--muted)}
+.work-contents dd{margin:0;font:600 16px/1.3 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
+@media(max-width:1023px){
+ .page-intro.has-aside{display:block}
+ .page-intro.has-aside>.intro-aside{margin-top:32px;max-width:520px}
+}
+
+/* A Story's lockup: the official vector, sized as one piece. */
+.story-brand .story-lockup{display:block;width:100%;max-width:300px;height:auto;margin:0}
+.new-story-top .story-brand .story-lockup{max-width:280px}
+@media(max-width:767px){.story-brand .story-lockup{max-width:240px}}
+
+/* ── Grounds and plates, the rest of the site ───────────────────────── */
+/* About: break the long run of one paper tone. */
+main #path.about-path,main #education.about-education{background:var(--stone)}
+/* The two degrees are framed like diplomas; the mentor note stays open. */
+main .education-spread>.graduate-record,main .education-spread>.undergraduate-record{background:var(--plate);border:1px solid rgb(13 34 56/.12);border-radius:14px;padding:22px 22px 26px;
+ box-shadow:inset 0 0 0 7px var(--plate),inset 0 0 0 8px rgb(181 132 32/.32),0 22px 44px -36px rgb(13 34 56/.45)}
+/* Case studies: the problem statement sits on a plate, not a beige box. */
+main .case-chapter.case-chapter-problem{background:var(--plate);border:1px solid rgb(13 34 56/.12);
+ box-shadow:inset 0 0 0 7px var(--plate),inset 0 0 0 8px rgb(181 132 32/.32),0 22px 44px -36px rgb(13 34 56/.45)}
+/* Archive: the search is an instrument panel. */
+main .archive-controls{background:var(--plate);border:1px solid rgb(13 34 56/.12);border-radius:14px;
+ box-shadow:inset 0 0 0 7px var(--plate),inset 0 0 0 8px rgb(181 132 32/.32),0 22px 44px -36px rgb(13 34 56/.45)}
+main .archive-source-note .artifact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+/* Contact: the current chapter, set like the home hero's. */
+main .contact-current.plate{padding:22px 26px;margin-top:22px;border-bottom:1px solid rgb(13 34 56/.12)}
