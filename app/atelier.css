@@ -411,7 +411,7 @@ main .st-inception{position:relative;background:var(--soft);border-block:1px sol
 .st-inception-badge{--badge-h:80px;margin-left:-19px;max-width:min(360px,100%);object-fit:contain;object-position:left}
 /* The program banner: a deeper band under the feature, each program's mark lying straight on it
    (never recoloured), sized to fill its third. Click a mark to show that program above; the open one
-   carries a brass rule. */
+   is outlined in ink, with no fill. */
 .st-programs-band{background:var(--paper);border-top:1px solid var(--line)}
 .st-programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 main .st-programs button{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(128px,11vw,164px);padding:18px 20px;border:0;border-left:1px solid var(--rule);border-radius:0;background:transparent;box-shadow:none;cursor:pointer;transition:transform .25s var(--ease-ui)}
@@ -422,7 +422,9 @@ main .st-programs button:hover,main .st-programs button:focus,main .st-programs 
 .st-programs .st-programs-mark-assemblyai{height:clamp(68px,6.4vw,88px)}
 .st-programs .st-programs-mark-cartesia{height:clamp(36px,3.4vw,48px)}
 .st-programs button:hover img{transform:translateY(-2px)}
-.st-programs button[aria-selected="true"]::after{content:"";position:absolute;left:30%;right:30%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--brass)}
+.st-programs button::before{content:"";position:absolute;inset:clamp(8px,1vw,14px);border:1px solid transparent;border-radius:14px;transition:border-color .25s}
+.st-programs button:hover::before{border-color:var(--rule)}
+.st-programs button[aria-selected="true"]::before{border-color:var(--ink)}
 .st-programs button:focus-visible{outline:2px solid var(--ink);outline-offset:-6px}
 .st-inception-in[hidden]{display:none}
 /* The open program's mark in the feature, at the NVIDIA badge's visible weight. */
