@@ -407,8 +407,15 @@ img.program-mark{display:block;flex:none;width:auto;height:calc(max(var(--badge-
 .path-membership>span{flex:1 1 100%}
 
 main .st-inception{position:relative;background:var(--soft);border-block:1px solid var(--line)}
-.st-inception-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:clamp(20px,3vw,40px) clamp(28px,4.4vw,72px);padding-block:clamp(40px,4.6vw,64px)}
-.st-inception-badges{grid-column:1/-1;--badge-h:72px;margin-left:-17px}
+.st-inception-in{display:grid;grid-template-columns:auto minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(28px,4.4vw,72px);padding-block:clamp(40px,4.6vw,64px) clamp(24px,3vw,40px)}
+.st-inception-badge{--badge-h:80px;margin-left:-19px;max-width:min(360px,100%);object-fit:contain;object-position:left}
+/* The program banner: click a badge to show that program in the feature above. */
+.st-programs{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:clamp(32px,4vw,56px)}
+.st-programs button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:8px 10px 10px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--muted);font:500 13px/1.2 var(--sans);letter-spacing:.02em;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.st-programs button img{display:block;height:48px;width:auto;margin:-4px 0 -2px -6px}
+.st-programs button:hover{border-color:var(--ink);color:var(--ink)}
+.st-programs button[aria-selected="true"]{background:var(--paper,#fff);border-color:var(--ink);color:var(--ink)}
+.st-programs button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .st-inception-copy .eyebrow{margin-bottom:14px}
 main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);line-height:1.1}
 .st-inception-about{margin:0;max-width:44ch;font-size:16px;line-height:1.6;color:var(--muted)}
@@ -417,7 +424,8 @@ main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);l
 
 @media(max-width:900px){
  .st-inception-in{grid-template-columns:1fr;gap:16px}
- .st-inception-badges{--badge-h:52px;margin-left:-12px}
+ .st-inception-badge{--badge-h:64px;margin-left:-15px}
+ .st-programs button img{height:40px}
 }
 
 /* Keep text contrast and narrow-screen contact content within the page. */

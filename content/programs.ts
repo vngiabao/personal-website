@@ -23,6 +23,19 @@ export const programs={
 } as const;
 
 export const programsLine={
- member:'A Story is a member of the NVIDIA Inception program and the AssemblyAI Startup Program, and a Cartesia Startups grant recipient.',
+ member:'A Story is a member of the NVIDIA Inception program, the AssemblyAI Startup Program, and a Cartesia Startups grant recipient.',
  proof:'NVIDIA Inception, AssemblyAI & Cartesia startup programs',
 };
+
+/** The A Story page's recognition feature: one panel per program, NVIDIA first. */
+export const programFeatures=[
+ {id:'nvidia',tab:'NVIDIA Inception',label:`Recognition · ${inception.joined}`,
+  lead:'A Story is a member of the ',em:'NVIDIA Inception program.',
+  about:inception.about},
+ {id:'assemblyai',tab:'AssemblyAI',label:'Recognition · Startup program',
+  lead:'A Story is a member of the ',em:'AssemblyAI Startup Program.',
+  about:'AssemblyAI builds speech AI models that transcribe and understand spoken audio. Its startup program supports early-stage companies building with voice.'},
+ {id:'cartesia',tab:'Cartesia',label:'Recognition · Grant',
+  lead:'A Story is a ',em:'Cartesia Startups grant recipient.',
+  about:'Cartesia builds real-time voice AI models. Cartesia Startups awards grants to early teams building products with voice.'},
+] as const;
