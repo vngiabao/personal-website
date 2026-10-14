@@ -12,37 +12,37 @@
       {
         "src": "/media/ledger/portrait-420.avif",
         "width": 420,
-        "bytes": 17284,
+        "bytes": 16055,
         "format": "avif"
       },
       {
         "src": "/media/ledger/portrait-420.webp",
         "width": 420,
-        "bytes": 29764,
+        "bytes": 27458,
         "format": "webp"
       },
       {
         "src": "/media/ledger/portrait-840.avif",
         "width": 840,
-        "bytes": 34586,
+        "bytes": 32616,
         "format": "avif"
       },
       {
         "src": "/media/ledger/portrait-840.webp",
         "width": 840,
-        "bytes": 68838,
+        "bytes": 63516,
         "format": "webp"
       },
       {
         "src": "/media/ledger/portrait-1126.avif",
         "width": 1126,
-        "bytes": 50709,
+        "bytes": 46890,
         "format": "avif"
       },
       {
         "src": "/media/ledger/portrait-1126.webp",
         "width": 1126,
-        "bytes": 109882,
+        "bytes": 98614,
         "format": "webp"
       }
     ],
@@ -56,7 +56,8 @@
       "mobile": false
     },
     "presentationNote": "Preserve the complete photograph, including people and event context.",
-    "generationAllowed": false
+    "generationAllowed": false,
+    "retouch": "Light retouch (2026-10), applied to the photograph itself: softer under-eyes, slightly lighter face, neck matched to the face, subtly slimmer jaw, gentle light lift."
   },
   {
     "id": "smile",

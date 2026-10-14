@@ -384,23 +384,49 @@ html body .book-object.bc .book-ribbon{background:linear-gradient(90deg,#8f6516,
    Everything around it is ours, set quietly in the site's own voice. */
 /* The image is 216 tall with the badge 165 of it, so 40px of image = 30px of badge. */
 img.inception-badge{display:block;flex:none;width:auto;height:var(--badge-h,52px);min-height:40px}
+/* A row of program badges. NVIDIA's file carries its own clear space; the other marks are
+   trimmed, so they take theirs from the gap. Each mark's height is the row's --badge-h times its
+   --s, which matches its visible weight to NVIDIA's card. */
+.program-badges{display:flex;flex-wrap:wrap;align-items:center;max-width:100%;gap:6px calc(var(--badge-h,52px)*.3)}
+.program-badges-boxed{gap:0}
+.program-badges img{max-width:100%;object-fit:contain;object-position:left}
+img.program-mark{display:block;flex:none;width:auto;height:calc(max(var(--badge-h,52px),40px)*var(--s,1))}
 
-.venture-intro .venture-backing{display:flex;align-items:center;gap:10px;margin:10px 0 28px -12px}
+.venture-intro .venture-backing{--badge-h:40px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:10px 0 28px -9px}
+.venture-intro .venture-backing p{padding-left:9px}
 .venture-intro .venture-backing p{margin:0;max-width:30ch;font:400 16px/1.45 var(--sans);color:var(--muted)}
 .venture-backing strong{color:var(--ink);font-weight:560}
 
 .identity-hero .current-note .current-sub{margin-top:3px;font:450 14px/1.4 var(--sans);color:var(--muted)}
 .identity-hero .current-membership{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:10px}
-.identity-hero .current-membership .inception-badge{--badge-h:44px;margin-left:-10px}
-.identity-hero .current-note .current-membership .current-sub{flex:1 1 150px;margin:0;font-size:14px!important;line-height:1.45}
+.identity-hero .current-membership .program-badges{--badge-h:40px;margin-left:-9px}
+.identity-hero .current-note .current-membership .current-sub{flex:1 1 100%;margin:0;font-size:14px!important;line-height:1.45}
 .snake-map .path-proof .path-membership{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding-left:0}
 .snake-map .path-proof .path-membership::before{content:none}
-.path-membership .inception-badge{--badge-h:52px;margin-left:-12px}
-.path-membership>span{flex:1 1 180px}
+.path-membership .program-badges{--badge-h:44px;margin-left:-5px}
+.path-membership>span{flex:1 1 100%}
 
 main .st-inception{position:relative;background:var(--soft);border-block:1px solid var(--line)}
-.st-inception-in{display:grid;grid-template-columns:auto minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(28px,4.4vw,72px);padding-block:clamp(40px,4.6vw,64px)}
-.st-inception-badge{--badge-h:80px;margin-left:-19px}
+.st-inception-in{display:grid;grid-template-columns:auto minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(28px,4.4vw,72px);padding-block:clamp(40px,4.6vw,64px) clamp(24px,3vw,40px)}
+.st-inception-badge{--badge-h:80px;margin-left:-19px;max-width:min(360px,100%);object-fit:contain;object-position:left}
+/* The program banner: a deeper band under the feature, each program's mark lying straight on it
+   (never recoloured), sized to fill its third. Click a mark to show that program above; the open one
+   carries a brass rule, with no outline or fill. */
+.st-programs-band{background:var(--paper);border-top:1px solid var(--line)}
+.st-programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+main .st-programs button{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(128px,11vw,164px);padding:18px 20px;border:0;border-left:1px solid var(--rule);border-radius:0;background:transparent;box-shadow:none;cursor:pointer;transition:transform .25s var(--ease-ui)}
+main .st-programs button:first-child{border-left:0}
+main .st-programs button:hover,main .st-programs button:focus,main .st-programs button[aria-selected="true"]{background:transparent}
+.st-programs button img{display:block;width:auto;max-width:100%;object-fit:contain;transition:transform .25s var(--ease-ui)}
+.st-programs .st-programs-mark-nvidia{height:clamp(88px,8.4vw,116px)}
+.st-programs .st-programs-mark-assemblyai{height:clamp(68px,6.4vw,88px)}
+.st-programs .st-programs-mark-cartesia{height:clamp(36px,3.4vw,48px)}
+.st-programs button:hover img{transform:translateY(-2px)}
+.st-programs button[aria-selected="true"]::after{content:"";position:absolute;left:30%;right:30%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--brass)}
+.st-programs button:focus-visible{outline:2px solid var(--ink);outline-offset:-6px}
+.st-inception-in[hidden]{display:none}
+/* The open program's mark in the feature, at the NVIDIA badge's visible weight. */
+.st-inception-badge.program-mark{--badge-h:84px;margin-left:0;max-width:min(360px,100%)}
 .st-inception-copy .eyebrow{margin-bottom:14px}
 main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);line-height:1.1}
 .st-inception-about{margin:0;max-width:44ch;font-size:16px;line-height:1.6;color:var(--muted)}
@@ -410,6 +436,11 @@ main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);l
 @media(max-width:900px){
  .st-inception-in{grid-template-columns:1fr;gap:16px}
  .st-inception-badge{--badge-h:64px;margin-left:-15px}
+ main .st-programs button{min-height:92px;padding:10px 8px}
+ .st-programs .st-programs-mark-nvidia{height:64px}
+ .st-programs .st-programs-mark-assemblyai{height:48px}
+ .st-programs .st-programs-mark-cartesia{height:auto;max-height:26px}
+ .st-inception-badge.program-mark{--badge-h:64px}
 }
 
 /* Keep text contrast and narrow-screen contact content within the page. */
