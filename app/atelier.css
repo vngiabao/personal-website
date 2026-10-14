@@ -409,13 +409,24 @@ img.program-mark{display:block;flex:none;width:auto;height:calc(max(var(--badge-
 main .st-inception{position:relative;background:var(--soft);border-block:1px solid var(--line)}
 .st-inception-in{display:grid;grid-template-columns:auto minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(28px,4.4vw,72px);padding-block:clamp(40px,4.6vw,64px) clamp(24px,3vw,40px)}
 .st-inception-badge{--badge-h:80px;margin-left:-19px;max-width:min(360px,100%);object-fit:contain;object-position:left}
-/* The program banner: click a badge to show that program in the feature above. */
-.st-programs{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:clamp(32px,4vw,56px)}
-.st-programs button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:8px 10px 10px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--muted);font:500 13px/1.2 var(--sans);letter-spacing:.02em;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
-.st-programs button img{display:block;height:48px;width:auto;margin:-4px 0 -2px -6px}
-.st-programs button:hover{border-color:var(--ink);color:var(--ink)}
-.st-programs button[aria-selected="true"]{background:var(--paper,#fff);border-color:var(--ink);color:var(--ink)}
-.st-programs button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+/* The program banner: a deeper band under the feature, each program's mark lying straight on it
+   (never recoloured), sized to fill its third. Click a mark to show that program above; the open one
+   carries a brass rule. */
+.st-programs-band{background:var(--paper);border-top:1px solid var(--line)}
+.st-programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+main .st-programs button{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(128px,11vw,164px);padding:18px 20px;border:0;border-left:1px solid var(--rule);border-radius:0;background:transparent;box-shadow:none;cursor:pointer;transition:transform .25s var(--ease-ui)}
+main .st-programs button:first-child{border-left:0}
+main .st-programs button:hover,main .st-programs button:focus,main .st-programs button[aria-selected="true"]{background:transparent}
+.st-programs button img{display:block;width:auto;max-width:100%;object-fit:contain;transition:transform .25s var(--ease-ui)}
+.st-programs .st-programs-mark-nvidia{height:clamp(88px,8.4vw,116px)}
+.st-programs .st-programs-mark-assemblyai{height:clamp(68px,6.4vw,88px)}
+.st-programs .st-programs-mark-cartesia{height:clamp(36px,3.4vw,48px)}
+.st-programs button:hover img{transform:translateY(-2px)}
+.st-programs button[aria-selected="true"]::after{content:"";position:absolute;left:30%;right:30%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--brass)}
+.st-programs button:focus-visible{outline:2px solid var(--ink);outline-offset:-6px}
+.st-inception-in[hidden]{display:none}
+/* The open program's mark in the feature, at the NVIDIA badge's visible weight. */
+.st-inception-badge.program-mark{--badge-h:84px;margin-left:0;max-width:min(360px,100%)}
 .st-inception-copy .eyebrow{margin-bottom:14px}
 main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);line-height:1.1}
 .st-inception-about{margin:0;max-width:44ch;font-size:16px;line-height:1.6;color:var(--muted)}
@@ -425,7 +436,11 @@ main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);l
 @media(max-width:900px){
  .st-inception-in{grid-template-columns:1fr;gap:16px}
  .st-inception-badge{--badge-h:64px;margin-left:-15px}
- .st-programs button img{height:40px}
+ main .st-programs button{min-height:92px;padding:10px 8px}
+ .st-programs .st-programs-mark-nvidia{height:64px}
+ .st-programs .st-programs-mark-assemblyai{height:48px}
+ .st-programs .st-programs-mark-cartesia{height:auto;max-height:26px}
+ .st-inception-badge.program-mark{--badge-h:64px}
 }
 
 /* Keep text contrast and narrow-screen contact content within the page. */
