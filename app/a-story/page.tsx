@@ -4,10 +4,10 @@ import {pageMetadata} from '@/content/metadata';
 import {ArrowLink,Label} from '@/components/Ledger';
 import {story} from '@/content/story';
 import {inception} from '@/content/inception';
-import {InceptionBadge} from '@/components/InceptionBadge';
+import {ProgramBadges} from '@/components/ProgramBadges';
 import '../pages.css';
 
-export const metadata=pageMetadata('A Story — Most of a life goes undocumented','Bao Vo’s current venture. A Story calls someone you love, listens, and follows up the way someone who knows them would — and what they say becomes a private archive the whole family can add to. A member of the NVIDIA Inception program.','/a-story');
+export const metadata=pageMetadata('A Story — Most of a life goes undocumented','Bao Vo’s current venture. A Story calls someone you love, listens, and follows up the way someone who knows them would — and what they say becomes a private archive the whole family can add to. A member of the NVIDIA Inception program and the AssemblyAI Startup Program, and a Cartesia Startups grant recipient.','/a-story');
 
 /** A phone with one of A Story's real Figma screens; tall screens are cropped from the top. */
 function Screen({src,alt,className=''}:{src:string;alt:string;className?:string}){
@@ -41,12 +41,12 @@ export default function Page(){const w=story.witness;return <main id="main" clas
 
  <section className="st-inception" aria-labelledby="inception-title">
   <div className="container st-inception-in">
-   <InceptionBadge className="st-inception-badge"/>
+   <ProgramBadges set="boxed" className="st-inception-badges"/>
    <div className="st-inception-copy">
-    <Label>Recognition · {inception.joined}</Label>
-    <h2 id="inception-title">A Story is a member of the <em>NVIDIA Inception program.</em></h2>
+    <Label>Recognition · Startup programs</Label>
+    <h2 id="inception-title">A member of the <em>NVIDIA Inception program</em> and the <em>AssemblyAI Startup Program</em>, and a <em>Cartesia Startups</em> grant recipient.</h2>
    </div>
-   <p className="st-inception-about">{inception.about}</p>
+   <p className="st-inception-about">{inception.about} A Story joined in {inception.joined}.</p>
   </div>
  </section>
 
