@@ -1,0 +1,6 @@
+# Cloudflare static-asset headers. Static files are served by the Worker's asset
+# layer directly, so next.config headers() never reaches them.
+
+# Fonts are fetched to render pages but are not search results.
+/fonts/*
+  X-Robots-Tag: noindex
