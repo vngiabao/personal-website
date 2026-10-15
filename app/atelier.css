@@ -528,3 +528,39 @@ main .archive-controls{background:var(--plate);border:1px solid rgb(13 34 56/.12
 main .archive-source-note .artifact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 /* Contact: the current chapter, set like the home hero's. */
 main .contact-current.plate{padding:22px 26px;margin-top:22px;border-bottom:1px solid rgb(13 34 56/.12)}
+
+/* ── Current chapter plates, larger (October 14) ─────────────────────── */
+/* The live dot sits in the label it belongs to, not in the plate's margin. */
+.current-note.plate,.contact-current.plate{display:block}
+.current-note.plate .live-dot,.contact-current.plate .live-dot{display:inline-block;position:static;flex:none;width:7px;height:7px;margin:0 10px 0 0;vertical-align:.12em;border-radius:50%}
+.identity-hero .current-note.plate{max-width:680px;padding:26px 32px 24px}
+.identity-hero .current-membership{gap:12px 16px;margin-top:16px}
+.identity-hero .current-membership .program-badges{--badge-h:52px;margin-left:-11px}
+.identity-hero .current-note .current-membership .current-sub{font-size:15px!important;line-height:1.55}
+.identity-hero .current-sub strong,.venture-backing strong{color:var(--ink);font-weight:600}
+
+/* Home venture: the membership line reads as one sentence, not a narrow column. */
+.venture-intro .venture-backing{flex-wrap:wrap}
+.venture-intro .venture-backing p{flex:1 1 100%;max-width:48ch}
+
+/* Home venture: how A Story works, as one plate of three steps. */
+main ol.venture-principles.plate{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;list-style:none;margin:48px 0 0;padding:34px 8px;font-size:inherit;justify-content:initial}
+main .venture-principles.plate>li{padding:0 34px;border-left:1px solid var(--line)}
+main .venture-principles.plate>li:first-child{border-left:0}
+main .venture-principles .vp-head{display:flex;align-items:baseline;gap:12px;margin:0 0 18px}
+main .venture-principles .vp-n{font:500 34px/1 var(--serif);color:var(--brass-text);letter-spacing:.02em}
+main .venture-principles .vp-who{font:600 12px/1 var(--sans);font-stretch:var(--label-stretch,116%);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+main .venture-principles h3{margin:0 0 10px;font:600 clamp(22px,1.8vw,27px)/1.15 var(--sans);font-stretch:var(--display-stretch,86%);letter-spacing:-.01em;color:var(--blue)}
+main .venture-principles.plate p:not(.vp-head){margin:0;max-width:32ch;font-size:16px!important;line-height:1.55!important;color:var(--muted)}
+@media(max-width:900px){
+ main ol.venture-principles.plate{grid-template-columns:1fr;padding:10px 4px}
+ main .venture-principles.plate>li{padding:24px 24px;border-left:0;border-top:1px solid var(--line)}
+ main .venture-principles.plate>li:first-child{border-top:0}
+}
+main .contact-current.plate .eyebrow{gap:0;align-items:center;justify-content:flex-start}
+main .contact-current.plate .live-dot{margin-right:10px}
+.venture-intro .venture-backing .program-badges{--badge-h:50px}
+@media(max-width:767px){
+ .identity-hero .current-note.plate{padding:22px 24px 20px}
+ .identity-hero .current-membership .program-badges{--badge-h:46px;margin-left:-4px}
+}

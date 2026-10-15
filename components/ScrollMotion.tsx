@@ -181,7 +181,7 @@ function home(main:HTMLElement,c:Conditions){
  arrive(q('.venture-kicker > *'),{stagger:.1});
  arrive(q('.venture-intro > :not(h2)'),{stagger:.07});
  arrive(q('.venture-feature > .story-showcase'),{y:60});
- arrive(q('.venture-principles > div'),{stagger:.1});
+ arrive(q('.venture-principles > li'),{stagger:.1});
 
  // ── Selected work: the lenses, then the list row by row.
  restore.push(workIndex(main));
