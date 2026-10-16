@@ -11,6 +11,7 @@
     "media:optimize": "tsx scripts/prepare-ledger.ts",
     "media:audit": "tsx scripts/ledger-audit.ts",
     "qa": "tsx scripts/ledger-qa.ts",
+    "og": "tsx scripts/og-cards.ts",
     "qa:links": "node scripts/final-links.cjs",
     "qa:review": "node scripts/final-review-server.cjs",
     "qa:behavior": "tsx scripts/ledger-behavior.ts",

@@ -666,7 +666,7 @@ kbd{display:inline-block;min-width:22px;padding:3px 6px;border:1px solid rgb(13 
 .incoming-call .call-actions{display:flex;gap:6px}
 .incoming-call button{border:0;border-radius:999px;padding:7px 9px;font:600 11.5px/1 var(--sans);cursor:pointer;color:#fff}
 .incoming-call .call-later{background:rgb(255 255 255/.16)}
-.incoming-call .call-answer{background:#2f9e5b}
+.incoming-call .call-answer{background:#1f7a43}
 .incoming-call.later{justify-content:center;text-align:center}
 @media(prefers-reduced-motion:reduce){.incoming-call,.incoming-call .call-avatar{animation:none}}
 
@@ -696,3 +696,8 @@ html body .closed-book-copy .book-resume{display:flex;align-items:center;gap:10p
  .incoming-call .call-actions{flex:1 1 100%}
  .incoming-call .call-actions button{flex:1}
 }
+
+/* Contrast (WCAG AA): captions, archive numbers and years, résumé note. */
+main .photo figcaption{color:#4b5663}
+main .archive-record summary :is(.record-num,.record-year){color:#5a636d}
+.contact-resumes .resume-note{margin:18px 0 0;max-width:44ch;font:450 16px/1.6 var(--sans);color:var(--muted)}

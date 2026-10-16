@@ -1,7 +1,7 @@
 export const evidence:Record<string,{image?:string;links:[string,string][];note:string;team?:string}>={
  'faraday-tapeout':{links:[['Director’s testimonial · April 2026 (PDF)','/documents/faraday-testimonial-bao-vo.pdf']],note:'The 1.5-month figure describes a shuttle project’s tape-out timeline, not total employment. Internal customer layouts and test patterns are not displayed.'},
- 'implantable-auditory-circuits':{links:[['Engineering résumé (PDF)','/documents/bao-vo-engineering-resume.pdf']],note:'Circuit development and simulation for a research system.'},
- 'healthcare-commercialization':{links:[['Business résumé (PDF)','/documents/bao-vo-business-resume.pdf']],note:'Client work is summarized publicly; confidential deliverables are not shown.'},
+ 'implantable-auditory-circuits':{links:[],note:'Circuit development and simulation for a research system.'},
+ 'healthcare-commercialization':{links:[],note:'Client work is summarized publicly; confidential deliverables are not shown.'},
  articulate:{image:'articulate-detail',links:[['Selected concept deck excerpts (PDF)','/documents/articulate-selected-excerpts.pdf']],note:'Competition product concept · Track Winner and Audience Choice.',team:'Ashita Nichanametla, Hao Liu, Linh Tran, Bao Vo, Danika Lau and Kemi Orisile.'},
  'aurora-market-entry':{image:'aurora-cover',links:[['Selected competition excerpts (PDF)','/documents/aurora-selected-excerpts.pdf']],note:'SECC 2026 semifinalist. Selected excerpts present the team’s competition recommendation.',team:'Bao Vo, Shiuan-Bai Ann, Wendi Ma, Bide Chen and Yueheng Xing.'},
  'cagrisema-launch-strategy':{image:'cagrisema-detail',links:[['Selected competition excerpts (PDF)','/documents/cagrisema-selected-excerpts.pdf']],note:'MHCC 2025 semifinalist. The preserved deck is the quarterfinal submission.',team:'Bao Vo, Shiuan-Bai Ann, Jane Tang and Yulu Peng.'},

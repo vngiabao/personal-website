@@ -15,7 +15,7 @@ const PLACES:Record<string,Place>={
  book:{href:'/book',title:'The Book',note:'The same path, told in twelve chapters.'},
  about:{href:'/about',title:'About',note:'How I work, and the path here.'},
  archive:{href:'/archive',title:'The Archive',note:'Everything on the record.'},
- contact:{href:'/contact',title:'Start a conversation',note:'Email, LinkedIn and résumés.'},
+ contact:{href:'/contact',title:'Start a conversation',note:'Email, LinkedIn and résumé requests.'},
 };
 const NEXT:Record<string,(keyof typeof PLACES)[]>={
  '/':['story','work','book'],

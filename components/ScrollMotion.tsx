@@ -75,7 +75,9 @@ function countUp(value:Element,restore:(()=>void)[]){
 
 /** One sentence fills in as it is read: the site's signature for a claim it stands behind. */
 function fillWords(quote:Element){
- const words=SplitText.create(quote,{type:'words'});
+ // aria:'none': a split paragraph keeps reading as one sentence, without an
+ // aria-label that a <p> may not carry.
+ const words=SplitText.create(quote,{type:'words',aria:'none'});
  gsap.fromTo(words.words,{opacity:.16},{opacity:1,ease:'none',stagger:.1,
   scrollTrigger:{trigger:quote,start:'top 88%',end:'bottom 58%',scrub:.2}});
 }
