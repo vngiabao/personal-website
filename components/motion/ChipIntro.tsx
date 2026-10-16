@@ -110,7 +110,7 @@ export function ChipIntro({onDone,onFail}:{onDone:()=>void;onFail:()=>void}){
   </div>)}</div>
   <div className="chip-centre" aria-hidden="true">
    <BrandMark className="chip-mark"/>
-   <p className="chip-name"><span>Bao Vo</span></p>
+   <p className="chip-name"><span>G. Bao Vo</span></p>
    <span className="chip-keyline"/>
    <p className="chip-thesis">Welcome to my corner.</p>
    <p className="chip-bio">Engineer · Founder · Ann Arbor, by way of Vietnam</p>

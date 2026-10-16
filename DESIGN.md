@@ -1,6 +1,6 @@
 ---
-name: Bao Vo — The Turn
-description: An editorial portfolio in navy and warm paper, signed with an open-folio colophon.
+name: G. Bao Vo — GB
+description: An editorial portfolio in navy and warm paper, signed with the GB monogram.
 colors:
   blue: "#00274c"
   ink: "#0d2238"
@@ -45,13 +45,11 @@ spacing:
   brand-gap-mobile: "12px"
 components:
   brand-mark:
-    textColor: "{colors.brass-text}"
-    width: "39px"
-    height: "43px"
+    textColor: "{colors.blue}"
+    height: "34px"
   brand-mark-compact:
-    textColor: "{colors.brass-text}"
-    width: "33px"
-    height: "38px"
+    textColor: "{colors.blue}"
+    height: "29px"
   brand-wordmark:
     textColor: "{colors.blue}"
     typography: "{typography.wordmark}"
@@ -76,23 +74,21 @@ components:
     rounded: "{rounded.project-preview}"
 ---
 
-# Design System: Bao Vo — The Turn
+# Design System: G. Bao Vo — GB
 
 ## Overview
 
-**Creative North Star: "The publisher's colophon"**
+**Creative North Star: "From silicon to strategy, signed by hand"**
 
-The portfolio's established editorial world pairs engineering precision with a human, bookish voice. Navy, warm paper, serif turns in headlines, evidence-led projects, and the tactile Book remain the context for the identity.
+The portfolio's editorial world pairs engineering precision with a human, bookish voice: navy, warm paper, serif turns in signature headlines, evidence-led projects and the tactile Book.
 
-The Turn signs that world with two complementary planes forming an open folio. It represents a change in perspective across engineering, strategy, and entrepreneurship. This is a scoped personal identity, not a new company or a redesign mandate for the surrounding site.
+The identity is **GB**: a woven, hand-drawn monogram with a brass period, set beside the name **G. Bao Vo**. A signature-led evolution is in exploration (`output/gb-logo-prompt.md`). Full guide: `BRAND_DIRECTION.md`.
 
 **Key Characteristics:**
-- Restrained navy, warm paper, and dark brass.
-- Condensed sans-serif display type with expressive serif accents.
-- An independent, authored vector emblem and widely spaced serif name.
-- Hairlines, material detail, and deliberate optical spacing.
-
-This records the existing implementation after the scoped identity review returned **ship**. It does not certify the whole site's design or accessibility. Product context is in `PRODUCT.md`; the identity contract and provenance are in `BRAND_DIRECTION.md`.
+- Restrained navy, warm paper, brass and maize.
+- Condensed sans-serif display type with expressive serif accents, used sparingly.
+- The GB monogram and the widely spaced serif name.
+- Section grounds that alternate cream and stone, with navy cloth bands; framed content on mounted plates.
 
 ## Colors
 
@@ -109,45 +105,45 @@ Mona Sans (`--sans`) supplies body copy and the structural display voice. Brygad
 
 Atelier's general main headings use weight 620, width 86%, and tight tracking; main labels use weight 560, width 116%, 11.5px type, and .17em tracking. Hero and individual page overrides remain local. Do not turn a single headline's dimensions into a global scale.
 
-The wordmark is regular-weight Brygada 1918, uppercase via CSS, with normal kerning, 1.2 line height, and 2px optical top padding. Desktop uses 23px and .17em tracking; compact uses 20px; mobile uses 20px and .15em tracking. It remains live text, not lettering embedded into the SVG.
+The name, **G. Bao Vo**, is regular-weight Brygada 1918, uppercase via CSS, with normal kerning, 1.2 line height, and 2px optical top padding. Desktop uses 23px and .17em tracking; compact uses 20px; mobile uses 20px and .15em tracking. It remains live text, not lettering embedded into the SVG.
 
 ## Layout
 
 The existing site alternates editorial columns, ruled indexes, full-width bands, and responsive stacks. Retain each surface's existing grid and breakpoints. Base layout variables originate in `app/tokens.css` but are overridden by later site layers; inspect the complete cascade before changing gutters or header height.
 
-The identity is an inline-flex lockup. Desktop: 39 × 43px SVG box, 17px gap. Compact footer: 33 × 38px box, 14px gap. At viewport widths up to 767px: 33 × 38px box and 12px gap for both variants. The square SVG viewBox keeps the artwork proportional inside these boxes; these dimensions describe the box, not stretched path geometry.
+The identity is an inline-flex lockup. Desktop: the mark 34px tall (690 × 462 viewBox), 17px gap. Compact footer: 29px, 14px gap. At viewport widths up to 767px: 29px and a 12px gap for both variants.
 
 ## Elevation & Depth
 
-The mark itself is flat and solid, with no shadow, texture, or gradient. Existing surfaces combine hairlines and warm tonal changes with restrained shadows on previews and hovered actions. Cloth, paper, and the dimensional Book belong to their established surfaces; they are not treatments to apply to the logo.
+The mark itself is flat and solid, with no shadow, texture, or gradient (the Book cover's gilt foil is the one material exception). Existing surfaces combine hairlines and warm tonal changes with restrained shadows on previews and hovered actions. Cloth, paper, and the dimensional Book belong to their established surfaces; they are not treatments to apply to the logo.
 
-Atelier supplies the motion curves recorded in the sidecar. Pointer hover is gated on applicable surfaces, and reduced-motion rules suppress movement. The identity has no independent motion.
+Atelier supplies the motion curves recorded in the sidecar. Pointer hover is gated on applicable surfaces, and reduced-motion rules suppress movement. The identity moves in one place only: the closing band's signature traces the GB (DrawSVG).
 
 ## Shapes
 
-The Turn consists of two closed, filled paths on a 64 × 64 viewBox. Preserve its open space and complementary broad and fine curved edges. It is an open-folio symbol, not an initials ligature. Site fields use 10px corners, representative panels 16px, project previews 18px, and action pills 999px; these are observed component values, not a replacement for all existing shapes.
+The GB monogram is one evenodd path (G, B and the sweep through both, `components/brand/gbPaths.ts`) on a 690 × 462 viewBox, plus the brass period. Site fields use 10px corners, representative panels 16px, project previews 18px, and action pills 999px; these are observed component values, not a replacement for all existing shapes.
 
 ## Components
 
-**Personal identity.** `components/brand/Brand.tsx` owns `BrandMark` and `Brand`; `Brand.module.css` owns lockup dimensions. Header and navigation sheet use the full lockup; footer uses `compact`. The decorative SVG is `aria-hidden` and non-focusable. Its surrounding home link supplies the accessible name “Bao Vo, home”. Preserve the containing link's usable target and focus treatment.
+**Personal identity.** `components/brand/Brand.tsx` owns `BrandMark` and `Brand`; `Brand.module.css` owns lockup dimensions. Header and navigation sheet use the full lockup; footer uses `compact`. The decorative SVG is `aria-hidden` and non-focusable. Its surrounding home link supplies the accessible name “G. Bao Vo, home”. Preserve the containing link's usable target and focus treatment.
 
-**Native assets.** `public/brand/the-turn.svg` is the standalone navy mark on transparency, with a title. `public/icon.svg` uses the same geometry translated by 8px into an 80 × 80 navy tile with 16px corners, in cream. `app/apple-icon.png` and `app/favicon.ico` are deterministic rasterizations of that icon source with provenance recorded alongside the assets. Keep all variants synchronized; use the simplified icon without the wordmark at favicon sizes.
+**Native assets.** `public/brand/gb-mark.svg` is the standalone mark. `public/icon.svg` is a heavier cut of the same geometry in cream on a navy tile, with the brass period. `app/apple-icon.png` and `app/favicon.ico` are deterministic rasterizations of that icon source with provenance recorded alongside the assets. Keep all variants synchronized; use the simplified icon without the wordmark at favicon sizes.
 
 **Actions.** Primary and outline actions share a pill with a separate 40px circular arrow capsule, 54px minimum height, and 7px 7px 7px 24px padding. Primary is navy on light grounds; outline is transparent with a stronger hairline. Dark-band variants invert the foreground and ground. Pointer hover shifts the arrow 3px; active feedback scales to .97. Compact actions use their existing 46px/34px treatment.
 
 **Fields, filters, and previews.** Archive fields use white fill, a stronger hairline, 10px corners, and navy border plus a brass-tinted focus halo. Work filters are restrained pills; selected filters become navy with a soft foreground. Project previews use soft paper, an 18px corner, a hairline, and a low diffuse shadow.
 
-**Navigation.** Existing section navigation uses translucent cream, backdrop blur, hairlines, and a brass position indicator. Preserve its location state and reduced-motion treatment. Header and footer navigation keep their own component styles; the new identity does not replace their interaction model.
+**Navigation.** Existing section navigation uses near-opaque cream (no backdrop blur, for scroll performance), hairlines, and a brass position indicator. Preserve its location state and reduced-motion treatment. Header and footer navigation keep their own component styles; the new identity does not replace their interaction model.
 
 ## Do's and Don'ts
 
 ### Do:
 - Do use the existing navy, paper, and brass tokens through CSS variables.
-- Do preserve the two authored paths and the desktop, compact, and mobile lockup proportions.
+- Do preserve the GB path, the brass period and the desktop, compact, and mobile lockup proportions.
 - Do keep the live serif wordmark, accessible home-link name, and synchronized native icon variants.
 - Do preserve factual copy, project evidence, navigation, and the surrounding editorial theme.
 
 ### Don't:
-- Don't restore the rejected BV monogram or force initials into The Turn.
-- Don't add divider lines, tiny descriptors, badge lettering, ornamental dots, or effects to this lockup.
+- Don't restore the rejected BV monogram or the retired "The Turn" emblem.
+- Don't add divider lines, tiny descriptors, badge lettering or effects to this lockup. The brass period is the only dot.
 - Don't generalize identity-specific decisions into a site-wide redesign or claim a whole-site review.

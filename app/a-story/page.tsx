@@ -6,7 +6,7 @@ import {story} from '@/content/story';
 import {ProgramRecognition} from '@/components/ProgramRecognition';
 import '../pages.css';
 
-export const metadata=pageMetadata('A Story — Most of a life goes undocumented','Bao Vo’s current venture. A Story calls someone you love, listens, and follows up the way someone who knows them would — and what they say becomes a private archive the whole family can add to. A member of the NVIDIA Inception program, the AssemblyAI Startup Program, and a Cartesia Startups grant recipient.','/a-story');
+export const metadata=pageMetadata('A Story — Family stories, in the voices that lived them','G. Bao Vo’s current venture. A Story is an AI biographer that calls the people you love and helps them tell their stories in their own voice, in a living archive the whole family adds to. A member of the NVIDIA Inception program, the AssemblyAI Startup Program, and a Cartesia Startups grant recipient.','/a-story');
 
 /** A phone with one of A Story's real Figma screens; tall screens are cropped from the top. */
 function Screen({src,alt,className=''}:{src:string;alt:string;className?:string}){
@@ -16,12 +16,12 @@ function Screen({src,alt,className=''}:{src:string;alt:string;className?:string}
 export default function Page(){const w=story.witness;return <main id="main" className="story-page">
  <header className="new-story-hero">
   <div className="container">
-   <div className="new-story-top"><StoryBrand/><a className="status-tag st-site" href={story.site} target="_blank" rel="noopener"><i/>{story.siteLabel} · Waitlist open <span aria-hidden="true">↗</span></a></div>
+   <div className="new-story-top"><StoryBrand/><a className="status-tag st-site" href={story.site} target="_blank" rel="noopener"><i/>{story.siteLabel} · Private beta <span aria-hidden="true">↗</span></a></div>
    <div className="new-story-intro">
     <div>
      <Label>The venture I’m building now · Co-founder and COO</Label>
-     <h1>Most of a life<br/>goes <em>undocumented.</em></h1>
-     <p>A Story calls someone you love, listens, and follows up the way someone who knows them would. What they say becomes a private archive the whole family can add to.</p>
+     <h1>Family stories, in the <em>voices that lived them.</em></h1>
+     <p>A Story is an AI biographer. It calls someone you love at the time they choose, listens, and follows up the way someone who knows them would. Every call becomes part of a living archive the whole family can add to.</p><p className="st-team">Co-founded with <b>Daniel Hoang Nguyen</b>, CEO. In private beta, with the App Store release in review.</p>
      <div className="st-actions"><ArrowLink className="solid-link" href={story.site}>Visit {story.siteLabel}</ArrowLink><ArrowLink className="outline-link" href="#listen">Hear a conversation</ArrowLink></div>
      <p className="venture-brandline">Not a memoir to finish.<br/>A Story to keep, and to carry on.</p>
     </div>
@@ -83,7 +83,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
     <p>{s.text}</p>
    </li>)}
   </ol>
-  <div className="st-terms"><div className="st-terms-line">Start with three days of full access, no card required. After that it falls back to Free, <em>never a lockout.</em></div><ArrowLink className="outline-link" href={`${story.site}/pricing`}>See plans on {story.siteLabel}</ArrowLink></div>
+  <div className="st-terms"><div className="st-terms-line">Reading, writing and inviting family are always free. <em>Families pay only for the calls.</em></div><ArrowLink className="outline-link" href={`${story.site}/pricing`}>See plans on {story.siteLabel}</ArrowLink></div>
  </section>
 
  <section id="voices" className="section st-voices">
@@ -133,7 +133,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
     <p className="st-for-why">{a.why}</p>
     <ArrowLink href={`${story.site}${a.href}`}>{`For ${a.label.toLowerCase()} on ${story.siteLabel}`}</ArrowLink>
    </li>)}</ol>
-   <div className="st-actions st-for-actions"><ArrowLink className="solid-link" href={`${story.site}/start`}>Join the waitlist</ArrowLink><ArrowLink className="outline-link" href="/contact?topic=a-story">Talk with me about A Story</ArrowLink></div>
+   <div className="st-actions st-for-actions"><ArrowLink className="solid-link" href={`${story.site}/reserve`}>Reserve a place</ArrowLink><ArrowLink className="outline-link" href="/contact?topic=a-story">Talk with me about A Story</ArrowLink></div>
   </div>
  </section>
 

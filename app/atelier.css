@@ -509,9 +509,11 @@ main h2 em:not(.home-book-section *):not(.contact-close *):not(.closed-book-copy
 }
 
 /* A Story's lockup: the official vector, sized as one piece. */
-.story-brand .story-lockup{display:block;width:100%;max-width:300px;height:auto;margin:0}
-.new-story-top .story-brand .story-lockup{max-width:280px}
-@media(max-width:767px){.story-brand .story-lockup{max-width:240px}}
+.story-brand .story-lockup{display:block;width:100%;max-width:230px;height:auto;margin:0}
+.new-story-top .story-brand .story-lockup{max-width:220px}
+@media(max-width:767px){.story-brand .story-lockup{max-width:180px}}
+.new-story-intro .st-team{margin-top:14px;font:450 15px/1.5 var(--sans);color:var(--muted)}
+.new-story-intro .st-team b{color:var(--ink);font-weight:600}
 
 /* ── Grounds and plates, the rest of the site ───────────────────────── */
 /* About: break the long run of one paper tone. */

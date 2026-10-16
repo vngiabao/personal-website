@@ -17,7 +17,7 @@ export function Label({children,num}:{children:React.ReactNode;num?:string}){ret
 const inSite=(href:string)=>href.startsWith('/')&&!/^\/(documents|media)\//.test(href);
 export function ArrowLink({href,children,className=''}:{href:string;children:React.ReactNode;className?:string}){const inner=<>{children}{href.startsWith('https:')&&<span aria-hidden="true">↗</span>}</>;return inSite(href)?<Link className={`arrow-link ${className}`} href={href}>{inner}</Link>:<a className={`arrow-link ${className}`} href={href}>{inner}</a>}
 export function PageIntro({label,title,children,aside}:{label?:string;title:string;children?:React.ReactNode;aside?:React.ReactNode}){return <header className={`page-intro container ${aside?'has-aside':''}`}>{label&&<Label>{label}</Label>}<h1>{title}</h1>{children&&<div className="intro-copy">{children}</div>}{aside&&<aside className="intro-aside">{aside}</aside>}</header>}
-export function ContactClose(){return <section id="contact" className="contact-close blue"><div className="container"><Label num="09">The next conversation</Label><div className="contact-layout"><h2>Let’s <em>talk.</em></h2><div><p>I’m interested in ambitious products, difficult technology, and the strategy that turns one into the other.</p><ArrowLink className="solid-link" href="mailto:gbao.n.vo@gmail.com">Email Bao</ArrowLink><ArrowLink href="/contact">More ways to connect</ArrowLink></div></div><div className="closing-sign"><p className="small closing-note">Currently building A Story from Michigan.</p><Signature className="closing-signature"/></div></div></section>}
+export function ContactClose(){return <section id="contact" className="contact-close blue"><div className="container"><Label num="09">The next conversation</Label><div className="contact-layout"><h2>Let’s <em>talk.</em></h2><div><p>If you are building something difficult, whether a chip, a market or a product a family will trust, I’d like to hear about it.</p><ArrowLink className="solid-link" href="mailto:gbao.n.vo@gmail.com">Email Bao</ArrowLink><ArrowLink href="/contact">More ways to connect</ArrowLink></div></div><div className="closing-sign"><p className="small closing-note">Currently building A Story from Michigan.</p><Signature className="closing-signature"/></div></div></section>}
 export function Footer(){return <footer className="site-footer">
 <div className="container">
 <FooterNext/>
@@ -31,9 +31,9 @@ export function Footer(){return <footer className="site-footer">
 </nav>
 </div>
 <div className="footer-base">
-<Link className="footer-brand" href="/" aria-label="Bao Vo, home"><Brand compact/></Link>
+<Link className="footer-brand" href="/" aria-label="G. Bao Vo, home"><Brand compact/></Link>
 <LocalTime/>
-<span className="small">© {new Date().getFullYear()} Bao Vo</span>
+<span className="small">© {new Date().getFullYear()} G. Bao Vo</span>
 <a className="footer-up" href="#main">Back to top</a>
 <p className="footer-legal">{inception.legal}</p>
 </div>
@@ -45,6 +45,6 @@ export function Footer(){return <footer className="site-footer">
  * via for each of its seven chapters, the last one lit (A Story, now). Outer
  * classes stay as they were: the reader's open/close animation drives them.
  */
-export function BookCover({small=false}:{small?:boolean}){return <div className={`book-object bc ${small?'compact':''}`} aria-hidden="true"><div className="book-spine"><span className="bc-spine-band"/>BAO VO · THE PATH, SO FAR.<span className="bc-spine-band"/></div><div className="book-face"><span className="bc-emblem"/>
-<span className="bc-author">Bao Vo</span><span className="bc-title">The Path,<br/><em>So Far.</em></span><svg className="bc-trace" viewBox="0 0 260 24"><line x1="8" y1="12" x2="252" y2="12"/>{[0,1,2,3,4,5,6].map(n=><circle key={n} cx={8+n*244/6} cy="12" r={n===6?4.2:3} className={n===6?'now':undefined}/>)}<circle cx="252" cy="12" r="8.5" className="halo"/></svg><span className="bc-years">Michigan · 2019 — 2026</span><span className="bc-sub">A personal record</span></div><span className="book-ribbon"/></div>}
+export function BookCover({small=false}:{small?:boolean}){return <div className={`book-object bc ${small?'compact':''}`} aria-hidden="true"><div className="book-spine"><span className="bc-spine-band"/>G. BAO VO · THE PATH, SO FAR.<span className="bc-spine-band"/></div><div className="book-face"><span className="bc-emblem"/>
+<span className="bc-author">G. Bao Vo</span><span className="bc-title">The Path,<br/><em>So Far.</em></span><svg className="bc-trace" viewBox="0 0 260 24"><line x1="8" y1="12" x2="252" y2="12"/>{[0,1,2,3,4,5,6].map(n=><circle key={n} cx={8+n*244/6} cy="12" r={n===6?4.2:3} className={n===6?'now':undefined}/>)}<circle cx="252" cy="12" r="8.5" className="halo"/></svg><span className="bc-years">Michigan · 2019 — 2026</span><span className="bc-sub">A personal record</span></div><span className="book-ribbon"/></div>}
 

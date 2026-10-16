@@ -17,7 +17,7 @@ export function Brand({compact = false}: {compact?: boolean}) {
   return <span className={`${styles.brand} ${compact ? styles.compact : ''}`}>
     <BrandMark className={styles.mark}/>
     <span className={styles.type}>
-      <span className={styles.name}>Bao Vo</span>
+      <span className={styles.name}>G. Bao Vo</span>
     </span>
   </span>;
 }

@@ -48,7 +48,7 @@ function Verso({i}:{i:number}){
    <p className="bk-kicker">A personal record</p>
    <p className="bk-book-title">The Path,<br/><em>So Far.</em></p>
    <span className="bk-orn" aria-hidden="true"><i/></span>
-   <p className="bk-byline">Bao Vo</p>
+   <p className="bk-byline">G. Bao Vo</p>
    <p className="bk-imprint">Ann Arbor, Michigan · 2019–2026</p>
   </div>
   <p className="bk-epigraph">“From silicon to strategy.”</p>

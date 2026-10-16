@@ -1,27 +1,47 @@
-# Personal identity: The Turn
+# Personal identity: GB
 
-Scope: the personal mark, wordmark, and their header, menu, footer, and favicon applications. The surrounding portfolio remains the established editorial world. Mode: experience.
+Replaces "The Turn" (October 2026). The mark is the owner's initials, at his request.
 
-The user rejected the earlier BV ligature and delegated all creative direction. The new identity must fit Bao's actual engineering, strategy, and founder narrative, with premium craft. No claim about affiliations, awards, or commercial outcomes is added.
+## Name
 
-## Direction contract
+- **Mark:** GB, his initials (from Gia Bảo). GBV is the full set of initials, for handles and signatures.
+- **Name beside the mark:** G. Bao Vo. It matches the handles people already know (`gbaovo`, `gbao.n.vo`) and keeps "Bao", while the G shows where GB comes from.
+- **In casual copy:** Bao ("Email Bao", "Bao's role").
+- **One-line story:** From silicon to strategy.
 
-THESIS: A publisher's colophon for a builder whose work crosses disciplines. Two complementary planes form an open folio, giving the personal identity an independent symbol rather than initials.
+## The mark
 
-OWN-WORLD: Ink navy, warm paper, and restrained dark brass. Broad and fine curved edges carry the mark. Widely spaced, regular-weight serif capitals carry the name. No divider, miniature descriptor, badge lettering, or ornamental dot.
+- **GB monogram** (`public/brand/gb-mark.svg`, `components/brand/gbPaths.ts`): hand-drawn, woven letters. The sweep through the B passes over its stem like a pen stroke.
+- **The brass period:** it stands for "now", and it is always brass, even when the letters are cream or navy.
+- **Small sizes:** a heavier cut (`BrandMark heavy`) for 32px and below. The favicon set is generated from `public/icon.svg`.
+- **Status:** the current mark is a fitted trace of a drawn concept. The next direction is signature-led: a refined version of Bao's own signature, optionally with a one-line portrait, with GB drawn from the signature's strokes for small sizes. Concepts come from the brief in `output/gb-logo-prompt.md`; the chosen one gets a final vector redraw. A literal circuit-trace mark was tried and rejected as not premium.
 
-STORY: A rigorous frame opens into a curved page. Precision and human context belong to the same body of work. The symbol evokes a change in perspective, not a new company or invented credential.
+## Colour
 
-FIRST VIEWPORT: A 39px emblem in dark brass, a 17px optical gap, and a 23px uppercase wordmark. The hero and navigation retain their hierarchy. Mobile uses a 33px emblem and 20px lettering with an accessible home-link target.
+| Role | Token | Hex |
+| --- | --- | --- |
+| Ink: letters and text | `--ink` / `--blue` | `#0D2238` / `#00274C` |
+| Paper: grounds | `--cream`, `--stone` | `#F5F1E8`, `#E4D9C5` |
+| Brass: the period, rules and foil | `--brass` | `#B58420` |
+| Maize: brass on dark grounds | `--maize` | `#E8C064` |
 
-FORM: Candidate 6, the private-press colophon, seed 4247ac1b. Other grounded candidates considered: signature engraving, circuit seal, architectural threshold, woven joint, botanical folio, and horizon notation. Site theme and the user's request constrain this to identity, not a whole-site redesign. The user delegated selection. Code-first vector work preserves exact geometry at every scale.
+- A Story's terracotta (`#B85126`) and teal belong to A Story's own sections, not to the personal identity.
+- Partner badges (NVIDIA, AssemblyAI, Cartesia) appear unaltered, under their own guidelines.
 
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+## Type
 
-## Reference judgments
+- **Mona Sans** for structure: headlines (condensed), labels (expanded) and body.
+- **Brygada 1918** for the human voice: the name, the italic turn in a few signature headlines, quotes and the Book.
 
-The generated catalog challengers (kinetic sand, illuminated initial, brick instructions, underwater profile, HyperCard, and phosphor terminal) are declined for this scope: their full interface grammars would replace the established portfolio instead of integrating a luxury personal identity. The colophon borrows no visual motifs from them. Their useful craft demands are material restraint, authored geometry, consistent construction, clear silhouette, monochrome legibility, and precise optical rhythm.
+## Voice
 
-## Asset provenance
+- **Concrete over titles:** "I helped take a 22nm chip to tape-out" rather than "builder".
+- **Short sentences,** few em dashes, no buzzwords.
+- **The label is the path:** Engineer · Consultant · Co-founder.
 
-Original vector paths authored in this repository. `app/apple-icon.png` and `app/favicon.ico` are deterministic rasterizations of `public/icon.svg`, using the existing Sharp dependency. No stock art, generated raster artwork, or third-party logo is used. The wordmark uses the site's existing licensed Brygada 1918 font.
+## Applications
+
+`output/brand-kit/`:
+- LinkedIn banner (1584 × 396);
+- email signature (HTML);
+- social share card (also served as `public/social-card.png`).

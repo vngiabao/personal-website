@@ -1,5 +1,5 @@
 export const projects=[
- {slug:'a-story',title:'A Story',year:'2026—',category:'Product / Venture',role:'Co-founder and COO',note:'A family archive, built through conversation.',image:'keepsake',href:'/a-story',status:'Active development & pilots'},
+ {slug:'a-story',title:'A Story',year:'2026—',category:'Product / Venture',role:'Co-founder and COO',note:'An AI biographer for family stories.',image:'keepsake',href:'/a-story',status:'Private beta · App Store release in review'},
  {slug:'healthcare-commercialization',title:'Healthcare commercialization',year:'2024–26',category:'Consulting',role:'Project Manager / Consultant · miLEAD',note:'Turning life-science research into a considered market direction.',image:'milead',href:'/work/healthcare-commercialization',status:'Consulting · Public summary'},
  {slug:'faraday-tapeout',title:'From design to tape-out',year:'2024',category:'Engineering',role:'DFT/STA Engineer · Faraday Technology',note:'Test, timing, and the discipline of getting silicon out the door.',image:'faraday',href:'/work/faraday-tapeout',status:'Industry engineering'},
  {slug:'implantable-auditory-circuits',title:'Circuits for an implantable device',year:'2024–25',category:'Research',role:'Graduate Student Researcher · Michigan',note:'Low-power circuit research with a much larger human purpose.',image:'mackinac',href:'/work/implantable-auditory-circuits',status:'Research · Circuit simulation'},
@@ -27,5 +27,5 @@ export const chronology=[
  {year:'2023–24',title:'Make it hold up.',label:'Circuits / silicon',text:'Circuit projects and a materials science degree with an electrical engineering minor, followed by chip-level test and timing at Faraday Technology Vietnam.',href:'/work/faraday-tapeout'},
  {year:'2024–25',title:'Look beyond the device.',label:'Medical technology / commercialization',text:'Low-power circuits for an implantable auditory prosthesis, alongside a growing interest in life-science markets and adoption.',href:'/work/implantable-auditory-circuits'},
  {year:'2025–26',title:'Widen the frame.',label:'Strategy / teaching / product',text:'miLEAD consulting, teaching EECS 215, and team competitions in product development and commercial strategy. Different settings, more of the surrounding system in view.',href:'/work'},
- {year:'2026—',title:'Begin with a conversation.',label:'A Story / current venture',text:'Co-founding A Story. Developing a family archive and learning through pilots, with product strategy and operations as my focus.',href:'/a-story'},
+ {year:'2026—',title:'Begin with a conversation.',label:'A Story / current venture',text:'Co-founding A Story, an AI biographer for family stories, now in private beta. Product strategy and operations are my focus.',href:'/a-story'},
 ];
