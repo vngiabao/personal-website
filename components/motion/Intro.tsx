@@ -117,7 +117,7 @@ function CardIntro({onDone}:{onDone:()=>void}){
  return <div className="site-intro" ref={root} aria-hidden="true">
   <span className="intro-frame"/>
   <div className="intro-centre">
-   <p className="intro-eyebrow">Engineer · Consultant · Co-founder</p>
+   <p className="intro-eyebrow">Co-founder &amp; COO, A Story</p>
    <p className="intro-name"><span>G. Bao Vo<b>.</b></span></p>
    <span className="intro-keyline"/>
    <p className="intro-window"><span className="intro-reel">{STOPS.map(s=><span key={s.label}>{s.label}</span>)}</span></p>

@@ -35,9 +35,9 @@ Replaces "The Turn" (October 2026). The mark is the owner's initials, at his req
 
 ## Voice
 
-- **Concrete over titles:** "I helped take a 22nm chip to tape-out" rather than "builder".
+- **Business first:** lead with the role and the work (co-founder and COO, operations, product strategy, go-to-market). Engineering is the background, never the identity: no chip imagery in the brand.
 - **Short sentences,** few em dashes, no buzzwords.
-- **The label is the path:** Engineer · Consultant · Co-founder.
+- **The label is the role:** Co-founder & COO, A Story.
 
 ## Applications
 
