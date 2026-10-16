@@ -5,6 +5,7 @@
  * search of the Archive for the words in the address.
  */
 import {useEffect,useState} from 'react';
+import {BrassMark} from './motion/BrassMark';
 import Link from 'next/link';
 import {projects,extras} from '@/content/projects';
 
@@ -37,6 +38,7 @@ export function LostPage(){
  const best=path?closest(path):[];
  const query=words(decodeURIComponent(path));
  return <div className="lost">
+  <BrassMark className="lost-mark"/>
   {best[0]&&best[0].score<.75&&<p className="lost-guess">Were you looking for <Link href={best[0].href}>{best[0].title}</Link>?</p>}
   {best.length>0&&<><p className="eyebrow">Close matches</p><ul className="lost-list">{best.map(p=><li key={p.href}><Link href={p.href}>{p.title}</Link><span>{p.href}</span></li>)}</ul></>}
   {query&&<p className="lost-search"><Link href={`/archive?q=${encodeURIComponent(query)}`}>Search the Archive for “{query}”</Link></p>}

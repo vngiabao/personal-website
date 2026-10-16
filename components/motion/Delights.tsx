@@ -74,6 +74,7 @@ export function Delights(){
  const copyEmail=useCallback(async()=>{try{await navigator.clipboard.writeText(site.email);say('Email address copied. Say hello.')}catch{say(site.email)}},[say]);
 
  useEffect(()=>{consoleNote();setCompanion(store.get('gb-companion')!=='off')},[]);
+ useEffect(()=>{const hear=(e:Event)=>say(String((e as CustomEvent).detail));window.addEventListener('gb:toast',hear);return()=>window.removeEventListener('gb:toast',hear)},[say]);
 
  // ── The companion ─────────────────────────────────────────────────────
  useEffect(()=>{
