@@ -21,6 +21,25 @@ if(typeof window!=='undefined')gsap.registerPlugin(ScrollTrigger,SplitText);
 
 export {gsap,ScrollTrigger,SplitText};
 
+/**
+ * Plugins that serve one scene each load on demand, so the shared bundle
+ * stays as it was: the prints' drag and throw, the filter glides, the
+ * signature, and the Path's signal bead.
+ */
+export const plugins={
+ drag:()=>Promise.all([import('gsap/Draggable'),import('gsap/InertiaPlugin')]).then(([d,i])=>{gsap.registerPlugin(d.Draggable,i.InertiaPlugin);return {Draggable:d.Draggable,InertiaPlugin:i.InertiaPlugin}}),
+ flip:()=>import('gsap/Flip').then(m=>{gsap.registerPlugin(m.Flip);return m.Flip}),
+ draw:()=>import('gsap/DrawSVGPlugin').then(m=>{gsap.registerPlugin(m.DrawSVGPlugin);return m.DrawSVGPlugin}),
+ path:()=>Promise.all([import('gsap/MotionPathPlugin'),import('gsap/CustomEase')]).then(([m,c])=>{gsap.registerPlugin(m.MotionPathPlugin,c.CustomEase);return {MotionPathPlugin:m.MotionPathPlugin,CustomEase:c.CustomEase}}),
+};
+
+/** Runs `load` once the element comes within reach of the viewport, so a scene's plugin is fetched just before it is needed. */
+export function whenNear(el:Element,load:()=>void,margin='900px'){
+ const io=new IntersectionObserver(([e])=>{if(e.isIntersecting){io.disconnect();load()}},{rootMargin:margin});
+ io.observe(el);
+ return()=>io.disconnect();
+}
+
 /** Conditions a scene can build against; keys become booleans on `context.conditions`. */
 export const MOTION={
  motion:'(prefers-reduced-motion: no-preference)',

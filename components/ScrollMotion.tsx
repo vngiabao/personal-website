@@ -27,8 +27,11 @@
  */
 import {useLayoutEffect} from 'react';
 import {usePathname} from 'next/navigation';
-import {gsap,ScrollTrigger,SplitText,MOTION,EASE,riseLines,openMasks,refreshWhenSettled,type Conditions} from '@/lib/motion';
+import {gsap,ScrollTrigger,SplitText,MOTION,EASE,riseLines,openMasks,refreshWhenSettled,plugins,type Conditions} from '@/lib/motion';
 import {introReleased} from './motion/introSignal';
+
+/** Pointer-led details (the Book's tilt, the prints) need a real hand on a mouse. */
+const FINE='(hover: hover) and (pointer: fine)';
 
 /** Widgets that re-render their own text or run their own transitions. */
 const OWN='.reader-shell,.book-map,.story-showcase,.shared-memory-demo,.memory-journey,.voices-object,.experience-object,.career-map,.archive-index,.chapter-nav,.project-browser,.work-lenses,dialog,.identity-hero,.site-intro';
@@ -107,6 +110,50 @@ function openPhoto(figure:Element){
  gsap.fromTo(img,{scale:1.22},{scale:1,duration:1.2,ease:EASE,clearProps:'transform',scrollTrigger:st});
 }
 
+/**
+ * The archive's prints can be picked up. A press lifts a print off the pile;
+ * a drag carries it, leaning into the direction it travels; a throw glides
+ * on with its own momentum and comes to rest where it lands, as a print on a
+ * table does. A press without a drag still opens the print's project.
+ */
+function livePrints(cards:HTMLElement[],restore:(()=>void)[]){
+ const pile=cards[0].parentElement!,table=pile.closest('section')!;
+ let alive=true;restore.push(()=>{alive=false});
+ plugins.drag().then(({Draggable,InertiaPlugin})=>{
+  if(!alive)return;
+  // Each print keeps the lean it was mounted with, held inline from here on
+  // so neither the stylesheet's hover nor the drag can straighten it. The
+  // class goes on first: it drops the CSS transition, so the lean is read at
+  // rest rather than partway through the settle the entrance hands over.
+  pile.classList.add('prints-live');
+  const rest=new Map(cards.map(card=>{gsap.set(card,{clearProps:'transform'});const m=new DOMMatrix(getComputedStyle(card).transform);return [card,Math.atan2(m.b,m.a)*180/Math.PI] as const}));
+  cards.forEach(card=>gsap.set(card,{x:0,y:0,rotation:rest.get(card)}));
+  const lean=new Map(cards.map(card=>[card,gsap.quickTo(card,'rotation',{duration:.45,ease:'power3'})]));
+  const tilt=(card:HTMLElement)=>{const v=InertiaPlugin.getVelocity(card,'x')||0;lean.get(card)!(rest.get(card)!+gsap.utils.clamp(-9,9,v/110))};
+  let top=10,moved=false;
+  // The table is the pile's side of the section: a print can travel and be
+  // thrown anywhere there, but never over the words on the other side.
+  const area=()=>{const t=table.getBoundingClientRect(),p=pile.getBoundingClientRect();return {left:-48,top:t.top-p.top+28,width:t.right-p.left-28+48,height:t.height-56}};
+  const drags=Draggable.create(cards,{
+   type:'x,y',bounds:area(),inertia:true,edgeResistance:.8,dragClickables:true,minimumMovement:6,
+   onPress(){moved=false;this.target.style.zIndex=String(++top);gsap.to(this.target,{scale:1.04,boxShadow:'0 48px 70px -40px rgb(0 39 76/.55)',duration:.3,ease:'power3.out',overwrite:'auto'})},
+   onDragStart(){moved=true},
+   onDrag(){tilt(this.target)},
+   onThrowUpdate(){tilt(this.target)},
+   onRelease(){gsap.to(this.target,{scale:1,boxShadow:'0 16px 30px -24px rgb(0 39 76/.45)',duration:.7,ease:'power3.out'})},
+   // It settles with a slightly different lean each time it is put down.
+   onThrowComplete(){const r=rest.get(this.target)!+gsap.utils.random(-2.5,2.5);rest.set(this.target,r);lean.get(this.target)!(r)},
+   onDragEnd(){if(!this.tween){const r=rest.get(this.target)!;lean.get(this.target)!(r)}},
+  });
+  // A drag that ends over a print is not a click on it.
+  const swallow=(e:MouseEvent)=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}};
+  pile.addEventListener('click',swallow,true);
+  const resize=()=>drags.forEach(d=>d.applyBounds(area()));
+  window.addEventListener('resize',resize);
+  restore.push(()=>{drags.forEach(d=>d.kill());window.removeEventListener('resize',resize);pile.removeEventListener('click',swallow,true);pile.classList.remove('prints-live');gsap.set(cards,{clearProps:'all'})});
+ });
+}
+
 function home(main:HTMLElement,c:Conditions){
  const q=(sel:string)=>all(main,sel);
  const restore:(()=>void)[]=[];
@@ -176,6 +223,23 @@ function home(main:HTMLElement,c:Conditions){
  // ── The Book: the closed volume lifts toward the reader as the band opens.
  const book=main.querySelector('.home-book-section .book-object');
  if(book&&c.wide)gsap.from(book,{y:90,rotation:-5,ease:'none',scrollTrigger:{trigger:book,start:'top bottom',end:'center 55%',scrub:.35}});
+ // Then it answers the hand: the cover turns a few degrees toward the pointer,
+ // in real depth, and settles square when the pointer leaves the band. The
+ // wrapper tilts, so the volume's own lean and hover lift stay as authored.
+ const stage=main.querySelector<HTMLElement>('.home-book-section .book-stage');
+ if(stage&&c.wide&&matchMedia(FINE).matches){
+  const band=stage.closest('section')!;
+  gsap.set(stage,{transformPerspective:1600,transformOrigin:'50% 55%'});
+  const ry=gsap.quickTo(stage,'rotationY',{duration:.9,ease:'power3'}),rx=gsap.quickTo(stage,'rotationX',{duration:.9,ease:'power3'});
+  const move=(e:PointerEvent)=>{
+   const r=stage.getBoundingClientRect();
+   ry(gsap.utils.clamp(-1,1,(e.clientX-(r.left+r.width/2))/r.width)*12);
+   rx(gsap.utils.clamp(-1,1,(e.clientY-(r.top+r.height/2))/r.height)*-8);
+  };
+  const leave=()=>{ry(0);rx(0)};
+  band.addEventListener('pointermove',move,{passive:true});band.addEventListener('pointerleave',leave);
+  restore.push(()=>{band.removeEventListener('pointermove',move);band.removeEventListener('pointerleave',leave)});
+ }
 
  // ── A Story. The product theatre arrives as one object; its tabs are its own.
  arrive(q('.venture-kicker > *'),{stagger:.1});
@@ -201,8 +265,11 @@ function home(main:HTMLElement,c:Conditions){
  arrive(q('.recognition-records > a'),{stagger:.1});
 
  // ── Archive: the three prints are dealt onto the table.
+ // Once they have landed they can be picked up (livePrints).
  const cards=q('.archive-cards > a');
- if(cards.length)gsap.from(cards,{y:140,x:(i:number)=>(1-i)*60,rotation:(i:number)=>(i-1)*-10,opacity:0,duration:.9,ease:EASE,stagger:.08,clearProps:'transform,opacity',scrollTrigger:{trigger:cards[0].parentElement,start:'top 92%',once:true}});
+ if(cards.length)gsap.from(cards,{y:140,x:(i:number)=>(1-i)*60,rotation:(i:number)=>(i-1)*-10,opacity:0,duration:.9,ease:EASE,stagger:.08,clearProps:'transform,opacity',
+  onComplete:()=>{if(c.wide&&matchMedia(FINE).matches)livePrints(cards,restore)},
+  scrollTrigger:{trigger:cards[0].parentElement,start:'top 92%',once:true}});
 
  // ── Off the clock: the four prints drift at their own depths.
  if(c.wide)q('.personal-grid > .photo').forEach((p,i)=>gsap.fromTo(p,{y:[50,-20,70,10][i%4]},{y:[-40,30,-50,-10][i%4],ease:'none',scrollTrigger:{trigger:p.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));

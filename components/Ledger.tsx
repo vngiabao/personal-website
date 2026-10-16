@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {LocalTime} from './LocalTime';
+import {Signature} from './motion/Signature';
 import {inception} from '@/content/inception';
 import {FooterNext} from './FooterNext';
 import {Brand} from './brand/Brand';
@@ -16,7 +17,7 @@ export function Label({children,num}:{children:React.ReactNode;num?:string}){ret
 const inSite=(href:string)=>href.startsWith('/')&&!/^\/(documents|media)\//.test(href);
 export function ArrowLink({href,children,className=''}:{href:string;children:React.ReactNode;className?:string}){const inner=<>{children}{href.startsWith('https:')&&<span aria-hidden="true">↗</span>}</>;return inSite(href)?<Link className={`arrow-link ${className}`} href={href}>{inner}</Link>:<a className={`arrow-link ${className}`} href={href}>{inner}</a>}
 export function PageIntro({label,title,children,aside}:{label?:string;title:string;children?:React.ReactNode;aside?:React.ReactNode}){return <header className={`page-intro container ${aside?'has-aside':''}`}>{label&&<Label>{label}</Label>}<h1>{title}</h1>{children&&<div className="intro-copy">{children}</div>}{aside&&<aside className="intro-aside">{aside}</aside>}</header>}
-export function ContactClose(){return <section id="contact" className="contact-close blue"><div className="container"><Label num="09">The next conversation</Label><div className="contact-layout"><h2>Let’s <em>talk.</em></h2><div><p>I’m interested in ambitious products, difficult technology, and the strategy that turns one into the other.</p><ArrowLink className="solid-link" href="mailto:gbao.n.vo@gmail.com">Email Bao</ArrowLink><ArrowLink href="/contact">More ways to connect</ArrowLink></div></div><p className="small closing-note">Currently building A Story from Michigan.</p></div></section>}
+export function ContactClose(){return <section id="contact" className="contact-close blue"><div className="container"><Label num="09">The next conversation</Label><div className="contact-layout"><h2>Let’s <em>talk.</em></h2><div><p>I’m interested in ambitious products, difficult technology, and the strategy that turns one into the other.</p><ArrowLink className="solid-link" href="mailto:gbao.n.vo@gmail.com">Email Bao</ArrowLink><ArrowLink href="/contact">More ways to connect</ArrowLink></div></div><div className="closing-sign"><p className="small closing-note">Currently building A Story from Michigan.</p><Signature className="closing-signature"/></div></div></section>}
 export function Footer(){return <footer className="site-footer">
 <div className="container">
 <FooterNext/>

@@ -247,8 +247,8 @@ main .proof-point{border-color:var(--line)}
  main .personal-grid .photo picture,main .archive-cards>a{overflow:hidden}
  main .personal-grid .photo img{transition:transform 1100ms var(--ease-out)}
  main .personal-grid .photo:hover img{transform:scale(1.04)}
- main .archive-cards>a{transition:transform 600ms var(--ease-out),box-shadow 600ms var(--ease-out)}
- main .archive-cards>a:hover{transform:translateY(-10px) rotate(0deg)!important;box-shadow:0 40px 60px -40px rgb(0 39 76/.55)}
+ main .archive-cards:not(.prints-live)>a{transition:transform 600ms var(--ease-out),box-shadow 600ms var(--ease-out)}
+ main .archive-cards:not(.prints-live)>a:hover{transform:translateY(-10px) rotate(0deg)!important;box-shadow:0 40px 60px -40px rgb(0 39 76/.55)}
 }
 main figcaption{letter-spacing:.01em}
 main .personal-grid figcaption{font-family:var(--serif);font-style:italic;font-size:14px}
@@ -564,3 +564,30 @@ main .contact-current.plate .live-dot{margin-right:10px}
  .identity-hero .current-note.plate{padding:22px 24px 20px}
  .identity-hero .current-membership .program-badges{--badge-h:46px;margin-left:-4px}
 }
+
+
+/* ── GSAP details (October 16) ─────────────────────────────────────────
+   The prints can be picked up (Draggable + Inertia), the Path's pulse is
+   led by a bead riding the rail (MotionPath), the closing band is signed
+   (DrawSVG), and the home Book tilts toward the hand. Motion lives in
+   ScrollMotion, CareerMap and Signature; this is only their dressing. */
+
+/* The prints: GSAP owns their transform once they are live, so the CSS hover
+   lift and transitions step aside; the cursor says they can be held. */
+main .archive-cards.prints-live>a{transition:none;cursor:grab;touch-action:none;user-select:none;-webkit-user-drag:none}
+main .archive-cards.prints-live>a:active{cursor:grabbing}
+main .archive-cards.prints-live>a img{pointer-events:none}
+main .complete-archive .prints-hint{margin:22px 0 0;font:italic 400 16px/1.4 var(--serif);color:var(--muted);opacity:0;transition:opacity .6s var(--ease-out) .4s}
+main .complete-archive:has(.prints-live) .prints-hint{opacity:1}
+
+/* The bead that leads the Path's pulse. */
+.chronology-rail .rail-bead{fill:#fff3cf;opacity:0;filter:drop-shadow(0 0 4px rgb(232 192 100/.95)) drop-shadow(0 0 12px rgb(210 166 74/.65))}
+
+/* The closing signature: the band's letter is signed, bottom right. */
+.contact-close .closing-sign{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.contact-close .closing-sign .closing-note{margin:0}
+.contact-close .closing-signature{flex:none;width:auto;height:clamp(64px,7vw,104px);aspect-ratio:690/462;color:var(--soft);--brand-dot:var(--maize);--sig-line:var(--maize);overflow:visible}
+@media(max-width:767px){.contact-close .closing-signature{height:58px}}
+
+/* The home Book's wrapper carries the pointer tilt in real depth. */
+.home-book-section .book-stage{transform-style:preserve-3d;will-change:transform}
