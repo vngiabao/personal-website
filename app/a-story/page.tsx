@@ -1,4 +1,5 @@
 import {StoryBrand} from '@/components/StoryBrand';
+import {IncomingCall} from '@/components/IncomingCall';
 import {SectionNav} from '@/components/SectionNav';
 import {pageMetadata} from '@/content/metadata';
 import {ArrowLink,Label} from '@/components/Ledger';
@@ -9,8 +10,8 @@ import '../pages.css';
 export const metadata=pageMetadata('A Story — Family stories, in the voices that lived them','G. Bao Vo’s current venture. A Story is an AI biographer that calls the people you love and helps them tell their stories in their own voice, in a living archive the whole family adds to. A member of the NVIDIA Inception program, the AssemblyAI Startup Program, and a Cartesia Startups grant recipient.','/a-story');
 
 /** A phone with one of A Story's real Figma screens; tall screens are cropped from the top. */
-function Screen({src,alt,className=''}:{src:string;alt:string;className?:string}){
- return <figure className={`st-phone ${className}`}><img src={src} alt={alt} width={786} height={1704} loading="lazy" decoding="async"/></figure>;
+function Screen({src,alt,className='',children}:{src:string;alt:string;className?:string;children?:React.ReactNode}){
+ return <figure className={`st-phone ${className}`}><img src={src} alt={alt} width={786} height={1704} loading="lazy" decoding="async"/>{children}</figure>;
 }
 
 export default function Page(){const w=story.witness;return <main id="main" className="story-page">
@@ -31,7 +32,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
       <p>“What did you<br/>notice first<br/><em>about him?</em>”</p>
       <span className="hero-memory-rule"/>
      </div>
-     <Screen src="/media/story/app/home.webp" alt="The A Story app: the home screen with the question of the day and recent memories"/>
+     <Screen src="/media/story/app/home.webp" alt="The A Story app: the home screen with the question of the day and recent memories"><IncomingCall/></Screen>
      <span className="small">The A Story app · In development</span>
     </div>
    </div>

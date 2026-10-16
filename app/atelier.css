@@ -593,3 +593,106 @@ main .complete-archive:has(.prints-live) .prints-hint{opacity:1}
 
 /* The home Book's wrapper carries the pointer tilt in real depth. */
 .home-book-section .book-stage{transform-style:preserve-3d;will-change:transform}
+
+/* ── Smart details (October 16) ─────────────────────────────────────────
+   components/motion/Delights.tsx and friends. Decorative layers never take
+   pointer events; motion waits for a fine pointer and no reduced motion. */
+
+/* The companion: the GB's brass period, following the hand. */
+.gb-companion{position:fixed;left:0;top:0;z-index:70;width:9px;height:9px;border-radius:50%;pointer-events:none;opacity:0;
+ background:radial-gradient(circle at 34% 30%,#f3d993,#b58420 58%,#86600f);box-shadow:0 1px 2px rgb(13 34 56/.28);transition:opacity .3s var(--ease-out)}
+.gb-companion.on{opacity:1}
+.gb-companion.asleep{animation:gb-breathe 2.6s ease-in-out infinite}
+@keyframes gb-breathe{50%{scale:.78;opacity:.7}}
+
+/* The seal: a raised GB pressed into the paper (brass foil on navy). */
+.gb-seals{position:absolute;left:0;top:0;width:0;height:0;z-index:40;pointer-events:none}
+.gb-seal{position:absolute;width:66px;height:44px;margin:-22px 0 0 -33px;
+ filter:drop-shadow(-.7px -.7px 0 rgb(255 255 255/.9)) drop-shadow(.9px 1px .5px rgb(13 34 56/.26))}
+.gb-seal i{display:block;width:100%;height:100%;background:rgb(255 255 255/.32);
+ -webkit-mask:url('/brand/gb-mark.svg') center/contain no-repeat;mask:url('/brand/gb-mark.svg') center/contain no-repeat}
+.gb-seal.foil{filter:drop-shadow(0 1px 0 rgb(0 0 0/.45)) drop-shadow(0 0 6px rgb(232 192 100/.25))}
+.gb-seal.foil i{background:linear-gradient(110deg,#b48636 0%,#f4dc9a 30%,#c7973f 52%,#f8e6b0 74%,#ad7c2f 100%)}
+
+/* Toasts and the quote pill. */
+.gb-toast{position:fixed;left:50%;bottom:28px;z-index:95;margin:0;translate:-50% 14px;opacity:0;pointer-events:none;
+ padding:12px 20px;border-radius:999px;background:var(--ink);color:var(--soft);font:500 14px/1.2 var(--sans);box-shadow:0 18px 40px -20px rgb(13 34 56/.6);
+ transition:opacity .25s var(--ease-out),translate .4s var(--ease-out)}
+.gb-toast.on{opacity:1;translate:-50% 0}
+.quote-pill{position:absolute;z-index:95;transform:translate(-50%,calc(-100% - 12px));padding:9px 15px;border:0;border-radius:999px;
+ background:var(--ink);color:var(--soft);font:600 13px/1 var(--sans);letter-spacing:.01em;cursor:pointer;box-shadow:0 14px 30px -16px rgb(13 34 56/.7);
+ animation:gb-pop .22s var(--ease-out) both}
+.quote-pill::after{content:'';position:absolute;left:50%;bottom:-5px;width:10px;height:10px;margin-left:-5px;background:var(--ink);rotate:45deg;border-radius:2px;z-index:-1}
+@keyframes gb-pop{from{opacity:0;transform:translate(-50%,calc(-100% - 4px)) scale(.94)}}
+
+/* The shortcuts card. */
+.gb-keys{position:fixed;right:24px;bottom:24px;z-index:96;width:min(320px,calc(100vw - 32px));padding:22px 24px 18px;border-radius:14px;
+ background:#fbf8f1;border:1px solid rgb(13 34 56/.13);box-shadow:inset 0 0 0 7px #fbf8f1,inset 0 0 0 8px rgb(181 132 32/.32),0 30px 60px -30px rgb(13 34 56/.55);
+ animation:gb-pop-in .3s var(--ease-out) both}
+@keyframes gb-pop-in{from{opacity:0;translate:0 10px}}
+.gb-keys .eyebrow{margin:0 0 14px}
+.gb-keys dl{margin:0;display:grid;gap:9px}
+.gb-keys dl>div{display:grid;grid-template-columns:58px 1fr;gap:14px;align-items:center}
+.gb-keys dt{white-space:nowrap}
+.gb-keys dd{margin:0;font:450 14px/1.3 var(--sans);color:var(--ink)}
+kbd{display:inline-block;min-width:22px;padding:3px 6px;border:1px solid rgb(13 34 56/.22);border-bottom-width:2px;border-radius:5px;background:#fff;
+ font:600 12px/1.1 var(--sans);color:var(--ink);text-align:center}
+.gb-keys-close{position:absolute;top:14px;right:14px;min-height:0;padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:none;font:600 11px/1 var(--sans);color:var(--muted);cursor:pointer}
+.keys-hint{display:none}
+@media(hover:hover) and (pointer:fine){.site-footer .footer-base .keys-hint{display:inline;order:2;font:500 13px/1 var(--sans);color:var(--muted)}}
+
+/* Contact: what a message sent now can expect. */
+.reply-clock{display:flex;align-items:center;gap:10px;margin:16px 0 0;font:450 15px/1.5 var(--sans);color:var(--muted)}
+.reply-clock .live-dot{flex:none}
+
+/* Copy email: the envelope seals with a brass dot. */
+.copy-email button{display:inline-flex;align-items:center;gap:10px}
+.copy-envelope{width:22px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round;overflow:visible}
+.copy-envelope .seal{fill:var(--brass);stroke:none;transform:scale(0);transform-box:fill-box;transform-origin:center;transition:transform .5s cubic-bezier(.34,1.8,.5,1)}
+.copy-email[data-state=copied] .copy-envelope .seal{transform:scale(1)}
+
+/* A Story: the phone rings. */
+.st-phone{position:relative}
+.incoming-call{position:absolute;left:4%;right:4%;top:4%;z-index:3;display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:16px;
+ background:rgb(34 25 19/.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;box-shadow:0 18px 40px -18px rgb(0 0 0/.6);
+ animation:call-in .55s cubic-bezier(.23,1,.32,1) both}
+@keyframes call-in{from{opacity:0;translate:0 -18px;scale:.96}}
+.incoming-call .call-avatar{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#0f4a58;color:#f3ebdd;font:600 14px/1 var(--serif);
+ box-shadow:0 0 0 0 rgb(224 160 63/.6);animation:call-ring 1.4s ease-out infinite}
+@keyframes call-ring{to{box-shadow:0 0 0 10px rgb(224 160 63/0)}}
+.incoming-call .call-text{display:grid;gap:2px;min-width:0;flex:1}
+.incoming-call .call-text b{font:600 13px/1.1 var(--sans)}
+.incoming-call .call-text small{font:400 10.5px/1.25 var(--sans);color:rgb(255 255 255/.72);white-space:nowrap}
+.incoming-call .call-actions{display:flex;gap:6px}
+.incoming-call button{border:0;border-radius:999px;padding:7px 9px;font:600 11.5px/1 var(--sans);cursor:pointer;color:#fff}
+.incoming-call .call-later{background:rgb(255 255 255/.16)}
+.incoming-call .call-answer{background:#2f9e5b}
+.incoming-call.later{justify-content:center;text-align:center}
+@media(prefers-reduced-motion:reduce){.incoming-call,.incoming-call .call-avatar{animation:none}}
+
+/* The Book: continue where you left off. */
+html body .closed-book-copy .book-resume{display:flex;align-items:center;gap:10px;width:auto;min-height:0;margin:18px 0 0;padding:0;border:0;border-radius:0;box-shadow:none;background:none;color:inherit;
+ font:500 15px/1.3 var(--sans);text-decoration:underline;text-decoration-color:rgb(232 192 100/.6);text-underline-offset:5px;cursor:pointer}
+.book-resume-ribbon{width:9px;height:15px;flex:none;background:var(--maize);clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%)}
+
+/* 404: helpful, not just sorry. */
+.lost{margin-top:34px;max-width:640px}
+.lost-guess{margin:0 0 30px;font:400 clamp(22px,2vw,28px)/1.35 var(--serif);color:var(--ink)}
+.lost-guess a{color:var(--blue);text-decoration-color:var(--brass);text-underline-offset:5px}
+.lost .eyebrow{margin:0 0 10px}
+.lost-list{list-style:none;margin:0 0 26px;padding:0;border-top:1px solid var(--line)}
+.lost-list li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line)}
+.lost-list a{font:560 18px/1.3 var(--sans);color:var(--ink);text-decoration:none}
+.lost-list span{font:450 13px/1.3 var(--sans);color:var(--muted)}
+.lost-search a,.lost-home a{color:var(--blue);text-underline-offset:4px}
+.lost-home{color:var(--muted)}
+
+@media print{.gb-companion,.gb-seals,.gb-toast,.quote-pill,.gb-keys{display:none!important}}
+/* A narrow phone frame: the call stacks, name above, buttons below. */
+.st-phone{container-type:inline-size}
+@container (max-width:240px){
+ .incoming-call{flex-wrap:wrap;gap:8px;padding:9px}
+ .incoming-call .call-text{flex:1 1 calc(100% - 40px)}
+ .incoming-call .call-actions{flex:1 1 100%}
+ .incoming-call .call-actions button{flex:1}
+}

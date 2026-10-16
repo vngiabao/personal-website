@@ -34,7 +34,7 @@ export function Footer(){return <footer className="site-footer">
 <Link className="footer-brand" href="/" aria-label="G. Bao Vo, home"><Brand compact/></Link>
 <LocalTime/>
 <span className="small">© {new Date().getFullYear()} G. Bao Vo</span>
-<a className="footer-up" href="#main">Back to top</a>
+<span className="keys-hint" aria-hidden="true">Press <kbd>?</kbd> for shortcuts</span><a className="footer-up" href="#main">Back to top</a>
 <p className="footer-legal">{inception.legal}</p>
 </div>
 </div>

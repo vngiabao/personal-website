@@ -117,6 +117,7 @@ export function BookReader({initialChapter='',initialMode='pages',embedded=false
  const opener=useRef<HTMLButtonElement>(null);
  const gesture=useRef<{x:number;y:number;time:number;direction:number;width:number;captured:boolean}|null>(null);
 
+ const [bookmark,setBookmark]=useState(0);
  const isVisible=phase!=='closed';
  const busy=phase!=='closed'&&phase!=='open';
  const expanded=phase==='open';
@@ -133,6 +134,10 @@ export function BookReader({initialChapter='',initialMode='pages',embedded=false
  },[isVisible]);
 
  function later(fn:()=>void,ms:number){timers.current.push(setTimeout(fn,ms))}
+
+ // The Book remembers the last chapter you read and offers to continue there.
+ useEffect(()=>{try{const i=Number(localStorage.getItem('gb-book-place'));if(i>0&&i<SPREADS.length)setBookmark(i)}catch{}},[]);
+ useEffect(()=>{if(phase==='open'&&current>0){try{localStorage.setItem('gb-book-place',String(current))}catch{};setBookmark(current)}},[phase,current]);
 
  // Back and forward restore the chapter and view from the URL.
  useEffect(()=>{
@@ -157,9 +162,11 @@ export function BookReader({initialChapter='',initialMode='pages',embedded=false
   if(mode==='pages'&&!reduced()){setTurn(i>current?'next':'previous');later(()=>{setTurn(null);turnStart.current=0},560)}
   if(mode==='scroll')requestAnimationFrame(()=>document.getElementById(`chapter-${SPREADS[i]}`)?.scrollIntoView());
  }
- function begin(){
+ function begin(at?:number){
   if(busy||expanded)return;
-  url(current,mode);
+  const i=at??current;
+  if(i!==current){setCurrent(i);setGhost(i)}
+  url(i,mode);
   if(reduced()){setPhase('open');requestAnimationFrame(()=>reader.current?.focus({preventScroll:true}));return}
   setPhase('prepare');later(()=>setPhase('opening'),150);later(()=>{setPhase('open');reader.current?.focus({preventScroll:true})},820);
  }
@@ -217,12 +224,13 @@ export function BookReader({initialChapter='',initialMode='pages',embedded=false
 
  return <div className="reader-shell book-theatre" data-phase={phase} data-open={phase!=='closed'} data-mode={mode} onKeyDown={key}>
   <div className="closed-book" aria-hidden={phase!=='closed'} inert={phase!=='closed'}>
-   <button className="book-stage cover-button" onClick={begin} aria-label="Open the book cover" disabled={busy}><BookCover/></button>
+   <button className="book-stage cover-button" onClick={()=>begin()} aria-label="Open the book cover" disabled={busy}><BookCover/></button>
    <div className="closed-book-copy">
     <p className="eyebrow">A personal record / {bookChapters.length} chapters</p>
     <h2>The Path,<br/><em>So Far.</em></h2>
     <p>Michigan, silicon, strategy, and the chapter that became A Story.</p>
-    <button ref={opener} className="solid-link" onClick={begin} disabled={busy}>Open the Book</button>
+    <button ref={opener} className="solid-link" onClick={()=>begin()} disabled={busy}>Open the Book</button>
+    {bookmark>0&&<button className="book-resume" onClick={()=>begin(bookmark)} disabled={busy}><span className="book-resume-ribbon" aria-hidden="true"/>Continue from Chapter {chapterAt(bookmark)!.word}</button>}
     <a href="/book?mode=scroll">Read the scrolling story</a>
     <p className="small">Use the controls, arrow keys,<br/>or swipe from a page edge.</p>
    </div>
