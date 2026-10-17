@@ -1,4 +1,5 @@
 import {ArrowLink,ContactClose,Label,Photo} from './Ledger';
+import {NewsWire} from './NewsWire';
 import {Greeting} from './motion/Greeting';
 import {ChapterNav,Timeline,WorkIndex} from './Discovery';
 import {BookReader} from './BookReader';
@@ -13,6 +14,7 @@ export function Venture(){return <section id="current-venture" className="new-ve
 
 export function Home({variant='b'}:{variant?:string}){return <main id="main" className="new-home" data-entrance="motion"><HomeEntrance/>
  <section id="overview" className={`identity-hero ${variant==='a'?'rectangular-hero':''}`}><div className="container"><div className="identity-layout"><div className="identity-copy"><Label>Co-founder &amp; COO, A Story</Label><p className="hello-line"><Greeting/></p><h1><span>From silicon</span><span>to <em>strategy.</em></span></h1><p className="identity-description">I co-founded A Story, where I run operations and product strategy. Before that, I advised biotech start‑ups on their first market.</p><div className="identity-actions"><ArrowLink href="#timeline" className="solid-link">Explore the path</ArrowLink><ArrowLink href="#the-book" className="outline-link">Open the flipbook</ArrowLink></div><a className="hero-discovery" href="#selected-work">Discover the work <span aria-hidden="true">↓</span></a><div className="current-note plate"><div><span className="small"><span className="live-dot" aria-hidden="true"/>THE CURRENT CHAPTER</span><p>Co-founding <a href="/a-story">A Story</a>, from Michigan.</p><div className="current-membership"><ProgramBadges/><p className="current-sub"><ProgramsMember/></p></div></div></div></div><div className="identity-image"><div className="arch-frame"><Photo id="portrait" caption={false} priority sizes="(max-width:767px) 88vw, 42vw"/></div><div className="identity-caption"><span>G. Bao Vo<span className="gold">.</span></span><span>Ann Arbor, Michigan</span></div></div></div></div></section>
+ <NewsWire/>
  <ChapterNav/>
  <section id="timeline" className="journey-section section"><div className="container"><Label num="01">The path so far</Label><div className="section-heading"><h2>How the<br/><em>chapters connect.</em></h2><p>A connected chronology of places, people, and work. Follow a year to see how one chapter opened the next.</p></div><Timeline/></div></section>
  <section id="the-book" className="home-book-section"><div className="container book-section-heading"><div><Label num="02">Two ways through the story</Label><h2>Scan the years.<br/><em>Or turn the pages.</em></h2></div><p>The Book is a more personal way<br/>through the same path.</p></div><BookReader embedded/></section>
