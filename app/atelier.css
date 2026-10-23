@@ -598,12 +598,14 @@ main .complete-archive:has(.prints-live) .prints-hint{opacity:1}
    components/motion/Delights.tsx and friends. Decorative layers never take
    pointer events; motion waits for a fine pointer and no reduced motion. */
 
-/* The companion: the GB's brass period, following the hand. */
-.gb-companion{position:fixed;left:0;top:0;z-index:70;width:9px;height:9px;border-radius:50%;pointer-events:none;opacity:0;
- background:radial-gradient(circle at 34% 30%,#f3d993,#b58420 58%,#86600f);box-shadow:0 1px 2px rgb(13 34 56/.28);transition:opacity .3s var(--ease-out)}
+/* The companion: a football, following the hand. */
+.gb-companion{position:fixed;left:0;top:0;z-index:70;width:15px;height:15px;pointer-events:none;opacity:0;transition:opacity .3s var(--ease-out);filter:drop-shadow(0 2px 2px rgb(13 34 56/.3))}
 .gb-companion.on{opacity:1}
-.gb-companion.asleep{animation:gb-breathe 2.6s ease-in-out infinite}
-@keyframes gb-breathe{50%{scale:.78;opacity:.7}}
+.gb-companion .ball{position:absolute;inset:0;display:block;width:100%;height:100%}
+/* The light stays put while the ball turns underneath it. */
+.gb-companion .ball-light{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgb(255 255 255/.55),transparent 42%),radial-gradient(circle at 70% 78%,rgb(13 34 56/.32),transparent 58%)}
+.gb-companion.asleep .ball,.gb-companion.asleep .ball-light{animation:gb-keepy .9s 3}
+@keyframes gb-keepy{0%,100%{translate:0 0;animation-timing-function:cubic-bezier(.2,.6,.4,1)}50%{translate:0 -11px;animation-timing-function:cubic-bezier(.6,0,.8,.4)}}
 
 /* The seal: a raised GB pressed into the paper (brass foil on navy). */
 .gb-seals{position:absolute;left:0;top:0;width:0;height:0;z-index:40;pointer-events:none}

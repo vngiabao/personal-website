@@ -2,7 +2,7 @@
 /**
  * Small, smart details: things that notice what the reader is doing.
  *
- *  · The companion: the brass period from the GB mark follows the pointer
+ *  · The companion: a football follows the pointer, rolling as it goes
  *    like a pet, settles when the hand rests, and when the pointer rests on
  *    a headline it hops onto that headline's full stop, so the sentence
  *    ends in brass. "." turns it off or on.
@@ -21,6 +21,7 @@
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {usePathname,useRouter} from 'next/navigation';
 import {gsap} from '@/lib/motion';
+import {football} from './football';
 import {site} from '@/content/site';
 
 const FINE='(hover: hover) and (pointer: fine)';
@@ -82,10 +83,24 @@ export function Delights(){
   if(!el||!companion||!matchMedia(FINE).matches||!matchMedia(CALM).matches)return;
   const x=gsap.quickTo(el,'x',{duration:.55,ease:'power3'}),y=gsap.quickTo(el,'y',{duration:.55,ease:'power3'});
   const size=(s:number,d=.35)=>gsap.to(el,{width:s,height:s,duration:d,ease:'power3.out',overwrite:'auto'});
+  // It rolls: each frame the ball turns across its path by distance over radius.
+  const canvas=el.querySelector('canvas')!,ball=football(canvas),parts=el.children;
+  let lastX=gsap.getProperty(el,'x') as number,lastY=gsap.getProperty(el,'y') as number,axX=0,axY=1,kick=0,juggle=0;
+  ball.draw();
+  const roll=()=>{
+   const cx=gsap.getProperty(el,'x') as number,cy=gsap.getProperty(el,'y') as number,dx=cx-lastX,dy=cy-lastY,d=Math.hypot(dx,dy),r=(gsap.getProperty(el,'width') as number)/2||8;
+   lastX=cx;lastY=cy;let moved=false;
+   if(d>.05&&d<240){axX=-dy/d;axY=dx/d;ball.turn(axX,axY,d/r);moved=true}
+   if(kick>.004){ball.turn(axX,axY,kick);kick*=.88;moved=true}
+   if(performance.now()<juggle){ball.turn(1,0,.07);moved=true}
+   if(moved)ball.draw();
+  };
+  gsap.ticker.add(roll);
   let px=-100,py=-100,seated:HTMLElement|null=null,shown=false;
   let rest:ReturnType<typeof setTimeout>|undefined,sleep:ReturnType<typeof setTimeout>|undefined;
-  const wake=()=>{el.classList.remove('asleep');clearTimeout(sleep);sleep=setTimeout(()=>{if(!seated)el.classList.add('asleep')},4200)};
-  const follow=()=>{seated=null;size(9);x(px+14);y(py+12)};
+  // Left alone it does a few keepy-uppies, then rests.
+  const wake=()=>{el.classList.remove('asleep');juggle=0;clearTimeout(sleep);sleep=setTimeout(()=>{if(!seated){el.classList.add('asleep');juggle=performance.now()+2700}},4200)};
+  const follow=()=>{seated=null;size(15);x(px+14);y(py+12)};
   const settle=()=>{
    const h=(document.elementFromPoint(px,py) as HTMLElement|null)?.closest<HTMLElement>('main h1,main h2,main h3');
    if(!h)return;
@@ -98,15 +113,16 @@ export function Delights(){
    if(!shown){shown=true;gsap.set(el,{x:px+14,y:py+12});el.classList.add('on')}
    const over=(e.target as Element)?.closest?.(INTERACTIVE);
    if(seated&&Math.hypot(px-(gsap.getProperty(el,'x') as number),py-(gsap.getProperty(el,'y') as number))<60)return;
-   if(over){seated=null;size(5,.25);x(px+12);y(py+10)}else follow();
+   if(over){seated=null;size(11,.25);x(px+12);y(py+10)}else follow();
    wake();clearTimeout(rest);rest=setTimeout(settle,650);
   };
   const scroll=()=>{if(seated)follow()};
   const out=()=>{el.classList.remove('on');shown=false;seated=null};
-  const down=()=>gsap.fromTo(el,{scale:.55},{scale:1,duration:.5,ease:'back.out(3)'});
+  // A click is a little kick: a hop and a burst of spin.
+  const down=()=>{kick=.45;gsap.fromTo(parts,{y:0},{y:-11,duration:.15,ease:'power2.out',yoyo:true,repeat:1,overwrite:'auto'})};
   window.addEventListener('pointermove',move,{passive:true});window.addEventListener('scroll',scroll,{passive:true});
   document.documentElement.addEventListener('pointerleave',out);window.addEventListener('pointerdown',down);
-  return()=>{clearTimeout(rest);clearTimeout(sleep);window.removeEventListener('pointermove',move);window.removeEventListener('scroll',scroll);document.documentElement.removeEventListener('pointerleave',out);window.removeEventListener('pointerdown',down);el.classList.remove('on');gsap.killTweensOf(el)};
+  return()=>{gsap.ticker.remove(roll);clearTimeout(rest);clearTimeout(sleep);window.removeEventListener('pointermove',move);window.removeEventListener('scroll',scroll);document.documentElement.removeEventListener('pointerleave',out);window.removeEventListener('pointerdown',down);el.classList.remove('on','asleep');gsap.killTweensOf([el,...parts])};
  },[companion,pathname]);
 
  // ── The seal ───────────────────────────────────────────────────────────
@@ -147,7 +163,7 @@ export function Delights(){
    if(e.key==='g'){prefix=Date.now();return}
    if(e.key==='/'){e.preventDefault();const box=document.querySelector<HTMLInputElement>('.archive-search input');if(box)box.focus();else router.push('/archive?focus=search');return}
    if(e.key==='c'){copyEmail();return}
-   if(e.key==='.'){setCompanion(on=>{store.set('gb-companion',on?'off':'on');say(on?'The brass period is resting. Press . to call it back.':'The brass period is back.');return !on});return}
+   if(e.key==='.'){setCompanion(on=>{store.set('gb-companion',on?'off':'on');say(on?'The ball is on the bench. Press . to bring it back on.':'¡Hala Madrid! The ball is back on.');return !on});return}
   };
   window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key);
  },[router,copyEmail,say]);
@@ -195,7 +211,7 @@ export function Delights(){
  },[]);
 
  return <>
-  <div ref={dot} className="gb-companion" aria-hidden="true"/>
+  <div ref={dot} className="gb-companion" aria-hidden="true"><canvas className="ball" width={64} height={64}/><span className="ball-light"/></div>
   <div ref={seals} className="gb-seals" aria-hidden="true"/>
   {quote&&<button className="quote-pill" style={{left:quote.x,top:quote.y}} onClick={copyQuote}>Copy quote</button>}
   <p className={`gb-toast ${toast?'on':''}`} role="status" aria-live="polite">{toast}</p>
@@ -205,7 +221,7 @@ export function Delights(){
     {Object.entries(PAGES).map(([k,[,label]])=><div key={k}><dt><kbd>g</kbd> <kbd>{k}</kbd></dt><dd>{label}</dd></div>)}
     <div><dt><kbd>/</kbd></dt><dd>Search the Archive</dd></div>
     <div><dt><kbd>c</kbd></dt><dd>Copy my email address</dd></div>
-    <div><dt><kbd>.</kbd></dt><dd>{companion?'Rest':'Wake'} the brass period</dd></div>
+    <div><dt><kbd>.</kbd></dt><dd>{companion?'Bench':'Bring back'} the ball</dd></div>
     <div><dt><kbd>?</kbd></dt><dd>Show or hide this card</dd></div>
    </dl>
    <button className="gb-keys-close" onClick={()=>setPanel(false)} aria-label="Close shortcuts">Esc</button>
