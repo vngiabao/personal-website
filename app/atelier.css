@@ -386,24 +386,27 @@ html body .book-object.bc .book-ribbon{background:linear-gradient(90deg,#8f6516,
 img.inception-badge{display:block;flex:none;width:auto;height:var(--badge-h,52px);min-height:40px}
 /* A row of program badges. NVIDIA's file carries its own clear space; the other marks are
    trimmed, so they take theirs from the gap. Each mark's height is the row's --badge-h times its
-   --s, which matches its visible weight to NVIDIA's card. */
+   --s, which matches its visible weight to NVIDIA's card. The two groups (platform, voice AI)
+   wrap as units, and each line's first mark pulls back by its built-in clear space so the
+   visible edges line up with the text. */
 .program-badges{display:flex;flex-wrap:wrap;align-items:center;max-width:100%;gap:6px calc(var(--badge-h,52px)*.3)}
-.program-badges-boxed{gap:0}
+.program-group{display:flex;flex-wrap:wrap;align-items:center;gap:inherit}
+.program-group>.inception-badge:first-child{margin-left:calc(var(--badge-h,52px)*-.12)}
+.program-group>.program-mark:first-child{margin-left:calc(var(--badge-h,52px)*-.11)}
 .program-badges img{max-width:100%;object-fit:contain;object-position:left}
 img.program-mark{display:block;flex:none;width:auto;height:calc(max(var(--badge-h,52px),40px)*var(--s,1))}
 
-.venture-intro .venture-backing{--badge-h:40px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:10px 0 28px -9px}
-.venture-intro .venture-backing p{padding-left:9px}
+.venture-intro .venture-backing{--badge-h:40px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:10px 0 28px}
 .venture-intro .venture-backing p{margin:0;max-width:30ch;font:400 16px/1.45 var(--sans);color:var(--muted)}
 .venture-backing strong{color:var(--ink);font-weight:560}
 
 .identity-hero .current-note .current-sub{margin-top:3px;font:450 14px/1.4 var(--sans);color:var(--muted)}
 .identity-hero .current-membership{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:10px}
-.identity-hero .current-membership .program-badges{--badge-h:40px;margin-left:-9px}
+.identity-hero .current-membership .program-badges{--badge-h:40px}
 .identity-hero .current-note .current-membership .current-sub{flex:1 1 100%;margin:0;font-size:14px!important;line-height:1.45}
 .snake-map .path-proof .path-membership{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding-left:0}
 .snake-map .path-proof .path-membership::before{content:none}
-.path-membership .program-badges{--badge-h:44px;margin-left:-5px}
+.path-membership .program-badges{--badge-h:44px}
 .path-membership>span{flex:1 1 100%}
 
 main .st-inception{position:relative;background:var(--soft);border-block:1px solid var(--line)}
@@ -413,7 +416,7 @@ main .st-inception{position:relative;background:var(--soft);border-block:1px sol
    (never recoloured), sized to fill its third. Click a mark to show that program above; the open one
    carries a brass rule, with no outline or fill. */
 .st-programs-band{background:var(--paper);border-top:1px solid var(--line)}
-.st-programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.st-programs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
 main .st-programs button{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(128px,11vw,164px);padding:18px 20px;border:0;border-left:1px solid var(--rule);border-radius:0;background:transparent;box-shadow:none;cursor:pointer;transition:transform .25s var(--ease-ui)}
 main .st-programs button:first-child{border-left:0}
 main .st-programs button:hover,main .st-programs button:focus,main .st-programs button[aria-selected="true"]{background:transparent}
@@ -421,6 +424,8 @@ main .st-programs button:hover,main .st-programs button:focus,main .st-programs 
 .st-programs .st-programs-mark-nvidia{height:clamp(88px,8.4vw,116px)}
 .st-programs .st-programs-mark-assemblyai{height:clamp(68px,6.4vw,88px)}
 .st-programs .st-programs-mark-cartesia{height:clamp(36px,3.4vw,48px)}
+.st-programs .st-programs-mark-google{height:clamp(26px,2.4vw,34px)}
+.st-programs .st-programs-mark-deepgram{height:clamp(64px,6vw,83px)}
 .st-programs button:hover img{transform:translateY(-2px)}
 .st-programs button[aria-selected="true"]::after{content:"";position:absolute;left:30%;right:30%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--brass)}
 .st-programs button:focus-visible{outline:2px solid var(--ink);outline-offset:-6px}
@@ -440,6 +445,13 @@ main .st-inception h2{margin:0;max-width:21ch;font-size:clamp(30px,2.7vw,42px);l
  .st-programs .st-programs-mark-nvidia{height:64px}
  .st-programs .st-programs-mark-assemblyai{height:48px}
  .st-programs .st-programs-mark-cartesia{height:auto;max-height:26px}
+ .st-programs .st-programs-mark-google{height:auto;max-height:22px}
+ .st-programs .st-programs-mark-deepgram{height:45px}
+ /* Two by two, Cartesia's wide lockup across the foot. */
+ .st-programs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ main .st-programs button:nth-child(odd){border-left:0}
+ main .st-programs button:nth-child(n+3){border-top:1px solid var(--rule)}
+ main .st-programs button:last-child{grid-column:1/-1}
  .st-inception-badge.program-mark{--badge-h:64px}
 }
 
@@ -537,7 +549,7 @@ main .contact-current.plate{padding:22px 26px;margin-top:22px;border-bottom:1px 
 .current-note.plate .live-dot,.contact-current.plate .live-dot{display:inline-block;position:static;flex:none;width:7px;height:7px;margin:0 10px 0 0;vertical-align:.12em;border-radius:50%}
 .identity-hero .current-note.plate{max-width:680px;padding:26px 32px 24px}
 .identity-hero .current-membership{gap:12px 16px;margin-top:16px}
-.identity-hero .current-membership .program-badges{--badge-h:52px;margin-left:-11px}
+.identity-hero .current-membership .program-badges{--badge-h:52px}
 .identity-hero .current-note .current-membership .current-sub{font-size:15px!important;line-height:1.55}
 .identity-hero .current-sub strong,.venture-backing strong{color:var(--ink);font-weight:600}
 
@@ -564,7 +576,7 @@ main .contact-current.plate .live-dot{margin-right:10px}
 .venture-intro .venture-backing .program-badges{--badge-h:50px}
 @media(max-width:767px){
  .identity-hero .current-note.plate{padding:22px 24px 20px}
- .identity-hero .current-membership .program-badges{--badge-h:46px;margin-left:-4px}
+ .identity-hero .current-membership .program-badges{--badge-h:46px}
 }
 
 

@@ -3,6 +3,7 @@ import {RotatingWords} from './motion/RotatingWords';
 import {LocalTime} from './LocalTime';
 import {Signature} from './motion/Signature';
 import {inception} from '@/content/inception';
+import {programsLine} from '@/content/programs';
 import {FooterNext} from './FooterNext';
 import {Brand} from './brand/Brand';
 import originalMedia from '@/content/ledger-media.json';
@@ -36,7 +37,7 @@ export function Footer(){return <footer className="site-footer">
 <LocalTime/>
 <span className="small">© {new Date().getFullYear()} G. Bao Vo</span>
 <span className="keys-hint" aria-hidden="true">Press <kbd>?</kbd> for shortcuts</span><a className="footer-up" href="#main">Back to top</a>
-<p className="footer-legal">{inception.legal}</p>
+<p className="footer-legal">{inception.legal} {programsLine.legal}</p>
 </div>
 </div>
 </footer>}

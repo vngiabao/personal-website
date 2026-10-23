@@ -26,7 +26,7 @@ Replaces "The Turn" (October 2026). The mark is the owner's initials, at his req
 | Maize: brass on dark grounds | `--maize` | `#E8C064` |
 
 - A Story's terracotta (`#B85126`) and teal belong to A Story's own sections, not to the personal identity.
-- Partner badges (NVIDIA, AssemblyAI, Cartesia) appear unaltered, under their own guidelines.
+- Program badges (NVIDIA Inception, Google for Startups, AssemblyAI, Deepgram, Cartesia) appear unaltered, under their own guidelines.
 
 ## Type
 

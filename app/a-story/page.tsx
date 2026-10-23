@@ -7,7 +7,7 @@ import {story} from '@/content/story';
 import {ProgramRecognition} from '@/components/ProgramRecognition';
 import '../pages.css';
 
-export const metadata=pageMetadata('A Story — Family stories, in the voices that lived them','G. Bao Vo’s current venture. A Story is an AI biographer that calls the people you love and helps them tell their stories in their own voice, in a living archive the whole family adds to. A member of the NVIDIA Inception program, the AssemblyAI Startup Program, and a Cartesia Startups grant recipient.','/a-story');
+export const metadata=pageMetadata('A Story — Family stories, in the voices that lived them','G. Bao Vo’s current venture. A Story is an AI biographer that calls the people you love and helps them tell their stories in their own voice, in a living archive the whole family adds to. A member of NVIDIA Inception, Google for Startups, and the AssemblyAI and Deepgram startup programs, and a Cartesia Startups grant recipient.','/a-story');
 
 /** A phone with one of A Story's real Figma screens; tall screens are cropped from the top. */
 function Screen({src,alt,className='',children}:{src:string;alt:string;className?:string;children?:React.ReactNode}){

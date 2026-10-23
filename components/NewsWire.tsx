@@ -6,7 +6,8 @@
 import Link from 'next/link';
 
 const NEWS:[string,string][]=[
- ['October 2026 · A Story joins the NVIDIA Inception program','/a-story'],
+ ['October 2026 · A Story joins Google for Startups and the Deepgram Startup Program','/a-story'],
+ ['A Story joins the NVIDIA Inception program','/a-story'],
  ['A Story is a Cartesia Startups grant recipient','/a-story'],
  ['A Story joins the AssemblyAI Startup Program','/a-story'],
  ['A Story is in private beta, with the App Store release in review','/a-story'],
