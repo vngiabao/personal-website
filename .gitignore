@@ -13,3 +13,4 @@ qa/browser-profile/
 /.claude/
 /.vercel/
 *.log
+assets/generated/

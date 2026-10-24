@@ -20,7 +20,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
    <div className="new-story-top"><StoryBrand/><a className="status-tag st-site" href={story.site} target="_blank" rel="noopener"><i/>{story.siteLabel} · Private beta <span aria-hidden="true">↗</span></a></div>
    <div className="new-story-intro">
     <div>
-     <Label>The venture I’m building now · Co-founder and COO</Label>
+     <Label>The venture I’m building now · Co-founder, COO &amp; CTO</Label>
      <h1>Family stories, in the <em>voices that lived them.</em></h1>
      <p>A Story is an AI biographer. It calls someone you love at the time they choose, listens, and follows up the way someone who knows them would. Every call becomes part of a living archive the whole family can add to.</p><p className="st-team">Co-founded with <b>Daniel Hoang Nguyen</b>, CEO. In private beta, with the App Store release in review.</p>
      <div className="st-actions"><ArrowLink className="solid-link" href={story.site}>Visit {story.siteLabel}</ArrowLink><ArrowLink className="outline-link" href="#listen">Hear a conversation</ArrowLink></div>
@@ -32,15 +32,22 @@ export default function Page(){const w=story.witness;return <main id="main" clas
       <p>“What did you<br/>notice first<br/><em>about him?</em>”</p>
       <span className="hero-memory-rule"/>
      </div>
+     <figure className="st-call-photo"><img src="/media/story/people/on-the-phone-480.webp" alt="A grandmother on the phone, smiling as she answers a question" width={384} height={480} decoding="async"/></figure>
      <Screen src="/media/story/app/home.webp" alt="The A Story app: the home screen with the question of the day and recent memories"><IncomingCall/></Screen>
-     <span className="small">The A Story app · In development</span>
+     <span className="small">The A Story app · Private beta</span>
     </div>
    </div>
   </div>
  </header>
 
- <section className="st-inception" aria-labelledby="inception-title">
+ <section id="recognition" className="st-inception" aria-labelledby="inception-title">
   <ProgramRecognition/>
+ </section>
+
+ <section id="my-role" className="st-founders container" aria-labelledby="team-title">
+  <div><Label>The team</Label><h2 id="team-title">Who’s <em>building it.</em></h2></div>
+  <article><p className="st-founder-role">Co-founder &amp; CEO</p><h3>Daniel Hoang Nguyen</h3><p>Leads product and the roadmap.</p></article>
+  <article><p className="st-founder-role">Co-founder, COO &amp; CTO</p><h3>G. Bao Vo</h3><p>Runs technology, fundraising, partnerships and go-to-market. Before A Story, market entry for pre-clinical biotech startups at miLEAD, and a 22nm chip taped out in 1.5 months at Faraday.</p></article>
  </section>
 
  <SectionNav label="A Story sections" items={[['problem','What gets lost'],['listen','The conversation'],['how','How it works'],['voices','Every voice'],['different','What’s different'],['for','Who it’s for']]}/>
@@ -49,7 +56,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
   <div className="st-collage" aria-hidden="true">{story.everyday.map(([id,x,y,w,r])=><img key={id} src={`/media/story/everyday/${id}-640.webp`} alt="" loading="lazy" decoding="async" style={{left:`${x}%`,top:`${y}%`,'--w':w,'--r':`${r}deg`} as React.CSSProperties}/>)}</div>
   <div className="st-everyday-copy">
    <Label num="01">What gets lost</Label>
-   <div className="st-everyday-pre">The wedding, the graduation, the first house — the milestones usually survive.</div>
+   <div className="st-everyday-pre">The wedding, the graduation, the first house - the milestones usually survive.</div>
    <h2 id="everyday-title">It’s the <em>everyday.</em></h2>
    <div className="st-everyday-post">Those slip away quietly. <b>A Story exists to catch what the photograph can’t.</b></div>
   </div>
@@ -128,23 +135,29 @@ export default function Page(){const w=story.witness;return <main id="main" clas
   <div className="container">
    <div className="section-heading"><div><Label num="06">Who it’s for</Label><h2>Every family has<br/><em>more to tell.</em></h2></div><p>The same conversation serves different people: a family keeping its stories, a care team getting to know a resident, and an organization holding on to what its people know.</p></div>
    <ol className="st-for-list">{story.audiences.map((a,n)=><li key={a.label}>
+    <img className="st-for-photo" src={`/media/story/people/${a.photo}-640.webp`} srcSet={`/media/story/people/${a.photo}-640.webp 640w, /media/story/people/${a.photo}-1200.webp 1200w`} sizes="(max-width:1023px) 92vw, 30vw" alt={a.photoAlt} width={640} height={480} loading="lazy" decoding="async"/>
     <p className="st-for-label"><span>{String(n+1).padStart(2,'0')}</span>{a.label}</p>
     <h3>{a.phrase}</h3>
     <p className="st-for-lead">{a.lead}</p>
     <p className="st-for-why">{a.why}</p>
     <ArrowLink href={`${story.site}${a.href}`}>{`For ${a.label.toLowerCase()} on ${story.siteLabel}`}</ArrowLink>
    </li>)}</ol>
-   <div className="st-actions st-for-actions"><ArrowLink className="solid-link" href={`${story.site}/reserve`}>Reserve a place</ArrowLink><ArrowLink className="outline-link" href="/contact?topic=a-story">Talk with me about A Story</ArrowLink></div>
+   <div className="st-actions st-for-actions"><ArrowLink className="solid-link" href={`${story.site}/reserve`}>Reserve for $1</ArrowLink><ArrowLink className="outline-link" href="/contact?topic=a-story">Talk with me about A Story</ArrowLink></div>
   </div>
  </section>
 
  <section className="story-ending story-final-note">
-  <div className="container">
-   <Label>The current chapter</Label>
-   <h2>Some stories deserve better<br/>than <em>“we meant to ask.”</em></h2>
-   <ArrowLink href={story.site}>Visit {story.siteLabel}</ArrowLink>
-   <ArrowLink href="/work">Back to Bao’s work</ArrowLink>
-   <ArrowLink href="/contact?topic=a-story">Start a conversation</ArrowLink>
+  <div className="container st-ending">
+   <div>
+    <Label>The current chapter</Label>
+    <h2>Some stories deserve better<br/>than <em>“we meant to ask.”</em></h2>
+    <div className="st-ending-links">
+     <ArrowLink href={story.site}>Visit {story.siteLabel}</ArrowLink>
+     <ArrowLink href="/work">Back to Bao’s work</ArrowLink>
+     <ArrowLink href="/contact?topic=a-story">Start a conversation</ArrowLink>
+    </div>
+   </div>
+   <figure className="st-ending-photo"><img src="/media/story/people/porch-book-640.webp" srcSet="/media/story/people/porch-book-640.webp 640w, /media/story/people/porch-book-1200.webp 1200w" sizes="(max-width:767px) 80vw, 420px" alt="An older couple laughing on their porch over a printed A Story book" width={640} height={800} loading="lazy" decoding="async"/></figure>
   </div>
  </section>
 </main>}

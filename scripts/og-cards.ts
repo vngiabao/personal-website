@@ -51,8 +51,8 @@ function html(c:Card){
 }
 
 const cards:Card[]=[
- {name:'a-story',label:'A Story · Co-founder & COO',title:'Family stories, in the voices that lived them.',line:'An AI biographer that calls the people you love and helps them tell their stories in their own voice.',image:'public/media/story/app/home.webp',fit:'cover',pos:'50% 0%'},
- {name:'about',label:'About G. Bao Vo',title:'I started in engineering. I kept looking around it.',line:'Co-founder & COO of A Story. Strategy consulting before that. Vietnam to Michigan.',image:picture('smile')},
+ {name:'a-story',label:'A Story · Co-founder, COO & CTO',title:'Family stories, in the voices that lived them.',line:'An AI biographer that calls the people you love and helps them tell their stories in their own voice.',image:'public/media/story/app/home.webp',fit:'cover',pos:'50% 0%'},
+ {name:'about',label:'About G. Bao Vo',title:'I started in engineering. I kept looking around it.',line:'Co-founder, COO & CTO of A Story. Strategy consulting before that. Vietnam to Michigan.',image:picture('smile')},
  {name:'work',label:'Selected work',title:'Ventures, strategy and product.',line:'A Story, healthcare commercialization and case work, built on an engineering foundation.'},
  {name:'archive',label:'The Archive',title:'Everything else, kept on file.',line:'Early projects, reports and community work, searchable in one index.'},
  {name:'contact',label:'Contact',title:'Let’s talk.',line:'If you are building something difficult, whether a market or a product a family will trust, I’d like to hear about it.',image:picture('portrait'),pos:'50% 20%'},

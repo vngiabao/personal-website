@@ -56,7 +56,7 @@ function Verso({i}:{i:number}){
  </div>;
  let visual;
  if(c.id==='next-chapter')visual=<div className="book-map"><p className="bk-kicker">Follow a thread</p>{[['Silicon','/work/faraday-tapeout','Test, timing & delivery'],['Strategy','/work/healthcare-commercialization','Context & commercial judgment'],['Stories','/a-story','A Story, the current chapter'],['What comes next','/contact','A conversation']].map(([title,href,note],n)=><a key={title} href={href}><span>0{n+1}</span><div><strong>{title}</strong><p>{note}</p></div></a>)}<p className="bk-continued">To be continued.</p></div>;
- else if(c.id==='a-story')visual=<figure className="book-product-page"><div className="st-phone"><img src="/media/story/app/home.webp" width={786} height={1704} alt="The A Story app home screen"/></div><figcaption>The A Story app · In development</figcaption></figure>;
+ else if(c.id==='a-story')visual=<figure className="book-product-page"><div className="st-phone"><img src="/media/story/app/home.webp" width={786} height={1704} alt="The A Story app home screen"/></div><figcaption>The A Story app · Private beta</figcaption></figure>;
  else visual=<>
   <Print id={c.id==='under-a-clock'?'articulate':c.image} sizes="(max-width:767px) 86vw, 42vw"/>
   {c.id==='masters'&&<Print className="bk-second" id="wentzloff" sizes="(max-width:767px) 40vw, 16vw"/>}

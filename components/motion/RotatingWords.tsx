@@ -16,5 +16,5 @@ export function RotatingWords({words,className=''}:{words:string[];className?:st
   gsap.fromTo(el,{yPercent:105,opacity:0},{yPercent:0,opacity:1,duration:.7,ease:'expo.out'});
   gsap.to(box.current,{width:el.offsetWidth,duration:.6,ease:'expo.out'});
  },[i]);
- return <span ref={box} className={`rotating-words ${className}`} aria-live="off"><span key={i} className="rw-word" aria-hidden="true">{words[i]}</span><span className="sr-only">{words.join(', ')}</span></span>;
+ return <span ref={box} className={`rotating-words ${className}`} aria-live="off"><span key={i} className="rw-word" aria-hidden="true">{words[i]}</span><span className="sr-only">{words[0]}</span></span>;
 }

@@ -1,5 +1,5 @@
 export const workOutcomes:Record<string,string> = {
- 'a-story':'Active development & pilots',
+ 'a-story':'Private beta · App Store release in review',
  'healthcare-commercialization':'Market-entry and pivot recommendations for life-science teams',
  'faraday-tapeout':'1.5-month tape-out effort · Top-10% evaluation',
  'implantable-auditory-circuits':'Low-power circuit simulation for an implantable research system',

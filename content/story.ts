@@ -40,9 +40,9 @@ export const story={
  ] as {verb:string;note:string;turns:number[];mark?:string}[],
  /** Who it is for — each audience in the A Story site's own words (Families, Care, Organizations; sitePages.json). */
  audiences:[
-  {label:'Families',phrase:'For the people who have everything.',lead:'Nobody loses the wedding photos. They lose everything around them — the story he tells every Thanksgiving, and why everyone in that photograph is laughing.',why:'Help them set up once, choose a comfortable hour, and let the conversation find its own way.',href:'/for-families'},
-  {label:'Care communities',phrase:'Every resident has a life worth knowing. A Story helps you learn it.',lead:'The work they did. The music in the house. The way they made Sunday lunch. Give those stories somewhere to stay — and give the people caring for them a way to learn them.',why:'What they did for a living, who they miss, the song that settles them. The kind of detail that turns care into conversation.',href:'/care-communities'},
-  {label:'Organizations',phrase:'The knowledge people carry should not leave with them.',lead:'The decision that changed direction. The colleague who made it work. The knowledge that never reached a handover document.',why:'Put firsthand accounts beside documents and photographs. Keep who said what, and when.',href:'/organizations'},
+  {label:'Families',photo:'family-sofa',photoAlt:'A grandmother laughing on the sofa with her grandchildren',phrase:'For the people who have everything.',lead:'Nobody loses the wedding photos. They lose everything around them - the story he tells every Thanksgiving, and why everyone in that photograph is laughing.',why:'Help them set up once, choose a comfortable hour, and let the conversation find its own way.',href:'/for-families'},
+  {label:'Care communities',photo:'care-lounge',photoAlt:'A caregiver laughing with a resident who is telling a story in a care-home lounge',phrase:'Every resident has a life worth knowing. A Story helps you learn it.',lead:'The work they did. The music in the house. The way they made Sunday lunch. Give those stories somewhere to stay, and give the people caring for them a way to learn them.',why:'What they did for a living, who they miss, the song that settles them. The kind of detail that turns care into conversation.',href:'/care-communities'},
+  {label:'Organizations',photo:'workplace-handover',photoAlt:'A senior engineer walking a younger colleague through his hand-drawn plans at the workbench',phrase:'The knowledge people carry should not leave with them.',lead:'The decision that changed direction. The colleague who made it work. The knowledge that never reached a handover document.',why:'Put firsthand accounts beside documents and photographs. Keep who said what, and when.',href:'/organizations'},
  ],
  /** Every voice: one memory begun on a call, then the family's versions arrive (homeExamples.ts, LAKE_MONSTER). */
  witness:{
@@ -70,7 +70,7 @@ export const story={
  ] as [string,string][],
  steps:[
   {n:'I',who:'You',title:'Set it up once.',text:'A couple of minutes on their phone or tablet, and the hour A Story should ring. You can do it while they’re in the next room.',screen:'/media/story/app/home.webp',alt:'The A Story app home screen'},
-  {n:'II',who:'Them',title:'They answer the phone.',text:'No typing, nothing to open or save. Twenty minutes is a real conversation, and the next call picks up where the last one stopped.',screen:'/media/story/app/player.webp',alt:'The A Story app playing back a recorded conversation'},
+  {n:'II',who:'Them',title:'They answer the phone.',text:'No typing, nothing to open or save. Twenty minutes is a real conversation, and the next call picks up where the last one stopped.',screen:'/media/story/app/call-listening.webp',alt:'An A Story call in progress: today’s question on screen, a live waveform, and “Listening. Take your time.”'},
   {n:'III',who:'Everyone',title:'The family keeps it.',text:'Invite anyone to read, correct and add their own memories. Inviting fifteen people costs the same as inviting nobody.',screen:'/media/story/app/memory.webp',alt:'A memory page in the A Story app, with photographs and the story as told'},
  ],
 };

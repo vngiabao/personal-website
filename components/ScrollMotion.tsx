@@ -293,6 +293,8 @@ function story(main:HTMLElement){
  });
  // Who it's for: the three audiences step in.
  arrive(q('.st-for-list > li'),{stagger:.12,y:40});
+ // The two prints are set down on the page, with a little more lean that settles.
+ q('.st-call-photo, .st-ending-photo').forEach(print=>gsap.from(print,{y:28,rotation:-5,opacity:0,duration:.9,ease:EASE,clearProps:'transform,opacity',scrollTrigger:{trigger:print,start:'top 94%',once:true}}));
 }
 
 /**

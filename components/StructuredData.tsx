@@ -10,7 +10,7 @@ export function StructuredData(){
   '@context':'https://schema.org',
   '@graph':[
    {'@type':'Person','@id':origin+'/#person',name:site.name,alternateName:['Bao Vo','GB'],url:origin,
-    image:origin+'/media/ledger/portrait-840.webp',jobTitle:'Co-founder & COO',
+    image:origin+'/media/ledger/portrait-840.webp',jobTitle:'Co-founder, COO & CTO',
     worksFor:{'@type':'Organization','@id':'https://astoryapp.com/#organization',name:'A Story',url:'https://astoryapp.com'},
     alumniOf:{'@type':'CollegeOrUniversity',name:'University of Michigan',url:'https://umich.edu'},
     address:{'@type':'PostalAddress',addressLocality:'Ann Arbor',addressRegion:'MI',addressCountry:'US'},
