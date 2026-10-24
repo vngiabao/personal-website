@@ -32,7 +32,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
       <p>“What did you<br/>notice first<br/><em>about him?</em>”</p>
       <span className="hero-memory-rule"/>
      </div>
-     <figure className="st-call-photo"><img src="/media/story/people/on-the-phone-480.webp" alt="A grandmother on the phone, smiling as she answers a question" width={384} height={480} decoding="async"/></figure>
+     <figure className="st-call-photo"><img src="/media/story/people/on-the-phone-480.webp" srcSet="/media/story/people/on-the-phone-480.webp 480w, /media/story/people/on-the-phone-900.webp 900w" sizes="(max-width:767px) 44vw, 210px" alt="A grandmother on the phone, smiling as she answers a question" width={480} height={600} decoding="async"/></figure>
      <Screen src="/media/story/app/home.webp" alt="The A Story app: the home screen with the question of the day and recent memories"><IncomingCall/></Screen>
      <span className="small">The A Story app · Private beta</span>
     </div>
