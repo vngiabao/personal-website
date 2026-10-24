@@ -840,7 +840,7 @@ mark.search-hit{background:rgb(232 192 100/.45);color:inherit;border-radius:3px;
 @media(max-width:900px){.st-founders{grid-template-columns:minmax(0,1fr)}}
 
 /* Home showcase on phones: the follow-up card sits low, under the call's question. */
-@media(max-width:767px){main .story-display[data-panel=conversation] .theater-artifact{top:auto;bottom:6px;width:58%}}
+@media(max-width:767px){main .story-display:not([data-panel=book]) .theater-artifact{top:auto;bottom:6px;width:58%}}
 
 /* ── YC-readiness pass (design review) ─────────────────────────────── */
 /* People are named, never shown as a tinted circle with an initial. */
@@ -867,3 +867,11 @@ main:has(.lost){overflow-x:clip}
 @media(hover:hover){.chip-intro .chip-skip:hover{border-color:rgb(245 240 230/.7)}}
 /* A keyboard user who tabs into the wire gets it still and readable. */
 .news-wire:focus-within .wire-belt{animation:none;transform:none}
+
+/* Showcase: every app screen is framed the same way; the follow-up card quotes Joan. */
+.story-showcase .product-panel:not(.product-book) img{border-radius:clamp(18px,8%,30px)}
+.product-theater .theater-artifact .theater-quote{margin:6px 0 10px;font:italic 400 17px/1.4 var(--serif);color:var(--muted)}
+.product-theater [data-panel=calls] .theater-artifact,.product-theater [data-panel=archive] .theater-artifact{bottom:95px}
+/* Who it's for: a photo, a headline, one line, a link. */
+.story-page .st-for-why{border-top:0;padding-top:0}
+@media(min-width:768px){.product-theater .story-display:not([data-panel=book]) .theater-artifact{width:min(56%,240px);min-width:200px}}

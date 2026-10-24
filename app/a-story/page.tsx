@@ -133,14 +133,13 @@ export default function Page(){const w=story.witness;return <main id="main" clas
 
  <section id="for" className="st-for blue section">
   <div className="container">
-   <div className="section-heading"><div><Label num="06">Who it’s for</Label><h2>Every family has<br/><em>more to tell.</em></h2></div><p>The same conversation serves different people: a family keeping its stories, a care team getting to know a resident, and an organization holding on to what its people know.</p></div>
+   <div className="section-heading"><div><Label num="06">Who it’s for</Label><h2>Every family has<br/><em>more to tell.</em></h2></div><p>One conversation, for three kinds of people.</p></div>
    <ol className="st-for-list">{story.audiences.map((a,n)=><li key={a.label}>
     <img className="st-for-photo" src={`/media/story/people/${a.photo}-640.webp`} srcSet={`/media/story/people/${a.photo}-640.webp 640w, /media/story/people/${a.photo}-1200.webp 1200w`} sizes="(max-width:1023px) 92vw, 30vw" alt={a.photoAlt} width={640} height={480} loading="lazy" decoding="async"/>
     <p className="st-for-label"><span>{String(n+1).padStart(2,'0')}</span>{a.label}</p>
     <h3>{a.phrase}</h3>
-    <p className="st-for-lead">{a.lead}</p>
     <p className="st-for-why">{a.why}</p>
-    <ArrowLink href={`${story.site}${a.href}`}>{`For ${a.label.toLowerCase()} on ${story.siteLabel}`}</ArrowLink>
+    <ArrowLink href={`${story.site}${a.href}`}>Learn more</ArrowLink>
    </li>)}</ol>
    <div className="st-actions st-for-actions"><ArrowLink className="solid-link" href={`${story.site}/reserve`}>Reserve for $1</ArrowLink><ArrowLink className="outline-link" href="/contact?topic=a-story">Talk with me about A Story</ArrowLink></div>
   </div>
