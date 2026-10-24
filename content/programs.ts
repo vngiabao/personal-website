@@ -22,7 +22,7 @@ export const programsLine={
  member:'A Story is a member of NVIDIA Inception, Google for Startups, and the AssemblyAI and Deepgram startup programs, and a Cartesia Startups grant recipient.',
  proof:'NVIDIA Inception, Google for Startups, AssemblyAI, Deepgram & Cartesia startup programs',
  /** Beside NVIDIA's required line: the other programs' names and marks belong to them. */
- legal:'Google for Startups is a trademark of Google LLC. AssemblyAI, Deepgram and Cartesia names and logos belong to their owners.',
+ legal:'Other program names and logos belong to their owners.',
 };
 
 /** The A Story page's recognition feature: one panel per program, NVIDIA first. */

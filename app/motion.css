@@ -76,7 +76,7 @@ html.hero-hold .identity-hero .identity-layout,html.hero-hold .new-home .chapter
 .chip-intro .chip-card-meta span{font:italic 400 18px/1 var(--serif);letter-spacing:0;color:var(--intro-brass)}
 .chip-intro .chip-card-name{margin:0;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em;font:italic 400 clamp(54px,6.6vw,116px)/1 var(--serif);letter-spacing:-.02em;color:var(--intro-cream);white-space:nowrap}
 .chip-intro .chip-card-name>span{display:inline-block}
-.chip-intro .chip-skip{min-height:44px;padding:0 4px;background:none;border:0;border-bottom:1px solid transparent;cursor:pointer;transition:color 200ms ease,border-color 200ms ease;position:absolute;right:clamp(24px,4vw,56px);top:clamp(22px,3.5vh,40px);z-index:2;font:500 11px/1 var(--sans);font-stretch:118%;letter-spacing:.22em;text-transform:uppercase;color:rgb(245 240 230/.4)}
+.chip-intro .chip-skip{min-height:44px;padding:0 4px;background:none;border:0;border-bottom:1px solid transparent;cursor:pointer;transition:color 200ms ease,border-color 200ms ease;position:absolute;right:clamp(24px,4vw,56px);top:clamp(22px,3.5vh,40px);z-index:2;font:500 13px/1 var(--sans);font-stretch:118%;letter-spacing:.2em;text-transform:uppercase;color:rgb(245 240 230/.85)}
 @media(hover:hover){.chip-intro .chip-skip:hover{color:var(--intro-cream);border-bottom-color:rgb(245 240 230/.4)}}
 .chip-intro .chip-skip:focus-visible{outline:1px solid var(--intro-brass);outline-offset:4px}
 @media print{.chip-intro{display:none}}

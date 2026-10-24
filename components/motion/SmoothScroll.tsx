@@ -14,6 +14,7 @@
 import {useEffect} from 'react';
 import {usePathname} from 'next/navigation';
 import Lenis from 'lenis';
+import {introReleased} from './introSignal';
 import {gsap,ScrollTrigger} from '@/lib/motion';
 
 let lenis:Lenis|null=null;
@@ -27,7 +28,11 @@ export function SmoothScroll(){
  useEffect(()=>{
   const query=matchMedia('(prefers-reduced-motion: no-preference) and (pointer: fine)');
   const tick=(time:number)=>lenis?.raf(time*1000);
-  const syncDialogs=()=>{if(!lenis)return;document.querySelector('dialog[open]')?lenis.stop():lenis.start()};
+  // Held still while the intro cover is up, then started from the very top, so a wheel
+  // under the cover can't carry the visitor past the hero.
+  let holding=true;
+  introReleased.then(()=>{const covered=!!document.querySelector('.chip-intro,.site-intro');const go=()=>{holding=false;syncDialogs()};if(covered)setTimeout(go,1400);else go()});
+  const syncDialogs=()=>{if(!lenis)return;document.querySelector('dialog[open]')||holding?lenis.stop():lenis.start()};
   const dialogs=new MutationObserver(syncDialogs);
 
   // In-page anchors glide to their section and still update the address bar.

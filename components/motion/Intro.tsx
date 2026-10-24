@@ -18,7 +18,7 @@
  * remove the class. The inline script has its own timeout in case this
  * bundle never arrives. Click, tap or Escape skips to the lift.
  */
-import {useCallback,useLayoutEffect,useRef,useState} from 'react';
+import {useCallback,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {ChipIntro} from './ChipIntro';
 import {gsap,EASE} from '@/lib/motion';
 import {releaseIntro} from './introSignal';
@@ -52,6 +52,16 @@ export function Intro(){
   if(html.classList.contains('intro')&&matchMedia('(prefers-reduced-motion: no-preference)').matches)setMode(canChip()?'chip':'card');
   else{html.classList.remove('intro');releaseIntro()}
  },[]);
+
+ // While a cover is up, a wheel or swipe skips it but never scrolls the page underneath,
+ // so the hero always opens at the top.
+ useEffect(()=>{
+  if(mode==='off')return;
+  const hold=(e:Event)=>e.preventDefault();
+  const opts={passive:false,capture:true};
+  window.addEventListener('wheel',hold,opts);window.addEventListener('touchmove',hold,opts);
+  return()=>{window.removeEventListener('wheel',hold,opts);window.removeEventListener('touchmove',hold,opts)};
+ },[mode]);
 
  if(mode==='chip')return <ChipIntro onDone={done} onFail={fail}/>;
  if(mode==='card')return <CardIntro onDone={done}/>;
@@ -100,13 +110,13 @@ function CardIntro({onDone}:{onDone:()=>void}){
     .fromTo(q('.intro-bead'),{left:'0%'},{left:'100%',duration:2.9,ease:'power1.inOut'},.9)
     .add(()=>{if(year.current)year.current.textContent='Today'})
     .addLabel('lift','+=.45')
-    .add(()=>releaseIntro(),'lift')
+    .add(()=>{window.scrollTo(0,0);releaseIntro()},'lift')
     .to(q('.intro-centre, .intro-foot'),{y:-40,opacity:0,duration:.8,ease:'power2.in'},'lift')
     .to(el,{clipPath:'inset(0% 0% 100% 0%)',duration:1.15,ease:'expo.inOut'},'lift+=.1');
 
-   const skip=(e:Event)=>{if(e instanceof KeyboardEvent&&e.key!=='Escape')return;if(tl.time()<tl.labels.lift)tl.seek(tl.labels.lift-.01,false)};
-   el.addEventListener('pointerdown',skip);window.addEventListener('keydown',skip);
-   return()=>{el.removeEventListener('pointerdown',skip);window.removeEventListener('keydown',skip)};
+   const skip=(e:Event)=>{if(e instanceof KeyboardEvent&&!['Escape',' ','Enter'].includes(e.key))return;if(tl.time()<tl.labels.lift)tl.seek(tl.labels.lift-.01,false)};
+   el.addEventListener('pointerdown',skip);window.addEventListener('keydown',skip);window.addEventListener('wheel',skip,{passive:true});window.addEventListener('touchmove',skip,{passive:true});
+   return()=>{el.removeEventListener('pointerdown',skip);window.removeEventListener('keydown',skip);window.removeEventListener('wheel',skip);window.removeEventListener('touchmove',skip)};
   },el);
 
   // No releaseIntro() in cleanup: StrictMode's rehearsal unmount would start
@@ -114,7 +124,7 @@ function CardIntro({onDone}:{onDone:()=>void}){
   return()=>{ctx.revert();html.style.overflow=''};
  },[onDone]);
 
- return <div className="site-intro" ref={root} aria-hidden="true">
+ return <div className="site-intro" ref={root} aria-hidden="true" data-lenis-prevent="">
   <span className="intro-frame"/>
   <div className="intro-centre">
    <p className="intro-eyebrow">Co-founder, COO &amp; CTO, A Story</p>

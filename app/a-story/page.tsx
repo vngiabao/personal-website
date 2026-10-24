@@ -20,7 +20,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
    <div className="new-story-top"><StoryBrand/><a className="status-tag st-site" href={story.site} target="_blank" rel="noopener"><i/>{story.siteLabel} · Private beta <span aria-hidden="true">↗</span></a></div>
    <div className="new-story-intro">
     <div>
-     <Label>The venture I’m building now · Co-founder, COO &amp; CTO</Label>
+     <Label>The venture I’m building now · Co‑founder, COO &amp; CTO</Label>
      <h1>Family stories, in the <em>voices that lived them.</em></h1>
      <p>A Story is an AI biographer. It calls someone you love at the time they choose, listens, and follows up the way someone who knows them would. Every call becomes part of a living archive the whole family can add to.</p><p className="st-team">Co-founded with <b>Daniel Hoang Nguyen</b>, CEO. In private beta, with the App Store release in review.</p>
      <div className="st-actions"><ArrowLink className="solid-link" href={story.site}>Visit {story.siteLabel}</ArrowLink><ArrowLink className="outline-link" href="#listen">Hear a conversation</ArrowLink></div>
@@ -76,7 +76,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
       const text=step.mark&&turn.text.includes(step.mark)?<>{turn.text.slice(0,turn.text.lastIndexOf(step.mark))}<mark>{step.mark}</mark></>:turn.text;
       return <div key={t} className={`st-bubble ${teller?'is-teller':'is-astory'}`}><i aria-hidden="true">{teller?'J':'A'}</i><div><b>{turn.who}</b><p>{text}</p></div></div>})}</div>
     </li>)}</ol>
-    <p className="st-note st-note-dark">Illustrative, scripted call from the A Story website. Names are fictional.</p>
+    <p className="st-note st-note-dark">A sample call, with fictional names.</p>
    </div>
   </div>
  </section>
@@ -114,7 +114,7 @@ export default function Page(){const w=story.witness;return <main id="main" clas
      </li>)}
     </ol>
    </div>
-   <p className="st-note">Illustrative family and memory, from the A Story website. Names are fictional.</p>
+   <p className="st-note">A sample family, with fictional names.</p>
   </div>
  </section>
 

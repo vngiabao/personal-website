@@ -40,7 +40,8 @@ export function ChipIntro({onDone,onFail}:{onDone:()=>void;onFail:()=>void}){
   const q=gsap.utils.selector(el);
 
   const finish=()=>{html.style.overflow='';onDone()};
-  const skip=(e:Event)=>{if(e instanceof KeyboardEvent&&e.key!=='Escape')return;if(tl&&tl.time()<tl.labels.lift)tl.seek(tl.labels.lift-.01,false)};
+  // Skip: the button, Escape, Space or Enter, or any attempt to scroll. A stray click is not a skip.
+  const skip=(e:Event)=>{if(e instanceof KeyboardEvent&&!['Escape',' ','Enter'].includes(e.key))return;if(e instanceof KeyboardEvent&&e.key===' ')e.preventDefault();if(tl&&tl.time()<tl.labels.lift)tl.seek(tl.labels.lift-.01,false)};
 
   (async()=>{
    try{
@@ -89,20 +90,21 @@ export function ChipIntro({onDone,onFail}:{onDone:()=>void;onFail:()=>void}){
     .from(q('.chip-bio'),{opacity:0,y:6,duration:1,ease:'sine.out'},9.5)
     // Long enough to read the welcome and the line about him.
     .addLabel('lift',11)
-    .add(()=>releaseIntro(),'lift')
+    // The page starts at its top, whatever happened under the cover.
+    .add(()=>{window.scrollTo(0,0);releaseIntro()},'lift')
     .to(q('.chip-centre, .chip-skip'),{opacity:0,y:-24,duration:.8,ease:'sine.in'},'lift')
     .to(el,{clipPath:'inset(0% 0% 100% 0%)',duration:1.35,ease:'power3.inOut'},'lift+=.1');
    // Development only: ?chip-at=3.2 freezes the timeline at that moment for review.
    if(process.env.NODE_ENV!=='production'){const at=new URLSearchParams(location.search).get('chip-at');if(at)tl.pause(parseFloat(at),false)}
   })();
 
-  // A stray click must not end it: only the Skip button or Escape does.
   const button=el.querySelector<HTMLButtonElement>('.chip-skip');
   button?.addEventListener('click',skip);window.addEventListener('keydown',skip);
-  return()=>{disposed=true;tl?.kill();scene?.dispose();button?.removeEventListener('click',skip);window.removeEventListener('keydown',skip);html.style.overflow=''};
+  window.addEventListener('wheel',skip,{passive:true});window.addEventListener('touchmove',skip,{passive:true});
+  return()=>{disposed=true;tl?.kill();scene?.dispose();button?.removeEventListener('click',skip);window.removeEventListener('keydown',skip);window.removeEventListener('wheel',skip);window.removeEventListener('touchmove',skip);html.style.overflow=''};
  },[onDone,onFail]);
 
- return <div className="chip-intro" ref={root} data-ready={ready}>
+ return <div className="chip-intro" ref={root} data-ready={ready} data-lenis-prevent="">
   <canvas ref={canvas} className="chip-canvas" aria-hidden="true"/>
   <div className="chip-cards" aria-hidden="true">{STOPS.map((s,i)=><div key={s.label} className="chip-card">
    <p className="chip-card-meta"><span>{String(i+1).padStart(2,'0')}</span>{s.year} · {s.tag}</p>
@@ -113,7 +115,7 @@ export function ChipIntro({onDone,onFail}:{onDone:()=>void;onFail:()=>void}){
    <p className="chip-name"><span>G. Bao Vo</span></p>
    <span className="chip-keyline"/>
    <p className="chip-thesis">Welcome to my corner.</p>
-   <p className="chip-bio">Engineer · Founder · Ann Arbor, by way of Vietnam</p>
+   <p className="chip-bio">Co-founder, A Story · Ann Arbor, by way of Vietnam</p>
   </div>
   <button type="button" className="chip-skip">Skip intro</button>
  </div>;

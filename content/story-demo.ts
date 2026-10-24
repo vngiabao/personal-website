@@ -5,4 +5,4 @@ export const demoVoices=[
  {name:'Daniel',role:'Family organizer · Adult child',detail:'The welcome',quote:'What I remember most is the extra chair. There was always room for one more person.',attachment:'A note from the family album',note:'“The album says 1999. We should ask.”'},
  {name:'Maya',role:'Family contributor · Granddaughter',detail:'The meaning, later',quote:'I was mostly waiting for dessert. Years later, I realized those meals were how everyone stayed connected.',attachment:'The corner seat',note:'“Someone always saved me the corner seat.”'}
 ];
-export const demoDisclaimer='Illustrative product concept. Names and example memories are fictional.';
+export const demoDisclaimer='Sample memories, with fictional names.';

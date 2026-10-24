@@ -73,13 +73,15 @@ function countUp(value:Element,restore:(()=>void)[]){
  restore.push(()=>{text.textContent=original});
 }
 
-/** One sentence fills in as it is read: the site's signature for a claim it stands behind. */
+/** One sentence fills in as it is read: the site's signature for a claim it stands behind.
+ * It plays once, word by word, when the sentence comes into view, so it can never be left
+ * half-filled by a reader who stops scrolling partway. */
 function fillWords(quote:Element){
  // aria:'none': a split paragraph keeps reading as one sentence, without an
  // aria-label that a <p> may not carry.
  const words=SplitText.create(quote,{type:'words',aria:'none'});
- gsap.fromTo(words.words,{opacity:.16},{opacity:1,ease:'none',stagger:.1,
-  scrollTrigger:{trigger:quote,start:'top 88%',end:'bottom 58%',scrub:.2}});
+ gsap.fromTo(words.words,{opacity:.35},{opacity:1,ease:'power1.out',duration:.5,stagger:{amount:1.2},
+  scrollTrigger:{trigger:quote,start:'top 85%',once:true}});
 }
 
 /**
